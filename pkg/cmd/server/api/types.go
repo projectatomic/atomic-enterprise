@@ -45,6 +45,8 @@ type NodeConfig struct {
 type MasterConfig struct {
 	api.TypeMeta
 
+	// If Openshift is enabled
+	OpenshiftEnabled bool
 	// ServingInfo describes how to start serving
 	ServingInfo ServingInfo
 
