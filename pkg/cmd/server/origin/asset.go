@@ -12,6 +12,7 @@ import (
 	"github.com/emicklei/go-restful"
 	"github.com/golang/glog"
 	"github.com/openshift/origin/pkg/assets"
+
 	configapi "github.com/openshift/origin/pkg/cmd/server/api"
 	cmdutil "github.com/openshift/origin/pkg/cmd/util"
 	"github.com/openshift/origin/pkg/version"
@@ -21,6 +22,10 @@ import (
 // then returns an array of strings indicating what endpoints were started
 // (these are format strings that will expect to be sent a single string value).
 func (c *AssetConfig) InstallAPI(container *restful.Container) []string {
+	if !c.OpenshiftEnabled {
+		return []string{fmt.Sprintf("Openshift UI will not be started.")}
+	}
+
 	assetHandler, err := c.buildHandler()
 	if err != nil {
 		glog.Fatal(err)
@@ -40,6 +45,11 @@ func (c *AssetConfig) InstallAPI(container *restful.Container) []string {
 // Run starts an http server for the static assets listening on the configured
 // bind address
 func (c *AssetConfig) Run() {
+	if !c.OpenshiftEnabled {
+		return
+	}
+
+	mux := http.NewServeMux()
 	assetHandler, err := c.buildHandler()
 	if err != nil {
 		glog.Fatal(err)
@@ -50,8 +60,8 @@ func (c *AssetConfig) Run() {
 		glog.Fatal(err)
 	}
 
-	mux := http.NewServeMux()
 	mux.Handle(publicURL.Path, http.StripPrefix(publicURL.Path, assetHandler))
+
 	if publicURL.Path != "/" {
 		mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 			http.Redirect(w, req, publicURL.Path, http.StatusFound)
@@ -96,11 +106,6 @@ func (c *AssetConfig) buildHandler() (http.Handler, error) {
 		return nil, err
 	}
 
-	publicURL, err := url.Parse(c.Options.PublicURL)
-	if err != nil {
-		glog.Fatal(err)
-	}
-
 	config := assets.WebConsoleConfig{
 		MasterAddr:        masterURL.Host,
 		MasterPrefix:      LegacyOpenShiftAPIPrefix, // TODO: change when the UI changes from v1beta3 to v1
@@ -124,6 +129,11 @@ func (c *AssetConfig) buildHandler() (http.Handler, error) {
 	subcontextMap := map[string]string{
 		"":     "index.html",
 		"java": "java/index.html",
+	}
+
+	publicURL, err := url.Parse(c.Options.PublicURL)
+	if err != nil {
+		glog.Fatal(err)
 	}
 
 	handler, err = assets.HTML5ModeHandler(publicURL.Path, subcontextMap, handler)
