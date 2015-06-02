@@ -200,6 +200,7 @@ oauthConfig:
   tokenConfig:
     accessTokenMaxAgeSeconds: 0
     authorizeTokenMaxAgeSeconds: 0
+openshiftEnabled: false
 policyConfig:
   bootstrapPolicyFile: ""
   openshiftInfrastructureNamespace: ""
