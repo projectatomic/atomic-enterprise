@@ -26,9 +26,10 @@ import (
 // a fully specified config later on.  If you need something not set here, then create a fully specified config file and pass that as argument
 // to starting the master.
 type MasterArgs struct {
-	MasterAddr flagtypes.Addr
-	EtcdAddr   flagtypes.Addr
-	PortalNet  flagtypes.IPNet
+	MasterAddr       flagtypes.Addr
+	OpenshiftEnabled bool
+	EtcdAddr         flagtypes.Addr
+	PortalNet        flagtypes.IPNet
 	// addresses for external clients
 	MasterPublicAddr flagtypes.Addr
 
@@ -55,6 +56,7 @@ type MasterArgs struct {
 func BindMasterArgs(args *MasterArgs, flags *pflag.FlagSet, prefix string) {
 	flags.Var(&args.MasterAddr, prefix+"master", "The master address for use by OpenShift components (host, host:port, or URL). Scheme and port default to the --listen scheme and port. When unset, attempt to use the first public IPv4 non-loopback address registered on this host.")
 	flags.Var(&args.MasterPublicAddr, prefix+"public-master", "The master address for use by public clients, if different (host, host:port, or URL). Defaults to same as --master.")
+	flags.BoolVar(&args.OpenshiftEnabled, prefix+"openshift-enabled", false, "Controls if openshift additions are enabled or not.")
 	flags.Var(&args.EtcdAddr, prefix+"etcd", "The address of the etcd server (host, host:port, or URL). If specified, no built-in etcd will be started.")
 	flags.Var(&args.PortalNet, prefix+"portal-net", "A CIDR notation IP range from which to assign portal IPs. This must not overlap with any IP ranges assigned to nodes for pods.")
 	flags.Var(&args.DNSBindAddr, prefix+"dns", "The address to listen for DNS requests on.")
@@ -69,6 +71,7 @@ func BindMasterArgs(args *MasterArgs, flags *pflag.FlagSet, prefix string) {
 func NewDefaultMasterArgs() *MasterArgs {
 	config := &MasterArgs{
 		MasterAddr:       flagtypes.Addr{Value: "localhost:8443", DefaultScheme: "https", DefaultPort: 8443, AllowPrefix: true}.Default(),
+		OpenshiftEnabled: false,
 		EtcdAddr:         flagtypes.Addr{Value: "0.0.0.0:4001", DefaultScheme: "https", DefaultPort: 4001}.Default(),
 		PortalNet:        flagtypes.DefaultIPNet("172.30.0.0/16"),
 		MasterPublicAddr: flagtypes.Addr{Value: "localhost:8443", DefaultScheme: "https", DefaultPort: 8443, AllowPrefix: true}.Default(),
