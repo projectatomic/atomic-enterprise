@@ -446,13 +446,8 @@ func assetServerOffNotice(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 		// List of paths to show notice on
 		if req.URL.Path == "/login" || req.URL.Path == "/logout" || req.URL.Path == "/console" || strings.HasPrefix(req.URL.Path, "/console/") {
-			accepts := goautoneg.ParseAccept(req.Header.Get("Accept"))
-			for _, accept := range accepts {
-				if accept.Type == "text" && accept.SubType == "html" {
-					w.Write([]byte("You need to upgrade to OpenShift in order to take advantage of this feature"))
-					return
-				}
-			}
+			w.Write([]byte("You need to upgrade to OpenShift in order to take advantage of this feature"))
+			return
 		}
 		// Dispatch to the next handler
 		handler.ServeHTTP(w, req)

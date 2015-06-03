@@ -13,7 +13,6 @@ type AssetConfig struct {
 }
 
 func BuildAssetConfig(options configapi.MasterConfig) (*AssetConfig, error) {
-	//options configapi.AssetConfig) (*AssetConfig, error) {
 	return &AssetConfig{
 		Options:          *options.AssetConfig,
 		OpenshiftEnabled: options.OpenshiftEnabled,
