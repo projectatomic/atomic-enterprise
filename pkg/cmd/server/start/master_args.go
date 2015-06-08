@@ -159,8 +159,8 @@ func (args MasterArgs) BuildSerializeableMasterConfig() (*configapi.MasterConfig
 		KubernetesMasterConfig: kubernetesMasterConfig,
 		EtcdConfig:             etcdConfig,
 
-		OAuthConfig: oauthConfig,
-
+		OAuthConfig:      oauthConfig,
+		OpenshiftEnabled: args.OpenshiftEnabled,
 		AssetConfig: &configapi.AssetConfig{
 			ServingInfo: configapi.ServingInfo{
 				BindAddress: args.GetAssetBindAddress(),

@@ -440,6 +440,20 @@ func assetServerRedirect(handler http.Handler, assetPublicURL string) http.Handl
 	})
 }
 
+// assetServerOffNotice returns a notice that the web ui is off if the configuration boolean is
+// isn't on
+func assetServerOffNotice(handler http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		// List of paths to show notice on
+		if req.URL.Path == "/login" || req.URL.Path == "/logout" || req.URL.Path == "/console" || strings.HasPrefix(req.URL.Path, "/console/") {
+			w.Write([]byte("You need to upgrade to OpenShift in order to take advantage of this feature"))
+			return
+		}
+		// Dispatch to the next handler
+		handler.ServeHTTP(w, req)
+	})
+}
+
 // TODO We would like to use the IndexHandler from k8s but we do not yet have a
 // MuxHelper to track all registered paths
 func indexAPIPaths(handler http.Handler) http.Handler {
@@ -526,7 +540,11 @@ func (c *MasterConfig) Run(protected []APIInstaller, unprotected []APIInstaller)
 	}
 
 	if c.Options.AssetConfig != nil {
-		handler = assetServerRedirect(handler, c.Options.AssetConfig.PublicURL)
+		if c.Options.OpenshiftEnabled {
+			handler = assetServerRedirect(handler, c.Options.AssetConfig.PublicURL)
+		} else {
+			handler = assetServerOffNotice(handler)
+		}
 	}
 
 	// Make the outermost filter the requestContextMapper to ensure all components share the same context

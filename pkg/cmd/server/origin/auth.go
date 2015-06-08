@@ -311,81 +311,6 @@ func (c *AuthConfig) getAuthenticationFinalizer() osinserver.AuthorizeHandler {
 	})
 }
 
-func (c *AuthConfig) getAuthenticationHandler(mux cmdutil.Mux, errorHandler handlers.AuthenticationErrorHandler) (handlers.AuthenticationHandler, error) {
-	challengers := map[string]handlers.AuthenticationChallenger{}
-	redirectors := map[string]handlers.AuthenticationRedirector{}
-
-	for _, identityProvider := range c.Options.IdentityProviders {
-		identityMapper := identitymapper.NewAlwaysCreateUserIdentityToUserMapper(c.IdentityRegistry, c.UserRegistry)
-
-		if configapi.IsPasswordAuthenticator(identityProvider) {
-			passwordAuth, err := c.getPasswordAuthenticator(identityProvider)
-			if err != nil {
-				return nil, err
-			}
-
-			if identityProvider.UseAsLogin {
-				// Password auth requires:
-				// 1. a session success handler (to remember you logged in)
-				// 2. a redirectSuccessHandler (to go back to the "then" param)
-				if c.SessionAuth == nil {
-					return nil, errors.New("SessionAuth is required for password-based login")
-				}
-				passwordSuccessHandler := handlers.AuthenticationSuccessHandlers{c.SessionAuth, redirectSuccessHandler{}}
-
-				redirectors["login"] = &redirector{RedirectURL: OpenShiftLoginPrefix, ThenParam: "then"}
-				login := login.NewLogin(c.getCSRF(), &callbackPasswordAuthenticator{passwordAuth, passwordSuccessHandler}, login.DefaultLoginFormRenderer)
-				login.Install(mux, OpenShiftLoginPrefix)
-			}
-			if identityProvider.UseAsChallenger {
-				challengers["login"] = passwordchallenger.NewBasicAuthChallenger("openshift")
-			}
-
-		} else if configapi.IsOAuthIdentityProvider(identityProvider) {
-			oauthProvider, err := c.getOAuthProvider(identityProvider)
-			if err != nil {
-				return nil, err
-			}
-
-			// Default state builder, combining CSRF and return URL handling
-			state := external.CSRFRedirectingState(c.getCSRF())
-
-			// OAuth auth requires
-			// 1. a session success handler (to remember you logged in)
-			// 2. a state success handler (to go back to the URL encoded in the state)
-			if c.SessionAuth == nil {
-				return nil, errors.New("SessionAuth is required for OAuth-based login")
-			}
-			oauthSuccessHandler := handlers.AuthenticationSuccessHandlers{c.SessionAuth, state}
-
-			// If the specified errorHandler doesn't handle the login error, let the state error handler attempt to propagate specific errors back to the token requester
-			oauthErrorHandler := handlers.AuthenticationErrorHandlers{errorHandler, state}
-
-			callbackPath := path.Join(OpenShiftOAuthCallbackPrefix, identityProvider.Name)
-			oauthHandler, err := external.NewExternalOAuthRedirector(oauthProvider, state, c.Options.MasterPublicURL+callbackPath, oauthSuccessHandler, oauthErrorHandler, identityMapper)
-			if err != nil {
-				return nil, fmt.Errorf("unexpected error: %v", err)
-			}
-
-			mux.Handle(callbackPath, oauthHandler)
-			if identityProvider.UseAsLogin {
-				redirectors[identityProvider.Name] = oauthHandler
-			}
-			if identityProvider.UseAsChallenger {
-				return nil, errors.New("oauth identity providers cannot issue challenges")
-			}
-		}
-	}
-
-	if len(redirectors) > 0 && len(challengers) == 0 {
-		// Add a default challenger that will warn and give a link to the web browser token-granting location
-		challengers["placeholder"] = placeholderchallenger.New(OpenShiftOAuthTokenRequestURL(c.Options.MasterPublicURL))
-	}
-
-	authHandler := handlers.NewUnionAuthenticationHandler(challengers, redirectors, errorHandler)
-	return authHandler, nil
-}
-
 func (c *AuthConfig) getOAuthProvider(identityProvider configapi.IdentityProvider) (external.Provider, error) {
 	switch provider := identityProvider.Provider.Object.(type) {
 	case (*configapi.GitHubIdentityProvider):
@@ -584,4 +509,82 @@ func authenticationHandlerFilter(handler http.Handler, authenticator authenticat
 
 		handler.ServeHTTP(w, req)
 	})
+}
+
+func (c *AuthConfig) getAuthenticationHandler(mux cmdutil.Mux, errorHandler handlers.AuthenticationErrorHandler) (handlers.AuthenticationHandler, error) {
+	challengers := map[string]handlers.AuthenticationChallenger{}
+	redirectors := map[string]handlers.AuthenticationRedirector{}
+
+	for _, identityProvider := range c.Options.IdentityProviders {
+		identityMapper := identitymapper.NewAlwaysCreateUserIdentityToUserMapper(c.IdentityRegistry, c.UserRegistry)
+
+		if configapi.IsPasswordAuthenticator(identityProvider) {
+			if identityProvider.UseAsLogin {
+				if c.OpenshiftEnabled {
+					passwordAuth, err := c.getPasswordAuthenticator(identityProvider)
+					if err != nil {
+						return nil, err
+					}
+					//map[string]handlers.AuthenticationRedirector
+					// Password auth requires:
+					// 1. a session success handler (to remember you logged in)
+					// 2. a redirectSuccessHandler (to go back to the "then" param)
+					if c.SessionAuth == nil {
+						return nil, errors.New("SessionAuth is required for password-based login")
+					}
+					passwordSuccessHandler := handlers.AuthenticationSuccessHandlers{c.SessionAuth, redirectSuccessHandler{}}
+
+					redirectors["login"] = &redirector{RedirectURL: OpenShiftLoginPrefix, ThenParam: "then"}
+					login := login.NewLogin(c.getCSRF(), &callbackPasswordAuthenticator{passwordAuth, passwordSuccessHandler}, login.DefaultLoginFormRenderer)
+					login.Install(mux, OpenShiftLoginPrefix)
+				}
+
+			}
+			if identityProvider.UseAsChallenger {
+				challengers["login"] = passwordchallenger.NewBasicAuthChallenger("openshift")
+			}
+
+		} else if configapi.IsOAuthIdentityProvider(identityProvider) {
+			oauthProvider, err := c.getOAuthProvider(identityProvider)
+			if err != nil {
+				return nil, err
+			}
+
+			// Default state builder, combining CSRF and return URL handling
+			state := external.CSRFRedirectingState(c.getCSRF())
+
+			// OAuth auth requires
+			// 1. a session success handler (to remember you logged in)
+			// 2. a state success handler (to go back to the URL encoded in the state)
+			if c.SessionAuth == nil {
+				return nil, errors.New("SessionAuth is required for OAuth-based login")
+			}
+			oauthSuccessHandler := handlers.AuthenticationSuccessHandlers{c.SessionAuth, state}
+
+			// If the specified errorHandler doesn't handle the login error, let the state error handler attempt to propagate specific errors back to the token requester
+			oauthErrorHandler := handlers.AuthenticationErrorHandlers{errorHandler, state}
+
+			callbackPath := path.Join(OpenShiftOAuthCallbackPrefix, identityProvider.Name)
+			oauthHandler, err := external.NewExternalOAuthRedirector(oauthProvider, state, c.Options.MasterPublicURL+callbackPath, oauthSuccessHandler, oauthErrorHandler, identityMapper)
+			if err != nil {
+				return nil, fmt.Errorf("unexpected error: %v", err)
+			}
+
+			mux.Handle(callbackPath, oauthHandler)
+			if identityProvider.UseAsLogin {
+				redirectors[identityProvider.Name] = oauthHandler
+			}
+			if identityProvider.UseAsChallenger {
+				return nil, errors.New("oauth identity providers cannot issue challenges")
+			}
+		}
+	}
+
+	if len(redirectors) > 0 && len(challengers) == 0 {
+		// Add a default challenger that will warn and give a link to the web browser token-granting location
+		challengers["placeholder"] = placeholderchallenger.New(OpenShiftOAuthTokenRequestURL(c.Options.MasterPublicURL))
+	}
+
+	authHandler := handlers.NewUnionAuthenticationHandler(challengers, redirectors, errorHandler)
+	return authHandler, nil
 }

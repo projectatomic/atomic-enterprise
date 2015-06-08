@@ -23,6 +23,8 @@ import (
 type AuthConfig struct {
 	Options configapi.OAuthConfig
 
+	// TODO: possibly change to point to MasterConfig's version
+	OpenshiftEnabled bool
 	// Valid redirectURI prefixes to direct browsers to the web console
 	AssetPublicAddresses []string
 	MasterRoots          *x509.CertPool
@@ -72,6 +74,7 @@ func BuildAuthConfig(options configapi.MasterConfig) (*AuthConfig, error) {
 	ret := &AuthConfig{
 		Options: *options.OAuthConfig,
 
+		OpenshiftEnabled:     options.OpenshiftEnabled,
 		AssetPublicAddresses: assetPublicURLs,
 		MasterRoots:          apiServerCAs,
 		EtcdHelper:           etcdHelper,
