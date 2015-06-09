@@ -45,13 +45,6 @@ type imageStreamClient interface {
 // HandleBuild takes new builds and puts them in the pending state after
 // creating a corresponding pod
 func (bc *BuildController) HandleBuild(build *buildapi.Build) error {
-	if !bc.OpenshiftEnabled {
-		// Openshift is not enabled, we will never successfully build
-		// Set status to error, return an error
-		build.Status = buildapi.BuildStatusError;
-		return fmt.Errorf("Openshift is not enabled --- build failure!")
-	}
-
 	glog.V(4).Infof("Handling Build %s/%s", build.Namespace, build.Name)
 
 	// We only deal with new builds here
@@ -84,6 +77,16 @@ func (bc *BuildController) nextBuildStatus(build *buildapi.Build) error {
 		return nil
 	}
 
+	if !bc.OpenshiftEnabled {
+		// Openshift is not enabled, we will never successfully build
+		// Set status to error, return an error
+		build.Status = buildapi.BuildStatusError
+
+		glog.V(2).Infof("Openshift is not enabled --- build failure!")
+		
+		return nil
+	}
+	
 	// lookup the destination from the referenced image repository
 	spec := build.Parameters.Output.DockerImageReference
 	if ref := build.Parameters.Output.To; ref != nil {
