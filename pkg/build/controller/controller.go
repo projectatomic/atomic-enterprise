@@ -24,6 +24,7 @@ type BuildController struct {
 	BuildStrategy     BuildStrategy
 	ImageStreamClient imageStreamClient
 	Recorder          record.EventRecorder
+	OpenshiftEnabled  bool
 }
 
 // BuildStrategy knows how to create a pod spec for a pod which can execute a build.
@@ -44,6 +45,13 @@ type imageStreamClient interface {
 // HandleBuild takes new builds and puts them in the pending state after
 // creating a corresponding pod
 func (bc *BuildController) HandleBuild(build *buildapi.Build) error {
+	if !bc.OpenshiftEnabled {
+		// Openshift is not enabled, we will never successfully build
+		// Set status to error, return an error
+		build.Status = buildapi.BuildStatusError;
+		return fmt.Errorf("Openshift is not enabled --- build failure!")
+	}
+
 	glog.V(4).Infof("Handling Build %s/%s", build.Namespace, build.Name)
 
 	// We only deal with new builds here
