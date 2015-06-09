@@ -82,7 +82,7 @@ func (bc *BuildController) nextBuildStatus(build *buildapi.Build) error {
 		// Set status to error, return an error
 		build.Status = buildapi.BuildStatusError
 
-		glog.V(2).Infof("Openshift is not enabled --- build failure!")
+		glog.Warningf("Openshift is not enabled --- build failure!")
 		
 		return nil
 	}
