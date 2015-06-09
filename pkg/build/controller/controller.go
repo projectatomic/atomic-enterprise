@@ -80,7 +80,7 @@ func (bc *BuildController) nextBuildStatus(build *buildapi.Build) error {
 	if !bc.OpenshiftEnabled {
 		// Openshift is not enabled, we will never successfully build
 		// Set status to error, return an error
-		build.Status = buildapi.BuildStatusError
+		build.Status = buildapi.BuildStatusNoOpenshift
 
 		glog.Warningf("Openshift is not enabled --- build failure!")
 		
