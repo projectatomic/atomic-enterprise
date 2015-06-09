@@ -975,6 +975,7 @@ func (c *MasterConfig) RunBuildController() {
 		OSClient:     osclient,
 		KubeClient:   kclient,
 		BuildUpdater: buildclient.NewOSClientBuildClient(osclient),
+		OpenshiftEnabled: c.OpenshiftEnabled,
 		DockerBuildStrategy: &buildstrategy.DockerBuildStrategy{
 			Image: dockerImage,
 			// TODO: this will be set to --storage-version (the internal schema we use)
