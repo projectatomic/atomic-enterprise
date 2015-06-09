@@ -58,6 +58,8 @@ type BuildControllerFactory struct {
 	DockerBuildStrategy *strategy.DockerBuildStrategy
 	SourceBuildStrategy *strategy.SourceBuildStrategy
 	CustomBuildStrategy *strategy.CustomBuildStrategy
+	// Whether Openshift is enabled - controls whether builds are actually run
+	OpenshiftEnabled bool
 	// Stop may be set to allow controllers created by this factory to be terminated.
 	Stop <-chan struct{}
 }
@@ -81,6 +83,7 @@ func (factory *BuildControllerFactory) Create() controller.RunnableController {
 			CustomBuildStrategy: factory.CustomBuildStrategy,
 		},
 		Recorder: eventBroadcaster.NewRecorder(kapi.EventSource{Component: "build-controller"}),
+		OpenshiftEnabled: factory.OpenshiftEnabled,
 	}
 
 	return &controller.RetryController{
