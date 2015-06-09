@@ -100,6 +100,9 @@ const (
 
 	// BuildStatusCancelled indicates that a running/pending build was stopped from executing.
 	BuildStatusCancelled BuildStatus = "Cancelled"
+
+	// BuildStatusNoOpenshift indicates that a build cannot proceed because Openshift is disabled
+	BuildStatusNoOpenshift BuildStatus = "Disabled"
 )
 
 // BuildSourceType is the type of SCM used
