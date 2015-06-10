@@ -89,6 +89,10 @@ func (r *REST) Get(ctx kapi.Context, name string, opts runtime.Object) (runtime.
 	// An error occurred launching the build, return an error
 	case api.BuildStatusError:
 		return nil, errors.NewBadRequest(fmt.Sprintf("build %s/%s is in an error state", build.Namespace, build.Name))
+
+	case api.BuildStatusNoOpenshift:
+		return nil, errors.NewBadRequest(fmt.Sprintf("build %s/%s cannot proceeed. You need to upgrade to OpenShift in order to take advantage of this feature", build.Namespace, build.Name))
+
 	}
 	// The container should be the default build container, so setting it to blank
 	buildPodName := buildutil.GetBuildPodName(build)

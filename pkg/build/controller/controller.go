@@ -24,6 +24,7 @@ type BuildController struct {
 	BuildStrategy     BuildStrategy
 	ImageStreamClient imageStreamClient
 	Recorder          record.EventRecorder
+	OpenshiftEnabled  bool
 }
 
 // BuildStrategy knows how to create a pod spec for a pod which can execute a build.
@@ -76,6 +77,16 @@ func (bc *BuildController) nextBuildStatus(build *buildapi.Build) error {
 		return nil
 	}
 
+	if !bc.OpenshiftEnabled {
+		// Openshift is not enabled, we will never successfully build
+		// Set status to error, return an error
+		build.Status = buildapi.BuildStatusNoOpenshift
+
+		glog.Warningf("Openshift is not enabled --- build failure!")
+		
+		return nil
+	}
+	
 	// lookup the destination from the referenced image repository
 	spec := build.Parameters.Output.DockerImageReference
 	if ref := build.Parameters.Output.To; ref != nil {

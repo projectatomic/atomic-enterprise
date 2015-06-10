@@ -142,6 +142,7 @@ func mockBuildController() *BuildController {
 		BuildStrategy:     &okStrategy{},
 		ImageStreamClient: &okImageStreamClient{},
 		Recorder:          &record.FakeRecorder{},
+		OpenshiftEnabled:  true,
 	}
 }
 
