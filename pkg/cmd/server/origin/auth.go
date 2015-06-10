@@ -319,23 +319,26 @@ func (c *AuthConfig) getAuthenticationHandler(mux cmdutil.Mux, errorHandler hand
 		identityMapper := identitymapper.NewAlwaysCreateUserIdentityToUserMapper(c.IdentityRegistry, c.UserRegistry)
 
 		if configapi.IsPasswordAuthenticator(identityProvider) {
-			passwordAuth, err := c.getPasswordAuthenticator(identityProvider)
-			if err != nil {
-				return nil, err
-			}
-
 			if identityProvider.UseAsLogin {
-				// Password auth requires:
-				// 1. a session success handler (to remember you logged in)
-				// 2. a redirectSuccessHandler (to go back to the "then" param)
-				if c.SessionAuth == nil {
-					return nil, errors.New("SessionAuth is required for password-based login")
-				}
-				passwordSuccessHandler := handlers.AuthenticationSuccessHandlers{c.SessionAuth, redirectSuccessHandler{}}
+				if c.OpenshiftEnabled {
+					passwordAuth, err := c.getPasswordAuthenticator(identityProvider)
+					if err != nil {
+						return nil, err
+					}
+					//map[string]handlers.AuthenticationRedirector
+					// Password auth requires:
+					// 1. a session success handler (to remember you logged in)
+					// 2. a redirectSuccessHandler (to go back to the "then" param)
+					if c.SessionAuth == nil {
+						return nil, errors.New("SessionAuth is required for password-based login")
+					}
+					passwordSuccessHandler := handlers.AuthenticationSuccessHandlers{c.SessionAuth, redirectSuccessHandler{}}
 
-				redirectors["login"] = &redirector{RedirectURL: OpenShiftLoginPrefix, ThenParam: "then"}
-				login := login.NewLogin(c.getCSRF(), &callbackPasswordAuthenticator{passwordAuth, passwordSuccessHandler}, login.DefaultLoginFormRenderer)
-				login.Install(mux, OpenShiftLoginPrefix)
+					redirectors["login"] = &redirector{RedirectURL: OpenShiftLoginPrefix, ThenParam: "then"}
+					login := login.NewLogin(c.getCSRF(), &callbackPasswordAuthenticator{passwordAuth, passwordSuccessHandler}, login.DefaultLoginFormRenderer)
+					login.Install(mux, OpenShiftLoginPrefix)
+				}
+
 			}
 			if identityProvider.UseAsChallenger {
 				challengers["login"] = passwordchallenger.NewBasicAuthChallenger("openshift")

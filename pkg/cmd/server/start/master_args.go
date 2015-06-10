@@ -184,7 +184,7 @@ func (args MasterArgs) BuildSerializeableMasterConfig() (*configapi.MasterConfig
 		EtcdConfig:             etcdConfig,
 
 		OAuthConfig: oauthConfig,
-
+		OpenshiftEnabled: args.OpenshiftEnabled,
 		PauseControllers: args.PauseControllers,
 
 		AssetConfig: &configapi.AssetConfig{

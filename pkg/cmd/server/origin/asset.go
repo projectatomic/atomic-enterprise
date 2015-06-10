@@ -21,6 +21,10 @@ import (
 // then returns an array of strings indicating what endpoints were started
 // (these are format strings that will expect to be sent a single string value).
 func (c *AssetConfig) InstallAPI(container *restful.Container) []string {
+	if !c.OpenshiftEnabled {
+		return []string{fmt.Sprintf("Openshift UI will not be started.")}
+	}
+
 	assetHandler, err := c.buildHandler()
 	if err != nil {
 		glog.Fatal(err)
@@ -40,6 +44,10 @@ func (c *AssetConfig) InstallAPI(container *restful.Container) []string {
 // Run starts an http server for the static assets listening on the configured
 // bind address
 func (c *AssetConfig) Run() {
+	if !c.OpenshiftEnabled {
+		return
+	}
+
 	assetHandler, err := c.buildHandler()
 	if err != nil {
 		glog.Fatal(err)
@@ -52,6 +60,7 @@ func (c *AssetConfig) Run() {
 
 	mux := http.NewServeMux()
 	mux.Handle(publicURL.Path, http.StripPrefix(publicURL.Path, assetHandler))
+
 	if publicURL.Path != "/" {
 		mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 			http.Redirect(w, req, publicURL.Path, http.StatusFound)
