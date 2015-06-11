@@ -183,7 +183,7 @@ func (args MasterArgs) BuildSerializeableMasterConfig() (*configapi.MasterConfig
 		KubernetesMasterConfig: kubernetesMasterConfig,
 		EtcdConfig:             etcdConfig,
 
-		OAuthConfig: oauthConfig,
+		OAuthConfig:      oauthConfig,
 		OpenshiftEnabled: args.OpenshiftEnabled,
 		PauseControllers: args.PauseControllers,
 
