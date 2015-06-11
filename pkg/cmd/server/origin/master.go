@@ -1006,9 +1006,9 @@ func (c *MasterConfig) RunBuildController() {
 
 	osclient, kclient := c.BuildControllerClients()
 	factory := buildcontrollerfactory.BuildControllerFactory{
-		OSClient:     osclient,
-		KubeClient:   kclient,
-		BuildUpdater: buildclient.NewOSClientBuildClient(osclient),
+		OSClient:         osclient,
+		KubeClient:       kclient,
+		BuildUpdater:     buildclient.NewOSClientBuildClient(osclient),
 		OpenshiftEnabled: c.OpenshiftEnabled,
 		DockerBuildStrategy: &buildstrategy.DockerBuildStrategy{
 			Image: dockerImage,
