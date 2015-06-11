@@ -83,10 +83,10 @@ func (bc *BuildController) nextBuildStatus(build *buildapi.Build) error {
 		build.Status = buildapi.BuildStatusNoOpenshift
 
 		glog.Warningf("Openshift is not enabled --- build failure!")
-		
+
 		return nil
 	}
-	
+
 	// lookup the destination from the referenced image repository
 	spec := build.Parameters.Output.DockerImageReference
 	if ref := build.Parameters.Output.To; ref != nil {
