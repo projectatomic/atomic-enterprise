@@ -82,7 +82,7 @@ func (factory *BuildControllerFactory) Create() controller.RunnableController {
 			SourceBuildStrategy: factory.SourceBuildStrategy,
 			CustomBuildStrategy: factory.CustomBuildStrategy,
 		},
-		Recorder: eventBroadcaster.NewRecorder(kapi.EventSource{Component: "build-controller"}),
+		Recorder:         eventBroadcaster.NewRecorder(kapi.EventSource{Component: "build-controller"}),
 		OpenshiftEnabled: factory.OpenshiftEnabled,
 	}
 
