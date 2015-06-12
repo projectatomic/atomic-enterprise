@@ -16,7 +16,7 @@
 %global ldflags -X github.com/projectatomic/appinfra-next/pkg/version.majorFromGit 0 -X github.com/projectatomic/appinfra-next/pkg/version.minorFromGit 5+ -X github.com/projectatomic/appinfra-next/pkg/version.versionFromGit v0.5.2.2-22-g84b1674-dirty -X github.com/projectatomic/appinfra-next/pkg/version.commitFromGit 84b1674 -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitCommit 496be63 -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitVersion v0.17.1-804-g496be63
 }
 
-Name:           openshift-ae
+Name:           openshift
 # Version is not kept up to date and is intended to be set by tito custom
 # builders provided in the rel-eng directory of this project
 Version:        0.5.2.2
@@ -25,7 +25,7 @@ Summary:        Open Source Platform as a Service by Red Hat
 License:        ASL 2.0
 URL:            https://%{import_path}
 ExclusiveArch:  x86_64
-Source0:        openshift-ae-git-0.097952c.tar.gz
+Source0:        openshift-git-0.097952c.tar.gz
 
 BuildRequires:  systemd
 BuildRequires:  golang >= 1.4
@@ -48,7 +48,7 @@ Requires(postun): systemd
 Summary:        OpenShift AE Node
 Requires:       %{name} = %{version}-%{release}
 Requires:       docker-io >= 1.6.2
-Requires:       tuned-profiles-openshift-ae-node
+Requires:       tuned-profiles-openshift-node
 Requires:       util-linux
 Requires:       socat
 Requires(post): systemd
@@ -58,12 +58,12 @@ Requires(postun): systemd
 %description node
 %{summary}
 
-%package -n tuned-profiles-openshift-ae-node
+%package -n tuned-profiles-openshift-node
 Summary:        Tuned profiles for OpenShift AE Node hosts
 Requires:       tuned >= 2.3
 Requires:       %{name} = %{version}-%{release}
 
-%description -n tuned-profiles-openshift-ae-node
+%description -n tuned-profiles-openshift-node
 %{summary}
 
 %package clients
@@ -91,7 +91,7 @@ Requires:       %{name} = %{version}-%{release}
 %package sdn-ovs
 Summary:          OpenShift AE SDN Plugin for Open vSwitch
 Requires:         openvswitch >= 2.3.1
-Requires:         openshift-ae-node = %{version}-%{release}
+Requires:         %{name}-node = %{version}-%{release}
 Requires:         bridge-utils
 Requires:         ethtool
 
@@ -99,7 +99,7 @@ Requires:         ethtool
 %{summary}
 
 %prep
-%setup -q -n openshift-ae-git-0.097952c
+%setup -q -n openshift-git-0.097952c
 
 %build
 
@@ -149,9 +149,6 @@ do
   install -p -m 755 _build/bin/${bin} %{buildroot}%{_bindir}/${bin}
 done
 
-mv %{buildroot}%{_bindir}/openshift %{buildroot}%{_bindir}/openshift-ae
-#mv %{buildroot}%{_bindir}/openshift %{buildroot}%{_bindir}/%{name}
-
 # Install 'openshift' as client executable for windows and mac
 install -p -m 755 _build/bin/openshift %{buildroot}%{_datadir}/%{name}/linux/oc
 install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/%{name}/macosx/oc
@@ -161,35 +158,34 @@ install -p -m 755 images/pod/pod %{buildroot}%{_bindir}/
 
 install -d -m 0755 %{buildroot}/etc/%{name}/{master,node}
 install -d -m 0755 %{buildroot}%{_unitdir}
-install -m 0644 -t %{buildroot}%{_unitdir}/ rel-eng/openshift-master.service
-install -m 0644 -t %{buildroot}%{_unitdir}/ rel-eng/openshift-node.service
-
-mv %{buildroot}%{_unitdir}/openshift-master.service %{buildroot}%{_unitdir}/openshift-ae-master.service
-mv %{buildroot}%{_unitdir}/openshift-node.service %{buildroot}%{_unitdir}/openshift-ae-node.service
+install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-master.service
+install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-node.service
 
 mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
-install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-ae-master
-install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-ae-node
+install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-master
+install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-node
 
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 
 ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oc
 ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oadm
 
-install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/openshift-ae-node-{guest,host}
-install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-ae-node-guest/
-install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-ae-node-host/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/openshift-node-{guest,host}
+install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-node-guest/
+install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-node-host/
 install -d -m 0755 %{buildroot}%{_mandir}/man7
-install -m 0644 tuned/man/tuned-profiles-openshift-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-openshift-ae-node.7
+install -m 0644 tuned/man/tuned-profiles-openshift-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-openshift-node.7
 
 # Install sdn scripts
 install -d -m 0755 %{buildroot}%{kube_plugin_path}
 pushd _thirdpartyhacks/src/%{sdn_import_path}/ovssubnet/bin
    install -p -m 755 openshift-ovs-subnet %{buildroot}%{kube_plugin_path}/openshift-ovs-subnet
-   install -p -m 755 openshift-sdn-kube-subnet-setup.sh %{buildroot}%{_bindir}/openshift-sdn-kube-subnet-setup.sh
+   install -p -m 755 openshift-sdn-kube-subnet-setup.sh %{buildroot}%{_bindir}/
 popd
-install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/openshift-ae-node.service.d
-install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/openshift-ae-node.service.d/openshift-sdn-ovs.conf
+install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/openshift-node.service.d
+install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/openshift-node.service.d/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d
+install -p -m 0644 rel-eng/docker-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d/
 
 # Install bash completions
 install -d -m 755 %{buildroot}/etc/bash_completion.d/
@@ -206,15 +202,15 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files master
 %defattr(-,root,root,-)
-%{_unitdir}/openshift-ae-master.service
-%config(noreplace) %{_sysconfdir}/sysconfig/openshift-ae-master
+%{_unitdir}/openshift-master.service
+%config(noreplace) %{_sysconfdir}/sysconfig/openshift-master
 %config(noreplace) /etc/%{name}/master
 
 %post master
-%systemd_post %{basename:openshift-ae-master.service}
+%systemd_post %{basename:openshift-master.service}
 
 %preun master
-%systemd_preun %{basename:openshift-ae-master.service}
+%systemd_preun %{basename:openshift-master.service}
 
 %postun master
 %systemd_postun
@@ -222,40 +218,41 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files node
 %defattr(-,root,root,-)
-%{_unitdir}/openshift-ae-node.service
-%config(noreplace) %{_sysconfdir}/sysconfig/openshift-ae-node
+%{_unitdir}/openshift-node.service
+%config(noreplace) %{_sysconfdir}/sysconfig/openshift-node
 %config(noreplace) /etc/%{name}/node
 
 %post node
-%systemd_post %{basename:openshift-ae--node.service}
+%systemd_post %{basename:openshift-node.service}
 
 %preun node
-%systemd_preun %{basename:openshift-ae-node.service}
+%systemd_preun %{basename:openshift-node.service}
 
 %postun node
 %systemd_postun
 
 %files sdn-ovs
 %defattr(-,root,root,-)
-%{_bindir}/openshift-ae-sdn-kube-subnet-setup.sh
+%{_bindir}/openshift-sdn-kube-subnet-setup.sh
 %{kube_plugin_path}/openshift-ovs-subnet
-%{_prefix}/lib/systemd/system/openshift-ae-node.service.d/openshift-sdn-ovs.conf
+%{_prefix}/lib/systemd/system/openshift-node.service.d/openshift-sdn-ovs.conf
+%{_prefix}/lib/systemd/system/docker.service.d/docker-sdn-ovs.conf
 
-%files -n tuned-profiles-openshift-ae-node
+%files -n tuned-profiles-openshift-node
 %defattr(-,root,root,-)
-%{_prefix}/lib/tuned/openshift-ae-node-host
-%{_prefix}/lib/tuned/openshift-ae-node-guest
-%{_mandir}/man7/tuned-profiles-openshift-ae-node.7*
+%{_prefix}/lib/tuned/openshift-node-host
+%{_prefix}/lib/tuned/openshift-node-guest
+%{_mandir}/man7/tuned-profiles-openshift-node.7*
 
-%post -n tuned-profiles-openshift-ae-node
+%post -n tuned-profiles-openshift-node
 recommended=`/usr/sbin/tuned-adm recommend`
 if [[ "${recommended}" =~ guest ]] ; then
-  /usr/sbin/tuned-adm profile openshift-ae-node-guest > /dev/null 2>&1
+  /usr/sbin/tuned-adm profile openshift-node-guest > /dev/null 2>&1
 else
-  /usr/sbin/tuned-adm profile openshift-ae-node-host > /dev/null 2>&1
+  /usr/sbin/tuned-adm profile openshift-node-host > /dev/null 2>&1
 fi
 
-%preun -n tuned-profiles-openshift-ae-node
+%preun -n tuned-profiles-openshift-node
 # reset the tuned profile to the recommended profile
 # $1 = 0 when we're being removed > 0 during upgrades
 if [ "$1" = 0 ]; then
