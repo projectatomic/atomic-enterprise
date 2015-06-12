@@ -3,8 +3,8 @@
 # Pretend like we're Travis so that scripts behave accordingly.
 export TRAVIS=true
 
-# NB: set to false if we don't want to test assets
-export TEST_ASSETS=true
+# NB: set to true to test assets, false otherwise
+export TEST_ASSETS=false
 
 echo "GOPATH = $GOPATH"
 echo "PATH = $PATH"
