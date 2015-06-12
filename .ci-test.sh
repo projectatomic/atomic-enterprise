@@ -43,9 +43,13 @@ log_eval ./hack/install-assets.sh
 
 # tests
 
+# NB: because of the eval in log_eval(), we want to escape the quotes so that
+# they don't reduce to nothing, which will cause that argument to be skipped
+# when passed to test-go.sh as $(WHAT) (see the Makefile).
+# XXX: using make check, instead of make check-test for now.
 log_eval \
 	PATH=./_output/etcd/bin:$PATH \
-		make check-test WHAT="''" TESTFLAGS="-p=4"
+		make check WHAT="\'\'" TESTFLAGS="-p=4"
 
 log_eval ./hack/test-assets.sh
 
