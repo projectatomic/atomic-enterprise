@@ -7,8 +7,8 @@ import (
 
 	"github.com/golang/glog"
 
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 // IsComponentReference returns true if the provided string appears to be a reference to a source repository

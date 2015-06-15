@@ -19,9 +19,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/serviceaccount"
 	serviceaccountadmission "github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/serviceaccount"
 
-	"github.com/openshift/origin/pkg/cmd/admin/policy"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	testutil "github.com/openshift/origin/test/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestServiceAccountAuthorization(t *testing.T) {

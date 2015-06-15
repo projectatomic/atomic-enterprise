@@ -10,9 +10,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	build "github.com/openshift/origin/pkg/build/api"
-	deploy "github.com/openshift/origin/pkg/deploy/api"
-	image "github.com/openshift/origin/pkg/image/api"
+	build "github.com/projectatomic/appinfra-next/pkg/build/api"
+	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	image "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func TestGraph(t *testing.T) {

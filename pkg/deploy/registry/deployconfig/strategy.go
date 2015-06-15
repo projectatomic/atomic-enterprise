@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/deploy/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/api/validation"
 )
 
 // strategy implements behavior for DeploymentConfig objects

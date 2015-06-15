@@ -7,8 +7,8 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
 )
 
 const (

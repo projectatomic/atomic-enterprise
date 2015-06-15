@@ -7,8 +7,8 @@ import (
 	kapi_v1 "github.com/GoogleCloudPlatform/kubernetes/pkg/api/v1"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/openshift/origin/pkg/build/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	newer "github.com/projectatomic/appinfra-next/pkg/build/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func convert_api_Build_To_v1_Build(in *newer.Build, out *Build, s conversion.Scope) error {

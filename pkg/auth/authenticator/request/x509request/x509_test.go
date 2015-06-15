@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/openshift/origin/pkg/auth/authenticator"
+	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
 )
 
 const (

@@ -12,9 +12,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/cmd/server/origin"
-	projectcache "github.com/openshift/origin/pkg/project/cache"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
+	projectcache "github.com/projectatomic/appinfra-next/pkg/project/cache"
 )
 
 type UnknownObject struct{}

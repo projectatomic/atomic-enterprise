@@ -1,7 +1,7 @@
 package builder
 
 import (
-	buildapi "github.com/openshift/origin/pkg/build/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 // getBuildEnvVars returns a map with the environment variables that should be added

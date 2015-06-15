@@ -1,7 +1,7 @@
 package client
 
 import (
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 // TemplateConfigNamespacer has methods to work with Image resources in a namespace

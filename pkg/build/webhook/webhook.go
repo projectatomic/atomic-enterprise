@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/openshift/origin/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 var (

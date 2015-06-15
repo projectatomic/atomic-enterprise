@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/openshift/origin/pkg/route/api"
+	newer "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 func convert_v1beta3_Route_To_api_Route(in *Route, out *newer.Route, s conversion.Scope) error {

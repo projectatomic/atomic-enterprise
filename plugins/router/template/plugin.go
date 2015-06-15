@@ -10,7 +10,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 	"github.com/golang/glog"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // TemplatePlugin implements the router.Plugin interface to provide

@@ -12,13 +12,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	clusterpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicy"
-	clusterpolicybindingregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicybinding"
-	policyregistry "github.com/openshift/origin/pkg/authorization/registry/policy"
-	policybindingregistry "github.com/openshift/origin/pkg/authorization/registry/policybinding"
-	rolebindingregistry "github.com/openshift/origin/pkg/authorization/registry/rolebinding"
-	"github.com/openshift/origin/pkg/authorization/rulevalidation"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	clusterpolicybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
+	policyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policy"
+	policybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policybinding"
+	rolebindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/rolebinding"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/rulevalidation"
 )
 
 type VirtualStorage struct {

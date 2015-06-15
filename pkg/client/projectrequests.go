@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	projectapi "github.com/openshift/origin/pkg/project/api"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
 )
 
 // ProjectRequestsInterface has methods to work with ProjectRequest resources in a namespace

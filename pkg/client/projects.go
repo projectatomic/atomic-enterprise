@@ -3,7 +3,7 @@ package client
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
-	projectapi "github.com/openshift/origin/pkg/project/api"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
 )
 
 // ProjectsInterface has methods to work with Project resources in a namespace

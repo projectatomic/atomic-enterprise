@@ -7,8 +7,8 @@ import (
 	"github.com/golang/glog"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/openshift/origin/pkg/auth/api"
-	"github.com/openshift/origin/pkg/auth/authenticator"
+	"github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
 )
 
 // AuthorizeAuthenticator implements osinserver.AuthorizeHandler to ensure requests are authenticated

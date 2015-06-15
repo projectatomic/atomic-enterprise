@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
 )
 
 // FakeRoleBindings implements RoleBindingInterface. Meant to be embedded into a struct to get a default

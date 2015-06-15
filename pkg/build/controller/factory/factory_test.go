@@ -7,8 +7,8 @@ import (
 	"time"
 
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	controller "github.com/openshift/origin/pkg/controller"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	controller "github.com/projectatomic/appinfra-next/pkg/controller"
 )
 
 type buildUpdater struct {

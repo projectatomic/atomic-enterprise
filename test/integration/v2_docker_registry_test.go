@@ -17,10 +17,10 @@ import (
 	"github.com/docker/distribution/manifest"
 	_ "github.com/docker/distribution/registry/storage/driver/inmemory"
 	"github.com/docker/libtrust"
-	"github.com/openshift/origin/pkg/cmd/dockerregistry"
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	testutil "github.com/openshift/origin/test/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/dockerregistry"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func init() {

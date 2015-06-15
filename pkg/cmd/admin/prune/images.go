@@ -19,10 +19,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	"github.com/openshift/origin/pkg/image/prune"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/image/prune"
 	"github.com/spf13/cobra"
 )
 

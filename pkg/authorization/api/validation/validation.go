@@ -5,8 +5,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/openshift/origin/pkg/api"
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
+	oapi "github.com/projectatomic/appinfra-next/pkg/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
 )
 
 func ValidateSubjectAccessReview(review *authorizationapi.SubjectAccessReview) fielderrors.ValidationErrorList {

@@ -18,9 +18,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 	"github.com/coreos/go-etcd/etcd"
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/image/api"
-	"github.com/openshift/origin/pkg/image/registry/image"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/image/registry/image"
 )
 
 // This copy and paste is not pure ignorance.  This is that we can be sure that the key is getting made as we

@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/dockerregistry"
-	"github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
+	"github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 type ImportController struct {

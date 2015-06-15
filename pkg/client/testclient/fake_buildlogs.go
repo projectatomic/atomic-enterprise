@@ -3,7 +3,7 @@ package testclient
 import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	"github.com/openshift/origin/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 // FakeBuildLogs implements BuildLogsInterface. Meant to be embedded into a struct to get a default

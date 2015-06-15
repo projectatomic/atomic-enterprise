@@ -11,7 +11,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 
-	"github.com/openshift/origin/pkg/auth/server/csrf"
+	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
 )
 
 type testAuth struct {

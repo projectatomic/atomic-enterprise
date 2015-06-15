@@ -9,7 +9,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	kubeutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 type ValidateFunc func(string) error

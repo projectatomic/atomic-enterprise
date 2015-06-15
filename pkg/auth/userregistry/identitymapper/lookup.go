@@ -4,9 +4,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	kuser "github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 
-	authapi "github.com/openshift/origin/pkg/auth/api"
-	"github.com/openshift/origin/pkg/user/registry/user"
-	"github.com/openshift/origin/pkg/user/registry/useridentitymapping"
+	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/user"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/useridentitymapping"
 )
 
 type lookupIdentityMapper struct {

@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
 )
 
 // REST is a RESTStorage implementation for a DeploymentConfigGenerator which supports only

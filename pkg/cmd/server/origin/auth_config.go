@@ -10,14 +10,14 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/openshift/origin/pkg/auth/server/session"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	"github.com/openshift/origin/pkg/cmd/server/api/latest"
-	"github.com/openshift/origin/pkg/cmd/server/etcd"
-	identityregistry "github.com/openshift/origin/pkg/user/registry/identity"
-	identityetcd "github.com/openshift/origin/pkg/user/registry/identity/etcd"
-	userregistry "github.com/openshift/origin/pkg/user/registry/user"
-	useretcd "github.com/openshift/origin/pkg/user/registry/user/etcd"
+	"github.com/projectatomic/appinfra-next/pkg/auth/server/session"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
+	identityregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
+	identityetcd "github.com/projectatomic/appinfra-next/pkg/user/registry/identity/etcd"
+	userregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/user"
+	useretcd "github.com/projectatomic/appinfra-next/pkg/user/registry/user/etcd"
 )
 
 type AuthConfig struct {

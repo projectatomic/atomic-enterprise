@@ -11,9 +11,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/authorization/client"
-	policyregistry "github.com/openshift/origin/pkg/authorization/registry/policy"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/client"
+	policyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policy"
 )
 
 type readOnlyPolicyCache struct {

@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	image "github.com/openshift/origin/pkg/image/api"
+	image "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func TestFromName(t *testing.T) {

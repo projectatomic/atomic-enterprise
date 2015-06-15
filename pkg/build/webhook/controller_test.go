@@ -10,7 +10,7 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	"github.com/openshift/origin/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 type okBuildConfigGetter struct{}

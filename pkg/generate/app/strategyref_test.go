@@ -4,9 +4,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/openshift/origin/pkg/generate/app/test"
-	"github.com/openshift/origin/pkg/generate/dockerfile"
-	"github.com/openshift/origin/pkg/generate/source"
+	"github.com/projectatomic/appinfra-next/pkg/generate/app/test"
+	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
+	"github.com/projectatomic/appinfra-next/pkg/generate/source"
 )
 
 var sourceDetectors = source.Detectors{

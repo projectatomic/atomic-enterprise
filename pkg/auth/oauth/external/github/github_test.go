@@ -3,7 +3,7 @@ package github
 import (
 	"testing"
 
-	"github.com/openshift/origin/pkg/auth/oauth/external"
+	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/external"
 )
 
 func TestGitHub(t *testing.T) {

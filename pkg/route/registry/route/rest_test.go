@@ -10,9 +10,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/openshift/origin/pkg/route/api"
-	ractest "github.com/openshift/origin/pkg/route/controller/allocation/test"
-	"github.com/openshift/origin/pkg/route/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/route/api"
+	ractest "github.com/projectatomic/appinfra-next/pkg/route/controller/allocation/test"
+	"github.com/projectatomic/appinfra-next/pkg/route/registry/test"
 )
 
 func TestListRoutesEmptyList(t *testing.T) {

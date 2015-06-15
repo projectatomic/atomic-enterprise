@@ -11,9 +11,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	policyregistry "github.com/openshift/origin/pkg/authorization/registry/policy"
-	roleregistry "github.com/openshift/origin/pkg/authorization/registry/role"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	policyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policy"
+	roleregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/role"
 )
 
 // TODO sort out resourceVersions.  Perhaps a hash of the object contents?

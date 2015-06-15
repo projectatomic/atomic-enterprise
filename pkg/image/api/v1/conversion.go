@@ -7,7 +7,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/openshift/origin/pkg/image/api"
+	newer "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // The docker metadata must be cast to a version

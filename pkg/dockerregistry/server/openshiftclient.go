@@ -6,7 +6,7 @@ import (
 	"os"
 
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
-	osclient "github.com/openshift/origin/pkg/client"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
 )
 
 func NewUserOpenShiftClient(bearerToken string) (*osclient.Client, error) {

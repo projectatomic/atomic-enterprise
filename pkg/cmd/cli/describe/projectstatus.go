@@ -12,12 +12,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/api/graph"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/client"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
-	projectapi "github.com/openshift/origin/pkg/project/api"
+	"github.com/projectatomic/appinfra-next/pkg/api/graph"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
 )
 
 // ProjectStatusDescriber generates extended information about a Project

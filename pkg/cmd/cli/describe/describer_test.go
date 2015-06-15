@@ -11,12 +11,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/client/testclient"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployapitest "github.com/openshift/origin/pkg/deploy/api/test"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployapitest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 type describeClient struct {

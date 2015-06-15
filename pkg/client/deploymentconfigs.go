@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
 )
 
 // DeploymentConfigsNamespacer has methods to work with DeploymentConfig resources in a namespace

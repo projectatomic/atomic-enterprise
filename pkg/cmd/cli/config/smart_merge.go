@@ -10,8 +10,8 @@ import (
 	clientcmdapi "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd/api"
 	"github.com/GoogleCloudPlatform/kubernetes/third_party/golang/netutil"
 
-	"github.com/openshift/origin/pkg/auth/authenticator/request/x509request"
-	osclient "github.com/openshift/origin/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator/request/x509request"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
 )
 
 // GetClusterNicknameFromConfig returns host:port of the clientConfig.Host, with .'s replaced by -'s

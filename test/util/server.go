@@ -14,15 +14,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/wait"
 	"github.com/golang/glog"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
 
-	"github.com/openshift/origin/pkg/client"
-	newproject "github.com/openshift/origin/pkg/cmd/admin/project"
-	"github.com/openshift/origin/pkg/cmd/server/admin"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	"github.com/openshift/origin/pkg/cmd/server/start"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	newproject "github.com/projectatomic/appinfra-next/pkg/cmd/admin/project"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/start"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
 )
 
 // ServiceAccountWaitTimeout is used to determine how long to wait for the service account

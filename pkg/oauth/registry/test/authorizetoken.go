@@ -4,7 +4,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/openshift/origin/pkg/oauth/api"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
 )
 
 type AuthorizeTokenRegistry struct {

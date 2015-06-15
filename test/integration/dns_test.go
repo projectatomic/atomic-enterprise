@@ -12,7 +12,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
 	"github.com/miekg/dns"
-	testutil "github.com/openshift/origin/test/util"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestDNS(t *testing.T) {

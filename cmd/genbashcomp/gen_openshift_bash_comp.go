@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/openshift/origin/pkg/cmd/admin"
-	"github.com/openshift/origin/pkg/cmd/cli"
-	"github.com/openshift/origin/pkg/cmd/openshift"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/openshift"
 )
 
 func OutDir(path string) (string, error) {

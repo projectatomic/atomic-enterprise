@@ -12,14 +12,14 @@ import (
 	"github.com/spf13/cobra"
 
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
-	"github.com/openshift/origin/pkg/cmd/server/kubernetes"
-	"github.com/openshift/origin/plugins/osdn"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/kubernetes"
+	"github.com/projectatomic/appinfra-next/plugins/osdn"
 
-	"github.com/openshift/origin/pkg/cmd/server/admin"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	configapilatest "github.com/openshift/origin/pkg/cmd/server/api/latest"
-	"github.com/openshift/origin/pkg/cmd/server/api/validation"
-	"github.com/openshift/origin/pkg/cmd/util/docker"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	configapilatest "github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/docker"
 )
 
 type NodeOptions struct {

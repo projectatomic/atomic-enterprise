@@ -5,8 +5,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	projectapi "github.com/openshift/origin/pkg/project/api"
-	projectvalidation "github.com/openshift/origin/pkg/project/api/validation"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	projectvalidation "github.com/projectatomic/appinfra-next/pkg/project/api/validation"
 )
 
 // strategy implements behavior for OAuthClient objects

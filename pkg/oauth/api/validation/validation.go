@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/validation"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/openshift/origin/pkg/api"
-	"github.com/openshift/origin/pkg/oauth/api"
-	uservalidation "github.com/openshift/origin/pkg/user/api/validation"
+	oapi "github.com/projectatomic/appinfra-next/pkg/api"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	uservalidation "github.com/projectatomic/appinfra-next/pkg/user/api/validation"
 )
 
 const MinTokenLength = 32

@@ -21,8 +21,8 @@ import (
 	kruntime "github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 var (

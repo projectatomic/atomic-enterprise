@@ -1,7 +1,7 @@
 package testclient
 
 import (
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 // FakeTemplateConfigs implements TemplateConfigsInterface. Meant to be embedded into a struct to get a default

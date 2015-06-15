@@ -10,9 +10,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/authorization/client"
-	testregistry "github.com/openshift/origin/pkg/authorization/registry/test"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/client"
+	testregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
 )
 
 func beforeTestingSetup_readonlycache() (testClient client.ReadOnlyPolicyClient, policyStopChannel, bindingStopChannel, testChannel chan struct{}) {

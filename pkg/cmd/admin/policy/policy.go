@@ -12,10 +12,10 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 const PolicyRecommendedName = "policy"

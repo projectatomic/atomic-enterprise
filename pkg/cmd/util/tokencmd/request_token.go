@@ -14,9 +14,9 @@ import (
 
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	"github.com/openshift/origin/pkg/client"
-	server "github.com/openshift/origin/pkg/cmd/server/origin"
-	"github.com/openshift/origin/pkg/oauth/server/osinserver"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	server "github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver"
 )
 
 // RequestToken uses the cmd arguments to locate an openshift oauth server and attempts to authenticate

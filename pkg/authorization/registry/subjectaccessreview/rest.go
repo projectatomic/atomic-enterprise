@@ -9,9 +9,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	kutilerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	authorizationvalidation "github.com/openshift/origin/pkg/authorization/api/validation"
-	"github.com/openshift/origin/pkg/authorization/authorizer"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationvalidation "github.com/projectatomic/appinfra-next/pkg/authorization/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/authorizer"
 )
 
 // REST implements the RESTStorage interface in terms of an Registry.

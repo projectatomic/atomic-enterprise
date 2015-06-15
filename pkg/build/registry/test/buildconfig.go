@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
-	"github.com/openshift/origin/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 type BuildConfigRegistry struct {

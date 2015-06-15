@@ -10,9 +10,9 @@ import (
 
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 const WhoCanRecommendedName = "who-can"

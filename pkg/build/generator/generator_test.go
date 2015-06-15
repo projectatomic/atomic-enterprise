@@ -13,9 +13,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	mocks "github.com/openshift/origin/pkg/build/generator/test"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	mocks "github.com/projectatomic/appinfra-next/pkg/build/generator/test"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 type FakeDockerCfg map[string]map[string]string

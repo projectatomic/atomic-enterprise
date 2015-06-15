@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	oauthapi "github.com/openshift/origin/pkg/oauth/api"
+	oauthapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
 )
 
 type testClient struct {

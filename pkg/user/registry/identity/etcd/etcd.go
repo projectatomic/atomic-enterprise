@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/openshift/origin/pkg/user/api"
-	"github.com/openshift/origin/pkg/user/registry/identity"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
 )
 
 // REST implements a RESTStorage for identites against etcd

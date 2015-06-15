@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/ghodss/yaml"
 
-	internal "github.com/openshift/origin/pkg/cmd/server/api"
+	internal "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
 )
 
 const (

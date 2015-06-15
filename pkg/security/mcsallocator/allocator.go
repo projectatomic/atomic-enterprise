@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/service/allocator"
 
-	"github.com/openshift/origin/pkg/security/mcs"
+	"github.com/projectatomic/appinfra-next/pkg/security/mcs"
 )
 
 // Interface manages the allocation of ports out of a range. Interface

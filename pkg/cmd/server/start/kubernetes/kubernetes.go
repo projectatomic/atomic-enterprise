@@ -9,8 +9,8 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/version"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/version"
 )
 
 const kubernetesLong = `Start Kubernetes server components

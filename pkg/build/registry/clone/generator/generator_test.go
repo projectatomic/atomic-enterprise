@@ -5,8 +5,8 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/build/generator"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/generator"
 )
 
 func TestCreateClone(t *testing.T) {

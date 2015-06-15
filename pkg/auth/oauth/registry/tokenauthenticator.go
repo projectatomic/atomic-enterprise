@@ -7,8 +7,8 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	kuser "github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/openshift/origin/pkg/oauth/registry/oauthaccesstoken"
-	"github.com/openshift/origin/pkg/user/registry/user"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthaccesstoken"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/user"
 )
 
 type TokenAuthenticator struct {

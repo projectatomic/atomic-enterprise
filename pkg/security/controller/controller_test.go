@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/security"
-	"github.com/openshift/origin/pkg/security/mcs"
-	"github.com/openshift/origin/pkg/security/uid"
-	"github.com/openshift/origin/pkg/security/uidallocator"
+	"github.com/projectatomic/appinfra-next/pkg/security"
+	"github.com/projectatomic/appinfra-next/pkg/security/mcs"
+	"github.com/projectatomic/appinfra-next/pkg/security/uid"
+	"github.com/projectatomic/appinfra-next/pkg/security/uidallocator"
 )
 
 func TestController(t *testing.T) {

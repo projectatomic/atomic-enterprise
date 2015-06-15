@@ -10,11 +10,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
 
-	authapi "github.com/openshift/origin/pkg/auth/api"
-	"github.com/openshift/origin/pkg/user"
-	userapi "github.com/openshift/origin/pkg/user/api"
-	identityregistry "github.com/openshift/origin/pkg/user/registry/identity"
-	userregistry "github.com/openshift/origin/pkg/user/registry/user"
+	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/appinfra-next/pkg/user"
+	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
+	identityregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
+	userregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/user"
 )
 
 // UserNameGenerator returns a username

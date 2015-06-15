@@ -17,9 +17,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/build/registry/build"
-	buildutil "github.com/openshift/origin/pkg/build/util"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/registry/build"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
 )
 
 // REST is an implementation of RESTStorage for the api server.

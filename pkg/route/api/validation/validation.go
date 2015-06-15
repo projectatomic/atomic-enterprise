@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/openshift/origin/pkg/api"
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	oapi "github.com/projectatomic/appinfra-next/pkg/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // ValidateRoute tests if required fields in the route are set.

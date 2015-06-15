@@ -22,13 +22,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/docker/docker/pkg/parsers"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildutil "github.com/openshift/origin/pkg/build/util"
-	"github.com/openshift/origin/pkg/client"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	projectapi "github.com/openshift/origin/pkg/project/api"
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 func describerMap(c *client.Client, kclient kclient.Interface, host string) map[string]kctl.Describer {

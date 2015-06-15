@@ -6,10 +6,10 @@ import (
 	"io/ioutil"
 	"testing"
 
-	testutil "github.com/openshift/origin/test/util"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 
-	policy "github.com/openshift/origin/pkg/cmd/admin/policy"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
+	policy "github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
 )
 
 func TestPolicyCommands(t *testing.T) {

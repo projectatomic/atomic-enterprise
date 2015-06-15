@@ -14,17 +14,17 @@ import (
 	"github.com/RangelReale/osincli"
 	"golang.org/x/oauth2"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/oauth/api"
-	accesstokenregistry "github.com/openshift/origin/pkg/oauth/registry/oauthaccesstoken"
-	accesstokenetcd "github.com/openshift/origin/pkg/oauth/registry/oauthaccesstoken/etcd"
-	authorizetokenregistry "github.com/openshift/origin/pkg/oauth/registry/oauthauthorizetoken"
-	authorizetokenetcd "github.com/openshift/origin/pkg/oauth/registry/oauthauthorizetoken/etcd"
-	clientregistry "github.com/openshift/origin/pkg/oauth/registry/oauthclient"
-	clientetcd "github.com/openshift/origin/pkg/oauth/registry/oauthclient/etcd"
-	"github.com/openshift/origin/pkg/oauth/server/osinserver"
-	registrystorage "github.com/openshift/origin/pkg/oauth/server/osinserver/registrystorage"
-	testutil "github.com/openshift/origin/test/util"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	accesstokenregistry "github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthaccesstoken"
+	accesstokenetcd "github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthaccesstoken/etcd"
+	authorizetokenregistry "github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthauthorizetoken"
+	authorizetokenetcd "github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthauthorizetoken/etcd"
+	clientregistry "github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthclient"
+	clientetcd "github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthclient/etcd"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver"
+	registrystorage "github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver/registrystorage"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func init() {

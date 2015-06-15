@@ -7,9 +7,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/resource"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildutil "github.com/openshift/origin/pkg/build/util"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
 )
 
 func TestDockerCreateBuildPod(t *testing.T) {

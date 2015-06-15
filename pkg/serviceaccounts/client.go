@@ -7,7 +7,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	"github.com/openshift/origin/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/client"
 )
 
 // TokenRetriever defined an interface for getting an API token for a service account

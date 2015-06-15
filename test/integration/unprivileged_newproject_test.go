@@ -12,14 +12,14 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
-	oc "github.com/openshift/origin/pkg/cmd/cli/cmd"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
-	projectapi "github.com/openshift/origin/pkg/project/api"
-	projectrequeststorage "github.com/openshift/origin/pkg/project/registry/projectrequest/delegated"
-	testutil "github.com/openshift/origin/test/util"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	oc "github.com/projectatomic/appinfra-next/pkg/cmd/cli/cmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	projectrequeststorage "github.com/projectatomic/appinfra-next/pkg/project/registry/projectrequest/delegated"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestUnprivilegedNewProject(t *testing.T) {
