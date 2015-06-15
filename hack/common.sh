@@ -21,7 +21,7 @@ OS_OUTPUT_BINPATH="${OS_OUTPUT}/bin"
 OS_LOCAL_BINPATH="${OS_OUTPUT}/go/bin"
 OS_LOCAL_RELEASEPATH="${OS_OUTPUT}/releases"
 
-readonly OS_GO_PACKAGE=github.com/openshift/origin
+readonly OS_GO_PACKAGE=github.com/projectatomic/appinfra-next
 readonly OS_GOPATH="${OS_OUTPUT}/go"
 
 readonly OS_IMAGE_COMPILE_PLATFORMS=(
