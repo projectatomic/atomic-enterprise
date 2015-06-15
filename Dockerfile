@@ -10,12 +10,12 @@ FROM openshift/origin-base
 
 RUN yum install -y golang && yum clean all
 
-WORKDIR /go/src/github.com/openshift/origin
-ADD .   /go/src/github.com/openshift/origin
+WORKDIR /go/src/github.com/projectatomic/appinfra-next
+ADD .   /go/src/github.com/projectatomic/appinfra-next
 ENV GOPATH /go
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 
-RUN go get github.com/openshift/origin && \
+RUN go get github.com/projectatomic/appinfra-next && \
     hack/build-go.sh && \
     cp _output/local/go/bin/* /usr/bin/ && \
     mkdir -p /var/lib/openshift
