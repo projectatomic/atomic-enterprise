@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 func TestCertManager(t *testing.T) {

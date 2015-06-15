@@ -8,7 +8,7 @@ import (
 	kvalidation "github.com/GoogleCloudPlatform/kubernetes/pkg/api/validation"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
 )
 
 func ValidateHostPort(value string, field string) fielderrors.ValidationErrorList {

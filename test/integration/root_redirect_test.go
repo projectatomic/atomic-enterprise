@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"testing"
 
-	testutil "github.com/openshift/origin/test/util"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestRootRedirect(t *testing.T) {

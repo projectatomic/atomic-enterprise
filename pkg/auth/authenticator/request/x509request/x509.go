@@ -7,7 +7,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
-	"github.com/openshift/origin/pkg/auth/authenticator"
+	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
 )
 
 // UserConversion defines an interface for extracting user info from a client certificate chain

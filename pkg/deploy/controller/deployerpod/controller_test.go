@@ -9,9 +9,9 @@ import (
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 // TestHandle_uncorrelatedPod ensures that pods uncorrelated with a deployment

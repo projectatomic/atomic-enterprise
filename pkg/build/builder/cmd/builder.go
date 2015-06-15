@@ -9,12 +9,12 @@ import (
 
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/glog"
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/build/api"
-	bld "github.com/openshift/origin/pkg/build/builder"
-	"github.com/openshift/origin/pkg/build/builder/cmd/dockercfg"
-	"github.com/openshift/origin/pkg/build/builder/cmd/scmauth"
-	dockerutil "github.com/openshift/origin/pkg/cmd/util/docker"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
+	bld "github.com/projectatomic/appinfra-next/pkg/build/builder"
+	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd/dockercfg"
+	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd/scmauth"
+	dockerutil "github.com/projectatomic/appinfra-next/pkg/cmd/util/docker"
 )
 
 const DefaultDockerEndpoint = "unix:///var/run/docker.sock"

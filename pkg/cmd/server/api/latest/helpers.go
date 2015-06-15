@@ -8,7 +8,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	kyaml "github.com/GoogleCloudPlatform/kubernetes/pkg/util/yaml"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
 
 	"github.com/ghodss/yaml"
 )

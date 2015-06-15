@@ -11,11 +11,11 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/spf13/cobra"
 
-	latest "github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/client"
-	describe "github.com/openshift/origin/pkg/cmd/cli/describe"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
+	latest "github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	describe "github.com/projectatomic/appinfra-next/pkg/cmd/cli/describe"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
 )
 
 const (

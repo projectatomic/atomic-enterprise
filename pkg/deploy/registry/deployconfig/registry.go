@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
 )
 
 // Registry is an interface for things that know how to store DeploymentConfigs.

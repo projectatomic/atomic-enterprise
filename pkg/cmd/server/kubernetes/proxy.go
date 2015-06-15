@@ -7,7 +7,7 @@ import (
 	restful "github.com/emicklei/go-restful"
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/util/httpproxy"
+	"github.com/projectatomic/appinfra-next/pkg/util/httpproxy"
 )
 
 type ProxyConfig struct {

@@ -19,12 +19,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/cli/config"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
-	"github.com/openshift/origin/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 const defaultClusterURL = "https://localhost:8443"

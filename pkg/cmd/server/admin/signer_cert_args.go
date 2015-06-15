@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/openshift/origin/pkg/cmd/server/crypto"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/crypto"
 )
 
 type GetSignerCertOptions struct {

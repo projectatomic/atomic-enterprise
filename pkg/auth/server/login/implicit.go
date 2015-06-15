@@ -10,9 +10,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/auth/authenticator"
-	"github.com/openshift/origin/pkg/auth/oauth/handlers"
-	"github.com/openshift/origin/pkg/auth/server/csrf"
+	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/handlers"
+	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
 )
 
 type RequestAuthenticator interface {

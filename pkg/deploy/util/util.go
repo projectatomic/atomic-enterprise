@@ -10,9 +10,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployv3 "github.com/openshift/origin/pkg/deploy/api/v1beta3"
-	"github.com/openshift/origin/pkg/util/namer"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployv3 "github.com/projectatomic/appinfra-next/pkg/deploy/api/v1beta3"
+	"github.com/projectatomic/appinfra-next/pkg/util/namer"
 )
 
 // These constants represent keys used for correlating objects related to deployments.

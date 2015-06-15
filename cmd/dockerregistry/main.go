@@ -7,7 +7,7 @@ import (
 	"runtime"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/openshift/origin/pkg/cmd/dockerregistry"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/dockerregistry"
 )
 
 func main() {

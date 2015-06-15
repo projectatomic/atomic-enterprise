@@ -13,14 +13,14 @@ import (
 	"github.com/RangelReale/osincli"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/openshift/origin/pkg/auth/api"
-	"github.com/openshift/origin/pkg/auth/oauth/handlers"
-	oapi "github.com/openshift/origin/pkg/oauth/api"
-	"github.com/openshift/origin/pkg/oauth/registry/test"
-	"github.com/openshift/origin/pkg/oauth/server/osinserver"
-	"github.com/openshift/origin/pkg/oauth/server/osinserver/registrystorage"
-	userapi "github.com/openshift/origin/pkg/user/api"
-	usertest "github.com/openshift/origin/pkg/user/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/handlers"
+	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver/registrystorage"
+	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
+	usertest "github.com/projectatomic/appinfra-next/pkg/user/registry/test"
 )
 
 type testHandlers struct {

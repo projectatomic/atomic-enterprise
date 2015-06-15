@@ -15,8 +15,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	utilerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 const (

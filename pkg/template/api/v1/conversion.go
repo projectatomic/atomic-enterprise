@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/openshift/origin/pkg/template/api"
+	newer "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 func convert_api_Template_To_v1_Template(in *newer.Template, out *Template, s conversion.Scope) error {

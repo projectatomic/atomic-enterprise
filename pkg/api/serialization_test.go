@@ -15,15 +15,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/google/gofuzz"
 
-	osapi "github.com/openshift/origin/pkg/api"
-	_ "github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/api/v1"
-	"github.com/openshift/origin/pkg/api/v1beta3"
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	build "github.com/openshift/origin/pkg/build/api"
-	deploy "github.com/openshift/origin/pkg/deploy/api"
-	image "github.com/openshift/origin/pkg/image/api"
-	template "github.com/openshift/origin/pkg/template/api"
+	osapi "github.com/projectatomic/appinfra-next/pkg/api"
+	_ "github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/api/v1"
+	"github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	build "github.com/projectatomic/appinfra-next/pkg/build/api"
+	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	image "github.com/projectatomic/appinfra-next/pkg/image/api"
+	template "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 func fuzzInternalObject(t *testing.T, forVersion string, item runtime.Object, seed int64) runtime.Object {

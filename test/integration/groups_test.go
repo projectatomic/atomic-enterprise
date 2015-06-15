@@ -8,11 +8,11 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
-	projectapi "github.com/openshift/origin/pkg/project/api"
-	testutil "github.com/openshift/origin/test/util"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestBasicGroupManipulation(t *testing.T) {

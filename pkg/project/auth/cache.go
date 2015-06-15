@@ -16,7 +16,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	policyclient "github.com/openshift/origin/pkg/authorization/client"
+	policyclient "github.com/projectatomic/appinfra-next/pkg/authorization/client"
 )
 
 // Lister enforces ability to enumerate a resource based on policy

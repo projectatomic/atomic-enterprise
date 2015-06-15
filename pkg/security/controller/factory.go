@@ -13,8 +13,8 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/openshift/origin/pkg/controller"
-	"github.com/openshift/origin/pkg/security/uidallocator"
+	"github.com/projectatomic/appinfra-next/pkg/controller"
+	"github.com/projectatomic/appinfra-next/pkg/security/uidallocator"
 )
 
 // AllocationFactory can create an Allocation controller.

@@ -14,13 +14,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	watchapi "github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildutil "github.com/openshift/origin/pkg/build/util"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	"github.com/openshift/origin/pkg/cmd/server/origin"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	testutil "github.com/openshift/origin/test/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 var (

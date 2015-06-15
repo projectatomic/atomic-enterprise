@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/deploy/api/validation"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/api/validation"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 // REST provides a rollback generation endpoint. Only the Create method is implemented.

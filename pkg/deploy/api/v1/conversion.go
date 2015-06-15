@@ -6,8 +6,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/openshift/origin/pkg/deploy/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	newer "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func convert_v1_DeploymentConfig_To_api_DeploymentConfig(in *DeploymentConfig, out *newer.DeploymentConfig, s conversion.Scope) error {

@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	projectapi "github.com/openshift/origin/pkg/project/api"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
 )
 
 // FakeProjectRequests implements ProjectInterface. Meant to be embedded into a struct to get a default

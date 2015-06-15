@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	testregistry "github.com/openshift/origin/pkg/authorization/registry/test"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	testregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
 )
 
 func beforeTestingSetup_readonlyclusterpolicycache() (testCache readOnlyClusterPolicyCache, cacheChannel, testChannel chan struct{}) {

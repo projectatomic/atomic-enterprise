@@ -9,9 +9,9 @@ import (
 	ktestclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/client/testclient"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 func mkdeployment(version int) kapi.ReplicationController {

@@ -20,7 +20,7 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 const (

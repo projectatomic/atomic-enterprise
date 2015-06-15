@@ -10,10 +10,10 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/client"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
-	testutil "github.com/openshift/origin/test/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestHTPasswd(t *testing.T) {

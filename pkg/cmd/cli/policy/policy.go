@@ -5,9 +5,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	adminpolicy "github.com/openshift/origin/pkg/cmd/admin/policy"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	adminpolicy "github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 const PolicyRecommendedName = "policy"

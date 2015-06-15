@@ -9,7 +9,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
 )
 
 // TODO: These tests validate the ReplicationControllerState in a Deployment or DeploymentConfig.

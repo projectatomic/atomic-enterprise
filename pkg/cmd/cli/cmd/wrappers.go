@@ -10,8 +10,8 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/cmd/cli/describe"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/describe"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 func tab(original string) string {

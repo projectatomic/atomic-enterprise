@@ -14,13 +14,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/spf13/pflag"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/cli/describe"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployreaper "github.com/openshift/origin/pkg/deploy/reaper"
-	deploy "github.com/openshift/origin/pkg/deploy/scaler"
-	routegen "github.com/openshift/origin/pkg/route/generator"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/describe"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployreaper "github.com/projectatomic/appinfra-next/pkg/deploy/reaper"
+	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/scaler"
+	routegen "github.com/projectatomic/appinfra-next/pkg/route/generator"
 )
 
 // New creates a default Factory for commands that should share identical server

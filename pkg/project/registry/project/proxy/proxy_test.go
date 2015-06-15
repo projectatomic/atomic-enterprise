@@ -12,7 +12,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/openshift/origin/pkg/project/api"
+	"github.com/projectatomic/appinfra-next/pkg/project/api"
 )
 
 // mockLister returns the namespaces in the list

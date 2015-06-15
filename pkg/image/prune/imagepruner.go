@@ -10,13 +10,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
 	gonum "github.com/gonum/graph"
-	"github.com/openshift/origin/pkg/api/graph"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildutil "github.com/openshift/origin/pkg/build/util"
-	"github.com/openshift/origin/pkg/client"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	"github.com/openshift/origin/pkg/image/registry/imagestreamimage"
+	"github.com/projectatomic/appinfra-next/pkg/api/graph"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/image/registry/imagestreamimage"
 )
 
 // pruneAlgorithm contains the various settings to use when evaluating images

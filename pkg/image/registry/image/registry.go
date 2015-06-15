@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
-	"github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // Registry is an interface for things that know how to store Image objects.

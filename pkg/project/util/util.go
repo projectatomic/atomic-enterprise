@@ -5,7 +5,7 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/project/api"
+	"github.com/projectatomic/appinfra-next/pkg/project/api"
 )
 
 // Associated returns true if the spec.finalizers contains the origin finalizer

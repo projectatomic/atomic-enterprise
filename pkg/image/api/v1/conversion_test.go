@@ -7,8 +7,8 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	_ "github.com/openshift/origin/pkg/api/latest"
-	newer "github.com/openshift/origin/pkg/image/api"
+	_ "github.com/projectatomic/appinfra-next/pkg/api/latest"
+	newer "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 var Convert = kapi.Scheme.Convert

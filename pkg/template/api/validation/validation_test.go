@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/openshift/origin/pkg/template/api"
+	"github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 func makeParameter(name, value string) *api.Parameter {

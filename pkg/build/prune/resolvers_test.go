@@ -8,7 +8,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 type mockResolver struct {

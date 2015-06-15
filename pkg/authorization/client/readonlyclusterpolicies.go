@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
 )
 
 // ClusterPoliciesReadOnlyInterface has methods to work with ClusterPolicies resources in a namespace

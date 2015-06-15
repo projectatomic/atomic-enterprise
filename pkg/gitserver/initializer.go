@@ -12,7 +12,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/openshift/origin/pkg/generate/git"
+	"github.com/projectatomic/appinfra-next/pkg/generate/git"
 )
 
 var lazyInitMatch = regexp.MustCompile("^/([^\\/]+?)/info/refs$")

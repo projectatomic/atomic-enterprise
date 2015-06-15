@@ -8,7 +8,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/config"
 
-	cmdconfig "github.com/openshift/origin/pkg/cmd/cli/config"
+	cmdconfig "github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/openshift/origin/pkg/route/api"
+	"github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // Registry is an interface for things that know how to store Routes.

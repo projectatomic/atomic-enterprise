@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/openshift/origin/pkg/api"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	oapi "github.com/projectatomic/appinfra-next/pkg/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // ValidateBuild tests required fields for a Build.

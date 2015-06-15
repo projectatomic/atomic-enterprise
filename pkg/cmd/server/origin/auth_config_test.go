@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/openshift/origin/pkg/cmd/server/api"
-	"github.com/openshift/origin/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
 )
 
 func TestGetDefaultSessionSecrets(t *testing.T) {

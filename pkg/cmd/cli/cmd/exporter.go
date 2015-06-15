@@ -22,12 +22,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/secret"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/serviceaccount"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildrest "github.com/openshift/origin/pkg/build/registry/build"
-	buildconfigrest "github.com/openshift/origin/pkg/build/registry/buildconfig"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildrest "github.com/projectatomic/appinfra-next/pkg/build/registry/build"
+	buildconfigrest "github.com/projectatomic/appinfra-next/pkg/build/registry/buildconfig"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 var ErrExportOmit = fmt.Errorf("object is omitted")

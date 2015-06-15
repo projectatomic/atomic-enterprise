@@ -12,13 +12,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 	clientcmdapi "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd/api"
 
-	"github.com/openshift/origin/pkg/client"
-	newproject "github.com/openshift/origin/pkg/cmd/admin/project"
-	"github.com/openshift/origin/pkg/cmd/cli/cmd"
-	"github.com/openshift/origin/pkg/cmd/cli/config"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	"github.com/openshift/origin/pkg/user/api"
-	testutil "github.com/openshift/origin/test/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	newproject "github.com/projectatomic/appinfra-next/pkg/cmd/admin/project"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/cmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func init() {

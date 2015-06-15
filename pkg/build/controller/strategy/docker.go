@@ -6,9 +6,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildutil "github.com/openshift/origin/pkg/build/util"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
 )
 
 // DockerBuildStrategy creates a Docker build using a Docker builder image.
@@ -47,7 +47,7 @@ func (bs *DockerBuildStrategy) CreateBuildPod(build *buildapi.Build) (*kapi.Pod,
 						{Name: "BUILD", Value: string(data)},
 					},
 					Args: []string{"--loglevel=" + fmt.Sprintf("%d", cmdutil.GetLogLevel())},
-					// TODO: run unprivileged https://github.com/openshift/origin/issues/662
+					// TODO: run unprivileged https://github.com/projectatomic/appinfra-next/issues/662
 					SecurityContext: &kapi.SecurityContext{
 						Privileged: &privileged,
 					},

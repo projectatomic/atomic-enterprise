@@ -6,8 +6,8 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/latest"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // CreateSampleImageStream creates an ImageStream in given namespace

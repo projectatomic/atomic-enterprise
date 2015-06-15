@@ -13,13 +13,13 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	dockerutil "github.com/openshift/origin/pkg/cmd/util/docker"
-	configcmd "github.com/openshift/origin/pkg/config/cmd"
-	newcmd "github.com/openshift/origin/pkg/generate/app/cmd"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	"github.com/openshift/origin/pkg/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	dockerutil "github.com/projectatomic/appinfra-next/pkg/cmd/util/docker"
+	configcmd "github.com/projectatomic/appinfra-next/pkg/config/cmd"
+	newcmd "github.com/projectatomic/appinfra-next/pkg/generate/app/cmd"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/util"
 )
 
 type usage interface {

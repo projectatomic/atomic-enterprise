@@ -12,8 +12,8 @@ import (
 	log "github.com/Sirupsen/logrus"
 	ctxu "github.com/docker/distribution/context"
 	registryauth "github.com/docker/distribution/registry/auth"
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
 	"golang.org/x/net/context"
 )
 

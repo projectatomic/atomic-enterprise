@@ -11,10 +11,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/record"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildclient "github.com/openshift/origin/pkg/build/client"
-	buildutil "github.com/openshift/origin/pkg/build/util"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildclient "github.com/projectatomic/appinfra-next/pkg/build/client"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // BuildController watches build resources and manages their state

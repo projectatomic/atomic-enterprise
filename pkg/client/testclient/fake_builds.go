@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 // FakeBuilds implements BuildInterface. Meant to be embedded into a struct to get a default

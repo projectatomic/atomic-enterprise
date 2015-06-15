@@ -1,8 +1,8 @@
 package testclient
 
 import (
-	"github.com/openshift/origin/pkg/client"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // FakeImageStreamMappings implements ImageStreamMappingInterface. Meant to

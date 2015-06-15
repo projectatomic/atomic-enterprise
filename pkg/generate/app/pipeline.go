@@ -13,9 +13,9 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
 
-	deploy "github.com/openshift/origin/pkg/deploy/api"
-	image "github.com/openshift/origin/pkg/image/api"
-	route "github.com/openshift/origin/pkg/route/api"
+	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	image "github.com/projectatomic/appinfra-next/pkg/image/api"
+	route "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 type Pipeline struct {

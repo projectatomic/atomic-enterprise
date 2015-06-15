@@ -11,8 +11,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/types"
 
-	"github.com/openshift/origin/pkg/user/api"
-	"github.com/openshift/origin/pkg/user/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/test"
 )
 
 var sequence = 0

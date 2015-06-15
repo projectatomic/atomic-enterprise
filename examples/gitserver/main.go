@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/openshift/origin/pkg/gitserver"
+	"github.com/projectatomic/appinfra-next/pkg/gitserver"
 )
 
 func main() {

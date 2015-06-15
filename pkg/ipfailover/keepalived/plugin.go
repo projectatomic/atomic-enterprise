@@ -11,11 +11,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	configcmd "github.com/openshift/origin/pkg/config/cmd"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/generate/app"
-	"github.com/openshift/origin/pkg/ipfailover"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	configcmd "github.com/projectatomic/appinfra-next/pkg/config/cmd"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/generate/app"
+	"github.com/projectatomic/appinfra-next/pkg/ipfailover"
 )
 
 // KeepalivedPlugin is an IP Failover configurator plugin for keepalived sidecar.

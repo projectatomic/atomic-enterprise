@@ -10,9 +10,9 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/pflag"
 
-	osclient "github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/flagtypes"
-	"github.com/openshift/origin/pkg/cmd/util"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/flagtypes"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
 )
 
 const ConfigSyntax = " --master=<addr>"

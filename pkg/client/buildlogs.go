@@ -3,7 +3,7 @@ package client
 import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	api "github.com/openshift/origin/pkg/build/api"
+	api "github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 // BuildLogsNamespacer has methods to work with BuildLogs resources in a namespace

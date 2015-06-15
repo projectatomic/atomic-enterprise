@@ -17,15 +17,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	docker "github.com/fsouza/go-dockerclient"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	client "github.com/openshift/origin/pkg/client/testclient"
-	deploy "github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/dockerregistry"
-	"github.com/openshift/origin/pkg/generate/app"
-	"github.com/openshift/origin/pkg/generate/dockerfile"
-	"github.com/openshift/origin/pkg/generate/source"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	"github.com/openshift/origin/pkg/util/namer"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	client "github.com/projectatomic/appinfra-next/pkg/client/testclient"
+	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
+	"github.com/projectatomic/appinfra-next/pkg/generate/app"
+	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
+	"github.com/projectatomic/appinfra-next/pkg/generate/source"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/util/namer"
 )
 
 func TestAddArguments(t *testing.T) {

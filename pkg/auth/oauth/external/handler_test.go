@@ -8,8 +8,8 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/RangelReale/osincli"
-	"github.com/openshift/origin/pkg/auth/oauth/handlers"
-	"github.com/openshift/origin/pkg/auth/server/csrf"
+	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/handlers"
+	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
 )
 
 func TestHandler(t *testing.T) {

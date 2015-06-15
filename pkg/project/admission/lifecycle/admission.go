@@ -30,9 +30,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/meta"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/project/cache"
-	projectutil "github.com/openshift/origin/pkg/project/util"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/project/cache"
+	projectutil "github.com/projectatomic/appinfra-next/pkg/project/util"
 )
 
 // TODO: modify the upstream plug-in so this can be collapsed

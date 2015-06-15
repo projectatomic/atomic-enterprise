@@ -15,9 +15,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/authorization/api"
-	userapi "github.com/openshift/origin/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 // TestVerifyImageStreamAccess mocks openshift http request/response and

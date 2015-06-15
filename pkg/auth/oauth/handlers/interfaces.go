@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/openshift/origin/pkg/auth/api"
+	"github.com/projectatomic/appinfra-next/pkg/auth/api"
 )
 
 // AuthenticationHandler reacts to unauthenticated requests

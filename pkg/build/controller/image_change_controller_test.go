@@ -10,11 +10,11 @@ import (
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildtest "github.com/openshift/origin/pkg/build/controller/test"
-	buildgenerator "github.com/openshift/origin/pkg/build/generator"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildtest "github.com/projectatomic/appinfra-next/pkg/build/controller/test"
+	buildgenerator "github.com/projectatomic/appinfra-next/pkg/build/generator"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func TestNewImageID(t *testing.T) {

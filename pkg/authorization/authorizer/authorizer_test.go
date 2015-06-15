@@ -10,12 +10,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	clusterpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicy"
-	clusterpolicybindingregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicybinding"
-	testpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/test"
-	"github.com/openshift/origin/pkg/authorization/rulevalidation"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	clusterpolicybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
+	testpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/rulevalidation"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
 )
 
 type authorizeTest struct {

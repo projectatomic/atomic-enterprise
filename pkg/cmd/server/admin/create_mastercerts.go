@@ -14,7 +14,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	utilerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/openshift/origin/pkg/util/parallel"
+	"github.com/projectatomic/appinfra-next/pkg/util/parallel"
 )
 
 const CreateMasterCertsCommandName = "create-master-certs"

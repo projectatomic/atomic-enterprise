@@ -8,8 +8,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/golang/glog"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	buildutil "github.com/openshift/origin/pkg/build/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
 )
 
 // CustomBuildStrategy creates a build using a custom builder image.
@@ -63,7 +63,7 @@ func (bs *CustomBuildStrategy) CreateBuildPod(build *buildapi.Build) (*kapi.Pod,
 					Name:  "custom-build",
 					Image: strategy.From.Name,
 					Env:   containerEnv,
-					// TODO: run unprivileged https://github.com/openshift/origin/issues/662
+					// TODO: run unprivileged https://github.com/projectatomic/appinfra-next/issues/662
 					SecurityContext: &kapi.SecurityContext{
 						Privileged: &privileged,
 					},

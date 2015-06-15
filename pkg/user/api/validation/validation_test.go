@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	"github.com/openshift/origin/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 func TestValidateUser(t *testing.T) {
