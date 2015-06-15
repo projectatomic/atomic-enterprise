@@ -11,11 +11,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	clusterpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicy"
-	clusterpolicybindingregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicybinding"
-	rolebindingregistry "github.com/openshift/origin/pkg/authorization/registry/rolebinding"
-	"github.com/openshift/origin/pkg/authorization/registry/test"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	clusterpolicybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
+	rolebindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/rolebinding"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
 )
 
 func testNewClusterPolicies() []authorizationapi.ClusterPolicy {

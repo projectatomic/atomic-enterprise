@@ -8,9 +8,9 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	kclientcmd "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 
-	dapi "github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/generate/app"
-	"github.com/openshift/origin/pkg/ipfailover"
+	dapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/generate/app"
+	"github.com/projectatomic/appinfra-next/pkg/ipfailover"
 )
 
 const defaultInterface = "eth0"

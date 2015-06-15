@@ -7,9 +7,9 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 var callCounterMap = make(map[string]int, 0)

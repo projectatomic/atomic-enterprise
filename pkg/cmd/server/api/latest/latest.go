@@ -1,7 +1,7 @@
 package latest
 
 import (
-	"github.com/openshift/origin/pkg/cmd/server/api/v1"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/v1"
 )
 
 // Version is the string that represents the current external default version.

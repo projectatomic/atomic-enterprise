@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/openshift/origin/pkg/version"
+	"github.com/projectatomic/appinfra-next/pkg/version"
 )
 
 // KeyFunc returns the value associated with the provided key or false if no

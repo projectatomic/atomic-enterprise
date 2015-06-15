@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/openshift/origin/pkg/generate/git"
+	"github.com/projectatomic/appinfra-next/pkg/generate/git"
 )
 
 // SourceRefGenerator generates new SourceRefs either from a URL or a Directory

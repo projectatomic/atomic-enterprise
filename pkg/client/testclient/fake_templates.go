@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 // FakeTemplates implements TemplateInterface. Meant to be embedded into a struct to get a default

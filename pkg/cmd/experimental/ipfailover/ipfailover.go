@@ -7,10 +7,10 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/cmd/util/variable"
-	"github.com/openshift/origin/pkg/ipfailover"
-	"github.com/openshift/origin/pkg/ipfailover/keepalived"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
+	"github.com/projectatomic/appinfra-next/pkg/ipfailover"
+	"github.com/projectatomic/appinfra-next/pkg/ipfailover/keepalived"
 )
 
 const (

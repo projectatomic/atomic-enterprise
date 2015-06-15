@@ -6,10 +6,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	clusterpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicy"
-	roleregistry "github.com/openshift/origin/pkg/authorization/registry/role"
-	rolestorage "github.com/openshift/origin/pkg/authorization/registry/role/policybased"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	roleregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/role"
+	rolestorage "github.com/projectatomic/appinfra-next/pkg/authorization/registry/role/policybased"
 )
 
 type ClusterRoleStorage struct {

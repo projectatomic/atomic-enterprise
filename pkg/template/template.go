@@ -9,10 +9,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/template/api"
-	. "github.com/openshift/origin/pkg/template/generator"
-	"github.com/openshift/origin/pkg/util"
-	"github.com/openshift/origin/pkg/util/stringreplace"
+	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	. "github.com/projectatomic/appinfra-next/pkg/template/generator"
+	"github.com/projectatomic/appinfra-next/pkg/util"
+	"github.com/projectatomic/appinfra-next/pkg/util/stringreplace"
 )
 
 var parameterExp = regexp.MustCompile(`\$\{([a-zA-Z0-9\_]+)\}`)

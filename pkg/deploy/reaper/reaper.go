@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/deploy/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 // ReaperFor returns the appropriate Reaper client depending on the provided
@@ -42,7 +42,7 @@ func (reaper *DeploymentConfigReaper) Stop(namespace, name string, gracePeriod *
 	//
 	// It's important to delete the config first to avoid an undesirable side
 	// effect which can cause the deployment to be re-triggered upon the
-	// config's deletion. See https://github.com/openshift/origin/issues/2721
+	// config's deletion. See https://github.com/projectatomic/appinfra-next/issues/2721
 	// for more details.
 	err := reaper.oc.DeploymentConfigs(namespace).Delete(name)
 	configNotFound := kerrors.IsNotFound(err)

@@ -14,10 +14,10 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/openshift/origin/pkg/client"
-	cliconfig "github.com/openshift/origin/pkg/cmd/cli/config"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/project/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	cliconfig "github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/project/api"
 
 	"github.com/spf13/cobra"
 )

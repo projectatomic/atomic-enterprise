@@ -9,9 +9,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/openshift/origin/pkg/generate/dockerfile"
-	"github.com/openshift/origin/pkg/generate/git"
-	"github.com/openshift/origin/pkg/generate/source"
+	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
+	"github.com/projectatomic/appinfra-next/pkg/generate/git"
+	"github.com/projectatomic/appinfra-next/pkg/generate/source"
 )
 
 var (

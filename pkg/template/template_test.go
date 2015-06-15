@@ -11,10 +11,10 @@ import (
 	_ "github.com/GoogleCloudPlatform/kubernetes/pkg/api/latest"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/api/v1beta3"
-	"github.com/openshift/origin/pkg/template/api"
-	"github.com/openshift/origin/pkg/template/generator"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
+	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/appinfra-next/pkg/template/generator"
 )
 
 func makeParameter(name, value, generate string) api.Parameter {

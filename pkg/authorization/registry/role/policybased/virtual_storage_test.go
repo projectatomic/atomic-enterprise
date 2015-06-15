@@ -8,10 +8,10 @@ import (
 	kapierrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	clusterpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicy"
-	roleregistry "github.com/openshift/origin/pkg/authorization/registry/role"
-	"github.com/openshift/origin/pkg/authorization/registry/test"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	roleregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/role"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
 )
 
 func testNewClusterPolicies() []authorizationapi.ClusterPolicy {

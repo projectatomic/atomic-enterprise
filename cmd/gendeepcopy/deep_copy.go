@@ -30,9 +30,9 @@ import (
 	"github.com/golang/glog"
 	flag "github.com/spf13/pflag"
 
-	_ "github.com/openshift/origin/pkg/api"
-	_ "github.com/openshift/origin/pkg/api/v1"
-	_ "github.com/openshift/origin/pkg/api/v1beta3"
+	_ "github.com/projectatomic/appinfra-next/pkg/api"
+	_ "github.com/projectatomic/appinfra-next/pkg/api/v1"
+	_ "github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
 )
 
 var (
@@ -61,7 +61,7 @@ func main() {
 	if knownVersion == "api" {
 		knownVersion = api.Scheme.Raw().InternalVersion
 	}
-	generator := pkg_runtime.NewDeepCopyGenerator(api.Scheme.Raw(), util.NewStringSet("github.com/openshift/origin"))
+	generator := pkg_runtime.NewDeepCopyGenerator(api.Scheme.Raw(), util.NewStringSet("github.com/projectatomic/appinfra-next"))
 	apiShort := generator.AddImport("github.com/GoogleCloudPlatform/kubernetes/pkg/api")
 	generator.ReplaceType("github.com/GoogleCloudPlatform/kubernetes/pkg/util", "empty", struct{}{})
 

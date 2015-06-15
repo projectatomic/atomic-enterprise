@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/openshift/origin/pkg/sdn/api"
-	"github.com/openshift/origin/pkg/sdn/registry/clusternetwork"
+	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	"github.com/projectatomic/appinfra-next/pkg/sdn/registry/clusternetwork"
 )
 
 // rest implements a RESTStorage for sdn against etcd

@@ -8,9 +8,9 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	osclient "github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/oauth/osintypes"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/osintypes"
 )
 
 func NewCmdValidateToken(f *clientcmd.Factory) *cobra.Command {

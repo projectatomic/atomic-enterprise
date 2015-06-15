@@ -3,8 +3,8 @@ package test
 import (
 	"fmt"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
-	"github.com/openshift/origin/pkg/route/controller/allocation"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/appinfra-next/pkg/route/controller/allocation"
 )
 
 type TestAllocationPlugin struct {

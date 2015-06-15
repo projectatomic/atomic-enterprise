@@ -11,15 +11,15 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	"github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/deploy/strategy"
-	"github.com/openshift/origin/pkg/deploy/strategy/recreate"
-	"github.com/openshift/origin/pkg/deploy/strategy/rolling"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
-	"github.com/openshift/origin/pkg/version"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy/recreate"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy/rolling"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	"github.com/projectatomic/appinfra-next/pkg/version"
 )
 
 const (

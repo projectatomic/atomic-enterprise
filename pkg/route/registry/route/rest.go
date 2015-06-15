@@ -11,9 +11,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/openshift/origin/pkg/route"
-	"github.com/openshift/origin/pkg/route/api"
-	"github.com/openshift/origin/pkg/route/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/route"
+	"github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/appinfra-next/pkg/route/api/validation"
 )
 
 // HostGeneratedAnnotationKey is the key for an annotation set to "true" if the route's host was generated

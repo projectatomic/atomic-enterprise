@@ -7,7 +7,7 @@ import (
 	"github.com/golang/glog"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	authapi "github.com/openshift/origin/pkg/auth/api"
+	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
 )
 
 type Config struct {

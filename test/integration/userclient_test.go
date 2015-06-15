@@ -11,17 +11,17 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/types"
 
-	authapi "github.com/openshift/origin/pkg/auth/api"
-	"github.com/openshift/origin/pkg/auth/userregistry/identitymapper"
-	"github.com/openshift/origin/pkg/cmd/server/etcd"
-	"github.com/openshift/origin/pkg/cmd/server/origin"
-	"github.com/openshift/origin/pkg/user/api"
-	identityregistry "github.com/openshift/origin/pkg/user/registry/identity"
-	identityetcd "github.com/openshift/origin/pkg/user/registry/identity/etcd"
-	userregistry "github.com/openshift/origin/pkg/user/registry/user"
-	useretcd "github.com/openshift/origin/pkg/user/registry/user/etcd"
-	"github.com/openshift/origin/pkg/user/registry/useridentitymapping"
-	testutil "github.com/openshift/origin/test/util"
+	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/appinfra-next/pkg/auth/userregistry/identitymapper"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	identityregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
+	identityetcd "github.com/projectatomic/appinfra-next/pkg/user/registry/identity/etcd"
+	userregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/user"
+	useretcd "github.com/projectatomic/appinfra-next/pkg/user/registry/user/etcd"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/useridentitymapping"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func init() {

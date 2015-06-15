@@ -11,10 +11,10 @@ import (
 	"github.com/elazarl/go-bindata-assetfs"
 	"github.com/emicklei/go-restful"
 	"github.com/golang/glog"
-	"github.com/openshift/origin/pkg/assets"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/version"
+	"github.com/projectatomic/appinfra-next/pkg/assets"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/version"
 )
 
 // InstallAPI adds handlers for serving static assets into the provided mux,

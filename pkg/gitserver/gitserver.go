@@ -19,7 +19,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/healthz"
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/openshift/origin/pkg/generate/git"
+	"github.com/projectatomic/appinfra-next/pkg/generate/git"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/openshift/origin/pkg/oauth/api"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
 )
 
 // Registry is an interface for things that know how to store AuthorizeToken objects.

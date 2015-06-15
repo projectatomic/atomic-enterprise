@@ -9,11 +9,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/RangelReale/osin"
 
-	"github.com/openshift/origin/pkg/oauth/api"
-	"github.com/openshift/origin/pkg/oauth/registry/oauthaccesstoken"
-	"github.com/openshift/origin/pkg/oauth/registry/oauthauthorizetoken"
-	"github.com/openshift/origin/pkg/oauth/registry/oauthclient"
-	"github.com/openshift/origin/pkg/oauth/scope"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthaccesstoken"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthauthorizetoken"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthclient"
+	"github.com/projectatomic/appinfra-next/pkg/oauth/scope"
 )
 
 type UserConversion interface {

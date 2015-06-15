@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/resource"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/cache"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
-	namer "github.com/openshift/origin/pkg/util/namer"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	namer "github.com/projectatomic/appinfra-next/pkg/util/namer"
 )
 
 func TestHookExecutor_executeExecNewCreatePodFailure(t *testing.T) {

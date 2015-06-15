@@ -8,8 +8,8 @@ import (
 	"net/http"
 
 	"github.com/golang/glog"
-	"github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/build/webhook"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/webhook"
 )
 
 // WebHook used for processing github webhook requests.

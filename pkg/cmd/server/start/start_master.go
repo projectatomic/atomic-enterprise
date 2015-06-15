@@ -19,15 +19,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubelet"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/cmd/server/admin"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
-	configapilatest "github.com/openshift/origin/pkg/cmd/server/api/latest"
-	"github.com/openshift/origin/pkg/cmd/server/api/validation"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	"github.com/openshift/origin/pkg/cmd/server/etcd"
-	"github.com/openshift/origin/pkg/cmd/server/kubernetes"
-	"github.com/openshift/origin/pkg/cmd/server/origin"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	configapilatest "github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/kubernetes"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
 )
 
 type MasterOptions struct {
@@ -308,7 +308,7 @@ func StartMaster(openshiftMasterConfig *configapi.MasterConfig) error {
 	}
 
 	// Allow privileged containers
-	// TODO: make this configurable and not the default https://github.com/openshift/origin/issues/662
+	// TODO: make this configurable and not the default https://github.com/projectatomic/appinfra-next/issues/662
 	capabilities.Initialize(capabilities.Capabilities{
 		AllowPrivileged:    true,
 		HostNetworkSources: []string{kubelet.ApiserverSource, kubelet.FileSource},

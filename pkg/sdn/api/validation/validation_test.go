@@ -5,7 +5,7 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	"github.com/openshift/origin/pkg/sdn/api"
+	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
 )
 
 // TestValidateClusterNetwork ensures not specifying a required field results in error and a fully specified

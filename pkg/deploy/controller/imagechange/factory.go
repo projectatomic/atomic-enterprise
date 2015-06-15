@@ -11,11 +11,11 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	osclient "github.com/openshift/origin/pkg/client"
-	controller "github.com/openshift/origin/pkg/controller"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	controller "github.com/projectatomic/appinfra-next/pkg/controller"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // ImageChangeControllerFactory can create an ImageChangeController which

@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/openshift/origin/pkg/template/api"
-	"github.com/openshift/origin/pkg/template/registry"
+	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/appinfra-next/pkg/template/registry"
 )
 
 const prefix = "/templates"

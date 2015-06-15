@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/openshift/origin/pkg/generate/dockerfile"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // ImageRefGenerator is an interface for generating ImageRefs

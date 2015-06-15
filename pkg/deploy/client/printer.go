@@ -7,7 +7,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	"github.com/openshift/origin/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/api"
 )
 
 var deploymentColumns = []string{"Name", "Status", "Cause"}

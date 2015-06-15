@@ -20,7 +20,7 @@ import (
 	_ "github.com/docker/distribution/registry/storage/driver/s3"
 	"github.com/docker/distribution/version"
 	gorillahandlers "github.com/gorilla/handlers"
-	"github.com/openshift/origin/pkg/dockerregistry/server"
+	"github.com/projectatomic/appinfra-next/pkg/dockerregistry/server"
 )
 
 // Execute runs the Docker registry.

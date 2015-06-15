@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/rest"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/sdn/api"
+	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
 )
 
 // Registry is an interface implemented by things that know how to store sdn's ClusterNetwork objects.

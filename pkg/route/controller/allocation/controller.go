@@ -3,8 +3,8 @@ package allocation
 import (
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/route"
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	"github.com/projectatomic/appinfra-next/pkg/route"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // RouteAllocationController abstracts the details of how routes are

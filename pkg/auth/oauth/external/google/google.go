@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/openshift/origin/pkg/auth/oauth/external"
-	"github.com/openshift/origin/pkg/auth/oauth/external/openid"
+	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/external"
+	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/external/openid"
 )
 
 const (

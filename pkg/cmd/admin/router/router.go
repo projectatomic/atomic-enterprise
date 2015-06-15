@@ -19,11 +19,11 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/cmd/util/variable"
-	configcmd "github.com/openshift/origin/pkg/config/cmd"
-	dapi "github.com/openshift/origin/pkg/deploy/api"
-	"github.com/openshift/origin/pkg/generate/app"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
+	configcmd "github.com/projectatomic/appinfra-next/pkg/config/cmd"
+	dapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/appinfra-next/pkg/generate/app"
 )
 
 const (

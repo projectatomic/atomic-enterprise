@@ -3,7 +3,7 @@ package cache
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
 )
 
 // PolicyToSelectableFields returns fields from a Policy object that support querying

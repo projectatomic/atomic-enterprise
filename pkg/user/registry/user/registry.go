@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 // Registry is an interface implemented by things that know how to store User objects.

@@ -7,11 +7,11 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	api "github.com/openshift/origin/pkg/api/latest"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	scalertest "github.com/openshift/origin/pkg/deploy/scaler/test"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	api "github.com/projectatomic/appinfra-next/pkg/api/latest"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	scalertest "github.com/projectatomic/appinfra-next/pkg/deploy/scaler/test"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 func TestRecreate_initialDeployment(t *testing.T) {

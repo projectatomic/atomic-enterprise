@@ -12,8 +12,8 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	osclient "github.com/openshift/origin/pkg/client"
-	controller "github.com/openshift/origin/pkg/controller"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	controller "github.com/projectatomic/appinfra-next/pkg/controller"
 )
 
 type NamespaceControllerFactory struct {

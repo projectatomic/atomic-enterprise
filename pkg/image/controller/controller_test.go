@@ -9,9 +9,9 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	client "github.com/openshift/origin/pkg/client/testclient"
-	"github.com/openshift/origin/pkg/dockerregistry"
-	"github.com/openshift/origin/pkg/image/api"
+	client "github.com/projectatomic/appinfra-next/pkg/client/testclient"
+	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
+	"github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 type expectedImage struct {

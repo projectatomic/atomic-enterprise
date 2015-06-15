@@ -1,7 +1,7 @@
 package testclient
 
 import (
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
 )
 
 // FakeResourceAccessReviews implements ResourceAccessReviewInterface. Meant to be embedded into a struct to get a default

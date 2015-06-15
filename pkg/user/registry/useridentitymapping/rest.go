@@ -10,9 +10,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/user/api"
-	"github.com/openshift/origin/pkg/user/registry/identity"
-	"github.com/openshift/origin/pkg/user/registry/user"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
+	"github.com/projectatomic/appinfra-next/pkg/user/registry/user"
 )
 
 // REST implements the RESTStorage interface in terms of an image registry and

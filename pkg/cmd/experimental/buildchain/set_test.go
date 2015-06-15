@@ -3,8 +3,8 @@ package buildchain
 import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // dockerImageReferencesList contains DockerImageReferences instead

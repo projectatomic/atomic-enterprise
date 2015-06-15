@@ -3,7 +3,7 @@ package client
 import (
 	"fmt"
 
-	"github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // ImageStreamImagesNamespacer has methods to work with ImageStreamImage resources in a namespace

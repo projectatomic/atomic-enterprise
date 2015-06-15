@@ -3,8 +3,8 @@ package builder
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/build/builder/cmd"
-	"github.com/openshift/origin/pkg/version"
+	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd"
+	"github.com/projectatomic/appinfra-next/pkg/version"
 )
 
 const (

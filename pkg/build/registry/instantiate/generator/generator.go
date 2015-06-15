@@ -5,9 +5,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/rest"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/build/generator"
-	"github.com/openshift/origin/pkg/build/registry/instantiate"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/generator"
+	"github.com/projectatomic/appinfra-next/pkg/build/registry/instantiate"
 )
 
 // NewStorage creates a new storage object for build generation

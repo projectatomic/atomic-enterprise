@@ -8,8 +8,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 	"github.com/golang/glog"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
-	"github.com/openshift/origin/pkg/router"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/appinfra-next/pkg/router"
 )
 
 // RouterController abstracts the details of watching the Route and Endpoints

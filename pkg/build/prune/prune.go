@@ -3,7 +3,7 @@ package prune
 import (
 	"time"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 // PruneFunc is a function that is invoked for each item during Prune

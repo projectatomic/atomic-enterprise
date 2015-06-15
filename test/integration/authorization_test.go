@@ -13,12 +13,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	testutil "github.com/openshift/origin/test/util"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
-	policy "github.com/openshift/origin/pkg/cmd/admin/policy"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	policy "github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
 )
 
 func TestAuthorizationRestrictedAccessForProjectAdmins(t *testing.T) {
