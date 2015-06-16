@@ -16,7 +16,7 @@
 %global ldflags -X github.com/projectatomic/appinfra-next/pkg/version.majorFromGit 0 -X github.com/projectatomic/appinfra-next/pkg/version.minorFromGit 5+ -X github.com/projectatomic/appinfra-next/pkg/version.versionFromGit v0.5.2.2-22-g84b1674-dirty -X github.com/projectatomic/appinfra-next/pkg/version.commitFromGit 84b1674 -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitCommit 496be63 -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitVersion v0.17.1-804-g496be63
 }
 
-Name:           openshift
+Name:           atomic-enterprise
 # Version is not kept up to date and is intended to be set by tito custom
 # builders provided in the rel-eng directory of this project
 Version:        0.5.2.2
@@ -25,7 +25,7 @@ Summary:        Open Source Platform as a Service by Red Hat
 License:        ASL 2.0
 URL:            https://%{import_path}
 ExclusiveArch:  x86_64
-Source0:        openshift-git-0.097952c.tar.gz
+Source0:        atomic-enterprise-git-0.097952c.tar.gz
 
 BuildRequires:  systemd
 BuildRequires:  golang >= 1.4
@@ -48,7 +48,7 @@ Requires(postun): systemd
 Summary:        OpenShift AE Node
 Requires:       %{name} = %{version}-%{release}
 Requires:       docker-io >= 1.6.2
-Requires:       tuned-profiles-openshift-node
+Requires:       tuned-profiles-atomic-enterprise-node
 Requires:       util-linux
 Requires:       socat
 Requires(post): systemd
@@ -58,12 +58,12 @@ Requires(postun): systemd
 %description node
 %{summary}
 
-%package -n tuned-profiles-openshift-node
+%package -n tuned-profiles-atomic-enterprise-node
 Summary:        Tuned profiles for OpenShift AE Node hosts
 Requires:       tuned >= 2.3
 Requires:       %{name} = %{version}-%{release}
 
-%description -n tuned-profiles-openshift-node
+%description -n tuned-profiles-atomic-enterprise-node
 %{summary}
 
 %package clients
@@ -99,7 +99,7 @@ Requires:         ethtool
 %{summary}
 
 %prep
-%setup -q -n openshift-git-0.097952c
+%setup -q -n atomic-enterprise-git-0.097952c
 
 %build
 
@@ -238,13 +238,13 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %{_prefix}/lib/systemd/system/openshift-node.service.d/openshift-sdn-ovs.conf
 %{_prefix}/lib/systemd/system/docker.service.d/docker-sdn-ovs.conf
 
-%files -n tuned-profiles-openshift-node
+%files -n tuned-profiles-atomic-enterprise-node
 %defattr(-,root,root,-)
 %{_prefix}/lib/tuned/openshift-node-host
 %{_prefix}/lib/tuned/openshift-node-guest
 %{_mandir}/man7/tuned-profiles-openshift-node.7*
 
-%post -n tuned-profiles-openshift-node
+%post -n tuned-profiles-atomic-enterprise-node
 recommended=`/usr/sbin/tuned-adm recommend`
 if [[ "${recommended}" =~ guest ]] ; then
   /usr/sbin/tuned-adm profile openshift-node-guest > /dev/null 2>&1
@@ -252,7 +252,7 @@ else
   /usr/sbin/tuned-adm profile openshift-node-host > /dev/null 2>&1
 fi
 
-%preun -n tuned-profiles-openshift-node
+%preun -n tuned-profiles-atomic-enterprise-node
 # reset the tuned profile to the recommended profile
 # $1 = 0 when we're being removed > 0 during upgrades
 if [ "$1" = 0 ]; then
