@@ -350,9 +350,9 @@ echo "secrets: ok"
 
 
 oc get pods --match-server-version
-oc create -f examples/hello-openshift/hello-pod.json
-oc describe pod hello-openshift
-oc delete pods hello-openshift
+oc create -f examples/hello-atomic/hello-pod.json
+oc describe pod hello-atomic
+oc delete pods hello-atomic
 echo "pods: ok"
 
 oc get services
@@ -588,14 +588,14 @@ oc delete bc/ruby-sample-build-invalidtag
 # Test admin manage-node operations
 [ "$(openshift admin manage-node --help 2>&1 | grep 'Manage node operations')" ]
 [ "$(oadm manage-node --selector='' --schedulable=true | grep --text 'Ready' | grep -v 'Sched')" ]
-oc create -f examples/hello-openshift/hello-pod.json
-#[ "$(oadm manage-node --list-pods | grep 'hello-openshift' | grep -E '(unassigned|assigned)')" ]
-#[ "$(oadm manage-node --evacuate --dry-run | grep 'hello-openshift')" ]
+oc create -f examples/hello-atomic/hello-pod.json
+#[ "$(oadm manage-node --list-pods | grep 'hello-atomic' | grep -E '(unassigned|assigned)')" ]
+#[ "$(oadm manage-node --evacuate --dry-run | grep 'hello-atomic')" ]
 #[ "$(oadm manage-node --schedulable=false | grep 'SchedulingDisabled')" ]
 #[ "$(oadm manage-node --evacuate 2>&1 | grep 'Unable to evacuate')" ]
-#[ "$(oadm manage-node --evacuate --force | grep 'hello-openshift')" ]
-#[ ! "$(oadm manage-node --list-pods | grep 'hello-openshift')" ]
-oc delete pods hello-openshift
+#[ "$(oadm manage-node --evacuate --force | grep 'hello-atomic')" ]
+#[ ! "$(oadm manage-node --list-pods | grep 'hello-atomic')" ]
+oc delete pods hello-atomic
 echo "manage-node: ok"
 
 oadm policy add-role-to-group cluster-admin system:unauthenticated

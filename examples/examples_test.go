@@ -60,7 +60,7 @@ func TestExampleObjectSchemas(t *testing.T) {
 	// TODO: make this configurable and not the default https://github.com/openshift/origin/issues/662
 	capabilities.Setup(true, nil)
 	cases := map[string]map[string]runtime.Object{
-		"../examples/hello-openshift": {
+		"../examples/hello-atomic": {
 			"hello-pod":     &kapi.Pod{},
 			"hello-project": &projectapi.Project{},
 		},

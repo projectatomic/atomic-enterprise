@@ -2,17 +2,17 @@
   "kind": "Pod",
   "apiVersion": "v1beta3",
   "metadata": {
-    "name": "hello-openshift",
+    "name": "hello-atomic",
     "creationTimestamp": null,
     "labels": {
-      "name": "hello-openshift"
+      "name": "hello-atomic"
     }
   },
   "spec": {
     "containers": [
       {
-        "name": "hello-openshift",
-        "image": "openshift/hello-openshift",
+        "name": "hello-atomic",
+        "image": "atomic-enterprise/hello-atomic",
         "ports": [
           {
             "hostPort": 6061,

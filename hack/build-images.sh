@@ -39,7 +39,7 @@ cp -f "${imagedir}/openshift" images/ipfailover/keepalived/bin
 
 # Copy image binaries to the appropriate locations.
 cp -f "${imagedir}/pod" images/pod/bin
-cp -f "${imagedir}/hello-openshift" examples/hello-openshift/bin
+cp -f "${imagedir}/hello-atomic" examples/hello-atomic/bin
 cp -f "${imagedir}/dockerregistry" images/dockerregistry/bin
 
 # builds an image and tags it two ways - with latest, and with the release tag
@@ -62,7 +62,7 @@ image openshift/origin-docker-builder        images/builder/docker/docker-builde
 image openshift/origin-gitserver             examples/gitserver
 image openshift/origin-sti-builder           images/builder/docker/sti-builder
 # extra images (not part of infrastructure)
-image openshift/hello-openshift              examples/hello-openshift
+image openshift/hello-atomic              examples/hello-atomic
 # unpublished images
 image openshift/origin-custom-docker-builder images/builder/docker/custom-docker-builder
 image openshift/sti-image-builder            images/builder/docker/sti-image-builder

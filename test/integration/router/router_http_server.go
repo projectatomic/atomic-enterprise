@@ -58,7 +58,7 @@ type TestHttpService struct {
 
 const (
 	// HelloMaster is the expected response to a call on the MasterHttpAddr.
-	HelloMaster = "Hello OpenShift!"
+	HelloMaster = "Hello Atomic!"
 	// HelloPod is the expected response to a call to PodHttpAddr (usually called through a route)
 	HelloPod = "Hello Pod!"
 	// HelloPod is the expected response to a call to PodHttpAddr (usually called through a route)

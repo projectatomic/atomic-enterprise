@@ -17,7 +17,7 @@
         "containers": [
           {
             "name": "lonely-pod",
-            "image": "openshift/hello-openshift",
+            "image": "atomic-enterprise/hello-atomic",
             "ports": [
               {
                 "containerPort": 8080,
