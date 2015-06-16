@@ -88,8 +88,8 @@ To test your route independent of DNS you can send a host header to the router. 
     [vagrant@openshiftdev origin]$ oc create -f ~/pod.json
     [vagrant@openshiftdev origin]$ oc create -f ~/service.json
     [vagrant@openshiftdev origin]$ oc create -f ~/route.json
-    [vagrant@openshiftdev origin]$ curl -H "Host:hello-openshift.v3.rhcloud.com" <vm ip>
-    Hello OpenShift!
+    [vagrant@openshiftdev origin]$ curl -H "Host:hello-atomic.v3.rhcloud.com" <vm ip>
+    Hello Atomic!
 
     $ ..... vagrant up with cluster instructions .....
     $ ..... create config files listed below in ~ ........
@@ -98,8 +98,8 @@ To test your route independent of DNS you can send a host header to the router. 
     [vagrant@openshift-master ~]$ oc create -f ~/route.json
     # take note of what minion number the router is deployed on
     [vagrant@openshift-master ~]$ oc get pods
-    [vagrant@openshift-master ~]$ curl -H "Host:hello-openshift.v3.rhcloud.com" openshift-minion-<1,2>
-    Hello OpenShift!
+    [vagrant@openshift-master ~]$ curl -H "Host:hello-atomic.v3.rhcloud.com" openshift-minion-<1,2>
+    Hello Atomic!
 
 
 
@@ -114,14 +114,14 @@ pod.json
       "metadata": {
         "name": "hello-pod",
         "labels": {
-          "name": "hello-openshift"
+          "name": "hello-atomic"
         }
       },
       "spec": {
         "containers": [
           {
-            "name": "hello-openshift",
-            "image": "openshift/hello-openshift",
+            "name": "hello-atomic",
+            "image": "atomic-enterprise/hello-atomic",
             "ports": [
               {
                 "containerPort": 8080,
@@ -149,7 +149,7 @@ service.json
       "kind": "Service",
       "apiVersion": "v1beta3",
       "metadata": {
-        "name": "hello-openshift"
+        "name": "hello-atomic"
       },
       "spec": {
         "ports": [
@@ -161,7 +161,7 @@ service.json
           }
         ],
         "selector": {
-          "name": "hello-openshift"
+          "name": "hello-atomic"
         },
         "portalIP": "",
         "type": "ClusterIP",
@@ -178,10 +178,10 @@ route.json
         "name": "hello-route"
       },
       "spec": {
-        "host": "hello-openshift.v3.rhcloud.com",
+        "host": "hello-atomic.v3.rhcloud.com",
         "to": {
           "kind": "Service",
-          "name": "hello-openshift"
+          "name": "hello-atomic"
         }
       }
     }
@@ -262,9 +262,9 @@ same lookup.  Doing multiple pings show the resolution swapping between IP addre
 #### Testing the entry
 
 
-    [vagrant@openshift-master ~]$ dig hello-openshift.shard1.v3.rhcloud.com
+    [vagrant@openshift-master ~]$ dig hello-atomic.shard1.v3.rhcloud.com
 
-    ; <<>> DiG 9.9.4-P2-RedHat-9.9.4-16.P2.fc20 <<>> hello-openshift.shard1.v3.rhcloud.com
+    ; <<>> DiG 9.9.4-P2-RedHat-9.9.4-16.P2.fc20 <<>> hello-atomic.shard1.v3.rhcloud.com
     ;; global options: +cmd
     ;; Got answer:
     ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36389
@@ -274,11 +274,11 @@ same lookup.  Doing multiple pings show the resolution swapping between IP addre
     ;; OPT PSEUDOSECTION:
     ; EDNS: version: 0, flags:; udp: 4096
     ;; QUESTION SECTION:
-    ;hello-openshift.shard1.v3.rhcloud.com. IN A
+    ;hello-atomic.shard1.v3.rhcloud.com. IN A
 
     ;; ANSWER SECTION:
-    hello-openshift.shard1.v3.rhcloud.com. 300 IN A	10.245.2.2
-    hello-openshift.shard1.v3.rhcloud.com. 300 IN A	10.245.2.3
+    hello-atomic.shard1.v3.rhcloud.com. 300 IN A	10.245.2.2
+    hello-atomic.shard1.v3.rhcloud.com. 300 IN A	10.245.2.3
 
     ;; AUTHORITY SECTION:
     v3.rhcloud.com.		300	IN	NS	ns1.v3.rhcloud.com.
@@ -291,14 +291,14 @@ same lookup.  Doing multiple pings show the resolution swapping between IP addre
     ;; WHEN: Wed Nov 19 19:01:32 UTC 2014
     ;; MSG SIZE  rcvd: 132
 
-    [vagrant@openshift-master ~]$ ping hello-openshift.shard1.v3.rhcloud.com
-    PING hello-openshift.shard1.v3.rhcloud.com (10.245.2.3) 56(84) bytes of data.
+    [vagrant@openshift-master ~]$ ping hello-atomic.shard1.v3.rhcloud.com
+    PING hello-atomic.shard1.v3.rhcloud.com (10.245.2.3) 56(84) bytes of data.
     ...
     ^C
-    --- hello-openshift.shard1.v3.rhcloud.com ping statistics ---
+    --- hello-atomic.shard1.v3.rhcloud.com ping statistics ---
     2 packets transmitted, 2 received, 0% packet loss, time 1000ms
     rtt min/avg/max/mdev = 0.272/0.573/0.874/0.301 ms
-    [vagrant@openshift-master ~]$ ping hello-openshift.shard1.v3.rhcloud.com
+    [vagrant@openshift-master ~]$ ping hello-atomic.shard1.v3.rhcloud.com
     ...
 
 

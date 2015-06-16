@@ -7,7 +7,7 @@
       "kind": "Service",
       "apiVersion": "v1beta3",
       "metadata": {
-        "name": "hello-openshift-service",
+        "name": "hello-atomic-service",
         "creationTimestamp": null
       },
       "spec": {
@@ -20,7 +20,7 @@
           }
         ],
         "selector": {
-          "name": "hello-openshift-label"
+          "name": "hello-atomic-label"
         },
         "portalIP": "",
         "type": "ClusterIP",
@@ -34,29 +34,29 @@
       "kind": "ReplicationController",
       "apiVersion": "v1beta3",
       "metadata": {
-        "name": "hello-openshift",
+        "name": "hello-atomic",
         "creationTimestamp": null,
         "labels": {
-          "name": "hello-openshift-label"
+          "name": "hello-atomic-label"
         }
       },
       "spec": {
         "replicas": 1,
         "selector": {
-          "name": "hello-openshift-label"
+          "name": "hello-atomic-label"
         },
         "template": {
           "metadata": {
             "creationTimestamp": null,
             "labels": {
-              "name": "hello-openshift-label"
+              "name": "hello-atomic-label"
             }
           },
           "spec": {
             "containers": [
               {
-                "name": "hello-openshift-container",
-                "image": "openshift/hello-openshift",
+                "name": "hello-atomic-container",
+                "image": "atomic-enterprise/hello-atomic",
                 "ports": [
                   {
                     "hostPort": 6061,
@@ -87,14 +87,14 @@
       "kind": "Route",
       "apiVersion": "v1beta3",
       "metadata": {
-        "name": "hello-openshift-route",
+        "name": "hello-atomic-route",
         "creationTimestamp": null
       },
       "spec": {
-        "host": "hello.openshift.test",
+        "host": "hello.atomic.test",
         "to": {
           "kind": "Service",
-          "name": "hello-openshift-service"
+          "name": "hello-atomic-service"
         }
       },
       "status": {}
