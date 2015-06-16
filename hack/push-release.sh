@@ -47,7 +47,7 @@ images=(
   openshift/origin-keepalived-ipfailover
   openshift/origin-sti-builder
   openshift/origin-haproxy-router
-  openshift/hello-openshift
+  atomic-enterprise/hello-atomic
 )
 
 PUSH_OPTS=""

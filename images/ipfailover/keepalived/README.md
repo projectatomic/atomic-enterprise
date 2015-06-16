@@ -72,23 +72,23 @@ Pre-requisites/Prep Time
            --description="Router Failover" --admin=test-admin
         #  Create a test app using the template.
         cd /vagrant/hack/exp/router-failover
-        oc create -n test -f conf/hello-openshift-template.json
+        oc create -n test -f conf/hello-atomic-template.json
 
         echo "Wait for the app to startup and check app is reachable."
         for ip in 10.245.2.3 10.245.2.4; do
-          curl -H "Host: hello.openshift.test" -o /dev/null -s -m 5  \
+          curl -H "Host: hello.atomic.test" -o /dev/null -s -m 5  \
                -w "%{http_code}\n" http://$ip/
         done
         echo "Ensure HTTP status code is 200 for both http://10.245.2.{3,4}"
         #  && echo "YAY"
 
 
-6. Ensure you can get to the hello openshift app from inside/outside the vm.
+6. Ensure you can get to the hello atomic app from inside/outside the vm.
 
         $ #  minion-{1,2} use IPs 10.245.2.{3,4} in the dev environment.
         for ip in 10.245.2.3 10.245.2.4; do
-          echo "$ip: $(curl -s --resolve hello.openshift.test:80:$ip  \
-                            -m 5 http://hello.openshift.test)"
+          echo "$ip: $(curl -s --resolve hello.atomic.test:80:$ip  \
+                            -m 5 http://hello.atomic.test)"
         done
 
 
@@ -158,12 +158,12 @@ HA Routing Failover Setup
         done
 
 
-6. Check that you can get to the hello openshift app using the VIPs from
+6. Check that you can get to the hello atomic app using the VIPs from
    inside/outside the vms.
 
         for ip in 10.245.2.90 10.245.2.111 10.245.2.222 10.245.2.223; do
-          echo "$ip: $(curl -s --resolve hello.openshift.test:80:$ip  \
-                            -m 5 http://hello.openshift.test)"
+          echo "$ip: $(curl -s --resolve hello.atomic.test:80:$ip  \
+                            -m 5 http://hello.atomic.test)"
         done
         #  && echo "YAY"
 
@@ -175,9 +175,9 @@ terminal on your host system. This just busy loops sending requests to a
 specific VIP.
 
         tko="--connect-timeout 2"  #  Maybe use -m 2 instead.
-        resolver="--resolve hello.openshift.test:80:10.245.2.111"
+        resolver="--resolve hello.atomic.test:80:10.245.2.111"
         while true; do
-          echo "$(date): $(curl -s $tko $resolver hello.openshift.test)"
+          echo "$(date): $(curl -s $tko $resolver hello.atomic.test)"
         done | tee /tmp/foo
 
 
@@ -223,12 +223,12 @@ the minions.
         $ vagrant halt minion-$((RANDOM%2 + 1))
 
 
-2. Check that you can still get to the hello openshift app using the VIPs
+2. Check that you can still get to the hello atomic app using the VIPs
    from inside/outside the vms.
 
         for ip in 10.245.2.90 10.245.2.111 10.245.2.222 10.245.2.223; do
-          echo "$ip: $(curl -s --resolve hello.openshift.test:80:$ip  \
-                            -m 5 http://hello.openshift.test)"
+          echo "$ip: $(curl -s --resolve hello.atomic.test:80:$ip  \
+                            -m 5 http://hello.atomic.test)"
         done
         $ #  && echo "YAY"
 
@@ -246,12 +246,12 @@ the minions.
           vagrant ssh $m -c "ip a ls dev enp0s8"
         done
 
-6. Check that you can still get to the hello openshift app using the VIPs
+6. Check that you can still get to the hello atomic app using the VIPs
    from inside/outside the vms.
 
         for ip in 10.245.2.90 10.245.2.111 10.245.2.222 10.245.2.223; do
-          echo "$ip: $(curl -s --resolve hello.openshift.test:80:$ip  \
-                            -m 5 http://hello.openshift.test)"
+          echo "$ip: $(curl -s --resolve hello.atomic.test:80:$ip  \
+                            -m 5 http://hello.atomic.test)"
         done
         $ #  && echo "YAY"
 
@@ -273,12 +273,12 @@ HA Soft Failover Test
                                grep openshift/origin-haproxy-router |  \
                                awk '{print $1}')
 
-2. Check that you can still get to the hello openshift app using the VIPs
+2. Check that you can still get to the hello atomic app using the VIPs
    from inside/outside the vms.
 
         for ip in 10.245.2.90 10.245.2.111 10.245.2.222 10.245.2.223; do
-          echo "$ip: $(curl -s --resolve hello.openshift.test:80:$ip  \
-                            -m 5 http://hello.openshift.test)"
+          echo "$ip: $(curl -s --resolve hello.atomic.test:80:$ip  \
+                            -m 5 http://hello.atomic.test)"
         done
         $ #  && echo "YAY"
         $ #  Wait for the router to come back up and run above check again.

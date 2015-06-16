@@ -32,7 +32,7 @@ readonly OS_IMAGE_COMPILE_TARGETS=(
   cmd/dockerregistry
 )
 readonly OS_SCRATCH_IMAGE_COMPILE_TARGETS=(
-  examples/hello-openshift
+  examples/hello-atomic
 )
 readonly OS_IMAGE_COMPILE_BINARIES=("${OS_SCRATCH_IMAGE_COMPILE_TARGETS[@]##*/}" "${OS_IMAGE_COMPILE_TARGETS[@]##*/}")
 

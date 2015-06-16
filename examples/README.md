@@ -4,7 +4,7 @@ OpenShift Examples
 This directory contains examples of using OpenShift and explaining the new concepts
 available on top of Kubernetes and Docker.
 
-* [Hello OpenShift](./hello-openshift) is a simple Hello World style application that can be used to start a simple pod
+* [Hello Atomic](./hello-atomic) is a simple Hello World style application that can be used to start a simple pod
 * [OpenShift Sample](./sample-app) is an end-to-end application demonstrating the full
   OpenShift v3 concept chain - images, builds, deployments, and templates.
 * [Jenkins Example](./jenkins) demonstrates how to enhance the [sample-app](./sample-app) by deploying a Jenkins pod on OpenShift and thereby enable continuous integration for incoming changes to the codebase and trigger deployments when integration succeeds.

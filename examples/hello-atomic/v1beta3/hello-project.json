@@ -1,0 +1,17 @@
+{
+  "kind": "Project",
+  "apiVersion": "v1beta3",
+  "metadata": {
+    "name": "hello-atomic-project",
+    "creationTimestamp": null,
+    "labels": {
+      "name": "hello-atomic-project"
+    },
+    "annotations": {
+      "openshift.io/description": "This is an example project to demonstrate Atomic Enterprise",
+      "openshift.io/display-name": "Hello Atomic"
+    }
+  },
+  "spec": {},
+  "status": {}
+}
