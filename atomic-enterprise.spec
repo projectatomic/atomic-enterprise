@@ -264,7 +264,7 @@ if [ "$1" = 0 ]; then
 fi
 
 %files clients
-%{_datadir}/opensift/linux/oc
+%{_datadir}/openshift/linux/oc
 %{_datadir}/openshift/macosx/oc
 %{_datadir}/openshift/windows/oc.exe
 
