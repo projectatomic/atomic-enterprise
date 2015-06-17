@@ -7,11 +7,11 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	scalertest "github.com/openshift/origin/pkg/deploy/scaler/test"
-	"github.com/openshift/origin/pkg/deploy/strategy"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	scalertest "github.com/projectatomic/appinfra-next/pkg/deploy/scaler/test"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 func TestDeployer_getDeploymentFail(t *testing.T) {

@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/client"
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 // TemplateResolver resolves stored template arguments into template objects

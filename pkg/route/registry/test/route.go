@@ -8,7 +8,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // RouteRegistry provides an in-memory implementation of

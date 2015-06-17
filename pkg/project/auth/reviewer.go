@@ -1,8 +1,8 @@
 package auth
 
 import (
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/client"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
 )
 
 // Review is a list of users and groups that can access a resource

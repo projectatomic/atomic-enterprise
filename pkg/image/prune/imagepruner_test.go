@@ -10,10 +10,10 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/client/testclient"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func imageList(images ...imageapi.Image) imageapi.ImageList {

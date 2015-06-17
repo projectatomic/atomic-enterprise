@@ -21,9 +21,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 	watchjson "github.com/GoogleCloudPlatform/kubernetes/pkg/watch/json"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
-	tr "github.com/openshift/origin/test/integration/router"
-	testutil "github.com/openshift/origin/test/util"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	tr "github.com/projectatomic/appinfra-next/test/integration/router"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 const (

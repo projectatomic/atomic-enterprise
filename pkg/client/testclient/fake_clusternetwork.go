@@ -1,7 +1,7 @@
 package testclient
 
 import (
-	sdnapi "github.com/openshift/origin/pkg/sdn/api"
+	sdnapi "github.com/projectatomic/appinfra-next/pkg/sdn/api"
 )
 
 // FakeClusterNetwork implements ClusterNetworkInterface. Meant to be embedded into a struct to get a default

@@ -8,9 +8,9 @@ import (
 
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 
-	osclient "github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	userapi "github.com/openshift/origin/pkg/user/api"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 const WhoAmIRecommendedCommandName = "whoami"

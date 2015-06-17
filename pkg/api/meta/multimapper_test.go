@@ -3,7 +3,7 @@ package meta_test
 import (
 	"testing"
 
-	"github.com/openshift/origin/pkg/api/latest"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
 )
 
 func TestMultiRESTMapperVersionAndKindForResource(t *testing.T) {

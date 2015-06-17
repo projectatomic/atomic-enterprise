@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/sdn/api"
-	"github.com/openshift/origin/pkg/sdn/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	"github.com/projectatomic/appinfra-next/pkg/sdn/api/validation"
 )
 
 // sdnStrategy implements behavior for ClusterNetworks

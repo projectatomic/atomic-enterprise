@@ -9,10 +9,10 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/api/latest"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func testImageInfo() *imageapi.DockerImage {
@@ -55,7 +55,7 @@ func TestWithType(t *testing.T) {
 }
 
 func TestBuildConfigNoOutput(t *testing.T) {
-	url, err := url.Parse("https://github.com/openshift/origin.git")
+	url, err := url.Parse("https://github.com/projectatomic/appinfra-next.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -65,7 +65,7 @@ func TestBuildConfigNoOutput(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if config.Name != "origin" {
+	if config.Name != "appinfra-next" {
 		t.Errorf("unexpected name: %#v", config)
 	}
 	if !reflect.DeepEqual(config.Parameters.Output, buildapi.BuildOutput{}) {
@@ -74,20 +74,20 @@ func TestBuildConfigNoOutput(t *testing.T) {
 }
 
 func TestBuildConfigOutput(t *testing.T) {
-	url, err := url.Parse("https://github.com/openshift/origin.git")
+	url, err := url.Parse("https://github.com/projectatomic/appinfra-next.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
 	output := &ImageRef{
 		DockerImageReference: imageapi.DockerImageReference{
 			Registry:  "myregistry",
-			Namespace: "openshift",
-			Name:      "origin",
+			Namespace: "projectatomic",
+			Name:      "appinfra-next",
 		},
 	}
 	base := &ImageRef{
 		DockerImageReference: imageapi.DockerImageReference{
-			Namespace: "openshift",
+			Namespace: "projectatomic",
 			Name:      "ruby",
 		},
 		Info:          testImageInfo(),
@@ -109,10 +109,10 @@ func TestBuildConfigOutput(t *testing.T) {
 		if err != nil {
 			t.Fatalf("(%d) unexpected error: %v", i, err)
 		}
-		if config.Name != "origin" {
+		if config.Name != "appinfra-next" {
 			t.Errorf("(%d) unexpected name: %s", i, config.Name)
 		}
-		if config.Parameters.Output.To.Name != "origin:latest" || config.Parameters.Output.To.Kind != test.expectedKind {
+		if config.Parameters.Output.To.Name != "appinfra-next:latest" || config.Parameters.Output.To.Kind != test.expectedKind {
 			t.Errorf("(%d) unexpected output image: %s/%s", i, config.Parameters.Output.To.Kind, config.Parameters.Output.To.Name)
 		}
 		if len(config.Triggers) != 3 {
@@ -137,8 +137,8 @@ func TestSimpleDeploymentConfig(t *testing.T) {
 	image := &ImageRef{
 		DockerImageReference: imageapi.DockerImageReference{
 			Registry:  "myregistry",
-			Namespace: "openshift",
-			Name:      "origin",
+			Namespace: "projectatomic",
+			Name:      "appinfra-next",
 		},
 		Info:          testImageInfo(),
 		AsImageStream: true,
@@ -148,7 +148,7 @@ func TestSimpleDeploymentConfig(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if config.Name != "origin" || len(config.Triggers) != 2 || config.Template.ControllerTemplate.Template.Spec.Containers[0].Image != image.String() {
+	if config.Name != "appinfra-next" || len(config.Triggers) != 2 || config.Template.ControllerTemplate.Template.Spec.Containers[0].Image != image.String() {
 		t.Errorf("unexpected value: %#v", config)
 	}
 	for _, trigger := range config.Triggers {
@@ -157,7 +157,7 @@ func TestSimpleDeploymentConfig(t *testing.T) {
 			if from.Kind != "ImageStream" {
 				t.Errorf("unexpected from kind in image change trigger")
 			}
-			if from.Name != "origin" && from.Namespace != "openshift" {
+			if from.Name != "appinfra-next" && from.Namespace != "projectatomic" {
 				t.Errorf("unexpected  from name and namespace in image change trigger: %s, %s", from.Name, from.Namespace)
 			}
 		}
@@ -283,13 +283,13 @@ func TestSourceRefBuildSourceURI(t *testing.T) {
 	}{
 		{
 			name:     "URL without hash",
-			input:    "https://github.com/openshift/ruby-hello-world.git",
-			expected: "https://github.com/openshift/ruby-hello-world.git",
+			input:    "https://github.com/projectatomic/ruby-hello-world.git",
+			expected: "https://github.com/projectatomic/ruby-hello-world.git",
 		},
 		{
 			name:     "URL with hash",
-			input:    "https://github.com/openshift/ruby-hello-world.git#testref",
-			expected: "https://github.com/openshift/ruby-hello-world.git",
+			input:    "https://github.com/projectatomic/ruby-hello-world.git#testref",
+			expected: "https://github.com/projectatomic/ruby-hello-world.git",
 		},
 	}
 	for _, tst := range tests {
@@ -309,7 +309,7 @@ func ExampleGenerateSimpleDockerApp() {
 	// TODO: determine whether we want to clone this repo, or use it directly. Using it directly would require setting hooks
 	// if we have source, assume we are going to go into a build flow.
 	// TODO: get info about git url: does this need STI?
-	url, _ := url.Parse("https://github.com/openshift/origin.git")
+	url, _ := url.Parse("https://github.com/projectatomic/appinfra-next.git")
 	source := &SourceRef{URL: url}
 	// generate a local name for the repo
 	name, _ := source.SuggestName()

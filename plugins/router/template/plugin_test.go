@@ -8,7 +8,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // TestRouter provides an implementation of the plugin's router interface suitable for unit testing.

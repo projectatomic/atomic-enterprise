@@ -5,7 +5,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
-	oapi "github.com/openshift/origin/pkg/oauth/api"
+	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
 )
 
 func TestValidateClientAuthorization(t *testing.T) {

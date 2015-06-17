@@ -1,7 +1,7 @@
 package client
 
 import (
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
 )
 
 // SubjectAccessReviewsNamespacer has methods to work with SubjectAccessReview resources in a namespace

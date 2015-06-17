@@ -12,11 +12,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/cmd/server/api"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	"github.com/openshift/origin/pkg/security/mcs"
-	"github.com/openshift/origin/pkg/security/uid"
-	"github.com/openshift/origin/pkg/util/labelselector"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/appinfra-next/pkg/security/mcs"
+	"github.com/projectatomic/appinfra-next/pkg/security/uid"
+	"github.com/projectatomic/appinfra-next/pkg/util/labelselector"
 )
 
 // TODO: this should just be two return arrays, no need to be clever

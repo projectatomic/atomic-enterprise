@@ -1,7 +1,7 @@
 package ipfailover
 
 import (
-	"github.com/openshift/origin/pkg/cmd/util/variable"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
 )
 
 const (

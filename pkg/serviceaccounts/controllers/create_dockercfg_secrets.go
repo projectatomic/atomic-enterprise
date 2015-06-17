@@ -23,7 +23,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/util/namer"
+	"github.com/projectatomic/appinfra-next/pkg/util/namer"
 )
 
 const ServiceAccountTokenSecretNameKey = "openshift.io/token-secret.name"

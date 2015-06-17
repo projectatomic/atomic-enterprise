@@ -6,20 +6,20 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/cmd/admin/node"
-	"github.com/openshift/origin/pkg/cmd/admin/policy"
-	"github.com/openshift/origin/pkg/cmd/admin/project"
-	"github.com/openshift/origin/pkg/cmd/admin/prune"
-	"github.com/openshift/origin/pkg/cmd/admin/registry"
-	"github.com/openshift/origin/pkg/cmd/admin/router"
-	"github.com/openshift/origin/pkg/cmd/cli/cmd"
-	"github.com/openshift/origin/pkg/cmd/experimental/buildchain"
-	exipfailover "github.com/openshift/origin/pkg/cmd/experimental/ipfailover"
-	"github.com/openshift/origin/pkg/cmd/server/admin"
-	"github.com/openshift/origin/pkg/cmd/templates"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/version"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/node"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/project"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/prune"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/registry"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/router"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/cmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/experimental/buildchain"
+	exipfailover "github.com/projectatomic/appinfra-next/pkg/cmd/experimental/ipfailover"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/templates"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/version"
 )
 
 const adminLong = `OpenShift Administrative Commands
@@ -28,7 +28,7 @@ Commands for managing an OpenShift cluster are exposed here. Many administrative
 actions involve interaction with the OpenShift client as well.
 
 Note: This is a beta release of OpenShift and may change significantly.  See
-    https://github.com/openshift/origin for the latest information on OpenShift.`
+    https://github.com/projectatomic/appinfra-next for the latest information on OpenShift.`
 
 func NewCommandAdmin(name, fullName string, out io.Writer) *cobra.Command {
 	// Main command

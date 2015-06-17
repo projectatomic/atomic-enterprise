@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	routeapi "github.com/openshift/origin/pkg/route/api"
+	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
 )
 
 // simpleCertificateManager is the default implementation of a certificateManager

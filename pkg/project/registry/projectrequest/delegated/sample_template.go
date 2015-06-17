@@ -3,10 +3,10 @@ package delegated
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	projectapi "github.com/openshift/origin/pkg/project/api"
-	templateapi "github.com/openshift/origin/pkg/template/api"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
 )
 
 const (

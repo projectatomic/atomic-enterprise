@@ -10,10 +10,10 @@ import (
 	utilerr "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 	"github.com/golang/glog"
 
-	"github.com/openshift/origin/pkg/template"
-	"github.com/openshift/origin/pkg/template/api"
-	templatevalidation "github.com/openshift/origin/pkg/template/api/validation"
-	"github.com/openshift/origin/pkg/template/generator"
+	"github.com/projectatomic/appinfra-next/pkg/template"
+	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	templatevalidation "github.com/projectatomic/appinfra-next/pkg/template/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/template/generator"
 )
 
 // REST implements RESTStorage interface for processing Template objects.

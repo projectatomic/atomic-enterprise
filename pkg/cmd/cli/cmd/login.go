@@ -12,10 +12,10 @@ import (
 	kclientcmdapi "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd/api"
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 
-	"github.com/openshift/origin/pkg/cmd/cli/config"
-	"github.com/openshift/origin/pkg/cmd/flagtypes"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
-	osclientcmd "github.com/openshift/origin/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/flagtypes"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	osclientcmd "github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
 )
 
 const (

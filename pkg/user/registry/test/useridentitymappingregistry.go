@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/openshift/origin/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 type UserIdentityMappingRegistry struct {

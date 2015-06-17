@@ -9,9 +9,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // DeploymentConfigGenerator reconciles a DeploymentConfig with other pieces of deployment-related state

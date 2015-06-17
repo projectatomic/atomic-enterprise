@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	watchapi "github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/client"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	testutil "github.com/openshift/origin/test/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 const (

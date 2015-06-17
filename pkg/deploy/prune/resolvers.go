@@ -6,8 +6,8 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 // Resolver knows how to resolve the set of candidate objects to prune

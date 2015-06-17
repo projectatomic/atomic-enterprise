@@ -19,9 +19,9 @@ import (
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/cmd/server/admin"
-	"github.com/openshift/origin/pkg/cmd/server/start/kubernetes"
-	cmdutil "github.com/openshift/origin/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/start/kubernetes"
+	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
 )
 
 type AllInOneOptions struct {

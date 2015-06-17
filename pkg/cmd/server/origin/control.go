@@ -6,7 +6,7 @@ import (
 
 	restful "github.com/emicklei/go-restful"
 
-	"github.com/openshift/origin/pkg/cmd/util/plug"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/plug"
 )
 
 // initControllerRoutes adds a web service endpoint for managing the execution

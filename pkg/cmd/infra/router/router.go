@@ -8,13 +8,13 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/cmd/util"
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/router"
-	controllerfactory "github.com/openshift/origin/pkg/router/controller/factory"
-	"github.com/openshift/origin/pkg/util/proc"
-	"github.com/openshift/origin/pkg/version"
-	templateplugin "github.com/openshift/origin/plugins/router/template"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/router"
+	controllerfactory "github.com/projectatomic/appinfra-next/pkg/router/controller/factory"
+	"github.com/projectatomic/appinfra-next/pkg/util/proc"
+	"github.com/projectatomic/appinfra-next/pkg/version"
+	templateplugin "github.com/projectatomic/appinfra-next/plugins/router/template"
 
 	ktypes "github.com/GoogleCloudPlatform/kubernetes/pkg/types"
 )

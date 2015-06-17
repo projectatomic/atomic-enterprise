@@ -6,11 +6,11 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/openshift/origin/pkg/authorization/api"
-	clusterpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicy"
-	clusterpolicybindingregistry "github.com/openshift/origin/pkg/authorization/registry/clusterpolicybinding"
-	testpolicyregistry "github.com/openshift/origin/pkg/authorization/registry/test"
-	"github.com/openshift/origin/pkg/authorization/rulevalidation"
+	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	clusterpolicybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
+	testpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/authorization/rulevalidation"
 )
 
 type subjectsTest struct {

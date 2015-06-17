@@ -1,8 +1,8 @@
 package client
 
 import (
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	osclient "github.com/openshift/origin/pkg/client"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
 )
 
 // BuildConfigGetter provides methods for getting BuildConfigs

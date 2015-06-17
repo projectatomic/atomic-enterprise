@@ -1,6 +1,6 @@
 package user
 
-import "github.com/openshift/origin/pkg/user/api"
+import "github.com/projectatomic/appinfra-next/pkg/user/api"
 
 type DefaultUserInitStrategy struct {
 }

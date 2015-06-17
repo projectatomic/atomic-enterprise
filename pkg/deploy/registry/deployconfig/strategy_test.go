@@ -5,8 +5,8 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
 )
 
 func TestDeploymentConfigStrategy(t *testing.T) {

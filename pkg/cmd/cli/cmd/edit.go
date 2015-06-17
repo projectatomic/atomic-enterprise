@@ -18,9 +18,9 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/openshift/origin/pkg/cmd/util/clientcmd"
-	"github.com/openshift/origin/pkg/cmd/util/editor"
-	"github.com/openshift/origin/pkg/util/jsonmerge"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/editor"
+	"github.com/projectatomic/appinfra-next/pkg/util/jsonmerge"
 )
 
 const (

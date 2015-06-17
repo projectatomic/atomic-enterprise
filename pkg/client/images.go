@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 // ImagesInterfacer has methods to work with Image resources

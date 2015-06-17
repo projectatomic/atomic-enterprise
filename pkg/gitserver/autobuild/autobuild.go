@@ -13,10 +13,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/generate/git"
-	"github.com/openshift/origin/pkg/gitserver"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/generate/git"
+	"github.com/projectatomic/appinfra-next/pkg/gitserver"
 )
 
 type AutoLinkBuilds struct {

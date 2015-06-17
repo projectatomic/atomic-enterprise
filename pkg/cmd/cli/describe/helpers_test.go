@@ -8,7 +8,7 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func TestFormatImageStreamTags(t *testing.T) {

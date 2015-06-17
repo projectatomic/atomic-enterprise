@@ -12,10 +12,10 @@ import (
 
 	"github.com/golang/glog"
 
-	_ "github.com/openshift/origin/pkg/api"
-	"github.com/openshift/origin/pkg/api/meta"
-	"github.com/openshift/origin/pkg/api/v1"
-	"github.com/openshift/origin/pkg/api/v1beta3"
+	_ "github.com/projectatomic/appinfra-next/pkg/api"
+	"github.com/projectatomic/appinfra-next/pkg/api/meta"
+	"github.com/projectatomic/appinfra-next/pkg/api/v1"
+	"github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
 )
 
 // Version is the string that represents the current external default version.
@@ -142,7 +142,7 @@ func init() {
 	// enumerate all supported versions, get the kinds, and register with the mapper how to address our resources
 	for _, version := range versions {
 		for kind, t := range api.Scheme.KnownTypes(version) {
-			if !strings.Contains(t.PkgPath(), "openshift/origin") {
+			if !strings.Contains(t.PkgPath(), "projectatomic/appinfra-next") {
 				if _, ok := kindToRootScope[kind]; !ok {
 					continue
 				}

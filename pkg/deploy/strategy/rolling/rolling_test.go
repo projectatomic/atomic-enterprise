@@ -9,10 +9,10 @@ import (
 	// kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 
-	api "github.com/openshift/origin/pkg/api/latest"
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	deployutil "github.com/openshift/origin/pkg/deploy/util"
+	api "github.com/projectatomic/appinfra-next/pkg/api/latest"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 func TestRolling_deployInitial(t *testing.T) {

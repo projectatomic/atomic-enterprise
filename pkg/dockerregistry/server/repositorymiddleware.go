@@ -16,8 +16,8 @@ import (
 	"github.com/docker/distribution/manifest"
 	repomw "github.com/docker/distribution/registry/middleware/repository"
 	"github.com/docker/libtrust"
-	"github.com/openshift/origin/pkg/client"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 	"golang.org/x/net/context"
 )
 

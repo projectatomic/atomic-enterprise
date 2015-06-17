@@ -3,8 +3,8 @@ package allocation
 import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	osclient "github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/route"
+	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/route"
 )
 
 // RouteAllocationControllerFactory creates a RouteAllocationController

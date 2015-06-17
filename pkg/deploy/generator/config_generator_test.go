@@ -8,9 +8,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 
-	deployapi "github.com/openshift/origin/pkg/deploy/api"
-	deploytest "github.com/openshift/origin/pkg/deploy/api/test"
-	imageapi "github.com/openshift/origin/pkg/image/api"
+	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
 )
 
 func init() {

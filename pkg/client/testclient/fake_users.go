@@ -3,7 +3,7 @@ package testclient
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
-	userapi "github.com/openshift/origin/pkg/user/api"
+	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
 )
 
 // FakeUsers implements UsersInterface. Meant to be embedded into a struct to get a default

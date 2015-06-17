@@ -1,7 +1,7 @@
 package origin
 
 import (
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
 )
 
 // AssetConfig defines the required parameters for starting the OpenShift master

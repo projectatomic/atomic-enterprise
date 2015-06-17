@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
-	"github.com/openshift/origin/pkg/client"
-	configapi "github.com/openshift/origin/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
 )
 
 func KubeConfigPath() string {

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	"github.com/openshift/origin/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
 )
 
 func TestImageTag(t *testing.T) {

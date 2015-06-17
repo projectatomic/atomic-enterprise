@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/openshift/origin/pkg/image/api"
-	"github.com/openshift/origin/pkg/image/registry/image"
-	"github.com/openshift/origin/pkg/image/registry/imagestream"
+	"github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/appinfra-next/pkg/image/registry/image"
+	"github.com/projectatomic/appinfra-next/pkg/image/registry/imagestream"
 )
 
 // REST implements the RESTStorage interface for ImageStreamTag

@@ -8,8 +8,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/wait"
 
-	"github.com/openshift/origin/pkg/client"
-	"github.com/openshift/origin/pkg/deploy/util"
+	"github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/appinfra-next/pkg/deploy/util"
 )
 
 // DeploymentConfigScaler is a wrapper for the kubectl Scaler client

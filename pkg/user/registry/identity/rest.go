@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/user/api"
-	"github.com/openshift/origin/pkg/user/api/validation"
+	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/appinfra-next/pkg/user/api/validation"
 )
 
 // identityStrategy implements behavior for Identities

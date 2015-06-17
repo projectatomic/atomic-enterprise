@@ -14,7 +14,7 @@ import (
 	kscc "github.com/GoogleCloudPlatform/kubernetes/pkg/securitycontextconstraints"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	allocator "github.com/openshift/origin/pkg/security"
+	allocator "github.com/projectatomic/appinfra-next/pkg/security"
 )
 
 func NewTestAdmission(store cache.Store, kclient client.Interface) kadmission.Interface {

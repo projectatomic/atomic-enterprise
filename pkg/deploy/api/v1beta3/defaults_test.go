@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	current "github.com/openshift/origin/pkg/deploy/api/v1beta3"
+	current "github.com/projectatomic/appinfra-next/pkg/deploy/api/v1beta3"
 )
 
 func roundTrip(t *testing.T, obj runtime.Object) runtime.Object {

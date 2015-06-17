@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/openshift/origin/pkg/cmd/util/tokencmd"
-	testutil "github.com/openshift/origin/test/util"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func TestOAuthDisabled(t *testing.T) {

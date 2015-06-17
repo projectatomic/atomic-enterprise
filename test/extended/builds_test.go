@@ -13,8 +13,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	testutil "github.com/openshift/origin/test/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func init() {

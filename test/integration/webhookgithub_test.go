@@ -14,10 +14,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	buildapi "github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/cmd/server/bootstrappolicy"
-	imageapi "github.com/openshift/origin/pkg/image/api"
-	testutil "github.com/openshift/origin/test/util"
+	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	testutil "github.com/projectatomic/appinfra-next/test/util"
 )
 
 func init() {

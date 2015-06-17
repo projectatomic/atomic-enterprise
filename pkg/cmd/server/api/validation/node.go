@@ -6,7 +6,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/openshift/origin/pkg/cmd/server/api"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
 )
 
 func ValidateNodeConfig(config *api.NodeConfig) fielderrors.ValidationErrorList {

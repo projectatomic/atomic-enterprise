@@ -11,9 +11,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/generic/rest"
 
-	"github.com/openshift/origin/pkg/build/api"
-	"github.com/openshift/origin/pkg/build/registry/test"
-	"github.com/openshift/origin/pkg/build/webhook"
+	"github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/appinfra-next/pkg/build/registry/test"
+	"github.com/projectatomic/appinfra-next/pkg/build/webhook"
 )
 
 type buildConfigInstantiator struct {

@@ -11,7 +11,7 @@ import (
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/openshift/origin/pkg/cmd/server/crypto"
+	"github.com/projectatomic/appinfra-next/pkg/cmd/server/crypto"
 )
 
 const CreateServerCertCommandName = "create-server-cert"
