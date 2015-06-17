@@ -3,6 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 USERNAME="${1:-vagrant}"
 
+mkdir ~/.kube/
 yum update -y
 yum install -y docker-io git vim golang e2fsprogs tmux httpie ctags hg bind-utils which
 
@@ -40,5 +41,6 @@ systemctl start docker
 usermod -a -G docker $USERNAME
 
 echo To install etcd, run hack/install-etcd.sh
+echo "Make sure to run the following after starting AE: sudo cp /openshift.local.config/master/admin.kubeconfig ~/.kube/config"
 
 sed -i s/^Defaults.*requiretty/\#Defaults\ requiretty/g /etc/sudoers
