@@ -35,7 +35,7 @@ BuildRequires:  golang >= 1.4
 %{summary}
 
 %package master
-Summary:        OpenShift AE Master
+Summary:        Atomic Enterprise Master
 Requires:       %{name} = %{version}-%{release}
 Requires(post): systemd
 Requires(preun): systemd
@@ -45,7 +45,7 @@ Requires(postun): systemd
 %{summary}
 
 %package node
-Summary:        OpenShift AE Node
+Summary:        Atomic Enterprise Node
 Requires:       %{name} = %{version}-%{release}
 Requires:       docker >= 1.6.2
 Requires:       tuned-profiles-atomic-enterprise-node
@@ -67,7 +67,7 @@ Requires:       %{name} = %{version}-%{release}
 %{summary}
 
 %package clients
-Summary:      Openshift AE Client binaries for Linux, Mac OSX, and Windows
+Summary:      Atomic Enterprise Client binaries for Linux, Mac OSX, and Windows
 BuildRequires: golang-pkg-darwin-amd64
 BuildRequires: golang-pkg-windows-386
 
@@ -75,21 +75,21 @@ BuildRequires: golang-pkg-windows-386
 %{summary}
 
 %package dockerregistry
-Summary:        Docker Registry v2 for OpenShift AE
+Summary:        Docker Registry v2 for Atomic Enterprise
 Requires:       %{name} = %{version}-%{release}
 
 %description dockerregistry
 %{summary}
 
 %package pod
-Summary:        OpenShift AE Pod
+Summary:        Atomic Enterprise Pod
 Requires:       %{name} = %{version}-%{release}
 
 %description pod
 %{summary}
 
 %package sdn-ovs
-Summary:          OpenShift AE SDN Plugin for Open vSwitch
+Summary:          Atomic Enterprise SDN Plugin for Open vSwitch
 Requires:         openvswitch >= 2.3.1
 Requires:         %{name}-node = %{version}-%{release}
 Requires:         bridge-utils
@@ -142,6 +142,8 @@ popd
 install -d %{buildroot}%{_bindir}
 install -d %{buildroot}%{_datadir}/%{name}/{linux,macosx,windows}
 
+mv %{buildroot}%{_datadir}/%{name} %{buildroot}%{_datadir}/openshift
+
 # Install linux components
 for bin in openshift dockerregistry
 do
@@ -150,13 +152,14 @@ do
 done
 
 # Install 'openshift' as client executable for windows and mac
-install -p -m 755 _build/bin/openshift %{buildroot}%{_datadir}/%{name}/linux/oc
-install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/%{name}/macosx/oc
-install -p -m 755 _build/bin/windows_386/openshift.exe %{buildroot}%{_datadir}/%{name}/windows/oc.exe
+install -p -m 755 _build/bin/openshift %{buildroot}%{_datadir}/openshift/linux/oc
+install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/openshift/macosx/oc
+install -p -m 755 _build/bin/windows_386/openshift.exe %{buildroot}%{_datadir}/openshift/windows/oc.exe
 #Install openshift pod
 install -p -m 755 images/pod/pod %{buildroot}%{_bindir}/
 
 install -d -m 0755 %{buildroot}/etc/%{name}/{master,node}
+mv %{buildroot}/etc/%{name} %{buildroot}/etc/openshift
 install -d -m 0755 %{buildroot}%{_unitdir}
 install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-master.service
 install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-node.service
@@ -165,7 +168,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
 install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-master
 install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-node
 
-mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
+mkdir -p %{buildroot}%{_sharedstatedir}/openshift
 
 ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oc
 ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oadm
@@ -197,14 +200,14 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %{_bindir}/openshift
 %{_bindir}/oc
 %{_bindir}/oadm
-%{_sharedstatedir}/%{name}
+%{_sharedstatedir}/openshift
 /etc/bash_completion.d/*
 
 %files master
 %defattr(-,root,root,-)
 %{_unitdir}/openshift-master.service
 %config(noreplace) %{_sysconfdir}/sysconfig/openshift-master
-%config(noreplace) /etc/%{name}/master
+%config(noreplace) /etc/openshift/master
 
 %post master
 %systemd_post %{basename:openshift-master.service}
@@ -220,7 +223,7 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %defattr(-,root,root,-)
 %{_unitdir}/openshift-node.service
 %config(noreplace) %{_sysconfdir}/sysconfig/openshift-node
-%config(noreplace) /etc/%{name}/node
+%config(noreplace) /etc/openshift/node
 
 %post node
 %systemd_post %{basename:openshift-node.service}
@@ -261,9 +264,9 @@ if [ "$1" = 0 ]; then
 fi
 
 %files clients
-%{_datadir}/%{name}/linux/oc
-%{_datadir}/%{name}/macosx/oc
-%{_datadir}/%{name}/windows/oc.exe
+%{_datadir}/opensift/linux/oc
+%{_datadir}/openshift/macosx/oc
+%{_datadir}/openshift/windows/oc.exe
 
 %files dockerregistry
 %defattr(-,root,root,-)
