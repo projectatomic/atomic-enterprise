@@ -47,7 +47,7 @@ Requires(postun): systemd
 %package node
 Summary:        OpenShift AE Node
 Requires:       %{name} = %{version}-%{release}
-Requires:       docker-io >= 1.6.2
+Requires:       docker >= 1.6.2
 Requires:       tuned-profiles-atomic-enterprise-node
 Requires:       util-linux
 Requires:       socat
