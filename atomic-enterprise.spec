@@ -173,9 +173,9 @@ mkdir -p %{buildroot}%{_sharedstatedir}/openshift
 ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oc
 ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oadm
 
-install -d -m 0755 %{buildroot}%{_libdir}/tuned/openshift-node-{guest,host}
-install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_libdir}/tuned/openshift-node-guest/
-install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_libdir}/tuned/openshift-node-host/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/openshift-node-{guest,host}
+install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-node-guest/
+install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-node-host/
 install -d -m 0755 %{buildroot}%{_mandir}/man7
 install -m 0644 tuned/man/tuned-profiles-openshift-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-openshift-node.7
 
@@ -185,10 +185,10 @@ pushd _thirdpartyhacks/src/%{sdn_import_path}/ovssubnet/bin
    install -p -m 755 openshift-ovs-subnet %{buildroot}%{kube_plugin_path}/openshift-ovs-subnet
    install -p -m 755 openshift-sdn-kube-subnet-setup.sh %{buildroot}%{_bindir}/
 popd
-install -d -m 0755 %{buildroot}%{_libdir}/systemd/system/openshift-node.service.d
-install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_libdir}/systemd/system/openshift-node.service.d/
-install -d -m 0755 %{buildroot}%{_libdir}/systemd/system/docker.service.d
-install -p -m 0644 rel-eng/docker-sdn-ovs.conf %{buildroot}%{_libdir}/systemd/system/docker.service.d/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/openshift-node.service.d
+install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/openshift-node.service.d/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d
+install -p -m 0644 rel-eng/docker-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d/
 
 # Install bash completions
 install -d -m 755 %{buildroot}/etc/bash_completion.d/
@@ -238,13 +238,13 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %defattr(-,root,root,-)
 %{_bindir}/openshift-sdn-kube-subnet-setup.sh
 %{kube_plugin_path}/openshift-ovs-subnet
-%{_libdir}/systemd/system/openshift-node.service.d/openshift-sdn-ovs.conf
-%{_libdir}/systemd/system/docker.service.d/docker-sdn-ovs.conf
+%{_prefix}/lib/systemd/system/openshift-node.service.d/openshift-sdn-ovs.conf
+%{_prefix}/lib/systemd/system/docker.service.d/docker-sdn-ovs.conf
 
 %files -n tuned-profiles-atomic-enterprise-node
 %defattr(-,root,root,-)
-%{_libdir}/tuned/openshift-node-host
-%{_libdir}/tuned/openshift-node-guest
+%{_prefix}/lib/tuned/openshift-node-host
+%{_prefix}/lib/tuned/openshift-node-guest
 %{_mandir}/man7/tuned-profiles-openshift-node.7*
 
 %post -n tuned-profiles-atomic-enterprise-node
