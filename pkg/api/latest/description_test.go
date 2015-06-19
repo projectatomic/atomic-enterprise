@@ -21,7 +21,7 @@ func TestDescriptions(t *testing.T) {
 		seen := map[reflect.Type]bool{}
 
 		for _, apiType := range kapi.Scheme.KnownTypes(version) {
-			if !strings.Contains(apiType.PkgPath(), "openshift/origin") {
+			if !strings.Contains(apiType.PkgPath(), "projectatomic/appinfra-next") {
 				continue
 			}
 

@@ -222,7 +222,7 @@ func TestAppendEnvVars(t *testing.T) {
 
 const (
 	dockerFile = `
-FROM openshift/origin-base
+FROM projectatomic/appinfra-next-base
 FROM candidate
 
 RUN mkdir -p /var/lib/openshift
@@ -235,7 +235,7 @@ WORKDIR /var/lib/openshift
 ENTRYPOINT ["/usr/bin/openshift"]
 `
 	dockerFileNoNewline = `
-FROM openshift/origin-base
+FROM projectatomic/appinfra-next-base
 FROM candidate
 
 RUN mkdir -p /var/lib/openshift
@@ -248,7 +248,7 @@ WORKDIR /var/lib/openshift
 ENTRYPOINT ["/usr/bin/openshift"]`
 
 	expectedFROM = `
-FROM openshift/origin-base
+FROM projectatomic/appinfra-next-base
 FROM other/image
 
 RUN mkdir -p /var/lib/openshift

@@ -8,14 +8,14 @@ import (
 
 func TestFromGitURL(t *testing.T) {
 	gen := &SourceRefGenerator{&test.FakeGit{}}
-	srcRef, err := gen.FromGitURL("git@github.com:openshift/origin.git#test_branch", "")
+	srcRef, err := gen.FromGitURL("git@github.com:projectatomic/appinfra-next.git#test_branch", "")
 	if err != nil {
 		t.Errorf("Unexpected error: %v", err)
 	}
 	if srcRef.Ref != "test_branch" {
 		t.Errorf("Unexpected branch: %s", srcRef.Ref)
 	}
-	if srcRef.URL.String() != "git@github.com:openshift/origin.git" {
+	if srcRef.URL.String() != "git@github.com:projectatomic/appinfra-next.git" {
 		t.Errorf("Unexpected URL: %s", srcRef.URL.String())
 	}
 }
