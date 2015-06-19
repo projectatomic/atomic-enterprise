@@ -31,7 +31,7 @@ command, but it operates on image streams instead.`
   $ %[1]s tag openshift/ruby@sha256:6b646fa6bf5e5e4c7fa41056c27910e679c03ebe7f93e361e6515a9da7e258cc yourproject/ruby:tip
 
   // Tag an external Docker image:
-  $ %[1]s tag --source=docker openshift/origin:latest yourproject/ruby:tip`
+  $ %[1]s tag --source=docker projectatomic/appinfra-next:latest yourproject/ruby:tip`
 )
 
 // NewCmdTag implements the OpenShift cli tag command.

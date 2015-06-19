@@ -33,7 +33,7 @@ var MissingValidationExceptions = []reflect.Type{
 
 func TestCoverage(t *testing.T) {
 	for kind, apiType := range kapi.Scheme.KnownTypes("") {
-		if !strings.Contains(apiType.PkgPath(), "openshift/origin") {
+		if !strings.Contains(apiType.PkgPath(), "projectatomic/appinfra-next") {
 			continue
 		}
 		if strings.HasSuffix(kind, "List") {

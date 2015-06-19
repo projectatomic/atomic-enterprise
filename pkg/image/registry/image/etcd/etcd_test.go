@@ -76,7 +76,7 @@ func validNewImage() *api.Image {
 		ObjectMeta: kapi.ObjectMeta{
 			Name: "foo",
 		},
-		DockerImageReference: "openshift/origin",
+		DockerImageReference: "projectatomic/appinfra-next",
 	}
 }
 

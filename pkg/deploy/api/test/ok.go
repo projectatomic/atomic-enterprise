@@ -35,7 +35,7 @@ func OkCustomStrategy() deployapi.DeploymentStrategy {
 
 func OkCustomParams() *deployapi.CustomDeploymentStrategyParams {
 	return &deployapi.CustomDeploymentStrategyParams{
-		Image: "openshift/origin-deployer",
+		Image: "projectatomic/appinfra-next-deployer",
 		Environment: []kapi.EnvVar{
 			{
 				Name:  "ENV1",
