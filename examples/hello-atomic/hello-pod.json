@@ -12,7 +12,7 @@
     "containers": [
       {
         "name": "hello-atomic",
-        "image": "atomic-enterprise/hello-atomic",
+        "image": "atomicenterprise/hello-atomic",
         "ports": [
           {
             "hostPort": 6061,
