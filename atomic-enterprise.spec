@@ -161,12 +161,12 @@ install -p -m 755 images/pod/pod %{buildroot}%{_bindir}/
 install -d -m 0755 %{buildroot}/etc/%{name}/{master,node}
 mv %{buildroot}/etc/%{name} %{buildroot}/etc/openshift
 install -d -m 0755 %{buildroot}%{_unitdir}
-install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-master.service
-install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-node.service
+install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/%{name}-master.service
+install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/%{name}-node.service
 
 mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
-install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-master
-install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-node
+install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}-master
+install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}-node
 
 mkdir -p %{buildroot}%{_sharedstatedir}/openshift
 
@@ -205,15 +205,15 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files master
 %defattr(-,root,root,-)
-%{_unitdir}/openshift-master.service
-%config(noreplace) %{_sysconfdir}/sysconfig/openshift-master
+%{_unitdir}/%{name}-master.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}-master
 %config(noreplace) /etc/openshift/master
 
 %post master
-%systemd_post %{basename:openshift-master.service}
+%systemd_post %{basename:%{name}-master.service}
 
 %preun master
-%systemd_preun %{basename:openshift-master.service}
+%systemd_preun %{basename:%{name}-master.service}
 
 %postun master
 %systemd_postun
@@ -221,15 +221,15 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files node
 %defattr(-,root,root,-)
-%{_unitdir}/openshift-node.service
-%config(noreplace) %{_sysconfdir}/sysconfig/openshift-node
+%{_unitdir}/%{name}-node.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}-node
 %config(noreplace) /etc/openshift/node
 
 %post node
-%systemd_post %{basename:openshift-node.service}
+%systemd_post %{basename:%{name}-node.service}
 
 %preun node
-%systemd_preun %{basename:openshift-node.service}
+%systemd_preun %{basename:%{name}-node.service}
 
 %postun node
 %systemd_postun
