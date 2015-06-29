@@ -11,10 +11,10 @@ Documentation=https://github.com/projectatomic/appinfra-next
 Type=notify
 EnvironmentFile=/etc/sysconfig/atomic-enterprise-node
 Environment=GOTRACEBACK=crash
-ExecStart=/usr/bin/openshift start node --config=${CONFIG_FILE} $OPTIONS
+ExecStart=/usr/bin/atomic-enterprise start node --config=${CONFIG_FILE} $OPTIONS
 LimitNOFILE=65536
 LimitCORE=infinity
-WorkingDirectory=/var/lib/openshift/
+WorkingDirectory=/var/lib/atomic-enterprise/
 SyslogIdentifier=atomic-enterprise-node
 
 [Install]

@@ -128,9 +128,11 @@ do
         go install -ldflags "%{ldflags}" %{import_path}/cmd/${cmd}
 done
 
+
+# TODO: Do we need to do this?
 # Build only 'openshift' for other platforms
-GOOS=windows GOARCH=386 go install -ldflags "%{ldflags}" %{import_path}/cmd/openshift
-GOOS=darwin GOARCH=amd64 go install -ldflags "%{ldflags}" %{import_path}/cmd/openshift
+#GOOS=windows GOARCH=386 go install -ldflags "%{ldflags}" %{import_path}/cmd/openshift
+#GOOS=darwin GOARCH=amd64 go install -ldflags "%{ldflags}" %{import_path}/cmd/openshift
 
 #Build our pod
 pushd images/pod/
@@ -140,21 +142,26 @@ popd
 %install
 
 install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_datadir}/%{name}/{linux,macosx,windows}
+install -d %{buildroot}%{_datadir}/%{name}/linux
+#{linux,macosx,windows}
 
 mv %{buildroot}%{_datadir}/%{name} %{buildroot}%{_datadir}/openshift
 
 # Install linux components
-for bin in openshift dockerregistry
-do
-  echo "+++ INSTALLING ${bin}"
-  install -p -m 755 _build/bin/${bin} %{buildroot}%{_bindir}/${bin}
-done
+echo "+++ INSTALLING atomic-enterprise"
+install -p -m 755 _build/bin/openshift %{buildroot}%{_bindir}/%{name}
+echo "+++ INSTALLING dockerregistry"
+install -p -m 755 _build/bin/dockerregistry %{buildroot}%{_bindir}/dockerregistry
+
+#for bin in openshift dockerregistry
+#do
+#  install -p -m 755 _build/bin/${bin} %{buildroot}%{_bindir}/${bin}
+#done
 
 # Install 'openshift' as client executable for windows and mac
 install -p -m 755 _build/bin/openshift %{buildroot}%{_datadir}/openshift/linux/oc
-install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/openshift/macosx/oc
-install -p -m 755 _build/bin/windows_386/openshift.exe %{buildroot}%{_datadir}/openshift/windows/oc.exe
+#install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/openshift/macosx/oc
+#install -p -m 755 _build/bin/windows_386/openshift.exe %{buildroot}%{_datadir}/openshift/windows/oc.exe
 #Install openshift pod
 install -p -m 755 images/pod/pod %{buildroot}%{_bindir}/
 
@@ -168,16 +175,16 @@ mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
 install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}-master
 install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}-node
 
-mkdir -p %{buildroot}%{_sharedstatedir}/openshift
+mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 
-ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oc
-ln -s %{_bindir}/openshift %{buildroot}%{_bindir}/oadm
+ln -s %{_bindir}/%{name} %{buildroot}%{_bindir}/oc
+ln -s %{_bindir}/%{name} %{buildroot}%{_bindir}/oadm
 
-install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/openshift-node-{guest,host}
-install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-node-guest/
-install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_prefix}/lib/tuned/openshift-node-host/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/%{name}-node-{guest,host}
+install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_prefix}/lib/tuned/%{name}-node-guest/
+install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_prefix}/lib/tuned/%{name}-node-host/
 install -d -m 0755 %{buildroot}%{_mandir}/man7
-install -m 0644 tuned/man/tuned-profiles-openshift-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-openshift-node.7
+install -m 0644 tuned/man/tuned-profiles-openshift-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-%{name}-node.7
 
 # Install sdn scripts
 install -d -m 0755 %{buildroot}%{kube_plugin_path}
@@ -197,10 +204,10 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %files
 %defattr(-,root,root,-)
 %doc README.md LICENSE
-%{_bindir}/openshift
+%{_bindir}/%{name}
 %{_bindir}/oc
 %{_bindir}/oadm
-%{_sharedstatedir}/openshift
+%{_sharedstatedir}/%{name}
 /etc/bash_completion.d/*
 
 %files master
@@ -243,16 +250,16 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files -n tuned-profiles-%{name}-node
 %defattr(-,root,root,-)
-%{_prefix}/lib/tuned/openshift-node-host
-%{_prefix}/lib/tuned/openshift-node-guest
-%{_mandir}/man7/tuned-profiles-openshift-node.7*
+%{_prefix}/lib/tuned/%{name}-node-host
+%{_prefix}/lib/tuned/%{name}-node-guest
+%{_mandir}/man7/tuned-profiles-%{name}-node.7*
 
 %post -n tuned-profiles-%{name}-node
 recommended=`/usr/sbin/tuned-adm recommend`
 if [[ "${recommended}" =~ guest ]] ; then
-  /usr/sbin/tuned-adm profile openshift-node-guest > /dev/null 2>&1
+  /usr/sbin/tuned-adm profile %{name}-node-guest > /dev/null 2>&1
 else
-  /usr/sbin/tuned-adm profile openshift-node-host > /dev/null 2>&1
+  /usr/sbin/tuned-adm profile %{name}-node-host > /dev/null 2>&1
 fi
 
 %preun -n tuned-profiles-%{name}-node
@@ -265,8 +272,8 @@ fi
 
 %files clients
 %{_datadir}/openshift/linux/oc
-%{_datadir}/openshift/macosx/oc
-%{_datadir}/openshift/windows/oc.exe
+#%{_datadir}/openshift/macosx/oc
+#%{_datadir}/openshift/windows/oc.exe
 
 %files dockerregistry
 %defattr(-,root,root,-)
