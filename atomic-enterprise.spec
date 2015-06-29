@@ -8,7 +8,7 @@
 # %%commit and %%ldflags are intended to be set by tito custom builders provided
 # in the rel-eng directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit e3c46fd8fabcec6088aa58566836bccee9f4fbfc
+%global commit 54e7bfc9b4765a22ddb4c9c8a0c37c42eeab0dbd
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # OpenShift AE specific ldflags from hack/common.sh os::build:ldflags
@@ -25,7 +25,7 @@ Summary:        Open Source Platform as a Service by Red Hat
 License:        ASL 2.0
 URL:            https://%{import_path}
 ExclusiveArch:  x86_64
-Source0:        atomic-enterprise-git-0.097952c.tar.gz
+Source0:        %{name}-git-0.%{shortcommit}.tar.gz
 
 BuildRequires:  systemd
 BuildRequires:  golang >= 1.4
@@ -48,7 +48,7 @@ Requires(postun): systemd
 Summary:        Atomic Enterprise Node
 Requires:       %{name} = %{version}-%{release}
 Requires:       docker >= 1.6.2
-Requires:       tuned-profiles-atomic-enterprise-node
+Requires:       tuned-profiles-%{name}-node
 Requires:       util-linux
 Requires:       socat
 Requires(post): systemd
@@ -58,12 +58,12 @@ Requires(postun): systemd
 %description node
 %{summary}
 
-%package -n tuned-profiles-atomic-enterprise-node
+%package -n tuned-profiles-%{name}-node
 Summary:        Tuned profiles for OpenShift AE Node hosts
 Requires:       tuned >= 2.3
 Requires:       %{name} = %{version}-%{release}
 
-%description -n tuned-profiles-atomic-enterprise-node
+%description -n tuned-profiles-%{name}-node
 %{summary}
 
 %package clients
@@ -99,7 +99,7 @@ Requires:         ethtool
 %{summary}
 
 %prep
-%setup -q -n atomic-enterprise-git-0.097952c
+%setup -q -n %{name}-git-0.%{shortcommit}
 
 %build
 
@@ -161,12 +161,12 @@ install -p -m 755 images/pod/pod %{buildroot}%{_bindir}/
 install -d -m 0755 %{buildroot}/etc/%{name}/{master,node}
 mv %{buildroot}/etc/%{name} %{buildroot}/etc/openshift
 install -d -m 0755 %{buildroot}%{_unitdir}
-install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-master.service
-install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/openshift-node.service
+install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/%{name}-master.service
+install -m 0644 -t %{buildroot}%{_unitdir} rel-eng/%{name}-node.service
 
 mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
-install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-master
-install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/openshift-node
+install -m 0644 rel-eng/openshift-master.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}-master
+install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}-node
 
 mkdir -p %{buildroot}%{_sharedstatedir}/openshift
 
@@ -185,8 +185,8 @@ pushd _thirdpartyhacks/src/%{sdn_import_path}/ovssubnet/bin
    install -p -m 755 openshift-ovs-subnet %{buildroot}%{kube_plugin_path}/openshift-ovs-subnet
    install -p -m 755 openshift-sdn-kube-subnet-setup.sh %{buildroot}%{_bindir}/
 popd
-install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/openshift-node.service.d
-install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/openshift-node.service.d/
+install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/%{name}-node.service.d
+install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/%{name}-node.service.d/%{name}-sdn-ovs.conf
 install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d
 install -p -m 0644 rel-eng/docker-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d/
 
@@ -205,15 +205,15 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files master
 %defattr(-,root,root,-)
-%{_unitdir}/openshift-master.service
-%config(noreplace) %{_sysconfdir}/sysconfig/openshift-master
+%{_unitdir}/%{name}-master.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}-master
 %config(noreplace) /etc/openshift/master
 
 %post master
-%systemd_post %{basename:openshift-master.service}
+%systemd_post %{basename:%{name}-master.service}
 
 %preun master
-%systemd_preun %{basename:openshift-master.service}
+%systemd_preun %{basename:%{name}-master.service}
 
 %postun master
 %systemd_postun
@@ -221,15 +221,15 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 
 %files node
 %defattr(-,root,root,-)
-%{_unitdir}/openshift-node.service
-%config(noreplace) %{_sysconfdir}/sysconfig/openshift-node
+%{_unitdir}/%{name}-node.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}-node
 %config(noreplace) /etc/openshift/node
 
 %post node
-%systemd_post %{basename:openshift-node.service}
+%systemd_post %{basename:%{name}-node.service}
 
 %preun node
-%systemd_preun %{basename:openshift-node.service}
+%systemd_preun %{basename:%{name}-node.service}
 
 %postun node
 %systemd_postun
@@ -238,16 +238,16 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %defattr(-,root,root,-)
 %{_bindir}/openshift-sdn-kube-subnet-setup.sh
 %{kube_plugin_path}/openshift-ovs-subnet
-%{_prefix}/lib/systemd/system/openshift-node.service.d/openshift-sdn-ovs.conf
+%{_prefix}/lib/systemd/system/%{name}-node.service.d/%{name}-sdn-ovs.conf
 %{_prefix}/lib/systemd/system/docker.service.d/docker-sdn-ovs.conf
 
-%files -n tuned-profiles-atomic-enterprise-node
+%files -n tuned-profiles-%{name}-node
 %defattr(-,root,root,-)
 %{_prefix}/lib/tuned/openshift-node-host
 %{_prefix}/lib/tuned/openshift-node-guest
 %{_mandir}/man7/tuned-profiles-openshift-node.7*
 
-%post -n tuned-profiles-atomic-enterprise-node
+%post -n tuned-profiles-%{name}-node
 recommended=`/usr/sbin/tuned-adm recommend`
 if [[ "${recommended}" =~ guest ]] ; then
   /usr/sbin/tuned-adm profile openshift-node-guest > /dev/null 2>&1
@@ -255,7 +255,7 @@ else
   /usr/sbin/tuned-adm profile openshift-node-host > /dev/null 2>&1
 fi
 
-%preun -n tuned-profiles-atomic-enterprise-node
+%preun -n tuned-profiles-%{name}-node
 # reset the tuned profile to the recommended profile
 # $1 = 0 when we're being removed > 0 during upgrades
 if [ "$1" = 0 ]; then
