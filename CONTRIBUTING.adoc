@@ -1,11 +1,10 @@
-= Contributing to OpenShift
-OpenShift Developers <dev@lists.openshift.redhat.com>
+= Contributing to Atomic Enterprise
 :data-uri:
 :icons:
 :toc2:
 :sectanchors:
 
-The OpenShift architecture builds upon the flexibility and scalability of https://docker.com/[Docker] and https://github.com/GoogleCloudPlatform/kubernetes[Kubernetes] to deliver a powerful new https://www.youtube.com/watch?v=aZ40GobvA1c[Platform-as-a-Service] system. This article explains how to set up a development environment and get involved with this latest version of OpenShift.  Kubernetes is included in this repo for ease of development, and the version we include is periodically updated.
+The Atomic Enterprise architecture builds upon the flexibility and scalability of https://docker.com/[Docker] and https://github.com/GoogleCloudPlatform/kubernetes[Kubernetes] to deliver a powerful new Platform-as-a-Service system. This article explains how to set up a development environment and get involved with this latest version of Atomic Enterprise.  Kubernetes is included in this repo for ease of development, and the version we include is periodically updated.
 
 To get started you can either:
 
@@ -13,31 +12,31 @@ To get started you can either:
 
 Or if you are interested in development, start with:
 
-* <<openshift-development>> and choose between:
+* <<atomic-enterprise-development>> and choose between:
 
 	** <<develop-locally-on-your-host>>
 	** <<develop-on-virtual-machine-using-vagrant>>
 
 == Download from GitHub
 
-The OpenShift team periodically publishes binaries to GitHub on https://github.com/openshift/origin/releases[the Releases page].  These are Linux, Windows, or Mac OS X 64bit binaries (note that Mac and Windows are client only). You'll need Docker installed on your local system (see https://docs.docker.com/installation/#installation[the installation page] if you've never installed Docker before).
+The Atomic Enterprise team periodically publishes binaries to GitHub on https://github.com/projectatomic/atomic-enterprise/releases[the Releases page].  These are Linux 64bit binaries. You'll need Docker installed on your local system (see https://docs.docker.com/installation/#installation[the installation page] if you've never installed Docker before).
 
-The tar file for each platform contains a single binary `openshift` which is the all-in-one OpenShift installation.
+The tar file for each platform contains a single binary `atomic-enterprise` which is the all-in-one Atomic Enterprise installation.
 
-* Use `sudo openshift start` to launch the server.  Root access is required to create services due to the need to modify IPTables.  See issue: https://github.com/GoogleCloudPlatform/kubernetes/issues/1859.
-* Use `oc login <server> ...` to connect to an OpenShift server
-* Use `openshift help` to see more about the commands in the binary
+* Use `sudo atomic-enterprise start` to launch the server.  Root access is required to create services due to the need to modify IPTables.  See issue: https://github.com/GoogleCloudPlatform/kubernetes/issues/1859.
+* Use `oc login <server> ...` to connect to an Atomic Enterprise server
+* Use `atomic-enterprise help` to see more about the commands in the binary
 
 
-== OpenShift Development
+== Atomic Enterprise Development
 
-To get started, https://help.github.com/articles/fork-a-repo[fork] the https://github.com/openshift/origin[origin repo]
+To get started, https://help.github.com/articles/fork-a-repo[fork] the https://github.com/projectatomic/atomic-enterprise[atomic-enterprise repo]
 
 === Develop locally on your host
 
-You can develop OpenShift 3 on Windows, Mac, or Linux, but you'll need Docker installed on Linux to actually launch containers.
+You can develop Atomic Enterprise on Windows, Mac, or Linux, but you'll need Docker installed on Linux to actually launch containers.
 
-* For OpenShift 3 development, install the http://golang.org/[Go] programming language
+* For Atomic Enterprise development, install the http://golang.org/[Go] programming language
 * To launch containers, install the https://docker.com/[Docker] platform
 
 Here's how to get set up:
@@ -45,7 +44,7 @@ Here's how to get set up:
 1. For Go, Git and optionally also Docker, follow the links below to get to installation information for these tools: +
 ** http://golang.org/doc/install[Installing Go]. You must install Go 1.4 and NOT use $HOME/go directory for Go installation.
 ** http://git-scm.com/book/en/v2/Getting-Started-Installing-Git[Installing Git]
-** https://docs.docker.com/installation/#installation[Installing Docker]. NOTE: OpenShift now requires at least Docker 1.6. RPMs for CentOS 7 are not yet available in the default yum repositories. If you're running CentOS, please see the link:README.md#docker-16[README] for information on where to get Docker 1.6 RPMs for your platform.
+** https://docs.docker.com/installation/#installation[Installing Docker]. NOTE: Atomic Enterprise requires at least Docker 1.6. RPMs for CentOS 7 are not yet available in the default yum repositories. If you're running CentOS, please see the link:README.md#docker-16[README] for information on where to get Docker 1.6 RPMs for your platform.
 2. Next, create a Go workspace directory: +
 +
 ----
@@ -59,14 +58,14 @@ export PATH=$PATH:$GOPATH/bin
 ----
 4. Open up a new terminal or source the changes in your current terminal.  Then clone this repo:
 
-        $ mkdir -p $GOPATH/src/github.com/openshift
-        $ cd $GOPATH/src/github.com/openshift
-        $ git clone git://github.com/<forkid>/origin  # Replace <forkid> with the your github id
-        $ cd origin
-        $ git remote add upstream git://github.com/openshift/origin
+        $ mkdir -p $GOPATH/src/github.com/projectatomic
+        $ cd $GOPATH/src/github.com/projectatomic
+        $ git clone git://github.com/<forkid>/atomic-enterprise  # Replace <forkid> with the your github id
+        $ cd atomic-enterprise
+        $ git remote add upstream git://github.com/projectatomic/atomic-enterprise
         
 
-5.  From here, you can follow https://github.com/openshift/origin/#start-developing[Start Developing] from the README.
+5.  From here, you can follow https://github.com/projectatomic/atomic-enterprise/#start-developing[Start Developing] from the README.
 
 === Develop on virtual machine using Vagrant
 
@@ -78,11 +77,11 @@ To facilitate rapid development we've put together a Vagrantfile you can use to 
 
 3.  Clone the project and change into the directory:
 
-        $ mkdir -p $GOPATH/src/github.com/openshift
-        $ cd $GOPATH/src/github.com/openshift
-        $ git clone git://github.com/<forkid>/origin  # Replace <forkid> with the your github id
-        $ cd origin
-        $ git remote add upstream git://github.com/openshift/origin
+        $ mkdir -p $GOPATH/src/github.com/projectatomic
+        $ cd $GOPATH/src/github.com/projectatomic
+        $ git clone git://github.com/<forkid>/atomic-enterprise  # Replace <forkid> with the your github id
+        $ cd atomic-enterprise
+        $ git remote add upstream git://github.com/projectatomic/atomic-enterprise
 
 
 4.  Bring up the VM  (If you are new to Vagrant, consider http://docs.vagrantup.com[Vagrant Docs] for help on items like provider selection.  Also consider the enablement of your hardware's virtualization extensions, such as https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Administration_Guide/sect-Virtualization-Troubleshooting-Enabling_Intel_VT_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html[RHEL] for example.):
@@ -95,20 +94,18 @@ To facilitate rapid development we've put together a Vagrantfile you can use to 
 
 6.  Run a build in SSH:
 
-        $ cd /data/src/github.com/openshift/origin
+        $ cd /data/src/github.com/projectatomic/atomic-enterprise
         $ make build
 
-7.  Start an OpenShift all-in-one server in SSH (includes everything you need to try OpenShift)
+7.  Start an Atomic Enterprise all-in-one server in SSH (includes everything you need to try Atomic Enterprise)
 
-        $ sudo systemctl start openshift
+        $ sudo systemctl start atomic-enterprise
 
-8.  On your host system, try browsing to: https://localhost:8443/console
+8.  On your host system, try browsing to: https://localhost:8443/
 
-9.  From here, you can follow https://github.com/openshift/origin/#start-developing[Start Developing] from the README.
+9.  From here, you can follow https://github.com/projectatomic/atomic-enterprise/#start-developing[Start Developing] from the README.
 
 TIP: To ensure you get the latest image.  First run `vagrant box remove fedora_inst` and `vagrant box remove fedora_deps`.
-
-TIP: See https://github.com/openshift/vagrant-openshift for more advanced options
 
 ==== Ensure virtual box interfaces are not managed by Network Manager
 
@@ -139,30 +136,13 @@ Follow these steps to ensure that virtual box interfaces are unmanaged:
 
 
 == Development: What's on the Menu?
-Right now you can see what's happening with OpenShift development at:
+Right now you can see what's happening with Atomic Enterprise development at:
 
-https://github.com/openshift/origin[github.com/openshift/origin]
-
-Ready to play with some code? Hop down and read up on our link:#_the_roadmap[roadmap] for ideas on where you can contribute.
+https://github.com/projectatomic/atomic-enterprise[github.com/projectatomic/atomic-enterprise]
 
 *If you are interested in contributing to Kubernetes directly:* +
 https://github.com/GoogleCloudPlatform/kubernetes#community-discussion-and-support[Join the Kubernetes community] and check out the https://github.com/GoogleCloudPlatform/kubernetes/blob/master/CONTRIBUTING.md[contributing guide].
 
 == Troubleshooting
 
-If you run into difficulties running OpenShift, start by reading through the https://github.com/openshift/origin/blob/master/docs/debugging-openshift.md[troubleshooting guide].
-
-== The Roadmap
-The OpenShift project roadmap lives https://trello.com/b/nlLwlKoz/openshift-origin-roadmap[on Trello]. Of particular interest to those who want to get involved with the OpenShift 3 architecture are the following topics:
-
-* https://trello.com/c/uqNIamJi[Orchestration]
-* https://trello.com/c/ja8bbQwy[Networking]
-* https://trello.com/c/3zHeVSla[Routing and Load Balancing]
-
-These link to active and backlog tasks that the OpenShift team is planning or working on for Kubernetes development.
-
-== Stay in Touch
-Reach out to the OpenShift team and other community contributors through IRC and our mailing list:
-
-* IRC: Hop onto the http://webchat.freenode.net/?randomnick=1&channels=openshift-dev&uio=d4[#openshift-dev] channel on http://www.freenode.net/[FreeNode].
-* E-mail: Join the OpenShift developers' http://lists.openshift.redhat.com/openshiftmm/listinfo/dev[mailing list].
+If you run into difficulties running Project Atomic, start by reading through the https://github.com/projectatomic/atomic-enterprise/blob/master/docs/debugging-atomic-enterprise.md[troubleshooting guide].

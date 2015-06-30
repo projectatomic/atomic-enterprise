@@ -1,4 +1,5 @@
-# OpenShift Images
+# Atomic Enterprise Images
+
 ## Problem/Rationale
 Kubernetes creates Docker containers from images stored in Docker registries. It does not currently track and store any information about images; it merely pulls and stores them locally on a minion as part of the pod creation process.
 

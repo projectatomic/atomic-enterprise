@@ -1,14 +1,14 @@
 Troubleshooting
-=================
+===============
 
-This document contains some tips and suggestions for troubleshooting an OpenShift v3 deployment.
+This document contains some tips and suggestions for troubleshooting an Atomic Enterprise deployment.
 
 System Environment
 ------------------
 
 1. Run as root
 
-   Currently OpenShift v3 must be started as root in order to manipulate your iptables configuration.  The openshift commands (e.g. `oc create`) do not need to be run as root.
+   Currently Atomic Enterprise must be started as root in order to manipulate your iptables configuration.  The Atomic Enterprise commands (e.g. `oc create`) do not need to be run as root.
 
 1. Properly configure or disable firewalld
 
@@ -33,36 +33,12 @@ System Environment
         $ iptables-restore < /path/to/iptables.bkp
   
 
-
-Build Failures
---------------
-
-To investigate a build failure, first check the build logs.  You can view the build logs via
-
-    $ oc build-logs [build_id]
-        
-and you can get the build id via:
-
-    $ oc get builds
-
-the build id is in the first column.
-
-If you're unable to retrieve the logs in this way, you can also get them directly from docker.  First you need to find the docker container that ran your build:
-
-    $ docker ps -a | grep builder
-
-The most recent container in that list should be the one that ran your build.  The container id is the first column.  You can then run:
-
-    $ docker logs [container id]
-        
-Hopefully the logs will provide some indication of what it failed (e.g. failure to find the source repository, an actual build issue, failure to push the resulting image to the docker registry, etc).
-
 Docker Registry
 ---------------
 
 Most of the v3 flows today assume you are running a docker registry pod.  You should ensure that this local registry is running:
 
-    $ openshift admin registry
+    $ atomic-enterprise admin registry
 
 If it's running, you should see this:
 
@@ -81,9 +57,7 @@ Probing Containers
 
 In general you may want to investigate a particular container.  You can either gather the logs from a container via `docker logs [container id]` or use `docker exec -it [container id] /bin/sh` to enter the container's namespace and poke around.
 
-Sometimes you'll hit a problem while developing an sti builder or Docker build where the image fails to start up.  Another scenario that is possible is that you're working on a liveness probe and it's failing and therefore killing the container before you have time to figure out what is happening.  Sometimes you can run `docker start <CONTAINER ID>` however if the pod has been destroyed and it was dependent on a volume it won't let you restart the container if the volume has been cleaned up.
-
-If you simply want to take a container that OpenShift has created but debug it outside of the Master's knowledge you can run the following:
+If you simply want to take a container but debug it outside of the Master's knowledge you can run the following:
 
     $ docker commit <CONTAINER ID> <some new name>
     $ docker run -it <name from previous step> /bin/bash
@@ -94,7 +68,7 @@ Obviously this won't work if you don't have bash installed but you could always 
 Benign Errors/Messages
 ----------------------
 
-There are a number of suspicious looking messages that appear in the openshift log output which can normally be ignored:
+There are a number of suspicious looking messages that appear in the Atomic Enterprise log output which can normally be ignored:
 
 1. Failed to find an IP for pod (benign as long as it does not continuously repeat)
 
@@ -110,11 +84,11 @@ There are a number of suspicious looking messages that appear in the openshift l
 
 Must Gather
 -----------
-If you find yourself still stuck, before seeking help in #openshift on freenode.net, please recreate your issue with verbose logging and gather the following:
+If you find yourself still stuck please recreate your issue with verbose logging and gather the following:
 
-1. OpenShift logs at level 4 (verbose logging):
+1. Atomic Enterprise logs at level 4 (verbose logging):
 
-        $ openshift start --loglevel=4 &> /tmp/openshift.log
+        $ atomic-enterprise start --loglevel=4 &> /tmp/atomic-enterprise.log
         
 1. Container logs  
     
