@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # This Vagrantfile provides a simple default configuration using VirtualBox.
-# For any other configuration, create a configuration in .vagrant-openshift.json
+# For any other configuration, create a configuration in .vagrant-atomic-enterprise.json
 # using the vagrant-openshift plugin (https://github.com/openshift/vagrant-openshift)
 # as an alternative to editing this file.
 # Specific providers may use further configuration from provider-specific files -
@@ -63,8 +63,8 @@ VM_NAME_PREFIX      = ENV['OPENSHIFT_VM_NAME_PREFIX'] || ""
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # these are the default settings, overrides are in .vagrant-openshift.json
-  vagrant_openshift_config = {
-    "instance_name"     => "origin-dev",
+  vagrant_atomic_enterprise_config = {
+    "instance_name"     => "atomic-enterprise-dev",
     "os"                => "fedora",
     "dev_cluster"       => false,
     "insert_key"        => true,
@@ -102,23 +102,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     },
   }
 
-  # attempt to read config in this repo's .vagrant-openshift.json if present
-  if File.exist?('.vagrant-openshift.json')
-    json = File.read('.vagrant-openshift.json')
+  # attempt to read config in this repo's .vagrant-atomic-enterprise.json if present
+  if File.exist?('.vagrant-atomic-enterprise.json')
+    json = File.read('.vagrant-atomic-enterprise.json')
     begin
-      hash_deep_merge!(vagrant_openshift_config, JSON.parse(json))
+      hash_deep_merge!(vagrant_atomic_enterprise_config, JSON.parse(json))
     rescue JSON::ParserError => e
-      raise VFLoadError.new "Error parsing .vagrant-openshift.json:\n#{e}"
+      raise VFLoadError.new "Error parsing .vagrant-atomic-enterprise.json:\n#{e}"
     end
   end
 
-  dev_cluster = vagrant_openshift_config['dev_cluster'] || ENV['OPENSHIFT_DEV_CLUSTER']
+  dev_cluster = vagrant_atomic_enterprise_config['dev_cluster'] || ENV['OPENSHIFT_DEV_CLUSTER']
   if dev_cluster
     # Start an OpenShift cluster
     # Currently this only works with the (default) VirtualBox provider.
 
     # The number of minions to provision.
-    num_minion = (vagrant_openshift_config['num_minions'] || ENV['OPENSHIFT_NUM_MINIONS'] || 2).to_i
+    num_minion = (vagrant_atomic_enterprise_config['num_minions'] || ENV['OPENSHIFT_NUM_MINIONS'] || 2).to_i
 
     # IP configuration
     master_ip = "10.245.2.2"
@@ -127,7 +127,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     minion_ips_str = minion_ips.join(",")
 
     # Determine the OS platform to use
-    kube_os = vagrant_openshift_config['os'] || "fedora"
+    kube_os = vagrant_atomic_enterprise_config['os'] || "fedora"
 
     # OS platform to box information
     kube_box = {
@@ -143,7 +143,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.box_url = kube_box[kube_os]["box_url"]
       config.vm.provision "shell", inline: "/vagrant/vagrant/provision-master.sh #{master_ip} #{num_minion} #{minion_ips_str} #{ENV['OPENSHIFT_SDN']}"
       config.vm.network "private_network", ip: "#{master_ip}"
-      config.vm.hostname = "openshift-master"
+      config.vm.hostname = "atomic-enterprise-master"
     end
 
     # OpenShift minion
@@ -155,19 +155,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         minion.vm.box_url = kube_box[kube_os]["box_url"]
         minion.vm.provision "shell", inline: "/vagrant/vagrant/provision-minion.sh #{master_ip} #{num_minion} #{minion_ips_str} #{minion_ip} #{minion_index} #{ENV['OPENSHIFT_SDN']}"
         minion.vm.network "private_network", ip: "#{minion_ip}"
-        minion.vm.hostname = "openshift-minion-#{minion_index}"
+        minion.vm.hostname = "atomic-enterprise-minion-#{minion_index}"
       end
     end
   else # Single VM dev environment
-    sync_from = vagrant_openshift_config['sync_from'] || ENV["VAGRANT_SYNC_FROM"] || '.'
-    sync_to = vagrant_openshift_config['sync_to'] || ENV["VAGRANT_SYNC_TO"] || "/data/src/github.com/openshift/origin"
+    sync_from = vagrant_atomic_enterprise_config['sync_from'] || ENV["VAGRANT_SYNC_FROM"] || '.'
+    sync_to = vagrant_atomic_enterprise_config['sync_to'] || ENV["VAGRANT_SYNC_TO"] || "/data/src/github.com/projectatomic/atomic-enterprise"
 
     ##########################
     # define settings for the single VM being created.
-    config.vm.define "#{VM_NAME_PREFIX}openshiftdev", primary: true do |config|
-      config.vm.hostname = "openshiftdev.local"
+    config.vm.define "#{VM_NAME_PREFIX}atomic-enterprisedev", primary: true do |config|
+      config.vm.hostname = "atomic-enterprisedev.local"
 
-      if vagrant_openshift_config['rebuild_yum_cache']
+      if vagrant_atomic_enterprise_config['rebuild_yum_cache']
         config.vm.provision "shell", inline: "yum clean all && yum makecache"
       end
       if pre_vagrant_171
@@ -178,7 +178,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       config.vm.synced_folder ".", "/vagrant", disabled: true
 
-      unless vagrant_openshift_config['no_synced_folders']
+      unless vagrant_atomic_enterprise_config['no_synced_folders']
         config.vm.synced_folder sync_from, sync_to, rsync__args: %w(--verbose --archive --delete)
       end
 
@@ -196,42 +196,42 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # ################################
     # Set VirtualBox provider settings
     config.vm.provider "virtualbox" do |v, override|
-      override.vm.box     = vagrant_openshift_config['virtualbox']['box_name'] unless dev_cluster
-      override.vm.box_url = vagrant_openshift_config['virtualbox']['box_url'] unless dev_cluster
-      override.ssh.insert_key = vagrant_openshift_config['insert_key']
+      override.vm.box     = vagrant_atomic_enterprise_config['virtualbox']['box_name'] unless dev_cluster
+      override.vm.box_url = vagrant_atomic_enterprise_config['virtualbox']['box_url'] unless dev_cluster
+      override.ssh.insert_key = vagrant_atomic_enterprise_config['insert_key']
 
-      v.memory            = vagrant_openshift_config['memory'].to_i
-      v.cpus              = vagrant_openshift_config['cpus'].to_i
-      v.customize ["modifyvm", :id, "--cpus", vagrant_openshift_config['cpus'].to_s]
+      v.memory            = vagrant_atomic_enterprise_config['memory'].to_i
+      v.cpus              = vagrant_atomic_enterprise_config['cpus'].to_i
+      v.customize ["modifyvm", :id, "--cpus", vagrant_atomic_enterprise_config['cpus'].to_s]
       # to make the ha-proxy reachable from the host, you need to add a port forwarding rule from 1080 to 80, which
       # requires root privilege. Use iptables on linux based or ipfw on BSD based OS:
       # sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 1080
       # sudo ipfw add 100 fwd 127.0.0.1,1080 tcp from any to any 80 in
-    end if vagrant_openshift_config['virtualbox']
+    end if vagrant_atomic_enterprise_config['virtualbox']
 
     # ################################
     # Set libvirt provider settings
     config.vm.provider "libvirt" do |libvirt, override|
-      override.vm.box     = vagrant_openshift_config['libvirt']['box_name']
-      override.vm.box_url = vagrant_openshift_config['libvirt']['box_url']
-      override.ssh.insert_key = vagrant_openshift_config['insert_key']
+      override.vm.box     = vagrant_atomic_enterprise_config['libvirt']['box_name']
+      override.vm.box_url = vagrant_atomic_enterprise_config['libvirt']['box_url']
+      override.ssh.insert_key = vagrant_atomic_enterprise_config['insert_key']
       libvirt.driver      = 'kvm'
-      libvirt.memory      = vagrant_openshift_config['memory'].to_i
-      libvirt.cpus        = vagrant_openshift_config['cpus'].to_i
+      libvirt.memory      = vagrant_atomic_enterprise_config['memory'].to_i
+      libvirt.cpus        = vagrant_atomic_enterprise_config['cpus'].to_i
       full_provision(override.vm)
-    end if vagrant_openshift_config['libvirt']
+    end if vagrant_atomic_enterprise_config['libvirt']
 
     # ###################################
     # Set VMware Fusion provider settings
     config.vm.provider "vmware_fusion" do |v, override|
-      override.vm.box     = vagrant_openshift_config['vmware']['box_name']
-      override.vm.box_url = vagrant_openshift_config['vmware']['box_url']
-      override.ssh.insert_key = vagrant_openshift_config['insert_key']
-      v.vmx["memsize"]    = vagrant_openshift_config['memory'].to_s
-      v.vmx["numvcpus"]   = vagrant_openshift_config['cpus'].to_s
+      override.vm.box     = vagrant_atomic_enterprise_config['vmware']['box_name']
+      override.vm.box_url = vagrant_atomic_enterprise_config['vmware']['box_url']
+      override.ssh.insert_key = vagrant_atomic_enterprise_config['insert_key']
+      v.vmx["memsize"]    = vagrant_atomic_enterprise_config['memory'].to_s
+      v.vmx["numvcpus"]   = vagrant_atomic_enterprise_config['cpus'].to_s
       v.gui               = false
       full_provision(override.vm)
-    end if vagrant_openshift_config['vmware']
+    end if vagrant_atomic_enterprise_config['vmware']
 
     # ###############################
     # Set OpenStack provider settings
@@ -242,7 +242,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # read in all the lines that look like FOO=BAR as a hash
       creds = File.exist?(creds_file_path = File.expand_path(creds_file_path)) ?
         Hash[*(File.open(creds_file_path).readlines.map{ |l| l.strip!; l.split('=') }.flatten)] : {}
-      voc = vagrant_openshift_config['openstack']
+      voc = vagrant_atomic_enterprise_config['openstack']
 
       override.vm.box = voc["box_name"] || "openstack-dummy-box"
       override.vm.box_url = voc["box_url"] || OPENSTACK_BOX_URL
@@ -257,7 +257,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       os.flavor       = voc['flavor']         || creds['OSFlavor']   || /m1.small/       # Regex or String
       os.image        = voc['image']          || creds['OSImage']    || /Fedora/         # Regex or String
       os.ssh_username = user = voc['ssh_user']|| creds['OSSshUser']  || "root"           # login for the VM instance
-      os.server_name  = ENV['OS_HOSTNAME']    || vagrant_openshift_config['instance_name'] # name for the instance created
+      os.server_name  = ENV['OS_HOSTNAME']    || vagrant_atomic_enterprise_config['instance_name'] # name for the instance created
       full_provision(override.vm, user)
 
       # floating ip usually needed for accessing machines
@@ -265,7 +265,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       os.floating_ip  = floating_ip == ":auto" ? :auto : floating_ip
       floating_ip_pool = creds['OSFloatingIPPool'] || ENV['OS_FLOATING_IP_POOL']
       os.floating_ip_pool = floating_ip_pool == "false" ? false : floating_ip_pool
-    end if vagrant_openshift_config['openstack']
+    end if vagrant_atomic_enterprise_config['openstack']
 
 
     # #########################
@@ -277,11 +277,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         aws_creds      = aws_creds_file.exist? ? Hash[*(File.open(aws_creds_file.to_s).readlines.map{ |l| l.strip!
                                                           l.split('=') }.flatten)] : {}
 
-        voc = vagrant_openshift_config['aws']
+        voc = vagrant_atomic_enterprise_config['aws']
         override.vm.box               = voc['box_name'] || "aws-dummy-box"
         override.vm.box_url           = voc['box_url'] || AWS_BOX_URL
         override.vm.synced_folder sync_from, sync_to, disabled: true # rsyncing to public cloud not a great experience, use git
-        override.ssh.username         = vagrant_openshift_config['aws']['ssh_user']
+        override.ssh.username         = vagrant_atomic_enterprise_config['aws']['ssh_user']
         override.ssh.private_key_path = aws_creds["AWSPrivateKeyPath"] || "PATH TO AWS KEYPAIR PRIVATE KEY"
         override.ssh.insert_key = true
 
@@ -292,7 +292,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         aws.region            = voc['ami_region']
         aws.instance_type     = voc['instance_type'] || "c3.large"
         aws.instance_ready_timeout = 240
-        aws.tags              = { "Name" => ENV['AWS_HOSTNAME'] || vagrant_openshift_config['instance_name'] }
+        aws.tags              = { "Name" => ENV['AWS_HOSTNAME'] || vagrant_atomic_enterprise_config['instance_name'] }
         aws.user_data         = %{
 #cloud-config
 
@@ -311,6 +311,6 @@ runcmd:
         ]
       end
       #full_provision(override.vm)
-    end if vagrant_openshift_config['aws']
+    end if vagrant_atomic_enterprise_config['aws']
 
 end
