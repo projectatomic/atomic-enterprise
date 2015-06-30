@@ -1,7 +1,7 @@
 package latest
 
 import (
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/v1"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api/v1"
 )
 
 // Version is the string that represents the current external default version.

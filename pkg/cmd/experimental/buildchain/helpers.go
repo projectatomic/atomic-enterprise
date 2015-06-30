@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // invalidStreamTagErr is returned when an invalid image stream and tag

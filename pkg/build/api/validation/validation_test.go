@@ -7,7 +7,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
 )
 
 func TestBuildValidationSuccess(t *testing.T) {

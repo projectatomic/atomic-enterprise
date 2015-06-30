@@ -14,13 +14,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/wait"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/admin"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/etcd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/origin"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/tokencmd"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func TestBootstrapPolicyAuthenticatedUsersAgainstOpenshiftNamespace(t *testing.T) {

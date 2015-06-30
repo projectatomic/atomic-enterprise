@@ -13,13 +13,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/golang/glog"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/api/validation"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/validation"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 type mockService struct{}
@@ -57,7 +57,7 @@ func walkJSONFiles(inDir string, fn func(name, path string, data []byte)) error 
 
 func TestExampleObjectSchemas(t *testing.T) {
 	// Allow privileged containers
-	// TODO: make this configurable and not the default https://github.com/projectatomic/appinfra-next/issues/662
+	// TODO: make this configurable and not the default https://github.com/projectatomic/atomic-enterprise/issues/662
 	capabilities.Setup(true, nil)
 	cases := map[string]map[string]runtime.Object{
 		"../examples/hello-atomic": {

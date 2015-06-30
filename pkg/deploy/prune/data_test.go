@@ -7,7 +7,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
 )
 
 func mockDeploymentConfig(namespace, name string) *deployapi.DeploymentConfig {

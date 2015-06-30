@@ -3,8 +3,8 @@ package v1
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	newer "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
 )
 
 func init() {

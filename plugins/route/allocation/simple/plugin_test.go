@@ -6,8 +6,8 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/route/api"
-	rac "github.com/projectatomic/appinfra-next/pkg/route/controller/allocation"
+	"github.com/projectatomic/atomic-enterprise/pkg/route/api"
+	rac "github.com/projectatomic/atomic-enterprise/pkg/route/controller/allocation"
 )
 
 func TestNewSimpleAllocationPlugin(t *testing.T) {

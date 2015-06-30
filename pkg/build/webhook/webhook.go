@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
 )
 
 var (

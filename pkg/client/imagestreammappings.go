@@ -1,7 +1,7 @@
 package client
 
 import (
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // ImageStreamMappingsNamespacer has methods to work with ImageStreamMapping resources in a namespace

@@ -12,9 +12,9 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 var (

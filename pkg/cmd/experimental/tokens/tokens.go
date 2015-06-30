@@ -9,9 +9,9 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/tokenrequest"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
-	osclientcmd "github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/tokenrequest"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/origin"
+	osclientcmd "github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
 )
 
 const (

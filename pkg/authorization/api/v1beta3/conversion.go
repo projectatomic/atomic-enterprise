@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	newer "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	newer "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 func convert_v1beta3_SubjectAccessReview_To_api_SubjectAccessReview(in *SubjectAccessReview, out *newer.SubjectAccessReview, s conversion.Scope) error {

@@ -3,7 +3,7 @@ package client
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
-	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
+	userapi "github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 // UsersInterface has methods to work with User resources

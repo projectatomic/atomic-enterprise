@@ -3,7 +3,7 @@ package csrf
 import (
 	"net/http"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/session"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/session"
 
 	"code.google.com/p/go-uuid/uuid"
 )

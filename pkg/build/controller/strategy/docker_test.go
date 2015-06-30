@@ -7,9 +7,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/resource"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
 )
 
 func TestDockerCreateBuildPod(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"text/template"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 const DefaultProjectRequestForbidden = "You may not request a new project via this API."

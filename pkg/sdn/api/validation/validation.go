@@ -6,8 +6,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/validation"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/api"
-	sdnapi "github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	sdnapi "github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
 )
 
 // ValidateClusterNetwork tests if required fields in the ClusterNetwork are set.

@@ -3,7 +3,7 @@ package rulevalidation
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 // Covers determines whether or not the ownerRules cover the servantRules in terms of allowed actions.

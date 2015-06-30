@@ -11,11 +11,11 @@ import (
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	errorsutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/admin/policy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
 )
 
 const NewProjectRecommendedName = "new-project"

@@ -8,8 +8,8 @@ import (
 	"github.com/golang/glog"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildclient "github.com/projectatomic/appinfra-next/pkg/build/client"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildclient "github.com/projectatomic/atomic-enterprise/pkg/build/client"
 )
 
 // Plugin for Webhook verification is dependent on the sending side, it can be

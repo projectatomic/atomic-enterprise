@@ -14,9 +14,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/wait"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	stratsupport "github.com/projectatomic/appinfra-next/pkg/deploy/strategy/support"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	stratsupport "github.com/projectatomic/atomic-enterprise/pkg/deploy/strategy/support"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 // TODO: This should perhaps be made public upstream. See:

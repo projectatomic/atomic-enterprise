@@ -1,7 +1,7 @@
 package validation
 
 import (
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
 )
 
 func ValidateAllInOneConfig(master *api.MasterConfig, node *api.NodeConfig) ValidationResults {

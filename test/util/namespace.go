@@ -5,7 +5,7 @@ import (
 	"time"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
 )
 
 // Namespace returns the test namespace. The default namespace is set to

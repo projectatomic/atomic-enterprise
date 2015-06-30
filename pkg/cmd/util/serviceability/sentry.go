@@ -7,7 +7,7 @@ import (
 
 	"github.com/getsentry/raven-go"
 
-	"github.com/projectatomic/appinfra-next/pkg/version"
+	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
 // SentryMonitor encapsulates a Sentry client and set of default tags

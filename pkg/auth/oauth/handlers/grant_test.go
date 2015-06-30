@@ -3,7 +3,7 @@ package handlers
 import (
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/server/osinserver"
 )
 
 func TestGrant(t *testing.T) {

@@ -6,9 +6,9 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/user/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api/validation"
 )
 
 func ValidateOAuthConfig(config *api.OAuthConfig) fielderrors.ValidationErrorList {

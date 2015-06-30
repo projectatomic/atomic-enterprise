@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/service/allocator"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/security/mcs"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/mcs"
 )
 
 func TestAllocate(t *testing.T) {

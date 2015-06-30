@@ -8,7 +8,7 @@ import (
 	"github.com/RangelReale/osin"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/api"
 )
 
 // GrantCheck implements osinserver.AuthorizeHandler to ensure requested scopes have been authorized

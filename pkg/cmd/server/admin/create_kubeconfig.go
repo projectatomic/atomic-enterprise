@@ -15,8 +15,8 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 	clientcmdapi "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd/api"
-	cliconfig "github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/crypto"
+	cliconfig "github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/config"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/crypto"
 )
 
 const CreateKubeConfigCommandName = "create-kubeconfig"

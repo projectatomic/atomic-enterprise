@@ -11,10 +11,10 @@ import (
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	cliconfig "github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	cliconfig "github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/config"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
 )
 
 type NewProjectOptions struct {

@@ -4,7 +4,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // Plugin is the interface the router controller dispatches watch events

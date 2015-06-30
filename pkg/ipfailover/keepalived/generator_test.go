@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
-	"github.com/projectatomic/appinfra-next/pkg/generate/app"
-	"github.com/projectatomic/appinfra-next/pkg/ipfailover"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/variable"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app"
+	"github.com/projectatomic/atomic-enterprise/pkg/ipfailover"
 )
 
 func makeIPFailoverConfigOptions(selector string, replicas int, serviceAccount string) *ipfailover.IPFailoverConfigCmdOptions {

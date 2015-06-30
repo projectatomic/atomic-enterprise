@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 // TemplatesNamespacer has methods to work with Template resources in a namespace

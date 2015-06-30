@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
 )
 
 type DeploymentConfigRegistry struct {

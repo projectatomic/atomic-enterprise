@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/generic"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/api/validation"
 )
 
 // strategy implements behavior for OAuthAuthorizeTokens

@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/template/api"
-	"github.com/projectatomic/appinfra-next/pkg/template/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/api/validation"
 )
 
 // templateStrategy implements behavior for Templates

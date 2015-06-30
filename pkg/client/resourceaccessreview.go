@@ -1,7 +1,7 @@
 package client
 
 import (
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 // ResourceAccessReviewsNamespacer has methods to work with ResourceAccessReview resources in a namespace

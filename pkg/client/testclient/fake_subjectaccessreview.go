@@ -1,7 +1,7 @@
 package testclient
 
 import (
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 // FakeSubjectAccessReviews implements SubjectAccessReviewInterface. Meant to be embedded into a struct to get a default

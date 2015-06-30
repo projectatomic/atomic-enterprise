@@ -3,7 +3,7 @@ package app
 import (
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/generate/app/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app/test"
 )
 
 func TestFromGitURL(t *testing.T) {

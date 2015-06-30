@@ -5,8 +5,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
-	"github.com/projectatomic/appinfra-next/pkg/user/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api/validation"
 )
 
 // userIdentityMappingStrategy implements behavior for image repository mappings.

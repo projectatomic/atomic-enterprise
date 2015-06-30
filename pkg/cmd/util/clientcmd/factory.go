@@ -14,13 +14,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/spf13/pflag"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/describe"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployreaper "github.com/projectatomic/appinfra-next/pkg/deploy/reaper"
-	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/scaler"
-	routegen "github.com/projectatomic/appinfra-next/pkg/route/generator"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/describe"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployreaper "github.com/projectatomic/atomic-enterprise/pkg/deploy/reaper"
+	deploy "github.com/projectatomic/atomic-enterprise/pkg/deploy/scaler"
+	routegen "github.com/projectatomic/atomic-enterprise/pkg/route/generator"
 )
 
 // New creates a default Factory for commands that should share identical server

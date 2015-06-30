@@ -14,8 +14,8 @@ import (
 	"github.com/RangelReale/osincli"
 	"github.com/golang/glog"
 
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/external"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/oauth/external"
 )
 
 const (

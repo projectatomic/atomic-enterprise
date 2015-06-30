@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
 
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // Default DNS suffix to use if no configuration is passed to this plugin.

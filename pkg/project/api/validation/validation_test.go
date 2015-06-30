@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/api"
 )
 
 func TestValidateProject(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 
 	restful "github.com/emicklei/go-restful"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/plug"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/plug"
 )
 
 // initControllerRoutes adds a web service endpoint for managing the execution

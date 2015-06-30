@@ -6,10 +6,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/validation"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/project/api"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	"github.com/projectatomic/appinfra-next/pkg/util/labelselector"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/util/labelselector"
 )
 
 func ValidateProjectName(name string, prefix bool) (bool, string) {

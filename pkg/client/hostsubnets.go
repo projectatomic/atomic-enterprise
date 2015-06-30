@@ -3,7 +3,7 @@ package client
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	sdnapi "github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	sdnapi "github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
 )
 
 // HostSubnetInterface has methods to work with HostSubnet resources

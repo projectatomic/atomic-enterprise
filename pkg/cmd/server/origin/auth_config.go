@@ -10,14 +10,14 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/session"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
-	identityregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
-	identityetcd "github.com/projectatomic/appinfra-next/pkg/user/registry/identity/etcd"
-	userregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/user"
-	useretcd "github.com/projectatomic/appinfra-next/pkg/user/registry/user/etcd"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/session"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/etcd"
+	identityregistry "github.com/projectatomic/atomic-enterprise/pkg/user/registry/identity"
+	identityetcd "github.com/projectatomic/atomic-enterprise/pkg/user/registry/identity/etcd"
+	userregistry "github.com/projectatomic/atomic-enterprise/pkg/user/registry/user"
+	useretcd "github.com/projectatomic/atomic-enterprise/pkg/user/registry/user/etcd"
 )
 
 type AuthConfig struct {

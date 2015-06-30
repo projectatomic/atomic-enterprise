@@ -12,10 +12,10 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/controller"
-	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/controller"
+	"github.com/projectatomic/atomic-enterprise/pkg/dockerregistry"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // ImportControllerFactory can create an ImportController.

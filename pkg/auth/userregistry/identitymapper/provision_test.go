@@ -7,9 +7,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/types"
 
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
-	"github.com/projectatomic/appinfra-next/pkg/user/registry/test"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/registry/test"
 )
 
 func TestGetPreferredUsername(t *testing.T) {

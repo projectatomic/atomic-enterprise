@@ -9,7 +9,7 @@ import (
 
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
 )
 
 // CSRFTokenHeader is a marker header that indicates we are not a browser that got tricked into requesting basic auth

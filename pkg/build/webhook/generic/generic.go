@@ -8,8 +8,8 @@ import (
 
 	"github.com/golang/glog"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/build/webhook"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/webhook"
 )
 
 // WebHookPlugin used for processing manual(or other) webhook requests.

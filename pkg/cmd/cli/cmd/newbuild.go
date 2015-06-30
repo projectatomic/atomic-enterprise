@@ -9,9 +9,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 	"github.com/spf13/cobra"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	newcmd "github.com/projectatomic/appinfra-next/pkg/generate/app/cmd"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	newcmd "github.com/projectatomic/atomic-enterprise/pkg/generate/app/cmd"
 )
 
 const (

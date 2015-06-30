@@ -4,9 +4,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/generate/app/test"
-	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
-	"github.com/projectatomic/appinfra-next/pkg/generate/source"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/dockerfile"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/source"
 )
 
 var sourceDetectors = source.Detectors{

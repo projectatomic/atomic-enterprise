@@ -12,13 +12,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
-	clusterpolicybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
-	policyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policy"
-	policybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policybinding"
-	rolebindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/rolebinding"
-	"github.com/projectatomic/appinfra-next/pkg/authorization/rulevalidation"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicy"
+	clusterpolicybindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicybinding"
+	policyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/policy"
+	policybindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/policybinding"
+	rolebindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/rolebinding"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/rulevalidation"
 )
 
 type VirtualStorage struct {

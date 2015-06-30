@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/pflag"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/config"
 )
 
 func DefaultClientConfig(flags *pflag.FlagSet) clientcmd.ClientConfig {

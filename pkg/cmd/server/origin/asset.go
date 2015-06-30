@@ -11,10 +11,10 @@ import (
 	"github.com/elazarl/go-bindata-assetfs"
 	"github.com/emicklei/go-restful"
 	"github.com/golang/glog"
-	"github.com/projectatomic/appinfra-next/pkg/assets"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/version"
+	"github.com/projectatomic/atomic-enterprise/pkg/assets"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
 // InstallAPI adds handlers for serving static assets into the provided mux,

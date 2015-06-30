@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
-	"github.com/projectatomic/appinfra-next/pkg/sdn/registry/hostsubnet"
+	"github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/sdn/registry/hostsubnet"
 )
 
 // rest implements a RESTStorage for sdn against etcd

@@ -10,9 +10,9 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/pflag"
 
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/flagtypes"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/flagtypes"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
 )
 
 const ConfigSyntax = " --master=<addr>"

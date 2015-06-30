@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/security"
-	"github.com/projectatomic/appinfra-next/pkg/security/mcs"
-	"github.com/projectatomic/appinfra-next/pkg/security/uid"
-	"github.com/projectatomic/appinfra-next/pkg/security/uidallocator"
+	"github.com/projectatomic/atomic-enterprise/pkg/security"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/mcs"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uid"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uidallocator"
 )
 
 func TestController(t *testing.T) {

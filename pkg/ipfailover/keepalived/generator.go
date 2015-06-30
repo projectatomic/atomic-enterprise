@@ -8,9 +8,9 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	kclientcmd "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 
-	dapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/generate/app"
-	"github.com/projectatomic/appinfra-next/pkg/ipfailover"
+	dapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app"
+	"github.com/projectatomic/atomic-enterprise/pkg/ipfailover"
 )
 
 const defaultInterface = "eth0"

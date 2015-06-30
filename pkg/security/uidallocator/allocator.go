@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/service/allocator"
 
-	"github.com/projectatomic/appinfra-next/pkg/security/uid"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uid"
 )
 
 // Interface manages the allocation of ports out of a range. Interface

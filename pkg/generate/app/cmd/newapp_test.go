@@ -17,15 +17,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	docker "github.com/fsouza/go-dockerclient"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	client "github.com/projectatomic/appinfra-next/pkg/client/testclient"
-	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
-	"github.com/projectatomic/appinfra-next/pkg/generate/app"
-	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
-	"github.com/projectatomic/appinfra-next/pkg/generate/source"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/util/namer"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	client "github.com/projectatomic/atomic-enterprise/pkg/client/testclient"
+	deploy "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/dockerregistry"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/dockerfile"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/source"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/util/namer"
 )
 
 func TestAddArguments(t *testing.T) {

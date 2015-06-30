@@ -14,9 +14,9 @@ import (
 	"github.com/golang/glog"
 	flag "github.com/spf13/pflag"
 
-	_ "github.com/projectatomic/appinfra-next/pkg/api"
-	_ "github.com/projectatomic/appinfra-next/pkg/api/v1"
-	_ "github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/api"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/api/v1"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/api/v1beta3"
 )
 
 var (

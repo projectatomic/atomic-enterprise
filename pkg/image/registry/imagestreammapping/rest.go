@@ -9,10 +9,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/image/api/validation"
-	"github.com/projectatomic/appinfra-next/pkg/image/registry/image"
-	"github.com/projectatomic/appinfra-next/pkg/image/registry/imagestream"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/registry/image"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/registry/imagestream"
 )
 
 // REST implements the RESTStorage interface in terms of an image registry and

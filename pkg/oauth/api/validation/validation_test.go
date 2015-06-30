@@ -5,7 +5,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
-	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
 )
 
 func TestValidateRedirectURI(t *testing.T) {

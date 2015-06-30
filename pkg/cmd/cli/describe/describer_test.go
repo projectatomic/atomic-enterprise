@@ -11,12 +11,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployapitest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/client/testclient"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployapitest "github.com/projectatomic/atomic-enterprise/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 type describeClient struct {

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/graph"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/graph"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
@@ -17,9 +17,9 @@ import (
 	kctl "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 // DeploymentConfigDescriber generates information about a DeploymentConfig

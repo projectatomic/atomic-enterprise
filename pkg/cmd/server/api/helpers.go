@@ -13,8 +13,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
 )
 
 // ParseNamespaceAndName returns back the namespace and name (empty if something goes wrong), for a given string.

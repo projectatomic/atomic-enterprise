@@ -11,7 +11,7 @@ import (
 
 	"github.com/golang/glog"
 
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 const (

@@ -12,13 +12,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 	clientcmdapi "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd/api"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	newproject "github.com/projectatomic/appinfra-next/pkg/cmd/admin/project"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/cmd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/config"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	newproject "github.com/projectatomic/atomic-enterprise/pkg/cmd/admin/project"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/cmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/config"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func init() {

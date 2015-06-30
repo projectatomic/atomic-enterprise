@@ -9,8 +9,8 @@ import (
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/record"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 // DeploymentConfigChangeController increments the version of a

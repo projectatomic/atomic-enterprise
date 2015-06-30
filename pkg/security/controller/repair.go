@@ -10,9 +10,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/service"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/security"
-	"github.com/projectatomic/appinfra-next/pkg/security/uid"
-	"github.com/projectatomic/appinfra-next/pkg/security/uidallocator"
+	"github.com/projectatomic/atomic-enterprise/pkg/security"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uid"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uidallocator"
 )
 
 // Repair is a controller loop that periodically examines all UID allocations

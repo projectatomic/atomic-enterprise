@@ -5,7 +5,7 @@ import (
 	kerrs "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 type Action struct {

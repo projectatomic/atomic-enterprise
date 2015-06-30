@@ -1,7 +1,7 @@
 package client
 
 import (
-	sdnapi "github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	sdnapi "github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
 )
 
 // ClusterNetworkingInterface has methods to work with ClusterNetwork resources

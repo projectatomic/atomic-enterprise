@@ -12,14 +12,14 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	oc "github.com/projectatomic/appinfra-next/pkg/cmd/cli/cmd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	projectrequeststorage "github.com/projectatomic/appinfra-next/pkg/project/registry/projectrequest/delegated"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	oc "github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/cmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/tokencmd"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	projectrequeststorage "github.com/projectatomic/atomic-enterprise/pkg/project/registry/projectrequest/delegated"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func TestUnprivilegedNewProject(t *testing.T) {

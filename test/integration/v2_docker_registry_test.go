@@ -17,10 +17,10 @@ import (
 	"github.com/docker/distribution/manifest"
 	_ "github.com/docker/distribution/registry/storage/driver/inmemory"
 	"github.com/docker/libtrust"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/dockerregistry"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/dockerregistry"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/tokencmd"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func init() {

@@ -11,10 +11,10 @@ import (
 	_ "github.com/GoogleCloudPlatform/kubernetes/pkg/api/latest"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
-	"github.com/projectatomic/appinfra-next/pkg/template/api"
-	"github.com/projectatomic/appinfra-next/pkg/template/generator"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/v1beta3"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/generator"
 )
 
 func makeParameter(name, value, generate string) api.Parameter {

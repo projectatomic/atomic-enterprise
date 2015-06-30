@@ -16,10 +16,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 	"github.com/golang/glog"
 
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	cmdflags "github.com/projectatomic/appinfra-next/pkg/cmd/util/flags"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	cmdflags "github.com/projectatomic/atomic-enterprise/pkg/cmd/util/flags"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/variable"
 )
 
 // NodeConfig represents the required parameters to start the OpenShift node

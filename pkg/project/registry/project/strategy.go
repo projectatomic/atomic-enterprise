@@ -5,8 +5,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/project/api"
-	"github.com/projectatomic/appinfra-next/pkg/project/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/api/validation"
 )
 
 // projectStrategy implements behavior for projects

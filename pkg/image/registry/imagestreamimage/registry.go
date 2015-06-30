@@ -3,7 +3,7 @@ package imagestreamimage
 import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/rest"
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // Registry is an interface for things that know how to store ImageStreamImage objects.

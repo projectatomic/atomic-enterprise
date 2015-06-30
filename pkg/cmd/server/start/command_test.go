@@ -12,8 +12,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	configapilatest "github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	configapilatest "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api/latest"
 )
 
 // this groups of methods force all the unit tests to share the same config directory

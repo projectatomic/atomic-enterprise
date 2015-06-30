@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/api"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // ValidateBuild tests required fields for a Build.

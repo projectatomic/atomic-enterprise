@@ -14,15 +14,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/wait"
 	"github.com/golang/glog"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	newproject "github.com/projectatomic/appinfra-next/pkg/cmd/admin/project"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/start"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	newproject "github.com/projectatomic/atomic-enterprise/pkg/cmd/admin/project"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/admin"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/start"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/tokencmd"
 )
 
 // ServiceAccountWaitTimeout is used to determine how long to wait for the service account

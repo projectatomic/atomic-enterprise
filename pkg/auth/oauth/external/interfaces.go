@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/RangelReale/osincli"
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
 )
 
 // Provider encapsulates the URLs, configuration, any custom authorize request parameters, and

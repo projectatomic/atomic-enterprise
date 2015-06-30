@@ -3,7 +3,7 @@ package testclient
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	sdnapi "github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	sdnapi "github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
 )
 
 // FakeHostSubnet implements HostSubnetInterface. Meant to be embedded into a struct to get a default

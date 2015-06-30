@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/rest"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 // Registry is an interface implemented by things that know how to store UserIdentityMapping objects.

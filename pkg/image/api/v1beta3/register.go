@@ -3,8 +3,8 @@ package v1beta3
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	_ "github.com/projectatomic/appinfra-next/pkg/image/api/docker10"
-	_ "github.com/projectatomic/appinfra-next/pkg/image/api/dockerpre012"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/image/api/docker10"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/image/api/dockerpre012"
 )
 
 func init() {

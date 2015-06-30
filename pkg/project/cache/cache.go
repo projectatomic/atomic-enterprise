@@ -11,8 +11,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	"github.com/projectatomic/appinfra-next/pkg/util/labelselector"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/util/labelselector"
 )
 
 type ProjectCache struct {

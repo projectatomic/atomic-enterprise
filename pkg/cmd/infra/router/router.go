@@ -8,13 +8,13 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	"github.com/projectatomic/appinfra-next/pkg/router"
-	controllerfactory "github.com/projectatomic/appinfra-next/pkg/router/controller/factory"
-	"github.com/projectatomic/appinfra-next/pkg/util/proc"
-	"github.com/projectatomic/appinfra-next/pkg/version"
-	templateplugin "github.com/projectatomic/appinfra-next/plugins/router/template"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/router"
+	controllerfactory "github.com/projectatomic/atomic-enterprise/pkg/router/controller/factory"
+	"github.com/projectatomic/atomic-enterprise/pkg/util/proc"
+	"github.com/projectatomic/atomic-enterprise/pkg/version"
+	templateplugin "github.com/projectatomic/atomic-enterprise/plugins/router/template"
 
 	ktypes "github.com/GoogleCloudPlatform/kubernetes/pkg/types"
 )

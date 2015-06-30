@@ -11,17 +11,17 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/types"
 
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/auth/userregistry/identitymapper"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/origin"
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
-	identityregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/identity"
-	identityetcd "github.com/projectatomic/appinfra-next/pkg/user/registry/identity/etcd"
-	userregistry "github.com/projectatomic/appinfra-next/pkg/user/registry/user"
-	useretcd "github.com/projectatomic/appinfra-next/pkg/user/registry/user/etcd"
-	"github.com/projectatomic/appinfra-next/pkg/user/registry/useridentitymapping"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/userregistry/identitymapper"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/etcd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/origin"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
+	identityregistry "github.com/projectatomic/atomic-enterprise/pkg/user/registry/identity"
+	identityetcd "github.com/projectatomic/atomic-enterprise/pkg/user/registry/identity/etcd"
+	userregistry "github.com/projectatomic/atomic-enterprise/pkg/user/registry/user"
+	useretcd "github.com/projectatomic/atomic-enterprise/pkg/user/registry/user/etcd"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/registry/useridentitymapping"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func init() {

@@ -8,10 +8,10 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	build "github.com/projectatomic/appinfra-next/pkg/build/api"
-	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
-	image "github.com/projectatomic/appinfra-next/pkg/image/api"
+	build "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	deploy "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
+	image "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // DeploymentPipelineMap describes a single deployment config and the objects

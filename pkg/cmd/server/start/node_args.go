@@ -14,9 +14,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/master/ports"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/admin"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/admin"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
 )
 
 // NodeArgs is a struct that the command stores flag values into.  It holds a partially complete set of parameters for starting the master

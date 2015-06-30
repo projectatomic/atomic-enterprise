@@ -8,8 +8,8 @@ import (
 
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
-	oauthapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	oauthapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
 )
 
 // unionAuthenticationHandler is an oauth.AuthenticationHandler that muxes multiple challenge handlers and redirect handlers

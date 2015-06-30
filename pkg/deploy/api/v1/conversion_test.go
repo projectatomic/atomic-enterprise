@@ -6,7 +6,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api/v1"
 
-	newer "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	newer "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
 )
 
 func TestTriggerRoundTrip(t *testing.T) {

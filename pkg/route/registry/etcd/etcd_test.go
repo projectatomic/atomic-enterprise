@@ -15,9 +15,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 	"github.com/coreos/go-etcd/etcd"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/route/api"
-	_ "github.com/projectatomic/appinfra-next/pkg/route/api/v1beta3"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/route/api"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/route/api/v1beta3"
 )
 
 // This copy and paste is not pure ignorance.  This is that we can be sure that the key is getting made as we

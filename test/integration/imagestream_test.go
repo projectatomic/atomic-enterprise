@@ -12,8 +12,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func init() {

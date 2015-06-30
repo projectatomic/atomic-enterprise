@@ -6,8 +6,8 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	ktestclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
-	"github.com/projectatomic/appinfra-next/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client/testclient"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/api"
 )
 
 func TestSyncNamespaceThatIsTerminating(t *testing.T) {

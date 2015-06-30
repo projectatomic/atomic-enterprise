@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/admin"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/openshift"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/admin"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/openshift"
 )
 
 func OutDir(path string) (string, error) {

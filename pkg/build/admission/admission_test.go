@@ -11,10 +11,10 @@ import (
 	ktestclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/client/testclient"
 )
 
 func TestBuildAdmission(t *testing.T) {

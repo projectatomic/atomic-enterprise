@@ -10,10 +10,10 @@ import (
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/record"
 
-	api "github.com/projectatomic/appinfra-next/pkg/api/latest"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	api "github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deploytest "github.com/projectatomic/atomic-enterprise/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 // TestHandle_initialOk ensures that an initial config (version 0) doesn't result

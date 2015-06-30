@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/golang/glog"
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
 )
 
 type RequestContext interface {

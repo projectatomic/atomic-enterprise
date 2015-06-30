@@ -149,7 +149,7 @@ func (r *ProxyHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	newReq.Header = req.Header
 
 	// TODO convert this entire proxy to an UpgradeAwareProxy similar to
-	// https://github.com/projectatomic/appinfra-next/blob/master/pkg/util/httpproxy/upgradeawareproxy.go.
+	// https://github.com/projectatomic/atomic-enterprise/blob/master/pkg/util/httpproxy/upgradeawareproxy.go.
 	// That proxy needs to be modified to support multiple backends, not just 1.
 	if r.tryUpgrade(w, req, newReq, location, transport) {
 		return

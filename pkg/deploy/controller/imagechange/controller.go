@@ -5,9 +5,9 @@ import (
 
 	"github.com/golang/glog"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // ImageChangeController increments the version of a DeploymentConfig which has an image

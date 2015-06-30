@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // TestValidateRouteBad ensures not specifying a required field results in error and a fully specified

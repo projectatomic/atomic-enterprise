@@ -3,8 +3,8 @@ package allocation
 import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/route"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/route"
 )
 
 // RouteAllocationControllerFactory creates a RouteAllocationController

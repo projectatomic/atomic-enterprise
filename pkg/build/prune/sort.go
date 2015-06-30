@@ -1,7 +1,7 @@
 package prune
 
 import (
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
 )
 
 // sortableBuilds supports sorting Build items by most recently created Build

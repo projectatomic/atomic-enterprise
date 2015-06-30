@@ -19,8 +19,8 @@ import (
 	dockerclient "github.com/fsouza/go-dockerclient"
 	"github.com/golang/glog"
 
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	dockerutil "github.com/projectatomic/appinfra-next/pkg/cmd/util/docker"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	dockerutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util/docker"
 )
 
 type commandExecutor interface {

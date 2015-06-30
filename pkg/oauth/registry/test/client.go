@@ -4,7 +4,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
 )
 
 type ClientRegistry struct {

@@ -16,9 +16,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/wait"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
-	namer "github.com/projectatomic/appinfra-next/pkg/util/namer"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
+	namer "github.com/projectatomic/atomic-enterprise/pkg/util/namer"
 )
 
 // HookExecutor executes a deployment lifecycle hook.

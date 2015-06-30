@@ -10,7 +10,7 @@ import (
 
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/crypto"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/crypto"
 )
 
 const CreateSignerCertCommandName = "create-signer-cert"
