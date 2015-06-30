@@ -8,7 +8,7 @@
 # %%commit and %%ldflags are intended to be set by tito custom builders provided
 # in the rel-eng directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit 54e7bfc9b4765a22ddb4c9c8a0c37c42eeab0dbd
+%global commit 54dd47c417b1a73ae47a2574cda218f6a0f1908f
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # OpenShift AE specific ldflags from hack/common.sh os::build:ldflags
@@ -192,10 +192,10 @@ pushd _thirdpartyhacks/src/%{sdn_import_path}/ovssubnet/bin
    install -p -m 755 openshift-ovs-subnet %{buildroot}%{kube_plugin_path}/openshift-ovs-subnet
    install -p -m 755 openshift-sdn-kube-subnet-setup.sh %{buildroot}%{_bindir}/
 popd
-install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/%{name}-node.service.d
-install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/%{name}-node.service.d/%{name}-sdn-ovs.conf
-install -d -m 0755 %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d
-install -p -m 0644 rel-eng/docker-sdn-ovs.conf %{buildroot}%{_prefix}/lib/systemd/system/docker.service.d/
+install -d -m 0755 %{buildroot}%{_unitdir}/%{name}-node.service.d
+install -p -m 0644 rel-eng/openshift-sdn-ovs.conf %{buildroot}%{_unitdir}/%{name}-node.service.d/%{name}-sdn-ovs.conf
+install -d -m 0755 %{buildroot}%{_unitdir}/docker.service.d
+install -p -m 0644 rel-eng/docker-sdn-ovs.conf %{buildroot}%{_unitdir}/docker.service.d/
 
 # Install bash completions
 install -d -m 755 %{buildroot}/etc/bash_completion.d/
@@ -245,8 +245,8 @@ install -p -m 644 rel-eng/completions/bash/* %{buildroot}/etc/bash_completion.d/
 %defattr(-,root,root,-)
 %{_bindir}/openshift-sdn-kube-subnet-setup.sh
 %{kube_plugin_path}/openshift-ovs-subnet
-%{_prefix}/lib/systemd/system/%{name}-node.service.d/%{name}-sdn-ovs.conf
-%{_prefix}/lib/systemd/system/docker.service.d/docker-sdn-ovs.conf
+%{_unitdir}/%{name}-node.service.d/%{name}-sdn-ovs.conf
+%{_unitdir}/docker.service.d/docker-sdn-ovs.conf
 
 %files -n tuned-profiles-%{name}-node
 %defattr(-,root,root,-)
