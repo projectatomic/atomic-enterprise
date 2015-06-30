@@ -9,7 +9,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/flagtypes"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/flagtypes"
 )
 
 type KubeConnectionArgs struct {

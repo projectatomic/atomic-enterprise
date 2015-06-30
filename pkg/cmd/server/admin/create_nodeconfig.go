@@ -17,13 +17,13 @@ import (
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/master/ports"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/flagtypes"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	latestconfigapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/flagtypes"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	latestconfigapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api/latest"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/variable"
 )
 
 const NodeConfigCommandName = "create-node-config"

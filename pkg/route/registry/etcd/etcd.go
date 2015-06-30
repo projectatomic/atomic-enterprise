@@ -11,7 +11,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 const (

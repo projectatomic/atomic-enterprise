@@ -11,9 +11,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/authorization/client"
-	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/client"
+	clusterpolicyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicy"
 )
 
 type readOnlyClusterPolicyCache struct {

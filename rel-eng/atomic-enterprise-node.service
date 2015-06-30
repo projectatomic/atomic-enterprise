@@ -5,7 +5,7 @@ After=atomic-enterprise-master.service
 After=atomic-enterprise-sdn-master.service
 After=atomic-enterprise-sdn-node.service
 Wants=docker.service
-Documentation=https://github.com/projectatomic/appinfra-next
+Documentation=https://github.com/projectatomic/atomic-enterprise
 
 [Service]
 Type=notify

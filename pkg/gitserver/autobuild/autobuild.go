@@ -13,10 +13,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/generate/git"
-	"github.com/projectatomic/appinfra-next/pkg/gitserver"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/git"
+	"github.com/projectatomic/atomic-enterprise/pkg/gitserver"
 )
 
 type AutoLinkBuilds struct {

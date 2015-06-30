@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/projectatomic/appinfra-next/pkg/gitserver"
+	"github.com/projectatomic/atomic-enterprise/pkg/gitserver"
 )
 
 func main() {

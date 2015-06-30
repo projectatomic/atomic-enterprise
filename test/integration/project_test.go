@@ -18,12 +18,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools/etcdtest"
 	"github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/admit"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	projectregistry "github.com/projectatomic/appinfra-next/pkg/project/registry/project/proxy"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	projectregistry "github.com/projectatomic/atomic-enterprise/pkg/project/registry/project/proxy"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func init() {

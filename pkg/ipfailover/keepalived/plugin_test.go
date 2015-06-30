@@ -3,7 +3,7 @@ package keepalived
 import (
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/ipfailover"
+	"github.com/projectatomic/atomic-enterprise/pkg/ipfailover"
 )
 
 func TestNewIPFailoverConfiguratorPlugin(t *testing.T) {

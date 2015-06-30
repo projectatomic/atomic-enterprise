@@ -8,7 +8,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/security/uid"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uid"
 )
 
 type fakeRange struct {

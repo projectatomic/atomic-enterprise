@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/build/registry/build"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/registry/build"
 )
 
 const BuildPath = "/builds"

@@ -8,7 +8,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
 )
 
 type basicAuthRequestHandler struct {

@@ -2,7 +2,7 @@ package templaterouter
 
 import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 	"testing"
 )
 

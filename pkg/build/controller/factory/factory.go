@@ -17,14 +17,14 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildclient "github.com/projectatomic/appinfra-next/pkg/build/client"
-	buildcontroller "github.com/projectatomic/appinfra-next/pkg/build/controller"
-	strategy "github.com/projectatomic/appinfra-next/pkg/build/controller/strategy"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	controller "github.com/projectatomic/appinfra-next/pkg/controller"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildclient "github.com/projectatomic/atomic-enterprise/pkg/build/client"
+	buildcontroller "github.com/projectatomic/atomic-enterprise/pkg/build/controller"
+	strategy "github.com/projectatomic/atomic-enterprise/pkg/build/controller/strategy"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	controller "github.com/projectatomic/atomic-enterprise/pkg/controller"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 const maxRetries = 60

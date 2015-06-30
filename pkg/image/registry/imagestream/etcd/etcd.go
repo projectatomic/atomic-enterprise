@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
-	"github.com/projectatomic/appinfra-next/pkg/authorization/registry/subjectaccessreview"
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/image/registry/imagestream"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/subjectaccessreview"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/registry/imagestream"
 )
 
 // REST implements a RESTStorage for image streams against etcd.

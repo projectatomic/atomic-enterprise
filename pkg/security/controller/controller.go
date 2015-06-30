@@ -8,10 +8,10 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/security"
-	"github.com/projectatomic/appinfra-next/pkg/security/mcs"
-	"github.com/projectatomic/appinfra-next/pkg/security/uid"
-	"github.com/projectatomic/appinfra-next/pkg/security/uidallocator"
+	"github.com/projectatomic/atomic-enterprise/pkg/security"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/mcs"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uid"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uidallocator"
 )
 
 type MCSAllocationFunc func(uid.Block) *mcs.Label

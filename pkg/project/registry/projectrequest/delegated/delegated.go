@@ -14,13 +14,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	utilerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	configcmd "github.com/projectatomic/appinfra-next/pkg/config/cmd"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	projectrequestregistry "github.com/projectatomic/appinfra-next/pkg/project/registry/projectrequest"
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	configcmd "github.com/projectatomic/atomic-enterprise/pkg/config/cmd"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	projectrequestregistry "github.com/projectatomic/atomic-enterprise/pkg/project/registry/projectrequest"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 type REST struct {

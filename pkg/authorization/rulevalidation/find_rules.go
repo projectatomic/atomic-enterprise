@@ -11,8 +11,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	authorizationinterfaces "github.com/projectatomic/appinfra-next/pkg/authorization/interfaces"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	authorizationinterfaces "github.com/projectatomic/atomic-enterprise/pkg/authorization/interfaces"
 )
 
 type DefaultRuleResolver struct {

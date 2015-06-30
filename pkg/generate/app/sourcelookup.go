@@ -9,9 +9,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
-	"github.com/projectatomic/appinfra-next/pkg/generate/git"
-	"github.com/projectatomic/appinfra-next/pkg/generate/source"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/dockerfile"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/git"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/source"
 )
 
 var (

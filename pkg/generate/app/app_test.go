@@ -9,10 +9,10 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 func testImageInfo() *imageapi.DockerImage {
@@ -55,7 +55,7 @@ func TestWithType(t *testing.T) {
 }
 
 func TestBuildConfigNoOutput(t *testing.T) {
-	url, err := url.Parse("https://github.com/projectatomic/appinfra-next.git")
+	url, err := url.Parse("https://github.com/projectatomic/atomic-enterprise.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -74,7 +74,7 @@ func TestBuildConfigNoOutput(t *testing.T) {
 }
 
 func TestBuildConfigOutput(t *testing.T) {
-	url, err := url.Parse("https://github.com/projectatomic/appinfra-next.git")
+	url, err := url.Parse("https://github.com/projectatomic/atomic-enterprise.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -309,7 +309,7 @@ func ExampleGenerateSimpleDockerApp() {
 	// TODO: determine whether we want to clone this repo, or use it directly. Using it directly would require setting hooks
 	// if we have source, assume we are going to go into a build flow.
 	// TODO: get info about git url: does this need STI?
-	url, _ := url.Parse("https://github.com/projectatomic/appinfra-next.git")
+	url, _ := url.Parse("https://github.com/projectatomic/atomic-enterprise.git")
 	source := &SourceRef{URL: url}
 	// generate a local name for the repo
 	name, _ := source.SuggestName()

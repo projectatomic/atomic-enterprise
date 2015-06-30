@@ -11,10 +11,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/project/api"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	projectauth "github.com/projectatomic/appinfra-next/pkg/project/auth"
-	projectregistry "github.com/projectatomic/appinfra-next/pkg/project/registry/project"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	projectauth "github.com/projectatomic/atomic-enterprise/pkg/project/auth"
+	projectregistry "github.com/projectatomic/atomic-enterprise/pkg/project/registry/project"
 )
 
 type REST struct {

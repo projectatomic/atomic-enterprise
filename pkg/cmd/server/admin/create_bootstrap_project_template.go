@@ -8,9 +8,9 @@ import (
 
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	"github.com/projectatomic/appinfra-next/pkg/project/registry/projectrequest/delegated"
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/project/registry/projectrequest/delegated"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 const CreateBootstrapProjectTemplateCommand = "create-bootstrap-project-template"

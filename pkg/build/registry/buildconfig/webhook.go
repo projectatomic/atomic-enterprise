@@ -9,9 +9,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/registry/generic/rest"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/build/client"
-	"github.com/projectatomic/appinfra-next/pkg/build/webhook"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/webhook"
 )
 
 func NewWebHookREST(registry Registry, instantiator client.BuildConfigInstantiator, plugins map[string]webhook.Plugin) *rest.WebHook {

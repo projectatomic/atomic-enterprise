@@ -11,9 +11,9 @@ import (
 	"github.com/RangelReale/osincli"
 	"github.com/golang/glog"
 
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/handlers"
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/oauth/handlers"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/csrf"
 )
 
 // Handler exposes an external oauth provider flow (including the call back) as an oauth.handlers.AuthenticationHandler to allow our internal oauth

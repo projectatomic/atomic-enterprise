@@ -10,11 +10,11 @@ import (
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildtest "github.com/projectatomic/appinfra-next/pkg/build/controller/test"
-	buildgenerator "github.com/projectatomic/appinfra-next/pkg/build/generator"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildtest "github.com/projectatomic/atomic-enterprise/pkg/build/controller/test"
+	buildgenerator "github.com/projectatomic/atomic-enterprise/pkg/build/generator"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 func TestNewImageID(t *testing.T) {

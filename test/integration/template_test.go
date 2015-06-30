@@ -8,9 +8,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/v1beta3"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func init() {

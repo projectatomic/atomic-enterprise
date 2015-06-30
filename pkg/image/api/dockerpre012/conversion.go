@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	newer "github.com/projectatomic/appinfra-next/pkg/image/api"
+	newer "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 func init() {

@@ -3,8 +3,8 @@ package testclient
 import (
 	"fmt"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // FakeImageStreamImages implements ImageStreamImageInterface. Meant to be

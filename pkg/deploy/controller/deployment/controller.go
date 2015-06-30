@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/record"
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 // DeploymentController starts a deployment by creating a deployer pod which

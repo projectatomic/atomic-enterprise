@@ -10,8 +10,8 @@ import (
 	ktestclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client/testclient"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
 )
 
 func mustParseTime(t string) time.Time {

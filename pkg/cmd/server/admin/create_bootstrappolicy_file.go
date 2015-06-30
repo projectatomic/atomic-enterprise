@@ -14,9 +14,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 const (

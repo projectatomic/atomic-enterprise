@@ -14,7 +14,7 @@ routers to allocate user requested routes to and be able to visualize the config
 
 The following use cases should be satisfied by this proposal:
 
-1.  Configure routers as OpenShift resources and let the platform keep the specified configuration
+1.  Configure routers as Atomic Enterprise resources and let the platform keep the specified configuration
     running
 1.  Create a single, unsharded router
 1.  Create multiple routers with shards corresponding to a resource label
@@ -24,6 +24,8 @@ The following use cases should be satisfied by this proposal:
 1.  Create DNS (or other front end entry points) for routers
 
 ## Existing Artifacts
+
+[//]: # (TODO: Update these links in the future)
 
 1.  Routing: https://github.com/pweil-/origin/blob/master/docs/routing.md
 1.  HA Routing: https://github.com/pweil-/origin/blob/master/docs/routing.md#running-ha-routers
@@ -41,7 +43,7 @@ Pros:
 
 - Configuration lives in etcd, just like any other resource
 - Shards are configured via custom commands and `json` syntax
-- Routers are known to OpenShift; the system ensures the proper configuration is running
+- Routers are known to Atomic Enterprise; the system ensures the proper configuration is running
 - Custom administration syntax
 - Deal with routers as infra
 - The system knows about routers for route route binding and visualization with no extra effort
@@ -62,7 +64,7 @@ and a new field to express route binding status in the `Route` resource.
 
 #### The `Router` Resource
 
-There should be a new OpenShift resource called `Router`.  Its fields include:
+There should be a new Atomic Enterprise resource called `Router`.  Its fields include:
 
 1.  `Name`: the router's name
 2.  `Description`: a description of the Router
@@ -152,7 +154,7 @@ routers:
 ## User Requests a Route
 
 Requesting a route is a multi-step process that includes the initial user request, router
-allocation, and router configuration.  OpenShift does not provide DNS services for users who own
+allocation, and router configuration.  Atomic Enterprise does not provide DNS services for users who own
 their own domain, users who own their own domain should point their domain name to the allocated
 shard(s) for resolution.
 
@@ -168,7 +170,7 @@ When requesting a route the user has two options.
 
 ## DNS
 
-OpenShift will not provide custom DNS to clients.  System provided DNS will be achieved by using a
+Atomic Enterprise will not provide custom DNS to clients.  System provided DNS will be achieved by using a
 DNS plugin or manual setup that is aware of the configured router shards.  The DNS implementation
 will be set up with a wild card DNS zone for each router shard.  Below is an example of the zone
 files of a router configuration with two shards.

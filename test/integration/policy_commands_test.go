@@ -6,10 +6,10 @@ import (
 	"io/ioutil"
 	"testing"
 
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 
-	policy "github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	policy "github.com/projectatomic/atomic-enterprise/pkg/cmd/admin/policy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
 )
 
 func TestPolicyCommands(t *testing.T) {

@@ -14,8 +14,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
 
 	"github.com/coreos/go-etcd/etcd"
 )

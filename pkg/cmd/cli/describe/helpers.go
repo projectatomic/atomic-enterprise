@@ -13,9 +13,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 const emptyString = "<none>"

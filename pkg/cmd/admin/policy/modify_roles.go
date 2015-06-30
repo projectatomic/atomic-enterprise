@@ -9,8 +9,8 @@ import (
 	kcmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
 )
 
 const (

@@ -14,9 +14,9 @@ import (
 	utilerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 	"github.com/golang/glog"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/dockerregistry"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // DockerClient is the local interface for the docker client

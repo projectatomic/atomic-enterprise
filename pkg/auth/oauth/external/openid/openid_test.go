@@ -3,7 +3,7 @@ package openid
 import (
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/external"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/oauth/external"
 )
 
 func TestOpenID(t *testing.T) {

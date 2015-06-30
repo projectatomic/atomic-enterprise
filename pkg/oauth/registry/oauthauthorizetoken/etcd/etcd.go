@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/projectatomic/appinfra-next/pkg/oauth/api"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthauthorizetoken"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/registry/oauthauthorizetoken"
 )
 
 // rest implements a RESTStorage for authorize tokens against etcd

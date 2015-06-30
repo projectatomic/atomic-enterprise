@@ -12,10 +12,10 @@ import (
 
 	"github.com/golang/glog"
 
-	_ "github.com/projectatomic/appinfra-next/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/api/meta"
-	"github.com/projectatomic/appinfra-next/pkg/api/v1"
-	"github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/meta"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/v1"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/v1beta3"
 )
 
 // Version is the string that represents the current external default version.

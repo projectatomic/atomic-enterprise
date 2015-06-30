@@ -14,8 +14,8 @@ import (
 	stidocker "github.com/openshift/source-to-image/pkg/docker"
 
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd/dockercfg"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/builder/cmd/dockercfg"
 )
 
 // STIBuilder performs an STI build given the build object

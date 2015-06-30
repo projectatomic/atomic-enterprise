@@ -1,8 +1,8 @@
 package testclient
 
 import (
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // FakeImageStreamMappings implements ImageStreamMappingInterface. Meant to

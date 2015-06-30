@@ -10,9 +10,9 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
-	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/handlers"
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/oauth/handlers"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/csrf"
 )
 
 type PasswordAuthenticator interface {

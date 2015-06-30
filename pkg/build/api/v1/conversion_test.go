@@ -5,8 +5,8 @@ import (
 
 	knewer "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	newer "github.com/projectatomic/appinfra-next/pkg/build/api"
-	older "github.com/projectatomic/appinfra-next/pkg/build/api/v1"
+	newer "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	older "github.com/projectatomic/atomic-enterprise/pkg/build/api/v1"
 )
 
 var Convert = knewer.Scheme.Convert

@@ -3,7 +3,7 @@ package start
 import (
 	"github.com/spf13/pflag"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/variable"
 )
 
 // ImageFormatArgs is a struct that the command stores flag values into.

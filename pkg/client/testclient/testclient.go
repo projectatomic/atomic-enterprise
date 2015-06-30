@@ -4,8 +4,8 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
 )
 
 // NewFixtureClients returns mocks of the OpenShift and Kubernetes clients

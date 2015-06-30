@@ -7,8 +7,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/validation"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 var parameterNameExp = regexp.MustCompile(`^[a-zA-Z0-9\_]+$`)

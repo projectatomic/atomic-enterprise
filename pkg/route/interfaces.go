@@ -1,7 +1,7 @@
 package route
 
 import (
-	api "github.com/projectatomic/appinfra-next/pkg/route/api"
+	api "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // AllocationPlugin is the interface the route controller dispatches

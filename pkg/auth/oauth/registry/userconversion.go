@@ -5,7 +5,7 @@ import (
 
 	kuser "github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
 )
 
 type UserConversion struct{}

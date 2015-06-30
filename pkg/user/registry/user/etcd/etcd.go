@@ -14,10 +14,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
-	"github.com/projectatomic/appinfra-next/pkg/user/api/validation"
-	"github.com/projectatomic/appinfra-next/pkg/user/registry/user"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/registry/user"
 )
 
 // rest implements a RESTStorage for users against etcd

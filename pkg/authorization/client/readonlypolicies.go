@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 // PoliciesReadOnlyNamespacer has methods to work with Policies resources in a namespace

@@ -12,12 +12,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
 	"github.com/golang/glog"
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
-	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthclient"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthclientauthorization"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/scope"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/csrf"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/registry/oauthclient"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/registry/oauthclientauthorization"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/scope"
 )
 
 const (

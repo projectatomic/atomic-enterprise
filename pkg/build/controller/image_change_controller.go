@@ -11,10 +11,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/cache"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildclient "github.com/projectatomic/appinfra-next/pkg/build/client"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildclient "github.com/projectatomic/atomic-enterprise/pkg/build/client"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // ImageChangeControllerFatalError represents a fatal error while handling an image change

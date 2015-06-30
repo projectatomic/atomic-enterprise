@@ -1,7 +1,7 @@
 package testclient
 
 import (
-	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
+	userapi "github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 // FakeUserIdentityMappings implements UserIdentityMappingInterface. Meant to be embedded into a struct to get a default

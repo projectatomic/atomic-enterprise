@@ -1,7 +1,7 @@
 #debuginfo not supported with Go
 %global debug_package %{nil}
 %global gopath      %{_datadir}/gocode
-%global import_path github.com/projectatomic/appinfra-next
+%global import_path github.com/projectatomic/atomic-enterprise
 %global kube_plugin_path /usr/libexec/kubernetes/kubelet-plugins/net/exec/redhat~openshift-ovs-subnet
 %global sdn_import_path github.com/openshift/openshift-sdn
 
@@ -13,7 +13,7 @@
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # OpenShift AE specific ldflags from hack/common.sh os::build:ldflags
 %{!?ldflags:
-%global ldflags -X github.com/projectatomic/appinfra-next/pkg/version.majorFromGit 0 -X github.com/projectatomic/appinfra-next/pkg/version.minorFromGit 0+ -X github.com/projectatomic/appinfra-next/pkg/version.versionFromGit v0.0.1 -X github.com/projectatomic/appinfra-next/pkg/version.commitFromGit e3c46fd -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitCommit 496be63 -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitVersion v0.17.1-804-g496be63
+%global ldflags -X github.com/projectatomic/atomic-enterprise/pkg/version.majorFromGit 0 -X github.com/projectatomic/atomic-enterprise/pkg/version.minorFromGit 0+ -X github.com/projectatomic/atomic-enterprise/pkg/version.versionFromGit v0.0.1 -X github.com/projectatomic/atomic-enterprise/pkg/version.commitFromGit e3c46fd -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitCommit 496be63 -X github.com/GoogleCloudPlatform/kubernetes/pkg/version.gitVersion v0.17.1-804-g496be63
 }
 
 Name:           atomic-enterprise

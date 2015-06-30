@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	testpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/test"
-	"github.com/projectatomic/appinfra-next/pkg/authorization/rulevalidation"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	testpolicyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/rulevalidation"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
 )
 
 type authorizeTest struct {

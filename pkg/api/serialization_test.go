@@ -15,15 +15,15 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/google/gofuzz"
 
-	osapi "github.com/projectatomic/appinfra-next/pkg/api"
-	_ "github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/api/v1"
-	"github.com/projectatomic/appinfra-next/pkg/api/v1beta3"
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	build "github.com/projectatomic/appinfra-next/pkg/build/api"
-	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	image "github.com/projectatomic/appinfra-next/pkg/image/api"
-	template "github.com/projectatomic/appinfra-next/pkg/template/api"
+	osapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/v1"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/v1beta3"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	build "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	deploy "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	image "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	template "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 func fuzzInternalObject(t *testing.T, forVersion string, item runtime.Object, seed int64) runtime.Object {

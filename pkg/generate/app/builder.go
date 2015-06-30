@@ -3,7 +3,7 @@ package app
 import (
 	"strings"
 
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 var stiEnvironmentNames = []string{"STI_LOCATION", "STI_SCRIPTS_URL", "STI_BUILDER"}

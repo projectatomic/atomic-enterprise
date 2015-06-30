@@ -25,18 +25,10 @@ It is not really required, but it will speed up the launch of the pods.
 
 ### How to use this template
 
-You can import this template to OpenShift using:
+You can import this template to Atomic Enterprise using:
 
 ```
 $ oc create -f examples/zookeeper/template.json
-```
-
-Then you can navigate to OpenShift UI and click the 'Create' button on top right
-and choose 'Browse templates...'. Choose the 'zookeeper' and hit create.
-
-Another way, is to use the CLI only:
-
-```
 $ oc process -f examples/zookeeper/template.json | oc create -f -
 ```
 

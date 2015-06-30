@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/resource"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/cache"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
-	namer "github.com/projectatomic/appinfra-next/pkg/util/namer"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deploytest "github.com/projectatomic/atomic-enterprise/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
+	namer "github.com/projectatomic/atomic-enterprise/pkg/util/namer"
 )
 
 func TestHookExecutor_executeExecNewCreatePodFailure(t *testing.T) {

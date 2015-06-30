@@ -6,8 +6,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/RangelReale/osincli"
 	"github.com/golang/glog"
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
 )
 
 type Authenticator struct {

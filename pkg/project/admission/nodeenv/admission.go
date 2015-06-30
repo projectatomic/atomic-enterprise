@@ -9,8 +9,8 @@ import (
 	apierrors "github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 
-	projectcache "github.com/projectatomic/appinfra-next/pkg/project/cache"
-	"github.com/projectatomic/appinfra-next/pkg/util/labelselector"
+	projectcache "github.com/projectatomic/atomic-enterprise/pkg/project/cache"
+	"github.com/projectatomic/atomic-enterprise/pkg/util/labelselector"
 )
 
 func init() {

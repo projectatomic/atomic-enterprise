@@ -13,9 +13,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/build/api/validation"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api/validation"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
 )
 
 // strategy implements behavior for Build objects

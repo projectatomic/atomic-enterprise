@@ -21,8 +21,8 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
-	allocator "github.com/projectatomic/appinfra-next/pkg/security"
-	"github.com/projectatomic/appinfra-next/pkg/security/uid"
+	allocator "github.com/projectatomic/atomic-enterprise/pkg/security"
+	"github.com/projectatomic/atomic-enterprise/pkg/security/uid"
 
 	"github.com/golang/glog"
 )

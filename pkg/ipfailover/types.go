@@ -1,7 +1,7 @@
 package ipfailover
 
 import (
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/variable"
 )
 
 const (

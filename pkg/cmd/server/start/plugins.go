@@ -9,8 +9,8 @@ import (
 	_ "github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/namespace/lifecycle"
 	_ "github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/resourcequota"
 	_ "github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/serviceaccount"
-	_ "github.com/projectatomic/appinfra-next/pkg/build/admission"
-	_ "github.com/projectatomic/appinfra-next/pkg/project/admission/lifecycle"
-	_ "github.com/projectatomic/appinfra-next/pkg/project/admission/nodeenv"
-	_ "github.com/projectatomic/appinfra-next/pkg/security/admission"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/build/admission"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/project/admission/lifecycle"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/project/admission/nodeenv"
+	_ "github.com/projectatomic/atomic-enterprise/pkg/security/admission"
 )

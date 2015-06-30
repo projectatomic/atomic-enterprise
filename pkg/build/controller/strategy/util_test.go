@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
 )
 
 func TestSetupDockerSocketHostSocket(t *testing.T) {
@@ -84,7 +84,7 @@ func TestSetupBuildEnvFails(t *testing.T) {
 					Name:  "custom-build",
 					Image: build.Parameters.Strategy.CustomStrategy.From.Name,
 					Env:   containerEnv,
-					// TODO: run unprivileged https://github.com/projectatomic/appinfra-next/issues/662
+					// TODO: run unprivileged https://github.com/projectatomic/atomic-enterprise/issues/662
 					SecurityContext: &kapi.SecurityContext{
 						Privileged: &privileged,
 					},

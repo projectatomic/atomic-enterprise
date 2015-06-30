@@ -10,8 +10,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
-	"github.com/projectatomic/appinfra-next/pkg/sdn/api/validation"
+	"github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/sdn/api/validation"
 )
 
 // sdnStrategy implements behavior for HostSubnets

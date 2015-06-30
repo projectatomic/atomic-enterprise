@@ -12,7 +12,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
 )
 
 // RunEtcd starts an etcd server and runs it forever

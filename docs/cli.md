@@ -1,18 +1,18 @@
 oc command line interface
-==============================
+=========================
 
-The `oc` command line tool is used to interact with the [OpenShift](http://openshift.github.io) and [Kubernetes](http://kubernetes.io/) HTTP API(s). `oc` is an alias for `openshift cli`.
+The `oc` command line tool is used to interact with the [Atomic Enterprise] and [Kubernetes](http://kubernetes.io/) HTTP API(s).
 
 `oc` is *verb focused*. The base verbs are *[get](#oc-get)*, *[create](#oc-create)*, *[delete](#oc-delete)*,
 *[update](#oc-update)*, and *[describe](#oc-describe)*. These verbs can be used to manage both Kubernetes and
-OpenShift resources.
+Atomic Enterprise resources.
 
 Some verbs support the `-f` flag, which accepts regular file path, URL or '-' for
 the standard input. For most actions, both JSON and YAML file formats are
 supported.
 
 Common Flags
--------------
+------------
 
 | Name                       | Description                                             |
 |:-------------------------- |:--------------------------------------------------------|
@@ -30,10 +30,10 @@ Common Flags
 | --help (-h)                | Display help for specified command |
 
 oc get
------------
+------
 
 This command can be used for displaying one or many resources. Possible
-resources are all OpenShift resources (builds, buildConfigs, deployments,
+resources are all Atomic Enterprise resources (builds, buildConfigs, deployments,
 deploymentConfigs, images, imageRepositories, routes, projects, and others) and
 all Kubernetes resources (pods, replicationControllers, services, minions,
 events).
@@ -203,37 +203,21 @@ $ oc expose dc ruby-hello-world --port=8080 --name=myservice --generator=service
 ```
 
 oc process
----------------
+----------
 
 This command processes a Template into a valid Config resource. The processing
 will take care of generating values for parameters specified in the Template and
-substituting the values in the corresponding places. An example Template can be
-found in [examples/sample-app/application-template-stibuild.json](https://github.com/openshift/origin/blob/master/examples/sample-app/application-template-stibuild.json).
+substituting the values in the corresponding places.
 
 #### Examples
 
 ```
-$ oc process -f examples/sample-app/application-template-stibuild.json > config.json
+$ oc process -f examples/sample-app/application-template-custombuild.json > config.json
 $ oc process -f template.json | oc create -f -
 ```
 
-oc start-build
-------------------
-
-This command will manually start a build by specifying either a buildConfig or
-a build name with the `--from-build` flag. There is also the option of streaming 
-the logs of the build if the `--follow` flag is specified.
-
-#### Examples
-
-```
-$ oc start-build ruby-sample-build
-$ oc start-build --from-build=ruby-sample-build-275d3373-c252-11e4-bc79-080027c5bfa9
-$ oc start-build --from-build=ruby-sample-build-275d3373-c252-11e4-bc79-080027c5bfa9 --follow 
-```
-
 oc scale
-------------------
+--------
 
 This command sets a new size for a Replication Controller either directly or via its Deployment Configuration.
 
@@ -246,7 +230,7 @@ $ oc scale dc ruby-hello-world --current-replicas=3 --replicas=5
 ```
 
 oc build-logs
-------------------
+-------------
 
 > **NOTE**: This command will be later replaced by upstream (see: [kubectl log](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/kubectl_logs.md#kubectl-logs)).
 

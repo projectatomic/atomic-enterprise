@@ -16,10 +16,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/fsouza/go-dockerclient"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/generate/git"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/git"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // NameSuggester is an object that can suggest a name for itself

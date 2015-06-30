@@ -13,9 +13,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	mocks "github.com/projectatomic/appinfra-next/pkg/build/generator/test"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	mocks "github.com/projectatomic/atomic-enterprise/pkg/build/generator/test"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 type FakeDockerCfg map[string]map[string]string

@@ -1,8 +1,8 @@
 package client
 
 import (
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
 )
 
 // BuildConfigGetter provides methods for getting BuildConfigs

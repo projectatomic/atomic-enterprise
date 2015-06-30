@@ -3,7 +3,7 @@ package ipfailover
 import (
 	"testing"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
 )
 
 func TestValidateIPAddress(t *testing.T) {

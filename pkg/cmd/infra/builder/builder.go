@@ -3,8 +3,8 @@ package builder
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd"
-	"github.com/projectatomic/appinfra-next/pkg/version"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/builder/cmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
 const (

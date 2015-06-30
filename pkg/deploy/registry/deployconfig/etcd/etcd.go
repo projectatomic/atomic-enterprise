@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 
-	"github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/registry/deployconfig"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/registry/deployconfig"
 )
 
 const DeploymentConfigPath string = "/deploymentconfigs"

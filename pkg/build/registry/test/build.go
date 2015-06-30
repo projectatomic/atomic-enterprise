@@ -8,7 +8,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
 )
 
 type BuildRegistry struct {

@@ -16,16 +16,16 @@ import (
 	"github.com/fsouza/go-dockerclient"
 	"github.com/golang/glog"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/dockerregistry"
-	"github.com/projectatomic/appinfra-next/pkg/generate/app"
-	"github.com/projectatomic/appinfra-next/pkg/generate/dockerfile"
-	"github.com/projectatomic/appinfra-next/pkg/generate/source"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/template"
-	"github.com/projectatomic/appinfra-next/pkg/util/namer"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/dockerregistry"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/dockerfile"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/source"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/template"
+	"github.com/projectatomic/atomic-enterprise/pkg/util/namer"
 )
 
 // AppConfig contains all the necessary configuration for an application

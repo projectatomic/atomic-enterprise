@@ -18,9 +18,9 @@ import (
 	"github.com/openshift/openshift-sdn/ovssubnet"
 	osdnapi "github.com/openshift/openshift-sdn/pkg/api"
 
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	oscache "github.com/projectatomic/appinfra-next/pkg/client/cache"
-	"github.com/projectatomic/appinfra-next/pkg/sdn/api"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	oscache "github.com/projectatomic/atomic-enterprise/pkg/client/cache"
+	"github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
 )
 
 type OsdnRegistryInterface struct {

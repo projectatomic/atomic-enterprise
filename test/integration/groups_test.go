@@ -8,11 +8,11 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/tokencmd"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/tokencmd"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func TestBasicGroupManipulation(t *testing.T) {

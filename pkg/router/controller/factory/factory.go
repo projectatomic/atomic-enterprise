@@ -11,11 +11,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	oscache "github.com/projectatomic/appinfra-next/pkg/client/cache"
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
-	"github.com/projectatomic/appinfra-next/pkg/router"
-	"github.com/projectatomic/appinfra-next/pkg/router/controller"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	oscache "github.com/projectatomic/atomic-enterprise/pkg/client/cache"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/router"
+	"github.com/projectatomic/atomic-enterprise/pkg/router/controller"
 )
 
 type RouterControllerFactory struct {

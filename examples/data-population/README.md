@@ -1,5 +1,5 @@
-Scripts to populate OpenShift
-=============================
+Scripts to populate Atomic Enterprise
+=====================================
 
 
 

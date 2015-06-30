@@ -3,8 +3,8 @@ package allocation
 import (
 	"github.com/golang/glog"
 
-	"github.com/projectatomic/appinfra-next/pkg/route"
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/route"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // RouteAllocationController abstracts the details of how routes are

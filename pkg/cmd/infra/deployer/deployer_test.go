@@ -7,11 +7,11 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
-	scalertest "github.com/projectatomic/appinfra-next/pkg/deploy/scaler/test"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deploytest "github.com/projectatomic/atomic-enterprise/pkg/deploy/api/test"
+	scalertest "github.com/projectatomic/atomic-enterprise/pkg/deploy/scaler/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/strategy"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 func TestDeployer_getDeploymentFail(t *testing.T) {

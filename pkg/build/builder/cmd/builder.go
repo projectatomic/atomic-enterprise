@@ -9,12 +9,12 @@ import (
 
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/glog"
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	bld "github.com/projectatomic/appinfra-next/pkg/build/builder"
-	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd/dockercfg"
-	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd/scmauth"
-	dockerutil "github.com/projectatomic/appinfra-next/pkg/cmd/util/docker"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	bld "github.com/projectatomic/atomic-enterprise/pkg/build/builder"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/builder/cmd/dockercfg"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/builder/cmd/scmauth"
+	dockerutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util/docker"
 )
 
 const DefaultDockerEndpoint = "unix:///var/run/docker.sock"

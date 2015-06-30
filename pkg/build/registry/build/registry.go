@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	api "github.com/projectatomic/appinfra-next/pkg/build/api"
+	api "github.com/projectatomic/atomic-enterprise/pkg/build/api"
 )
 
 // Registry is an interface for things that know how to store Builds.

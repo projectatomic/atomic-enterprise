@@ -4,7 +4,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/conversion"
 
-	newer "github.com/projectatomic/appinfra-next/pkg/template/api"
+	newer "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 func convert_api_Template_To_v1beta3_Template(in *newer.Template, out *Template, s conversion.Scope) error {

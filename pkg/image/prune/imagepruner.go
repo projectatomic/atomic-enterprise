@@ -10,13 +10,13 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/golang/glog"
 	gonum "github.com/gonum/graph"
-	"github.com/projectatomic/appinfra-next/pkg/api/graph"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/image/registry/imagestreamimage"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/graph"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/registry/imagestreamimage"
 )
 
 // pruneAlgorithm contains the various settings to use when evaluating images

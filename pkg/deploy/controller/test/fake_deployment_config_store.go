@@ -3,7 +3,7 @@ package test
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
 )
 
 type FakeDeploymentConfigStore struct {

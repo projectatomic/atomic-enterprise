@@ -5,8 +5,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildvalidation "github.com/projectatomic/appinfra-next/pkg/build/api/validation"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildvalidation "github.com/projectatomic/atomic-enterprise/pkg/build/api/validation"
 )
 
 type strategy struct {

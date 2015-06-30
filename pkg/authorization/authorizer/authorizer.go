@@ -8,7 +8,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/projectatomic/appinfra-next/pkg/authorization/rulevalidation"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/rulevalidation"
 )
 
 type openshiftAuthorizer struct {

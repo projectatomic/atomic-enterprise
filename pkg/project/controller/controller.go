@@ -7,8 +7,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	projectutil "github.com/projectatomic/appinfra-next/pkg/project/util"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	projectutil "github.com/projectatomic/atomic-enterprise/pkg/project/util"
 )
 
 // NamespaceController is responsible for participating in Kubernetes Namespace termination

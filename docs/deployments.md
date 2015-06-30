@@ -1,8 +1,8 @@
-# Deployments in OpenShift
+# Deployments in Atomic Enterprise
 
 ## Overview
 
-In OpenShift, deployment is an update to a single replication controller's pod template based on triggered events. The deployment subsystem provides:
+In Atomic Enterprise, deployment is an update to a single replication controller's pod template based on triggered events. The deployment subsystem provides:
 
 *  [Declarative definition](#defining-a-deploymentconfig) of a desired deployment configuration which drives automated deployments by the system
 *  [Triggers](#triggers) which drive new deployments in response to events
@@ -12,13 +12,16 @@ In OpenShift, deployment is an update to a single replication controller's pod t
 
 #### Concepts
 
-An OpenShift `deploymentConfig` describes a single `template` and a set of `triggers` for when a new `deployment` should be created. A `deployment` is simply a specially annotated `replicationController`. A `strategy` is responsible for making a `deployment` live in the cluster. 
+An Atomic Enterprise `deploymentConfig` describes a single `template` and a set of `triggers` for when a new `deployment` should be created. A `deployment` is simply a specially annotated `replicationController`. A `strategy` is responsible for making a `deployment` live in the cluster. 
 
 Each time a new deployment is created, the `latestVersion` field of `deploymentConfig` is incremented, and a `deploymentCause` is added to the `deploymentConfig` describing the change that led to the latest deployment.
 
 ## Defining a deploymentConfig
 
-A `deploymentConfig` in OpenShift is a REST object which can be POSTed to the API server to create a new instance. Consider a simple configuration which should result in a new `deployment` every time a Docker image tag changes.
+A `deploymentConfig` in Atomic Enterprise is a REST object which can be POSTed to the API server to create a new instance. Consider a simple configuration which should result in a new `deployment` every time a Docker image tag changes.
+
+[//]: # (TODO: Rename openshift/openshift/origin-ruby-sample in the future)
+
 
 ```
 {
@@ -89,7 +92,7 @@ This specification will create a new `deploymentConfig` named `frontend`. A sing
 
 ## Triggers
 
-A `deploymentConfig` contains `triggers` which drive the creation of new deployments in response to events (both inside and outside OpenShift). The following trigger types are supported:
+A `deploymentConfig` contains `triggers` which drive the creation of new deployments in response to events (both inside and outside Atomic Enterprise). The following trigger types are supported:
 
 ##### Image change triggers
 
@@ -127,7 +130,7 @@ This `trigger` will cause a new `deployment` to be created in response to the `t
 
 ## Strategies
 
-A `deploymentConfig` has a `strategy` which is responsible for making new deployments live in the cluster. Each application has different requirements for availability (and other considerations) during deployments. OpenShift provides out-of-the-box strategies to support a variety of deployment scenarios:
+A `deploymentConfig` has a `strategy` which is responsible for making new deployments live in the cluster. Each application has different requirements for availability (and other considerations) during deployments. Atomic Enterprise provides out-of-the-box strategies to support a variety of deployment scenarios:
 
 ##### Recreate strategy
 
@@ -148,7 +151,7 @@ The algorithm for this `strategy` is:
 
 ##### Custom strategy
 
-The Custom `strategy` allows users of OpenShift to provide their own deployment behavior. 
+The Custom `strategy` allows users of Atomic Enterprise to provide their own deployment behavior. 
 
 ```
 {
@@ -168,7 +171,9 @@ The Custom `strategy` allows users of OpenShift to provide their own deployment 
 
 With this specification, the `organization/strategy` Docker image will carry out the `strategy` behavior. The optional `command` array overrides any `CMD` directive specified in the image's Dockerfile. The optional `environment` variables provided will be added to the execution environment of the `strategy` process.
 
-Additionally, the following environment variables are provided by OpenShift to the `strategy` process:
+Additionally, the following environment variables are provided by Atomic Enterprise to the `strategy` process:
+
+[//]: # (TODO: Update once these are renamed)
 
 * `OPENSHIFT_DEPLOYMENT_NAME` - the name of the `replicationController` representing the new `deployment`
 * `OPENSHIFT_DEPLOYMENT_NAMESPACE` - the namespace of the `replicationController` representing the new `deployment`

@@ -9,12 +9,12 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/describe"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/describe"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
 )
 
 const (

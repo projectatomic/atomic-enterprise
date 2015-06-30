@@ -9,7 +9,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/crypto"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/crypto"
 )
 
 type CreateClientCertOptions struct {

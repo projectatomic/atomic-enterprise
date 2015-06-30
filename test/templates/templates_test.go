@@ -16,10 +16,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/master"
 	"github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/admit"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
-	templateregistry "github.com/projectatomic/appinfra-next/pkg/template/registry"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
+	templateregistry "github.com/projectatomic/atomic-enterprise/pkg/template/registry"
 )
 
 func walkJSONFiles(inDir string, fn func(name, path string, data []byte)) error {

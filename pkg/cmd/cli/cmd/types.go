@@ -9,8 +9,8 @@ import (
 	. "github.com/MakeNowJust/heredoc/dot"
 	"github.com/spf13/cobra"
 
-	ocutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	ocutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
 )
 
 type term struct {

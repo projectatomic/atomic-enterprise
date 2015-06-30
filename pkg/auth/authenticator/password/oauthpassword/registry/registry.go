@@ -5,8 +5,8 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	oclient "github.com/projectatomic/appinfra-next/pkg/oauth/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	oclient "github.com/projectatomic/atomic-enterprise/pkg/oauth/client"
 )
 
 type OAuthAccessTokenSource interface {

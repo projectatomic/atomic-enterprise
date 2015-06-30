@@ -13,9 +13,9 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/csrf"
-	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/csrf"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/registry/test"
 )
 
 type testAuth struct {

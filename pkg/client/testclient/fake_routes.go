@@ -5,7 +5,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // FakeRoutes implements RouteInterface. Meant to be embedded into a struct to get a default

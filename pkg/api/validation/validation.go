@@ -10,7 +10,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
 )
 
 type RuntimeObjectValidator interface {

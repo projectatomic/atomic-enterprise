@@ -12,17 +12,17 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	oauthapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
-	projectapi "github.com/projectatomic/appinfra-next/pkg/project/api"
-	routeapi "github.com/projectatomic/appinfra-next/pkg/route/api"
-	sdnapi "github.com/projectatomic/appinfra-next/pkg/sdn/api"
-	templateapi "github.com/projectatomic/appinfra-next/pkg/template/api"
-	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	oauthapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
+	projectapi "github.com/projectatomic/atomic-enterprise/pkg/project/api"
+	routeapi "github.com/projectatomic/atomic-enterprise/pkg/route/api"
+	sdnapi "github.com/projectatomic/atomic-enterprise/pkg/sdn/api"
+	templateapi "github.com/projectatomic/atomic-enterprise/pkg/template/api"
+	userapi "github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 var (

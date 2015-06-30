@@ -15,7 +15,7 @@ import (
 	"github.com/fsouza/go-dockerclient"
 	"github.com/golang/glog"
 
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // Client includes methods for accessing a Docker registry by name.

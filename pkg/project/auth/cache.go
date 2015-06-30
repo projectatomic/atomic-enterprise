@@ -16,7 +16,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	policyclient "github.com/projectatomic/appinfra-next/pkg/authorization/client"
+	policyclient "github.com/projectatomic/atomic-enterprise/pkg/authorization/client"
 )
 
 // Lister enforces ability to enumerate a resource based on policy

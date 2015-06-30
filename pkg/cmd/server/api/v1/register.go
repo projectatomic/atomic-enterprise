@@ -2,7 +2,7 @@ package v1
 
 import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
 )
 
 var Codec = runtime.CodecFor(api.Scheme, "v1")

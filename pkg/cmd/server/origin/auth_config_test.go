@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api/latest"
 )
 
 func TestGetDefaultSessionSecrets(t *testing.T) {

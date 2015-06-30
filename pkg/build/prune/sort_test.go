@@ -8,7 +8,7 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
 )
 
 // TestSort verifies that builds are sorted by most recently created

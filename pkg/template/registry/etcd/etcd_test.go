@@ -9,8 +9,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools/etcdtest"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 func newHelper(t *testing.T) (*tools.FakeEtcdClient, tools.EtcdHelper) {

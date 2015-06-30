@@ -1,7 +1,9 @@
 ## Description
 
+[//]: # (TODO: Update image in the future)
+
 The `openshift/origin-haproxy-router` is an [HAProxy](http://www.haproxy.org/) router that is used as an external to internal
-interface to OpenShift [services](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/services.md).
+interface to Atomic Enterprise [services](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/services.md).
 
 The router is meant to run as a pod.  When running the router you must ensure that the router can expose port 80 on the host (minion)
 in order to forward traffic.  In a deployed environment the router minion should also have external ip addresses
@@ -26,25 +28,26 @@ Once it is pulled it will start and be visible in the `docker ps` list of contai
 
     $ vagrant up
     $ vagrant ssh
-    [vagrant@openshiftdev origin]$ cd /data/src/github.com/openshift/origin/
-    [vagrant@openshiftdev origin]$ make clean && make
-    [vagrant@openshiftdev origin]$ export PATH=/data/src/github.com/openshift/origin/_output/local/bin/linux/amd64:$PATH
-    [vagrant@openshiftdev origin]$ sudo /data/src/github.com/openshift/origin/_output/local/bin/linux/amd64/openshift start &
+    [vagrant@atomicenterprisedev origin]$ cd /data/src/github.com/projectatomic/atomic-enterprise
+    [vagrant@atomicenterprisedev origin]$ make clean && make
+    [vagrant@atomicenterprisedev origin]$ export PATH=/data/src/github.com/projectatomic/atomic-enterprise/_output/local/bin/linux/amd64:$PATH
+    [vagrant@atomicenterprisedev origin]$ sudo /data/src/github.com/projectatomic/atomic-enterprise/_output/local/bin/linux/amd64/atomic-enterprise start &
 
     If running in https mode, ensure oc can authenticate to the master
-    [vagrant@openshiftdev origin]$ export KUBECONFIG=/data/src/github.com/openshift/origin/openshift.local.config/master/admin.kubeconfig
-    [vagrant@openshiftdev origin]$ sudo chmod a+r "$KUBECONFIG"
-    [vagrant@openshiftdev origin]$ sudo chmod a+r openshift.local.config/master/openshift-router.kubeconfig
-    [vagrant@openshiftdev origin]$ oadm router --create --credentials="openshift.local.config/master/openshift-router.kubeconfig"
-    [vagrant@openshiftdev origin]$ oc get pods
+    [vagrant@atomicenterprisedev origin]$ export KUBECONFIG=/data/src/github.com/projectatomic/atomic-enterprise/openshift.local.config/master/admin.kubeconfig
+    [vagrant@atomicenterprisedev origin]$ sudo chmod a+r "$KUBECONFIG"
+    [vagrant@atomicenterprisedev origin]$ sudo chmod a+r openshift.local.config/master/openshift-router.kubeconfig
+    [vagrant@atomicenterprisedev origin]$ oadm router --create --credentials="openshift.local.config/master/openshift-router.kubeconfig"
+    [vagrant@atomicenterprisedev origin]$ oc get pods
 
 #### Clustered vagrant environment
 
+[//]: # (TODO: Update ENV variables when renamed)
 
     $ export OPENSHIFT_DEV_CLUSTER=true
     $ vagrant up
     $ vagrant ssh master
-    [vagrant@openshift-master ~]$ oadm router --create --credentials="${KUBECONFIG}"
+    [vagrant@atomic-enterprise-master ~]$ oadm router --create --credentials="${KUBECONFIG}"
 
 
 
@@ -70,6 +73,7 @@ can run the router anywhere that it can access both the pods and the master.  Th
 that the router is run on must not have any other services that are bound to that port.  This allows the router to be 
 used by a DNS server for incoming traffic.
 
+[//]: # (TODO: Rename image in the future)
 
 	$ docker run --rm -it -p 80:80 openshift/origin-haproxy-router --master $kube-master-url
 
@@ -85,20 +89,20 @@ To test your route independent of DNS you can send a host header to the router. 
 
     $ ..... vagrant up with single machine instructions .......
     $ ..... create config files listed below in ~ ........
-    [vagrant@openshiftdev origin]$ oc create -f ~/pod.json
-    [vagrant@openshiftdev origin]$ oc create -f ~/service.json
-    [vagrant@openshiftdev origin]$ oc create -f ~/route.json
-    [vagrant@openshiftdev origin]$ curl -H "Host:hello-atomic.v3.rhcloud.com" <vm ip>
+    [vagrant@atomicenterprisedev origin]$ oc create -f ~/pod.json
+    [vagrant@atomicenterprisedev origin]$ oc create -f ~/service.json
+    [vagrant@atomicenterprisedev origin]$ oc create -f ~/route.json
+    [vagrant@atomicenterprisedev origin]$ curl -H "Host:hello-atomic.v3.rhcloud.com" <vm ip>
     Hello Atomic!
 
     $ ..... vagrant up with cluster instructions .....
     $ ..... create config files listed below in ~ ........
-    [vagrant@openshift-master ~]$ oc create -f ~/pod.json
-    [vagrant@openshift-master ~]$ oc create -f ~/service.json
-    [vagrant@openshift-master ~]$ oc create -f ~/route.json
+    [vagrant@atomic-enterprise-master ~]$ oc create -f ~/pod.json
+    [vagrant@atomic-enterprise-master ~]$ oc create -f ~/service.json
+    [vagrant@atomic-enterprise-master ~]$ oc create -f ~/route.json
     # take note of what minion number the router is deployed on
-    [vagrant@openshift-master ~]$ oc get pods
-    [vagrant@openshift-master ~]$ curl -H "Host:hello-atomic.v3.rhcloud.com" openshift-minion-<1,2>
+    [vagrant@atomic-enterprise-master ~]$ oc get pods
+    [vagrant@atomic-enterprise-master ~]$ curl -H "Host:hello-atomic.v3.rhcloud.com" atomic-enterprise-minion-<1,2>
     Hello Atomic!
 
 
@@ -189,7 +193,7 @@ route.json
 ## Securing Your Routes
 
 Creating a secure route to your pods can be accomplished by specifying the TLS Termination of the route and, optionally,
-providing certificates to use.  As of writing, OpenShift beta1 TLS termination relies on SNI for serving custom certificates.
+providing certificates to use.  As of writing, Atomic Enterprise beta1 TLS termination relies on SNI for serving custom certificates.
 In the future, the ability to create custom frontends within the router will allow all traffic to serve custom certificates.
 
 TLS Termination falls in the following configuration buckets:
@@ -262,7 +266,7 @@ same lookup.  Doing multiple pings show the resolution swapping between IP addre
 #### Testing the entry
 
 
-    [vagrant@openshift-master ~]$ dig hello-atomic.shard1.v3.rhcloud.com
+    [vagrant@atomic-enterprise-master ~]$ dig hello-atomic.shard1.v3.rhcloud.com
 
     ; <<>> DiG 9.9.4-P2-RedHat-9.9.4-16.P2.fc20 <<>> hello-atomic.shard1.v3.rhcloud.com
     ;; global options: +cmd
@@ -291,21 +295,23 @@ same lookup.  Doing multiple pings show the resolution swapping between IP addre
     ;; WHEN: Wed Nov 19 19:01:32 UTC 2014
     ;; MSG SIZE  rcvd: 132
 
-    [vagrant@openshift-master ~]$ ping hello-atomic.shard1.v3.rhcloud.com
+    [vagrant@atomic-enterprise-master ~]$ ping hello-atomic.shard1.v3.rhcloud.com
     PING hello-atomic.shard1.v3.rhcloud.com (10.245.2.3) 56(84) bytes of data.
     ...
     ^C
     --- hello-atomic.shard1.v3.rhcloud.com ping statistics ---
     2 packets transmitted, 2 received, 0% packet loss, time 1000ms
     rtt min/avg/max/mdev = 0.272/0.573/0.874/0.301 ms
-    [vagrant@openshift-master ~]$ ping hello-atomic.shard1.v3.rhcloud.com
+    [vagrant@atomic-enterprise-master ~]$ ping hello-atomic.shard1.v3.rhcloud.com
     ...
 
 
 
 ## Dev - Building the haproxy router image
 
-When building the routes you use the scripts in the `${OPENSHIFT ORIGIN PROJECT}/hack` directory.  This will build both
+[//]: # (TODO: Rename image in the future)
+
+When building the routes you use the scripts in the `${ATOMIC ENTERPRISE PROJECT}/hack` directory.  This will build both
 base images and the router image.  When complete you should have a `openshift/origin-haproxy-router` container that shows
 in `docker images` that is ready to use.
 
@@ -313,6 +319,9 @@ in `docker images` that is ready to use.
     $ hack/build-images.sh
 
 ## Dev - router internals
+
+
+[//]: # (TODO: Rename openshift-router.go when it has a name change)
 
 The router is an [HAProxy](http://www.haproxy.org/) container that is run via a go wrapper (`openshift-router.go`) that 
 provides a watch on `routes` and `endpoints`.  The watch funnels down to the configuration files for the [HAProxy](http://www.haproxy.org/) 

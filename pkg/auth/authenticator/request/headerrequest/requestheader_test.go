@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/api"
 )
 
 type TestUserIdentityMapper struct{}

@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
 )
 
 // GroupAdder wraps a request authenticator, and adds the specified groups to the returned user when authentication succeeds

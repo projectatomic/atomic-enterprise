@@ -20,13 +20,13 @@ RUN mkdir $TMPDIR && \
 # Mark this as a os-build container
 RUN touch /os-build-image
 
-WORKDIR /go/src/github.com/projectatomic/appinfra-next
+WORKDIR /go/src/github.com/projectatomic/atomic-enterprise
 
 # (set an explicit GOARM of 5 for maximum compatibility)
 ENV GOARM 5
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 
-ENV OS_VERSION_FILE /go/src/github.com/projectatomic/appinfra-next/os-version-defs
+ENV OS_VERSION_FILE /go/src/github.com/projectatomic/atomic-enterprise/os-version-defs
 
 # Allows building Origin sources mounted using volume
 ADD openshift-origin-build.sh /usr/bin/openshift-origin-build.sh

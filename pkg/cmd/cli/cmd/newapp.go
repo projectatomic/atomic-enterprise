@@ -13,13 +13,13 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	dockerutil "github.com/projectatomic/appinfra-next/pkg/cmd/util/docker"
-	configcmd "github.com/projectatomic/appinfra-next/pkg/config/cmd"
-	newcmd "github.com/projectatomic/appinfra-next/pkg/generate/app/cmd"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/util"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	dockerutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util/docker"
+	configcmd "github.com/projectatomic/atomic-enterprise/pkg/config/cmd"
+	newcmd "github.com/projectatomic/atomic-enterprise/pkg/generate/app/cmd"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/util"
 )
 
 type usage interface {

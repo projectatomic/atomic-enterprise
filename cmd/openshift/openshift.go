@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/openshift"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/serviceability"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/openshift"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/serviceability"
 )
 
 func main() {

@@ -9,9 +9,9 @@ import (
 	ktestclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client/testclient"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/client/testclient"
-	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/client/testclient"
+	deploytest "github.com/projectatomic/atomic-enterprise/pkg/deploy/api/test"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 func mkdeployment(version int) kapi.ReplicationController {

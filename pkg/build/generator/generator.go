@@ -12,9 +12,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/credentialprovider"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // BuildGenerator is a central place responsible for generating new Build objects

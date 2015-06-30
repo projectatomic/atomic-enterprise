@@ -3,7 +3,7 @@ package client
 import (
 	"fmt"
 
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // ImageStreamTagsNamespacer has methods to work with ImageStreamTag resources in a namespace

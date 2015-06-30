@@ -19,10 +19,10 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	osclient "github.com/projectatomic/appinfra-next/pkg/client"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	"github.com/projectatomic/appinfra-next/pkg/generate/git"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	osclient "github.com/projectatomic/atomic-enterprise/pkg/client"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/git"
 )
 
 const (

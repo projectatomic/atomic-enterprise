@@ -11,15 +11,15 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy/recreate"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/strategy/rolling"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
-	"github.com/projectatomic/appinfra-next/pkg/version"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/strategy"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/strategy/recreate"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/strategy/rolling"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
 const (

@@ -7,12 +7,12 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/authorization/client"
-	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
-	clusterbindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
-	policyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policy"
-	bindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/policybinding"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/client"
+	clusterpolicyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicy"
+	clusterbindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicybinding"
+	policyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/policy"
+	bindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/policybinding"
 )
 
 // ReadOnlyCache exposes administrative methods for the readOnlyAuthorizationCache

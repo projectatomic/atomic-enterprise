@@ -6,7 +6,7 @@ import (
 	"github.com/golang/glog"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	authapi "github.com/projectatomic/appinfra-next/pkg/auth/api"
+	authapi "github.com/projectatomic/atomic-enterprise/pkg/auth/api"
 )
 
 type EmptyAuth struct{}

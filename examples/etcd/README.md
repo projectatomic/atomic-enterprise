@@ -10,6 +10,8 @@ https://github.com/coreos/etcd
 
 You can 'pre-pull' the Docker image used by this template by:
 
+[//]: # (TODO: Update image name in the future)
+
 ```
 $ docker pull openshift/etcd-20-centos7
 ```
@@ -22,18 +24,10 @@ $ make
 
 ### How to use this template
 
-You can import this template to OpenShift using:
+You can import this template to Atomic Enterprise using:
 
 ```
 $ oc create -f examples/etcd/template.json
-```
-
-Then you can navigate to OpenShift UI and click the 'Create' button on top right
-and choose 'Browse templates...'. Choose the 'etcd' and hit create.
-
-Another way, is to use the CLI only:
-
-```
 $ oc process -f examples/etcd/template.json | oc create -f -
 ```
 

@@ -11,11 +11,11 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	build "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
-	deploy "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
-	image "github.com/projectatomic/appinfra-next/pkg/image/api"
+	build "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
+	deploy "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
+	image "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd"
 	clientcmdapi "github.com/GoogleCloudPlatform/kubernetes/pkg/client/clientcmd/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
 )
 
 func TestMasterURLNoPathAllowed(t *testing.T) {

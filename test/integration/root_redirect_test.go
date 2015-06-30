@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"testing"
 
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func TestRootRedirect(t *testing.T) {

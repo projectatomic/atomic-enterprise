@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/RangelReale/osin"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/server/osinserver"
 )
 
 func TestAuthorizeAuthenticator(t *testing.T) {

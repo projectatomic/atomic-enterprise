@@ -17,8 +17,8 @@ import (
 	"github.com/docker/docker/builder/parser"
 	"github.com/golang/glog"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	"github.com/projectatomic/appinfra-next/pkg/build/builder/cmd/dockercfg"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/builder/cmd/dockercfg"
 	"github.com/openshift/source-to-image/pkg/git"
 	"github.com/openshift/source-to-image/pkg/tar"
 

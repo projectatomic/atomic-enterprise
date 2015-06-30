@@ -13,14 +13,14 @@ import (
 	"github.com/RangelReale/osincli"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/handlers"
-	oapi "github.com/projectatomic/appinfra-next/pkg/oauth/api"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/test"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/server/osinserver/registrystorage"
-	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
-	usertest "github.com/projectatomic/appinfra-next/pkg/user/registry/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/oauth/handlers"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/oauth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/registry/test"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/server/osinserver"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/server/osinserver/registrystorage"
+	userapi "github.com/projectatomic/atomic-enterprise/pkg/user/api"
+	usertest "github.com/projectatomic/atomic-enterprise/pkg/user/registry/test"
 )
 
 type testHandlers struct {

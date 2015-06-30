@@ -3,7 +3,7 @@ package google
 import (
 	"testing"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/oauth/external"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/oauth/external"
 )
 
 func TestGoogle(t *testing.T) {

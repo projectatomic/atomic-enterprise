@@ -4,8 +4,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/fields"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/projectatomic/appinfra-next/pkg/client"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/client"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // FakeImages implements ImageInterface. Meant to be embedded into a struct to

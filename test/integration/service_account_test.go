@@ -19,9 +19,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/serviceaccount"
 	serviceaccountadmission "github.com/GoogleCloudPlatform/kubernetes/plugin/pkg/admission/serviceaccount"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/admin/policy"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/bootstrappolicy"
-	testutil "github.com/projectatomic/appinfra-next/test/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/admin/policy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/bootstrappolicy"
+	testutil "github.com/projectatomic/atomic-enterprise/test/util"
 )
 
 func TestServiceAccountAuthorization(t *testing.T) {

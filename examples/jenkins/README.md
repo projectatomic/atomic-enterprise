@@ -1,16 +1,16 @@
-OpenShift 3 Jenkins Example
-=========================
+Atomic Enterprise Jenkins Example
+=================================
 
-This sample walks through the process of starting up an OpenShift cluster and deploying a Jenkins Pod in it.
+This sample walks through the process of starting up an Atomic Enterprise cluster and deploying a Jenkins Pod in it.
 It also configures a simple application and then creates a Jenkins job to trigger a build of that application.
 
-The Jenkins job will trigger OpenShift to build+deploy a test version of the application, validate that
+The Jenkins job will trigger Atomic Enterprise to build+deploy a test version of the application, validate that
 the deployment works, and then tag the test version into production.
 
 Steps
 -----
 
-1. Follow steps 1-10 from the [sample-app](https://github.com/openshift/origin/blob/master/examples/sample-app/README.md)
+1. Follow steps 1-10 from the [sample-app](https://github.com/projectatomic/atomic-enterprise/blob/master/examples/sample-app/README.md)
 
 2. Start the Jenkins services
 
@@ -42,14 +42,3 @@ Steps
    
     1. In the browser, select the rubyJob build job and choose `Build with parameters`.
     2. Click `Build` (you should not need to modify any parameters).
-
-7. Watch the job output
-
-   It will trigger an OpenShift build of the application, wait for the build to result in a deployment,
-   confirm the new deployment works, and re-tag the image for production.  This re-tagging will trigger
-   another deployment, this time creating/updated the production service.
-
-8. Confirm both the test and production services are available by browsing to both services:
-
-        $ oc get services -n test | grep frontend
-   

@@ -7,8 +7,8 @@ import (
 	kvalidation "github.com/GoogleCloudPlatform/kubernetes/pkg/api/validation"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 func ValidateUserName(name string, _ bool) (bool, string) {

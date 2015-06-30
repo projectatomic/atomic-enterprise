@@ -15,9 +15,9 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/deploy/prune"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/deploy/prune"
 )
 
 const deploymentsLongDesc = `%s %s - Remove older completed and failed deployments`

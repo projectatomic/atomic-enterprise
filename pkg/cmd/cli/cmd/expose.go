@@ -11,7 +11,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/resource"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
 )
 
 const (

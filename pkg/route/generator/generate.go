@@ -7,7 +7,7 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/route/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/route/api"
 )
 
 // RouteGenerator implements the kubectl.Generator interface for routes

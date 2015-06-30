@@ -6,8 +6,8 @@ import (
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	template "github.com/projectatomic/appinfra-next/pkg/template/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	template "github.com/projectatomic/atomic-enterprise/pkg/template/api"
 )
 
 func TestNewRESTInvalidType(t *testing.T) {

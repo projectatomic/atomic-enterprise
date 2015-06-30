@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	deploytest "github.com/projectatomic/appinfra-next/pkg/deploy/api/test"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	deploytest "github.com/projectatomic/atomic-enterprise/pkg/deploy/api/test"
 )
 
 func podTemplateA() *kapi.PodTemplateSpec {

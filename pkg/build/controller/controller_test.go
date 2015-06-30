@@ -10,10 +10,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/client/record"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildclient "github.com/projectatomic/appinfra-next/pkg/build/client"
-	buildtest "github.com/projectatomic/appinfra-next/pkg/build/controller/test"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildclient "github.com/projectatomic/atomic-enterprise/pkg/build/client"
+	buildtest "github.com/projectatomic/atomic-enterprise/pkg/build/controller/test"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 type okBuildUpdater struct{}

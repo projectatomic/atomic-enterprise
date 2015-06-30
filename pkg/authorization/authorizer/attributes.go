@@ -7,7 +7,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 type DefaultAuthorizationAttributes struct {

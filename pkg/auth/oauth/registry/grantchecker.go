@@ -7,9 +7,9 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/api/errors"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/api"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/registry/oauthclientauthorization"
-	"github.com/projectatomic/appinfra-next/pkg/oauth/scope"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/registry/oauthclientauthorization"
+	"github.com/projectatomic/atomic-enterprise/pkg/oauth/scope"
 )
 
 type ClientAuthorizationGrantChecker struct {

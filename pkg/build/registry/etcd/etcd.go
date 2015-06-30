@@ -15,8 +15,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	"github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
 )
 
 const (

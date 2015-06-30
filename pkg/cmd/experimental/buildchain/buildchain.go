@@ -13,10 +13,10 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	buildutil "github.com/projectatomic/appinfra-next/pkg/build/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	buildutil "github.com/projectatomic/atomic-enterprise/pkg/build/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 const (

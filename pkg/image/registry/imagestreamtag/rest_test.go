@@ -12,14 +12,14 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/tools/etcdtest"
 	"github.com/coreos/go-etcd/etcd"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/latest"
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	"github.com/projectatomic/appinfra-next/pkg/authorization/registry/subjectaccessreview"
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
-	"github.com/projectatomic/appinfra-next/pkg/image/registry/image"
-	imageetcd "github.com/projectatomic/appinfra-next/pkg/image/registry/image/etcd"
-	"github.com/projectatomic/appinfra-next/pkg/image/registry/imagestream"
-	imagestreametcd "github.com/projectatomic/appinfra-next/pkg/image/registry/imagestream/etcd"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/latest"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/subjectaccessreview"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/registry/image"
+	imageetcd "github.com/projectatomic/atomic-enterprise/pkg/image/registry/image/etcd"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/registry/imagestream"
+	imagestreametcd "github.com/projectatomic/atomic-enterprise/pkg/image/registry/imagestream/etcd"
 )
 
 var testDefaultRegistry = imagestream.DefaultRegistryFunc(func() (string, bool) { return "defaultregistry:5000", true })

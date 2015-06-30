@@ -6,7 +6,7 @@ import (
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
 )
 
 // TODO remove this in favor of kubernetes types

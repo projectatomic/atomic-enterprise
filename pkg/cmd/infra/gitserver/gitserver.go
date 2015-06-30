@@ -8,8 +8,8 @@ import (
 	cmdutil "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd/util"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/gitserver"
-	"github.com/projectatomic/appinfra-next/pkg/gitserver/autobuild"
+	"github.com/projectatomic/atomic-enterprise/pkg/gitserver"
+	"github.com/projectatomic/atomic-enterprise/pkg/gitserver/autobuild"
 )
 
 const longCommandDesc = `

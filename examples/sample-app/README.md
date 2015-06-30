@@ -1,34 +1,36 @@
-OpenShift 3 Application Lifecycle Sample
-========================================
+Atomic Enterprise Application Lifecycle Sample
+==============================================
 
-This is a set of configuration files and scripts which work with OpenShift 3 to create a new application and perform application builds.
+This is a set of configuration files and scripts which work with Atomic Enterprise to create a new application and perform application builds.
 
-This example assumes you have successfully built the `openshift`
+This example assumes you have successfully built the `atomic-enterprise`
 binary executable (normally located under origin/\_output/local/go/bin),
 you have that and its symlink/copy `oc` in your `PATH` and root's,
 and Docker is installed and working.  See
-https://github.com/openshift/origin/blob/master/CONTRIBUTING.adoc.
+https://github.com/projectatomic/atomic-enterprise/blob/master/CONTRIBUTING.adoc.
+
+[//]: # (TODO: Rename images in the future)
 
 Alternatively, if you are using the openshift/origin Docker container, please
 make sure you follow these instructions first:
-https://github.com/openshift/origin/blob/master/examples/sample-app/container-setup.md
+https://github.com/projectatomic/atomic-enterprise/blob/master/examples/sample-app/container-setup.md
 
 Security Warning
 ----------------
-OpenShift no longer requires SElinux to be disabled, however OpenShift is a system which runs Docker containers on your system.  In some cases (build operations and the registry service) it does so using privileged containers.  Furthermore those containers access your host's Docker daemon and perform `docker build` and `docker push` operations.  As such, you should be aware of the inherent security risks associated with performing `docker run` operations on arbitrary images as they effectively have root access.  This is particularly relevant when running the OpenShift nodes directly on your host system.
+Atomic Enterprise no longer requires SElinux to be disabled, however Atomic Enterprise is a system which runs Docker containers on your system.  In some cases (build operations and the registry service) it does so using privileged containers.  Furthermore those containers access your host's Docker daemon and perform `docker build` and `docker push` operations.  As such, you should be aware of the inherent security risks associated with performing `docker run` operations on arbitrary images as they effectively have root access.  This is particularly relevant when running the Atomic Enterprise nodes directly on your host system.
 
 For more information, see these articles:
 
 * http://opensource.com/business/14/7/docker-security-selinux
 * https://docs.docker.com/articles/security/
 
-The OpenShift security model will continue to evolve and tighten as we head towards production ready code.
+The Atomic Enterprise security model will continue to evolve and tighten as we head towards production ready code.
 
 Setup
 -----
-At this stage of OpenShift 3 development, there are a few things that you will need to configure on the host where OpenShift is running in order for things to work.
+At this stage of Atomic Enterprise development, there are a few things that you will need to configure on the host where Atomic Enterprise is running in order for things to work.
 
-**NOTE:** You do not need to do this if you are using [Vagrant](https://vagrantup.com/) to work with OpenShift.  Refer to the "VAGRANT USERS" callouts throughout this document for modifications specific to Vagrant users.
+**NOTE:** You do not need to do this if you are using [Vagrant](https://vagrantup.com/) to work with Atomic Enterprise.  Refer to the "VAGRANT USERS" callouts throughout this document for modifications specific to Vagrant users.
 
 - - -
 **VAGRANT USERS**:
@@ -37,11 +39,11 @@ If you haven't already, fire up a Vagrant instance.
 	$ vagrant up
 	$ vagrant ssh
 
-Inside of your Vagrant instance, the path to the origin directory is `/data/src/github.com/openshift/origin`.
+Inside of your Vagrant instance, the path to the origin directory is `/data/src/github.com/projectatomic/atomic-enterprise`.
 
-	$ cd /data/src/github.com/openshift/origin
+	$ cd /data/src/github.com/projectatomic/atomic-enterprise
 
-Run an advance build of the OpenShift binaries before continuing:
+Run an advance build of the Atomic Enterprise binaries before continuing:
 
 	$ make clean build
 
@@ -52,7 +54,7 @@ This will set up a go workspace locally and will build all go components.  It is
 ### Docker Changes ###
 
 **VAGRANT USERS**:
-If you are using the OpenShift Vagrant image you can skip this step.
+If you are using the Atomic Enterprise Vagrant image you can skip this step.
 
 First, you'll need to configure the Docker daemon on your host to trust the Docker registry service you'll be starting.
 
@@ -67,14 +69,14 @@ If you are running Docker as a service via `systemd`, you can add this argument 
 This will instruct the Docker daemon to trust any Docker registry on the 172.30.0.0/16 subnet,
 rather than requiring the registry to have a verifiable certificate.
 
-These instructions assume you have not changed the kubernetes/openshift service subnet configuration from the default value of 172.30.0.0/16.
+These instructions assume you have not changed the kubernetes/Atomic Enterprise service subnet configuration from the default value of 172.30.0.0/16.
 
 ### FirewallD Changes ###
 
 **VAGRANT USERS**:
-If you are using the OpenShift Vagrant image you can skip this step.
+If you are using the Atomic Enterprise Vagrant image you can skip this step.
 
-Similar to our work on SELinux policies, the OpenShift firewalld rules are also a work in progress. For now it is easiest to disable firewalld altogether:
+Similar to our work on SELinux policies, the Atomic Enterprise firewalld rules are also a work in progress. For now it is easiest to disable firewalld altogether:
 
     $ sudo systemctl stop firewalld
 
@@ -84,12 +86,12 @@ Firewalld will start again on your next reboot, but you can manually restart it 
 
 ### Still Having Trouble? ###
 
-If you hit any snags while taking the sample app for a spin, check out the [troubleshooting guide](https://github.com/openshift/origin/blob/master/docs/debugging-openshift.md).
+If you hit any snags while taking the sample app for a spin, check out the [troubleshooting guide](https://github.com/projectatomic/atomic-enterprise/blob/master/docs/debugging-atomic-enterprise.md).
 
-Application Build, Deploy, and Update Flow
-------------------------------------------
+Application Deploy and Update Flow
+----------------------------------
 
-This section covers how to perform all the steps of building, deploying, and updating an application on the OpenShift platform.
+This section covers how to perform all the steps of building, deploying, and updating an application on the Atomic Enterprise platform.
 
 - - -
 **NOTE**
@@ -97,13 +99,13 @@ This section covers how to perform all the steps of building, deploying, and upd
 * All commands assume the `oc` binary/symlink is in your path.
 * All commands assume that you are working from the `sample-app` directory in your local environment.
     * If you are working from a local git repo, this might be `$GOPATH/src/github.com/<username>/origin/examples/sample-app`
-    * **VAGRANT USERS**: `cd /data/src/github.com/openshift/origin/examples/sample-app`
+    * **VAGRANT USERS**: `cd /data/src/github.com/projectatomic/atomic-enterprise/examples/sample-app`
 
 - - -
 
 
 1. *Optional*: Pre-pull the Docker images used in this sample.  This is
-    not strictly necessary as OpenShift will pull the images as it needs them,
+    not strictly necessary as Atomic Enterprise will pull the images as it needs them,
     but by doing it up front it will prevent lengthy operations during build
     and deployment which might otherwise lead you to believe the process
     has failed or hung.
@@ -111,25 +113,25 @@ This section covers how to perform all the steps of building, deploying, and upd
         $ ./pullimages.sh
 
 
-2. Launch an all-in-one `openshift` instance
+2. Launch an all-in-one `atomic-enterprise` instance
 
-        $ sudo openshift start &> logs/openshift.log &
+        $ sudo atomic-enterprise start &> logs/atomic-enterprise.log &
 
        **VAGRANT USERS**: Instead of the above command, use
 
-        $ sudo /data/src/github.com/openshift/origin/_output/local/go/bin/openshift start --public-master=localhost &> logs/openshift.log &
+        $ sudo /data/src/github.com/projectatomic/atomic-enterprise/_output/local/go/bin/atomic-enterprise start --public-master=localhost &> logs/atomic-enterprise.log &
 
     Note: sudo is required so the kubernetes proxy can manipulate iptables rules to expose service ports.
 
 
-3. Set up your client to reach the OpenShift master now running.
+3. Set up your client to reach the Atomic Enterprise master now running.
 
-    Since OpenShift services are secured by TLS, your client will
+    Since Atomic Enterprise services are secured by TLS, your client will
     need to accept the server certificates and present its own client
-    certificate. These are generated as part of the `openshift start`
+    certificate. These are generated as part of the `atomic-enterprise start`
     command in whatever the current directory is at the time. You will
     need to point oc and curl at the appropriate certificates in order
-    to connect to OpenShift. Assuming you are running as a user other
+    to connect to Atomic Enterprise. Assuming you are running as a user other
     than root, you will also need to make the .kubeconfig readable by
     that user. (Note: this is just for example purposes; in a real
     installation, users would generate their own keys and not have access
@@ -138,7 +140,7 @@ This section covers how to perform all the steps of building, deploying, and upd
         $ export CURL_CA_BUNDLE=`pwd`/openshift.local.config/master/ca.crt
         $ sudo chmod a+rwX openshift.local.config/master/admin.kubeconfig
 
-4. Deploy a private docker registry within OpenShift with the certs necessary for access to master:
+4. Deploy a private docker registry within Atomic Enterprise with the certs necessary for access to master:
 
         $ sudo chmod +r openshift.local.config/master/openshift-registry.kubeconfig
         $ oadm registry --create --credentials=openshift.local.config/master/openshift-registry.kubeconfig --config=openshift.local.config/master/admin.kubeconfig
@@ -177,47 +179,38 @@ This section covers how to perform all the steps of building, deploying, and upd
 
 
 
-7. Create a new project in OpenShift. This creates a namespace `test` to contain the builds and app that we will generate below.
+7. Create a new project in Atomic Enterprise. This creates a namespace `test` to contain the builds and app that we will generate below.
 
-        $ oc new-project test --display-name="OpenShift 3 Sample" --description="This is an example project to demonstrate OpenShift v3"
-
-
-8. *Optional:* View the OpenShift web console in your browser by browsing to `https://<host>:8443/console`.  Login using the user `test-admin` and any password.
-
-    * You will need to have the browser accept the certificate at
-      `https://<host>:8443` before the console can consult the OpenShift
-      API. Of course this would not be necessary with a legitimate
-      certificate.
-    * If you click the `OpenShift 3 Sample` project and leave the tab open,
-      you'll see the page update as you deploy objects into the project
-      and run builds.
+        $ oc new-project test --display-name="Atomic Enterprise Sample" --description="This is an example project to demonstrate Atomic Enterprise"
 
 
-9. *Optional:* Fork the [ruby sample repository](https://github.com/openshift/ruby-hello-world)
-    to an OpenShift-visible git account that you control, preferably
-    somewhere that can also reach your OpenShift server with a webhook.
+8. *Optional:* Fork the [ruby sample repository](https://github.com/openshift/ruby-hello-world)
+    to an Atomic Enterprise-visible git account that you control, preferably
+    somewhere that can also reach your Atomic Enterprise server with a webhook.
     A github.com account is an obvious place for this, but an in-house
-    git hosting site may work better for reaching your OpenShift server.
+    git hosting site may work better for reaching your Atomic Enterprise server.
 
     We will demonstrate building from a repository and then triggering
     a new build from changing that repository. If you do not have an
     account that will work for this purpose, that is fine; just use
     a GitHub account and simulate the webhook (demonstrated below).
     Without your own fork, you can still run the initial build from
-    OpenShift's public repository, just not a changed build.
+    Atomic Enterprise's public repository, just not a changed build.
 
 
-10. *Optional:* Add the following webhook under the settings in your new GitHub repository:
+9. *Optional:* Add the following webhook under the settings in your new GitHub repository:
 
         $ https://<host>:8443/osapi/v1beta3/namespaces/test/buildconfigs/ruby-sample-build/webhooks/secret101/github
 
-  * Note: Using the webhook requires that your OpenShift server be
+  * Note: Using the webhook requires that your Atomic Enterprise server be
     publicly accessible so GitHub can reach it to invoke the hook. You
     will almost certainly need to "Disable SSL Verification" for your test
     instance as the certificate chain generated is not publicly verified.
 
 
 11. Edit application-template-stibuild.json which will define the sample application
+
+[//]: # (TODO: Rename repo in the future)
 
  * Update the BuildConfig's sourceURI (git://github.com/openshift/ruby-hello-world.git) to point to your forked repository.
    *Note:* You can skip this step if you did not create a forked repository.
@@ -228,7 +221,7 @@ This section covers how to perform all the steps of building, deploying, and upd
 
         $ oc new-app application-template-stibuild.json
 
-    This will define a number of related OpenShift entities in the project:
+    This will define a number of related Atomic Enterprise entities in the project:
 
     * A BuildConfig (ruby-sample-build) to specify a build that uses
       your ruby-hello-world fork as the input for a source-to-image (STI) build
@@ -260,7 +253,7 @@ This section covers how to perform all the steps of building, deploying, and upd
 
      The built image will be named with the ImageStream
      (origin-ruby-sample) named in the BuildConfig and pushed to the
-     private Docker registry running in OpenShift.  (Note that the private
+     private Docker registry running in Atomic Enterprise.  (Note that the private
      docker registry is using ephemeral storage, so when it is stopped,
      the image will be lost.)
 
@@ -276,6 +269,8 @@ This section covers how to perform all the steps of building, deploying, and upd
 
 
 14. Wait for the application's frontend pod and database pods to be started (this can take a few minutes):
+
+[//]: # (TODO: Rename images in the future)
 
         $ oc get pods
 
@@ -325,12 +320,12 @@ This section covers how to perform all the steps of building, deploying, and upd
 
 18. Repeat step 13 (waiting for the build to complete).  Once the build is complete, refreshing your browser should show your changes.
 
-Congratulations, you've successfully deployed and updated an application on OpenShift.
+Congratulations, you've successfully deployed and updated an application on Atomic Enterprise.
 
 
 Advanced
 ---------
-OpenShift also provides features that live outside the deployment life cycle like routing.
+Atomic Enterprise also provides features that live outside the deployment life cycle like routing.
 
 1.  Your sample app has been created with a secure route which can be viewed by performing a `GET` on the route api object.
 
@@ -339,10 +334,13 @@ OpenShift also provides features that live outside the deployment life cycle lik
             route-edge          www.example.com                         frontend            template=application-template-stibuild
 
 
-2.  To use the route you must first install a router.  OpenShift provides an HAProxy router implementation that we'll use.
+2.  To use the route you must first install a router.  Atomic Enterprise provides an HAProxy router implementation that we'll use.
 To install the router you must know the ip address of the host the router will be deployed on (used later) and the api
 url the master is listening on.  The api url can be found in the logs, your ip address can be determined with `ip a`.  Replace
 the ip address shown below with the correct one for your environment.
+
+[//]: # (TODO: Rename images in the future)
+
 
             # Optional: pre-pull the router image.  This will be pulled automatically when the pod is created but will
             # take some time.  Your pod will stay in Pending state while the pull is completed
@@ -378,7 +376,7 @@ the ip address shown below with the correct one for your environment.
 
             $ curl -s -k --resolve www.example.com:443:10.0.2.15 https://www.example.com
                 ... removed for readability ...
-                <title>Hello from OpenShift v3!</title>
+                <title>Hello from Atomic Enterprise!</title>
                 ... removed for readability ...
 
 
@@ -436,6 +434,8 @@ In addition to creating resources, you can delete resources based on IDs. For ex
 
 Another interesting example is deleting a pod.
 
+[//]: # (TODO: Rename images in the future)
+
   - List available pods:
 
         $ oc get pods
@@ -466,6 +466,6 @@ To clean up all of your environment, you can run the script:
 
         $ sudo ./cleanup.sh
 
-This will stop the `openshift` process, remove files created by OpenShift and kill all Docker containers created by Kubernetes in your host system.  The cleanup script needs root privileges to be able to remove all the directories OpenShift created.
+This will stop the `atomic-enterprise` process, remove files created by Atomic Enterprise and kill all Docker containers created by Kubernetes in your host system.  The cleanup script needs root privileges to be able to remove all the directories Atomic Enterprise created.
 
 **Use with caution!** Any Docker container prefixed with "k8s_" will be killed by this script.

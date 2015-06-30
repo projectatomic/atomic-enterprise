@@ -1,7 +1,7 @@
 package client
 
 import (
-	userapi "github.com/projectatomic/appinfra-next/pkg/user/api"
+	userapi "github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 // UserIdentityMappingsInterface has methods to work with UserIdentityMapping resources in a namespace

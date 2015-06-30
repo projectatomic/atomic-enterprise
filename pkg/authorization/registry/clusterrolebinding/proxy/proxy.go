@@ -6,11 +6,11 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/labels"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/runtime"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	clusterpolicyregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicy"
-	clusterpolicybindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/clusterpolicybinding"
-	rolebindingregistry "github.com/projectatomic/appinfra-next/pkg/authorization/registry/rolebinding"
-	rolebindingstorage "github.com/projectatomic/appinfra-next/pkg/authorization/registry/rolebinding/policybased"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	clusterpolicyregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicy"
+	clusterpolicybindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/clusterpolicybinding"
+	rolebindingregistry "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/rolebinding"
+	rolebindingstorage "github.com/projectatomic/atomic-enterprise/pkg/authorization/registry/rolebinding/policybased"
 )
 
 type ClusterRoleBindingStorage struct {

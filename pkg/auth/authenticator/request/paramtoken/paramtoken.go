@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/auth/user"
-	"github.com/projectatomic/appinfra-next/pkg/auth/authenticator"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/authenticator"
 )
 
 // Authenticator provides a way to authenticate tokens provided as a parameter

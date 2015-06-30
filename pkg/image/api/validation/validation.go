@@ -7,8 +7,8 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util/fielderrors"
 	"github.com/docker/distribution/registry/api/v2"
 
-	oapi "github.com/projectatomic/appinfra-next/pkg/api"
-	"github.com/projectatomic/appinfra-next/pkg/image/api"
+	oapi "github.com/projectatomic/atomic-enterprise/pkg/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 func ValidateImageStreamName(name string, prefix bool) (bool, string) {

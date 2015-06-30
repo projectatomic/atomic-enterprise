@@ -12,8 +12,8 @@ import (
 	kutil "github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/watch"
 
-	controller "github.com/projectatomic/appinfra-next/pkg/controller"
-	deployutil "github.com/projectatomic/appinfra-next/pkg/deploy/util"
+	controller "github.com/projectatomic/atomic-enterprise/pkg/controller"
+	deployutil "github.com/projectatomic/atomic-enterprise/pkg/deploy/util"
 )
 
 // DeployerPodControllerFactory can create a DeployerPodController which

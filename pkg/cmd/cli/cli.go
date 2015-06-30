@@ -11,13 +11,13 @@ import (
 
 	kubecmd "github.com/GoogleCloudPlatform/kubernetes/pkg/kubectl/cmd"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/cmd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/policy"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/cli/secrets"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/templates"
-	cmdutil "github.com/projectatomic/appinfra-next/pkg/cmd/util"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	"github.com/projectatomic/appinfra-next/pkg/version"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/cmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/policy"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli/secrets"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/templates"
+	cmdutil "github.com/projectatomic/atomic-enterprise/pkg/cmd/util"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
 const cliLong = `OpenShift Client.

@@ -7,9 +7,9 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
-	buildapi "github.com/projectatomic/appinfra-next/pkg/build/api"
-	imageapi "github.com/projectatomic/appinfra-next/pkg/image/api"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
+	buildapi "github.com/projectatomic/atomic-enterprise/pkg/build/api"
+	imageapi "github.com/projectatomic/atomic-enterprise/pkg/image/api"
 )
 
 // KnownValidationExceptions is the list of API types that do NOT have corresponding validation

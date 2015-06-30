@@ -19,11 +19,11 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/clientcmd"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/util/variable"
-	configcmd "github.com/projectatomic/appinfra-next/pkg/config/cmd"
-	dapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
-	"github.com/projectatomic/appinfra-next/pkg/generate/app"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/clientcmd"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/variable"
+	configcmd "github.com/projectatomic/atomic-enterprise/pkg/config/cmd"
+	dapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/generate/app"
 )
 
 const (

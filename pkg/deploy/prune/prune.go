@@ -5,7 +5,7 @@ import (
 
 	kapi "github.com/GoogleCloudPlatform/kubernetes/pkg/api"
 
-	deployapi "github.com/projectatomic/appinfra-next/pkg/deploy/api"
+	deployapi "github.com/projectatomic/atomic-enterprise/pkg/deploy/api"
 )
 
 // PruneFunc is a function that is invoked for each item during Prune

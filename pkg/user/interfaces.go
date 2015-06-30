@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/projectatomic/appinfra-next/pkg/user/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/user/api"
 )
 
 type Initializer interface {

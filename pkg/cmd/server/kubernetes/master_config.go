@@ -19,10 +19,10 @@ import (
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 	kerrors "github.com/GoogleCloudPlatform/kubernetes/pkg/util/errors"
 
-	"github.com/projectatomic/appinfra-next/pkg/cmd/flagtypes"
-	configapi "github.com/projectatomic/appinfra-next/pkg/cmd/server/api"
-	"github.com/projectatomic/appinfra-next/pkg/cmd/server/etcd"
-	cmdflags "github.com/projectatomic/appinfra-next/pkg/cmd/util/flags"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/flagtypes"
+	configapi "github.com/projectatomic/atomic-enterprise/pkg/cmd/server/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/server/etcd"
+	cmdflags "github.com/projectatomic/atomic-enterprise/pkg/cmd/util/flags"
 )
 
 // MasterConfig defines the required values to start a Kubernetes master

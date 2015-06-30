@@ -12,7 +12,7 @@ import (
 
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/auth/server/login"
+	"github.com/projectatomic/atomic-enterprise/pkg/auth/server/login"
 )
 
 const (

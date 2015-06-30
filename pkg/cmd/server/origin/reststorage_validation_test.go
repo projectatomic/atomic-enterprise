@@ -9,8 +9,8 @@ import (
 	kclient "github.com/GoogleCloudPlatform/kubernetes/pkg/client"
 	"github.com/GoogleCloudPlatform/kubernetes/pkg/util"
 
-	"github.com/projectatomic/appinfra-next/pkg/api/validation"
-	authorizationapi "github.com/projectatomic/appinfra-next/pkg/authorization/api"
+	"github.com/projectatomic/atomic-enterprise/pkg/api/validation"
+	authorizationapi "github.com/projectatomic/atomic-enterprise/pkg/authorization/api"
 )
 
 // TestValidationRegistration makes sure that any RESTStorage that allows create or update has the correct validation register.
