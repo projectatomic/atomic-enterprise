@@ -134,7 +134,7 @@ sudo docker run -d --name="origin" \
   --privileged --net=host \
   -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker:/var/lib/docker:rw \
   -v "/var/lib/openshift/openshift.local.volumes:/var/lib/openshift/openshift.local.volumes" \
-  "openshift/origin:${tag}" start
+  "openshift/origin:${tag}" start --images="${USE_IMAGES}"
 
 export HOME="${FAKE_HOME_DIR}"
 # This directory must exist so Docker can store credentials in $HOME/.dockercfg
