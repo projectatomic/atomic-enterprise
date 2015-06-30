@@ -1,8 +1,8 @@
-OpenShift 3: Project Quota and Resource Limits
-========================================
+Atomic Enterprise: Project Quota and Resource Limits
+====================================================
 This example will demonstrate how quota and resource limits can be applied to resources in a project.
 
-This example assumes you have completed the sample-app example, and have a functional OpenShift setup.
+This example assumes you have completed the sample-app example, and have a functional Atomic Enterprise setup.
 
 Resources
 -----------------------------------------
@@ -333,14 +333,7 @@ Notice that the template exposes parameters to limit the amount of memory and cp
 * FRONTEND_RESOURCES_LIMITS_CPU - the amount of cpu for your mysql containers
 * FRONTEND_RESOURCES_LIMITS_MEMORY - the amount of memory for your mysql containers
 
-When you build your source code, OpenShift will create pods to execute the build in your project.  Those pods consume
-node resources, so they are subject to quota.  It is possible to customize the amount of cpu and memory used by
-a build.  Notice that the template exposes the following parameters to tailor the amount of resources per build.
-
-* BUILD_RUBY_RESOURCES_LIMITS_MEMORY - the amount of memory used when running builds of your ruby code
-* BUILD_RUBY_RESOURCES_LIMITS_CPU - the amount of cpu used when running builds of your ruby code
-
-Finally, when you deploy new versions of your code, OpenShift will create pods to execute the deployment.  Those
+Finally, when you deploy new versions of your code, Atomic Enterprise will create pods to execute the deployment.  Those
 pods consume node resources, so they are subject to quota.  Like builds, you can customize the amount of resources
 you give to a deployment task:
 
@@ -350,11 +343,11 @@ you give to a deployment task:
 * DEPLOY_MYSQL_RESOURCES_LIMITS_CPU - the amount of cpu used when deploying new versions of your database
 
 Putting it all together
----------------------------------------
+-----------------------
 Now that we have created our template, let's create the content within it.
 
 ```shell
-$ oc process ruby-helloworld-sample-with-resources | openshift cli create -f -
+$ oc process ruby-helloworld-sample-with-resources | atomic-enterprise cli create -f -
 services/frontend
 routes/route-edge
 imageStreams/origin-ruby-sample
