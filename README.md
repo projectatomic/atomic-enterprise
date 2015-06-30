@@ -128,9 +128,9 @@ FAQ
 Contributing
 ------------
 
-You can develop [locally on your host](CONTRIBUTING.md#develop-locally-on-your-host) or with a [virtual machine](CONTRIBUTING.md#develop-on-virtual-machine-using-vagrant), or if you want to just try out Atomic Enterprise [download the latest Linux server, or Windows and Mac OS X client pre-built binaries](CONTRIBUTING.md#download-from-github).
+You can develop [locally on your host](CONTRIBUTING.adoc#develop-locally-on-your-host) or with a [virtual machine](CONTRIBUTING.adoc#develop-on-virtual-machine-using-vagrant), or if you want to just try out Atomic Enterprise [download the latest Linux server, or Windows and Mac OS X client pre-built binaries](CONTRIBUTING.adoc#download-from-github).
 
-First, **get up and running with the** [**Contributing Guide**](CONTRIBUTING.md).
+First, **get up and running with the** [**Contributing Guide**](CONTRIBUTING.adoc).
 
 All contributions are welcome - Atomic Enterprise uses the Apache 2 license and does not require any contributor agreement to submit patches.  Please open issues for any bugs or problems you encounter or get involved in the [Kubernetes project](https://github.com/GoogleCloudPlatform/kubernetes) at the container runtime layer.
 
