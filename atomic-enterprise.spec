@@ -29,6 +29,7 @@ Source0:        %{name}-git-0.%{shortcommit}.tar.gz
 
 BuildRequires:  systemd
 BuildRequires:  golang >= 1.4
+Conflicts:      openshift
 
 
 %description
@@ -70,6 +71,7 @@ Requires:       %{name} = %{version}-%{release}
 Summary:      Atomic Enterprise Client binaries for Linux, Mac OSX, and Windows
 BuildRequires: golang-pkg-darwin-amd64
 BuildRequires: golang-pkg-windows-386
+Conflicts:     openshift-clients
 
 %description clients
 %{summary}
