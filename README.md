@@ -111,19 +111,15 @@ FAQ
     managing images and integrating them into deployment flows.  Our goal is to do
     most of that work upstream, with integration and final packaging occurring in Atomic Enterprise.
 
-[//]: # (TODO: Add "How does Atomic Enterprise releate to Openshift")
+2. How does Atomic Enterprise relate to Openshift
+
+   OpenShift provides a number of developer-focused tools on top of
+   Atomic Enterprise such as Source-To-Image, a tool to automatically rebuild
+   Docker images from `git push`.
 
 2. What can I run on Atomic Enterprise?
 
-    Atomic Enterprise is designed to run *any* existing Docker images.  In addition you can define builds that will produce new Docker images from a Dockerfile.
-
-[//]: # (TODO: Update image locations in the future)
-
-    Your application image can be easily extended with a database service with Openshift's [database images](http://docs.openshift.org/latest/using_images/db_images/overview.html). The available database images are:
-
-    * [MySQL](https://github.com/openshift/mysql)
-    * [MongoDB](https://github.com/openshift/mongodb)
-    * [PostgreSQL](https://github.com/openshift/postgresql)
+    Atomic Enterprise is designed to run *any* existing Docker images, including ones built via OpenShift.
 
 Contributing
 ------------
