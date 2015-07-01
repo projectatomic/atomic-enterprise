@@ -22,9 +22,9 @@ import (
 )
 
 const (
-	registryLong = `Install or configure a Docker registry for OpenShift
+	registryLong = `Install or configure a Docker registry for Atomic Enterprise
 
-This command sets up a Docker registry integrated with OpenShift to provide notifications when
+This command sets up a Docker registry integrated with Atomic Enterprise to provide notifications when
 images are pushed. With no arguments, the command will check for the existing registry service
 called 'docker-registry' and try to create it. If you want to test whether the registry has
 been created add the --dry-run flag and the command will exit with 1 if the registry does not
@@ -79,10 +79,11 @@ func NewCmdRegistry(f *clientcmd.Factory, parentName, name string, out io.Writer
 	cfg := &RegistryConfig{
 		ImageTemplate: variable.NewDefaultImageTemplate(),
 
-		Labels:   defaultLabel,
-		Ports:    "5000:5000",
-		Volume:   "/registry",
-		Replicas: 1,
+		Labels:         defaultLabel,
+		Ports:          "5000:5000",
+		Volume:         "/registry",
+		Replicas:       1,
+		ServiceAccount: "registry",
 	}
 
 	cmd := &cobra.Command{
@@ -111,7 +112,7 @@ func NewCmdRegistry(f *clientcmd.Factory, parentName, name string, out io.Writer
 	cmd.Flags().BoolVar(&cfg.DryRun, "dry-run", cfg.DryRun, "Check if the registry exists instead of creating.")
 	cmd.Flags().Bool("create", false, "deprecated; this is now the default behavior")
 	cmd.Flags().StringVar(&cfg.Credentials, "credentials", "", "Path to a .kubeconfig file that will contain the credentials the registry should use to contact the master.")
-	cmd.Flags().StringVar(&cfg.ServiceAccount, "service-account", cfg.ServiceAccount, "Name of the service account to use to run the registry pod.")
+	cmd.Flags().StringVar(&cfg.ServiceAccount, "service-account", cfg.ServiceAccount, "Name of the service account to use to run the registry pod. Default: registry")
 	cmd.Flags().StringVar(&cfg.Selector, "selector", cfg.Selector, "Selector used to filter nodes on deployment. Used to run registries on a specific set of nodes.")
 
 	cmdutil.AddPrinterFlags(cmd)
@@ -121,6 +122,9 @@ func NewCmdRegistry(f *clientcmd.Factory, parentName, name string, out io.Writer
 
 // RunCmdRegistry contains all the necessary functionality for the OpenShift cli registry command
 func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg *RegistryConfig, args []string) error {
+	// TODO(ashcrow): Test for service account
+	// TODO(ashcrow): If service account doesn't exist, create it
+
 	var name string
 	switch len(args) {
 	case 0:
