@@ -1,6 +1,6 @@
 [Unit]
 Description=Atomic Enterprise Master
-Documentation=https://github.com/projectatmic/appinfra-next
+Documentation=https://github.com/projectatomic/atomic-enterprise
 After=network.target
 After=etcd.service
 Before=atomic-enterprise-node.service

@@ -11,7 +11,7 @@ echo "PATH = $PATH"
 go version
 go env
 
-cd $GOPATH/src/github.com/projectatomic/appinfra-next
+cd $GOPATH/src/github.com/projectatomic/atomic-enterprise
 
 # overall job status
 failed=false

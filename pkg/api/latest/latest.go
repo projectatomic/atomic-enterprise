@@ -142,7 +142,7 @@ func init() {
 	// enumerate all supported versions, get the kinds, and register with the mapper how to address our resources
 	for _, version := range versions {
 		for kind, t := range api.Scheme.KnownTypes(version) {
-			if !strings.Contains(t.PkgPath(), "projectatomic/appinfra-next") {
+			if !strings.Contains(t.PkgPath(), "projectatomic/atomic-enterprise") {
 				if _, ok := kindToRootScope[kind]; !ok {
 					continue
 				}

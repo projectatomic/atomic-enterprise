@@ -35,7 +35,7 @@ func OkCustomStrategy() deployapi.DeploymentStrategy {
 
 func OkCustomParams() *deployapi.CustomDeploymentStrategyParams {
 	return &deployapi.CustomDeploymentStrategyParams{
-		Image: "projectatomic/appinfra-next-deployer",
+		Image: "projectatomic/atomic-enterprise-deployer",
 		Environment: []kapi.EnvVar{
 			{
 				Name:  "ENV1",
