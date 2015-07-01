@@ -28,34 +28,6 @@ class OpenshiftBuilder(Builder):
                 self.rpmbuild_sourcedir, self.rpmbuild_builddir,
                 self.rpmbuild_basedir, self.rpmbuild_basedir,
                 ldflags, git_hash))
-  def _setup_test_specfile(self):
-      if self.test and not self.ran_setup_test_specfile:
-          # If making a test rpm we need to get a little crazy with the spec
-          # file we're building off. (note that this is a temp copy of the
-          # spec) Swap out the actual release for one that includes the git
-          # SHA1 we're building for our test package:
-          setup_specfile_script = get_script_path("test-setup-specfile.pl")
-          cmd = "%s %s %s %s %s-%s %s" % \
-                  (
-                      setup_specfile_script,
-                      self.spec_file,
-                      self.git_commit_id[:7],
-                      self.commit_count,
-                      self.project_name,
-                      self.display_version,
-                      self.tgz_filename,
-                  )
-          run_command(cmd)
-          # Custom Openshift v3 stuff follows, everything above is the standard
-          # builder
-          cmd = '. ./hack/common.sh ; echo $(os::build::ldflags)'
-          ldflags = run_command('bash -c \'%s\''  % (cmd) )
-          update_ldflags = "sed -i 's|^%%global ldflags .*$|%%global ldflags %s|' %s" % \
-            (ldflags, self.spec_file)
-          output = run_command(update_ldflags)
-
-          self.build_version += ".git." + str(self.commit_count) + "." + str(self.git_commit_id[:7])
-          self.ran_setup_test_specfile = True
 
   def _get_build_version(self):
       """
