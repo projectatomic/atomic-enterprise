@@ -65,7 +65,7 @@ func TestBuildConfigNoOutput(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if config.Name != "appinfra-next" {
+	if config.Name != "atomic-enterprise" {
 		t.Errorf("unexpected name: %#v", config)
 	}
 	if !reflect.DeepEqual(config.Parameters.Output, buildapi.BuildOutput{}) {
@@ -82,7 +82,7 @@ func TestBuildConfigOutput(t *testing.T) {
 		DockerImageReference: imageapi.DockerImageReference{
 			Registry:  "myregistry",
 			Namespace: "projectatomic",
-			Name:      "appinfra-next",
+			Name:      "atomic-enterprise",
 		},
 	}
 	base := &ImageRef{
@@ -109,10 +109,10 @@ func TestBuildConfigOutput(t *testing.T) {
 		if err != nil {
 			t.Fatalf("(%d) unexpected error: %v", i, err)
 		}
-		if config.Name != "appinfra-next" {
+		if config.Name != "atomic-enterprise" {
 			t.Errorf("(%d) unexpected name: %s", i, config.Name)
 		}
-		if config.Parameters.Output.To.Name != "appinfra-next:latest" || config.Parameters.Output.To.Kind != test.expectedKind {
+		if config.Parameters.Output.To.Name != "atomic-enterprise:latest" || config.Parameters.Output.To.Kind != test.expectedKind {
 			t.Errorf("(%d) unexpected output image: %s/%s", i, config.Parameters.Output.To.Kind, config.Parameters.Output.To.Name)
 		}
 		if len(config.Triggers) != 3 {
@@ -138,7 +138,7 @@ func TestSimpleDeploymentConfig(t *testing.T) {
 		DockerImageReference: imageapi.DockerImageReference{
 			Registry:  "myregistry",
 			Namespace: "projectatomic",
-			Name:      "appinfra-next",
+			Name:      "atomic-enterprise",
 		},
 		Info:          testImageInfo(),
 		AsImageStream: true,
@@ -148,7 +148,7 @@ func TestSimpleDeploymentConfig(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if config.Name != "appinfra-next" || len(config.Triggers) != 2 || config.Template.ControllerTemplate.Template.Spec.Containers[0].Image != image.String() {
+	if config.Name != "atomic-enterprise" || len(config.Triggers) != 2 || config.Template.ControllerTemplate.Template.Spec.Containers[0].Image != image.String() {
 		t.Errorf("unexpected value: %#v", config)
 	}
 	for _, trigger := range config.Triggers {
@@ -157,7 +157,7 @@ func TestSimpleDeploymentConfig(t *testing.T) {
 			if from.Kind != "ImageStream" {
 				t.Errorf("unexpected from kind in image change trigger")
 			}
-			if from.Name != "appinfra-next" && from.Namespace != "projectatomic" {
+			if from.Name != "atomic-enterprise" && from.Namespace != "projectatomic" {
 				t.Errorf("unexpected  from name and namespace in image change trigger: %s, %s", from.Name, from.Namespace)
 			}
 		}

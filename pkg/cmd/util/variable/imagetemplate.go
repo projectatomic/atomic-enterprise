@@ -20,7 +20,7 @@ type ImageTemplate struct {
 	EnvFormat string
 }
 
-const defaultImageFormat = "projectatomic/appinfra-next-${component}:${version}"
+const defaultImageFormat = "projectatomic/atomic-enterprise-${component}:${version}"
 const defaultImageEnvFormat = "OPENSHIFT_%s_IMAGE"
 
 // NewDefaultImageTemplate returns the default image template
