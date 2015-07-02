@@ -22,19 +22,19 @@ import (
 	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
-const adminLong = `OpenShift Administrative Commands
+const adminLong = `Atomic Enterprise Administrative Commands
 
-Commands for managing an OpenShift cluster are exposed here. Many administrative
-actions involve interaction with the OpenShift client as well.
+Commands for managing an Atomic Enterprise cluster are exposed here. Many administrative
+actions involve interaction with the Atomic Enterprise client as well.
 
-Note: This is a beta release of OpenShift and may change significantly.  See
-    https://github.com/projectatomic/atomic-enterprise for the latest information on OpenShift.`
+Note: This is a beta release of Atomic Enterprise and may change significantly.  See
+    https://github.com/projectatomic/atomic-enterprise for the latest information on Atomic Enterprise.`
 
 func NewCommandAdmin(name, fullName string, out io.Writer) *cobra.Command {
 	// Main command
 	cmds := &cobra.Command{
 		Use:   name,
-		Short: "Tools for managing an OpenShift cluster",
+		Short: "Tools for managing an Atomic Enterprise cluster",
 		Long:  fmt.Sprintf(adminLong),
 		Run:   cmdutil.DefaultSubCommandRun(out),
 	}
