@@ -20,9 +20,9 @@ import (
 	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
-const cliLong = `OpenShift Client.
+const cliLong = `Atomic Enterprise Client.
 
-The OpenShift client exposes commands for managing your applications, as well as lower level
+The Atomic Enterprise client exposes commands for managing your applications, as well as lower level
 tools to interact with each component of your system.
 
 To create a new application, you can use the example app source. Login to your server and then
@@ -55,7 +55,7 @@ func NewCommandCLI(name, fullName string) *cobra.Command {
 	// Main command
 	cmds := &cobra.Command{
 		Use:   name,
-		Short: "Client tools for OpenShift",
+		Short: "Client tools for Atomic Enterprise",
 		Long:  fmt.Sprintf(cliLong, fullName),
 		Run:   cmdutil.DefaultSubCommandRun(out),
 		BashCompletionFunction: bashCompletionFunc,

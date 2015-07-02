@@ -26,13 +26,13 @@ import (
 	"github.com/projectatomic/atomic-enterprise/pkg/version"
 )
 
-const openshiftLong = `OpenShift Application Platform.
+const openshiftLong = `Atomic Enterprise Platform.
 
 OpenShift helps you build, deploy, and manage your applications. To start an all-in-one server, run:
 
-  $ openshift start &
+  $ atomic-enterprise start &
 
-OpenShift is built around Docker and the Kubernetes cluster container manager.  You must have
+Atomic Enterprise is built around Docker and the Kubernetes cluster container manager.  You must have
 Docker installed on this machine to start your server.`
 
 // CommandFor returns the appropriate command for this base name,
@@ -78,9 +78,9 @@ func CommandFor(basename string) *cobra.Command {
 	case "kubernetes":
 		cmd = kubernetes.NewCommand(basename, basename, out)
 	case "origin":
-		cmd = NewCommandOpenShift("origin")
+		cmd = NewCommandAtomicEnterprise("origin")
 	default:
-		cmd = NewCommandOpenShift("openshift")
+		cmd = NewCommandAtomicEnterprise("atomic-enterprise")
 	}
 
 	if cmd.UsageFunc() == nil {
@@ -91,13 +91,13 @@ func CommandFor(basename string) *cobra.Command {
 	return cmd
 }
 
-// NewCommandOpenShift creates the standard OpenShift command
-func NewCommandOpenShift(name string) *cobra.Command {
+// NewCommandAtomicEnprise creates the standard AtomicEnterprise command
+func NewCommandAtomicEnterprise(name string) *cobra.Command {
 	out := os.Stdout
 
 	root := &cobra.Command{
 		Use:   name,
-		Short: "OpenShift helps you build, deploy, and manage your cloud applications",
+		Short: "Atomic Enterprise helps you build, deploy, and manage your cloud applications",
 		Long:  openshiftLong,
 		Run:   cmdutil.DefaultSubCommandRun(out),
 	}

@@ -38,26 +38,26 @@ type MasterOptions struct {
 	Output             io.Writer
 }
 
-const masterLong = `Start an OpenShift master.
+const masterLong = `Start an Atomic Enterprise master.
 
-This command helps you launch an OpenShift master.  Running
+This command helps you launch an Atomic Enterprise master.  Running
 
-  $ openshift start master
+  $ atomic-enterprise start master
 
-will start an OpenShift master listening on all interfaces, launch an etcd server to store
+will start an Atomic Enterprise master listening on all interfaces, launch an etcd server to store
 persistent data, and launch the Kubernetes system components. The server will run in the
 foreground until you terminate the process.
 
-Note: starting OpenShift without passing the --master address will attempt to find the IP
+Note: starting Atomic Enterprise without passing the --master address will attempt to find the IP
 address that will be visible inside running Docker containers. This is not always successful,
-so if you have problems tell OpenShift what public address it will be via --master=<ip>.
+so if you have problems tell Atomic Enterprise what public address it will be via --master=<ip>.
 
-You may also pass an optional argument to the start command to start OpenShift in one of the
+You may also pass an optional argument to the start command to start Atomic Enterprise in one of the
 following roles:
 
-  // Launches the server and control plane for OpenShift. You may pass a list of the node
-  // hostnames you want to use, or create nodes via the REST API or 'openshift kube'.
-  $ openshift start master --nodes=<host1,host2,host3,...>
+  // Launches the server and control plane for Atomic Enterprise. You may pass a list of the node
+  // hostnames you want to use, or create nodes via the REST API or 'atomic-enterprise kube'.
+  $ atomic-enterprise start master --nodes=<host1,host2,host3,...>
 
 You may also pass --etcd=<address> to connect to an external etcd server.
 
@@ -69,7 +69,7 @@ func NewCommandStartMaster(out io.Writer) (*cobra.Command, *MasterOptions) {
 
 	cmd := &cobra.Command{
 		Use:   "master",
-		Short: "Launch OpenShift master",
+		Short: "Launch Atomic Enterprise master",
 		Long:  masterLong,
 		Run: func(c *cobra.Command, args []string) {
 			if err := options.Complete(); err != nil {
@@ -300,8 +300,8 @@ func (o MasterOptions) CreateCerts() error {
 }
 
 func StartMaster(openshiftMasterConfig *configapi.MasterConfig) error {
-	glog.Infof("Starting an OpenShift master, reachable at %s (etcd: %v)", openshiftMasterConfig.ServingInfo.BindAddress, openshiftMasterConfig.EtcdClientInfo.URLs)
-	glog.Infof("OpenShift master public address is %s", openshiftMasterConfig.AssetConfig.MasterPublicURL)
+	glog.Infof("Starting an Atomic Enterprise master, reachable at %s (etcd: %v)", openshiftMasterConfig.ServingInfo.BindAddress, openshiftMasterConfig.EtcdClientInfo.URLs)
+	glog.Infof("Atomic Enterprise master public address is %s", openshiftMasterConfig.AssetConfig.MasterPublicURL)
 
 	if openshiftMasterConfig.EtcdConfig != nil {
 		etcd.RunEtcd(openshiftMasterConfig.EtcdConfig)

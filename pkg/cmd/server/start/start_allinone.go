@@ -36,21 +36,21 @@ type AllInOneOptions struct {
 	Output io.Writer
 }
 
-const allInOneLong = `Start an OpenShift all-in-one server
+const allInOneLong = `Start an Atomic Enterprise all-in-one server
 
-This command helps you launch an OpenShift all-in-one server, which allows
-you to run all of the components of an OpenShift system on a server with Docker. Running
+This command helps you launch an Atomic Enterprise all-in-one server, which allows
+you to run all of the components of an Atomic Enterprise system on a server with Docker. Running
 
-  $ openshift start
+  $ atomic-enterprise start
 
-will start OpenShift listening on all interfaces, launch an etcd server to store persistent
+will start Atomic Enterprise listening on all interfaces, launch an etcd server to store persistent
 data, and launch the Kubernetes system components. The server will run in the foreground until
-you terminate the process.  This command delegates to "openshift start master" and
-"openshift start node".
+you terminate the process.  This command delegates to "atomic-enterprise start master" and
+"atomic-enterprise start node".
 
-Note: starting OpenShift without passing the --master address will attempt to find the IP
+Note: starting Atomic Enterprise without passing the --master address will attempt to find the IP
 address that will be visible inside running Docker containers. This is not always successful,
-so if you have problems tell OpenShift what public address it will be via --master=<ip>.
+so if you have problems tell Atomic Enterprise what public address it will be via --master=<ip>.
 
 You may also pass --etcd=<address> to connect to an external etcd server.
 
@@ -62,7 +62,7 @@ func NewCommandStartAllInOne(fullName string, out io.Writer) (*cobra.Command, *A
 
 	cmds := &cobra.Command{
 		Use:   "start",
-		Short: "Launch OpenShift All-In-One",
+		Short: "Launch Atomic Enterprise All-In-One",
 		Long:  allInOneLong,
 		Run: func(c *cobra.Command, args []string) {
 			if err := options.Complete(); err != nil {
@@ -86,7 +86,7 @@ func NewCommandStartAllInOne(fullName string, out io.Writer) (*cobra.Command, *A
 						os.Exit(255)
 					}
 				}
-				glog.Fatalf("OpenShift could not start: %v", err)
+				glog.Fatalf("Atomic Enterprise could not start: %v", err)
 			}
 		},
 	}
@@ -222,7 +222,7 @@ func (o *AllInOneOptions) Complete() error {
 // 5.  Waits forever
 func (o AllInOneOptions) StartAllInOne() error {
 	if !o.IsWriteConfigOnly() {
-		glog.Infof("Starting an OpenShift all-in-one")
+		glog.Infof("Starting an Atomic Enterprise all-in-one")
 	}
 
 	masterOptions := MasterOptions{o.MasterArgs, o.CreateCerts, o.MasterConfigFile, o.Output}

@@ -83,7 +83,7 @@ else
   export WEB_PROFILE=cpu
 fi
 
-# set path so OpenShift is available
+# set path so Atomic Enterprise is available
 GO_OUT="${OS_ROOT}/_output/local/go/bin"
 export PATH="${GO_OUT}:${PATH}"
 
@@ -95,7 +95,7 @@ echo openshift: $out
 export OPENSHIFT_PROFILE="${WEB_PROFILE-}"
 
 # Specify the scheme and port for the listen address, but let the IP auto-discover. Set --public-master to localhost, for a stable link to the console.
-echo "[INFO] Create certificates for the OpenShift server to ${MASTER_CONFIG_DIR}"
+echo "[INFO] Create certificates for the Atomic Enterprise server to ${MASTER_CONFIG_DIR}"
 # find the same IP that openshift start will bind to.  This allows access from pods that have to talk back to master
 ALL_IP_ADDRESSES=`ifconfig | grep "inet " | sed 's/adr://' | awk '{print $2}'`
 SERVER_HOSTNAME_LIST="${PUBLIC_MASTER_HOST},localhost"
@@ -261,53 +261,53 @@ echo "templates: ok"
 [ "$(origin 2>&1)" ]
 
 # help for root commands must be consistent
-[ "$(openshift | grep 'OpenShift Application Platform')" ]
-[ "$(oc | grep 'OpenShift Client')" ]
+[ "$(openshift | grep 'Atomic Enterprise Platform')" ]
+[ "$(oc | grep 'Atomic Enterprise Client')" ]
 [ "$(oc | grep 'Build and Deploy Commands:')" ]
 [ "$(oc | grep 'Other Commands:')" ]
 [ "$(oc policy --help 2>&1 | grep 'add-role-to-user')" ]
 [ ! "$(oc policy --help 2>&1 | grep 'Other Commands')" ]
 [ ! "$(oc 2>&1 | grep 'Options')" ]
 [ ! "$(oc 2>&1 | grep 'Global Options')" ]
-[ "$(openshift cli 2>&1 | grep 'OpenShift Client')" ]
+[ "$(openshift cli 2>&1 | grep 'Atomic Enterprise Client')" ]
 [ "$(oc types | grep 'Deployment Config')" ]
 [ "$(openshift kubectl 2>&1 | grep 'Kubernetes cluster')" ]
-[ "$(oadm 2>&1 | grep 'OpenShift Administrative Commands')" ]
-[ "$(openshift admin 2>&1 | grep 'OpenShift Administrative Commands')" ]
+[ "$(oadm 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
+[ "$(openshift admin 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
 [ "$(openshift start kubernetes 2>&1 | grep 'Kubernetes server components')" ]
 
 # help for root commands with --help flag must be consistent
-[ "$(openshift --help 2>&1 | grep 'OpenShift Application Platform')" ]
-[ "$(oc --help 2>&1 | grep 'OpenShift Client')" ]
+[ "$(openshift --help 2>&1 | grep 'Atomic Enterprise Platform')" ]
+[ "$(oc --help 2>&1 | grep 'Atomic Enterprise Client')" ]
 [ "$(oc login --help 2>&1 | grep 'Options')" ]
 [ ! "$(oc login --help 2>&1 | grep 'Global Options')" ]
 [ "$(oc login --help 2>&1 | grep 'insecure-skip-tls-verify')" ]
-[ "$(openshift cli --help 2>&1 | grep 'OpenShift Client')" ]
+[ "$(openshift cli --help 2>&1 | grep 'Atomic Enterprise Client')" ]
 [ "$(openshift kubectl --help 2>&1 | grep 'Kubernetes cluster')" ]
-[ "$(oadm --help 2>&1 | grep 'OpenShift Administrative Commands')" ]
-[ "$(openshift admin --help 2>&1 | grep 'OpenShift Administrative Commands')" ]
+[ "$(oadm --help 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
+[ "$(openshift admin --help 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
 
 # help for root commands through help command must be consistent
-[ "$(openshift help cli 2>&1 | grep 'OpenShift Client')" ]
+[ "$(openshift help cli 2>&1 | grep 'Atomic Enterprise Client')" ]
 [ "$(openshift help kubectl 2>&1 | grep 'Kubernetes cluster')" ]
-[ "$(openshift help admin 2>&1 | grep 'OpenShift Administrative Commands')" ]
+[ "$(openshift help admin 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
 
 # help for given command with --help flag must be consistent
 [ "$(oc get --help 2>&1 | grep 'Display one or many resources')" ]
 [ "$(openshift cli get --help 2>&1 | grep 'Display one or many resources')" ]
 [ "$(openshift kubectl get --help 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift start --help 2>&1 | grep 'Start an OpenShift all-in-one server')" ]
-[ "$(openshift start master --help 2>&1 | grep 'Start an OpenShift master')" ]
-[ "$(openshift start node --help 2>&1 | grep 'Start an OpenShift node')" ]
+[ "$(openshift start --help 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
+[ "$(openshift start master --help 2>&1 | grep 'Start an Atomic Enterprise master')" ]
+[ "$(openshift start node --help 2>&1 | grep 'Start an Atomic Enterprise node')" ]
 [ "$(oc get --help 2>&1 | grep 'oc')" ]
 
 # help for given command through help command must be consistent
 [ "$(oc help get 2>&1 | grep 'Display one or many resources')" ]
 [ "$(openshift help cli get 2>&1 | grep 'Display one or many resources')" ]
 [ "$(openshift help kubectl get 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift help start 2>&1 | grep 'Start an OpenShift all-in-one server')" ]
-[ "$(openshift help start master 2>&1 | grep 'Start an OpenShift master')" ]
-[ "$(openshift help start node 2>&1 | grep 'Start an OpenShift node')" ]
+[ "$(openshift help start 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
+[ "$(openshift help start master 2>&1 | grep 'Start an Atomic Enterprise master')" ]
+[ "$(openshift help start node 2>&1 | grep 'Start an Atomic Enterprise node')" ]
 [ "$(openshift cli help update 2>&1 | grep 'openshift')" ]
 
 # runnable commands with required flags must error consistently
