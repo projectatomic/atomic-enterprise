@@ -29,12 +29,12 @@ type NodeOptions struct {
 	Output     io.Writer
 }
 
-const nodeLong = `Start an OpenShift node.
-This command helps you launch an OpenShift node.  Running
+const nodeLong = `Start an Atomic Enterprise node.
+This command helps you launch an Atomic Enterprise node.  Running
 
-  $ openshift start node --master=<masterIP>
+  $ atomic-enterprise start node --master=<masterIP>
 
-will start an OpenShift node that attempts to connect to the master on the provided IP. The
+will start an Atomic Enterprise node that attempts to connect to the master on the provided IP. The
 node will run in the foreground until you terminate the process.`
 
 // NewCommandStartNode provides a CLI handler for 'start node' command
@@ -43,7 +43,7 @@ func NewCommandStartNode(out io.Writer) (*cobra.Command, *NodeOptions) {
 
 	cmd := &cobra.Command{
 		Use:   "node",
-		Short: "Launch OpenShift node",
+		Short: "Launch Atomic Enterprise node",
 		Long:  nodeLong,
 		Run: func(c *cobra.Command, args []string) {
 			if err := options.Complete(); err != nil {
@@ -168,7 +168,7 @@ func (o NodeOptions) RunNode() error {
 	if err != nil {
 		return err
 	}
-	glog.Infof("Starting an OpenShift node, connecting to %s", kubeClientConfig.Host)
+	glog.Infof("Starting an Atomic Enterprise node, connecting to %s", kubeClientConfig.Host)
 
 	if err := StartNode(*nodeConfig); err != nil {
 		return err
