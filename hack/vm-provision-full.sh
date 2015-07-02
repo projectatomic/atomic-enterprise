@@ -7,11 +7,11 @@ mkdir ~/.kube/
 yum update -y
 yum install -y docker-io git vim golang e2fsprogs tmux httpie ctags hg bind-utils which
 
-if [[ ! -d /data/src/github.com/openshift/origin ]]; then
-  mkdir -p /data/src/github.com/openshift/origin
-  chown $USERNAME:$USERNAME /data/src/github.com/openshift/origin
+if [[ ! -d /data/src/github.com/projectatomic/atomic-enterprise ]]; then
+  mkdir -p /data/src/github.com/projectatomic/atomic-enterprise
+  chown $USERNAME:$USERNAME /data/src/github.com/projectatomic/atomic-enterprise
 else
-  fixup=/data/src/github.com/openshift/origin/hack/vm-provision-fixup.sh
+  fixup=/data/src/github.com/projectatomic/atomic-enterprise/hack/vm-provision-fixup.sh
   if [[ -x $fixup ]]; then
     $fixup
   fi
@@ -22,8 +22,8 @@ function set_env {
   if [[ $(grep GOPATH $USER_DIR/.bash_profile) = "" ]]; then
     touch $USER_DIR/.bash_profile
     echo "export GOPATH=/data" >> $USER_DIR/.bash_profile
-    echo "export PATH=\$GOPATH/src/github.com/openshift/origin/_output/local/go/bin:\$GOPATH/bin:\$PATH" >> $USER_DIR/.bash_profile
-    echo "cd \$GOPATH/src/github.com/openshift/origin" >> $USER_DIR/.bash_profile
+    echo "export PATH=\$GOPATH/src/github.com/projectatomic/atomic-enterprise/_output/local/go/bin:\$GOPATH/bin:\$PATH" >> $USER_DIR/.bash_profile
+    echo "cd \$GOPATH/src/github.com/projectatomic/atomic-enterprise" >> $USER_DIR/.bash_profile
 
     echo "bind '\"\e[A\":history-search-backward'" >> $USER_DIR/.bashrc
     echo "bind '\"\e[B\":history-search-forward'" >> $USER_DIR/.bashrc
