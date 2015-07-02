@@ -78,9 +78,9 @@ func CommandFor(basename string) *cobra.Command {
 	case "kubernetes":
 		cmd = kubernetes.NewCommand(basename, basename, out)
 	case "origin":
-		cmd = NewCommandOpenShift("origin")
+		cmd = NewCommandAtomicEnterprise("origin")
 	default:
-		cmd = NewCommandOpenShift("openshift")
+		cmd = NewCommandAtomicEnterprise("atomic-enterprise")
 	}
 
 	if cmd.UsageFunc() == nil {
@@ -91,8 +91,8 @@ func CommandFor(basename string) *cobra.Command {
 	return cmd
 }
 
-// NewCommandOpenShift creates the standard OpenShift command
-func NewCommandOpenShift(name string) *cobra.Command {
+// NewCommandAtomicEnprise creates the standard AtomicEnterprise command
+func NewCommandAtomicEnterprise(name string) *cobra.Command {
 	out := os.Stdout
 
 	root := &cobra.Command{
