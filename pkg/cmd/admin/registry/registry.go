@@ -122,9 +122,6 @@ func NewCmdRegistry(f *clientcmd.Factory, parentName, name string, out io.Writer
 
 // RunCmdRegistry contains all the necessary functionality for the OpenShift cli registry command
 func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg *RegistryConfig, args []string) error {
-	// TODO(ashcrow): Test for service account
-	// TODO(ashcrow): If service account doesn't exist, create it
-
 	var name string
 	switch len(args) {
 	case 0:
@@ -179,6 +176,13 @@ func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg
 	if err != nil {
 		return fmt.Errorf("unable to configure printer: %v", err)
 	}
+
+	// Check if the specified service account already exists
+	_, err = kClient.ServiceAccounts(namespace).Get(cfg.ServiceAccount)
+	if err != nil && !errors.IsNotFound(err) {
+		return fmt.Errorf("Unable to create the registry service account: can't check for existing service-account %q: %v", cfg.ServiceAccount, err)
+	}
+	generateServiceAccount := err != nil
 
 	generate := output
 	if !generate {
@@ -298,6 +302,22 @@ func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg
 			},
 		}
 		objects = app.AddServices(objects)
+
+		if generateServiceAccount {
+			// Add the new service account to "privileged"
+			scc, err := kClient.SecurityContextConstraints().Get("privileged")
+			if err != nil {
+				return fmt.Errorf("Unable to create the registry service account: can't check for existing security context constraints privileged: %v", err)
+			}
+			scc.Users = append(scc.Users, "system:serviceaccount:" + namespace + ":" + cfg.ServiceAccount)
+			_, err = kClient.SecurityContextConstraints().Update(scc)
+			if err != nil && !errors.IsNotFound(err) {
+				return fmt.Errorf("error updating security context constraints: %v", err)
+			}
+
+			// Create the service account before anything else
+			objects = append([]runtime.Object{&kapi.ServiceAccount{ObjectMeta: kapi.ObjectMeta{Name: cfg.ServiceAccount}}}, objects...)
+		}
 		// TODO: label all created objects with the same label
 		list := &kapi.List{Items: objects}
 
