@@ -33,7 +33,7 @@ Consider using images from trusted parties, building them yourself, or only runn
 
 Getting Started
 ---------------
-The easiest way to run Atomic Enterprise is in a Docker container (Atomic Enterprise requires Docker 1.6 or higher or 1.6.2 on CentOS/RHEL):
+Take a look at the [Quick Start Tutorial](https://github.com/projectatomic/atomic-enterprise/blob/quickstart/docs/quick-start-tutorial.adoc) or give Atomic Enterprise a shot with a docker container (Atomic Enterprise requires Docker 1.6 or higher or 1.6.2 on CentOS/RHEL):
 
 [//]: # (TODO: Update sharedstatedir when the image is updated)
 
