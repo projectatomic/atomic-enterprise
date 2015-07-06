@@ -1,0 +1,69 @@
+kind: Template
+apiVersion: v1
+metadata:
+  name: hello-atomic-complete
+objects:
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: hello-atomic-service
+  spec:
+    selector:
+      name: hello-atomic
+    ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 8080
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: hello-atomic-route
+  spec:
+    host: www.example.com
+    to:
+      name: hello-atomic-service
+    tls:
+      termination: edge
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    name: hello-atomic
+  spec:
+    strategy:
+      type: Recreate
+      resources: {}
+    triggers:
+    - type: ConfigChange
+    replicas: 1
+    selector:
+      name: hello-atomic
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: hello-atomic
+      spec:
+        containers:
+        - name: hello-atomic
+          image: ${IMAGE}
+          ports:
+            - name: hello-atomic-tcp-8080
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 10m
+              memory: 16Mi
+          terminationMessagePath: /dev/termination-log
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            timeoutSeconds: 1
+            initialDelaySeconds: 10
+        restartPolicy: Always
+        dnsPolicy: ClusterFirst
+        serviceAccount: ""
+parameters:
+- name: IMAGE
+  description: "The image to use"
+  value: atomicenterprise/hello-atomic:latest
