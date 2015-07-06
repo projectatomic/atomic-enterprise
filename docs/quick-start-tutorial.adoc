@@ -189,6 +189,8 @@ hello-atomic   1/1       Running   0          1m
 
 
 Get a longer description of the pod and note the IP: field, you’ll need it for the next step:
+
+[source,bash]
 oc describe pods hello-atomic
 
 The output should look something like:
@@ -199,7 +201,7 @@ Take notice of the IP field below:
 [source,bash]
 ----------------------------------------------------------------
 Name:                    hello-atomic
-Image(s):                atomicenterprise/hello-atomic:v0.5.2.2
+Image(s):                atomicenterprise/hello-atomic:latest
 Host:                    ae-master.example.com/192.168.122.154
 Labels:                  name=hello-atomic
 Status:                  Running
