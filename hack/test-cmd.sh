@@ -308,7 +308,7 @@ echo "templates: ok"
 [ "$(openshift help start 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
 [ "$(openshift help start master 2>&1 | grep 'Start an Atomic Enterprise master')" ]
 [ "$(openshift help start node 2>&1 | grep 'Start an Atomic Enterprise node')" ]
-[ "$(openshift cli help update 2>&1 | grep 'openshift')" ]
+[ "$(openshift cli help update 2>&1 | grep 'atomic-enterprise')" ]
 
 # runnable commands with required flags must error consistently
 [ "$(oc get 2>&1 | grep 'you must provide one or more resources')" ]
