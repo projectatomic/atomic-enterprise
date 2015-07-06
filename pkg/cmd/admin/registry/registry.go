@@ -309,10 +309,20 @@ func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg
 			if err != nil {
 				return fmt.Errorf("Unable to create the registry service account: can't check for existing security context constraints privileged: %v", err)
 			}
-			scc.Users = append(scc.Users, "system:serviceaccount:" + namespace + ":" + cfg.ServiceAccount)
-			_, err = kClient.SecurityContextConstraints().Update(scc)
-			if err != nil && !errors.IsNotFound(err) {
-				return fmt.Errorf("error updating security context constraints: %v", err)
+			userName := "system:serviceaccount:" + namespace + ":" + cfg.ServiceAccount
+			inList := false
+			for _, u := range scc.Users {
+				if u == userName {
+					inList = true
+					break
+				}
+			}
+			if !inList {
+				scc.Users = append(scc.Users, userName)
+				_, err = kClient.SecurityContextConstraints().Update(scc)
+				if err != nil && !errors.IsNotFound(err) {
+					return fmt.Errorf("error updating security context constraints: %v", err)
+				}
 			}
 
 			// Create the service account before anything else
