@@ -32,7 +32,7 @@ func TestNewSimpleAllocationPlugin(t *testing.T) {
 			ErrorExpectation: true,
 		},
 		{
-			Name:             "こんにちはopenshift.com",
+			Name:             "こんにちはprojectatomic.io",
 			ErrorExpectation: true,
 		},
 		{

@@ -29,7 +29,7 @@ type NewProjectOptions struct {
 }
 
 const (
-	requestProjectLong = `Create a new project for yourself in OpenShift with you as the project admin.
+	requestProjectLong = `Create a new project for yourself in Atomic Enterprise with you as the project admin.
 
 Assuming your cluster admin has granted you permission, this command will 
 create a new project for you and assign you as the project admin.  You must 

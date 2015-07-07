@@ -28,7 +28,7 @@ import (
 
 const openshiftLong = `Atomic Enterprise Platform.
 
-OpenShift helps you build, deploy, and manage your applications. To start an all-in-one server, run:
+Atomic Enterprise helps you build, deploy, and manage your applications. To start an all-in-one server, run:
 
   $ atomic-enterprise start &
 
@@ -49,15 +49,11 @@ func CommandFor(basename string) *cobra.Command {
 	}
 
 	switch basename {
-	case "openshift-router":
+	case "atomic-enterprise-router":
 		cmd = irouter.NewCommandTemplateRouter(basename)
-	case "openshift-deploy":
+	case "atomic-enterprise-deploy":
 		cmd = deployer.NewCommandDeployer(basename)
-	case "openshift-sti-build":
-		cmd = builder.NewCommandSTIBuilder(basename)
-	case "openshift-docker-build":
-		cmd = builder.NewCommandDockerBuilder(basename)
-	case "openshift-gitserver":
+	case "atomic-enterprise-gitserver":
 		cmd = gitserver.NewCommandGitServer(basename)
 	case "oc", "osc":
 		cmd = cli.NewCommandCLI(basename, basename)

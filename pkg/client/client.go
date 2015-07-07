@@ -277,5 +277,5 @@ func DefaultOpenShiftUserAgent() string {
 	version := version.Get().GitVersion
 	seg := strings.SplitN(version, "-", 2)
 	version = seg[0]
-	return fmt.Sprintf("%s/%s (%s/%s) openshift/%s", path.Base(os.Args[0]), version, runtime.GOOS, runtime.GOARCH, commit)
+	return fmt.Sprintf("%s/%s (%s/%s) atomic-enterprise/%s", path.Base(os.Args[0]), version, runtime.GOOS, runtime.GOARCH, commit)
 }

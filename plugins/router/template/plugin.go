@@ -151,7 +151,7 @@ func peerEndpointsKey(namespacedName ktypes.NamespacedName) string {
 	return fmt.Sprintf("%s/%s", namespacedName.Namespace, namespacedName.Name)
 }
 
-// createRouterEndpoints creates openshift router endpoints based on k8s endpoints
+// createRouterEndpoints creates atomic-enterprise router endpoints based on k8s endpoints
 func createRouterEndpoints(endpoints *kapi.Endpoints) []Endpoint {
 	out := make([]Endpoint, 0, len(endpoints.Subsets)*4)
 

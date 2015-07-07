@@ -29,7 +29,7 @@ type OsdnRegistryInterface struct {
 }
 
 func NetworkPluginName() string {
-	return "redhat/openshift-ovs-subnet"
+	return "redhat/atomic-enterprise-ovs-subnet"
 }
 
 func Master(osClient *osclient.Client, kClient *kclient.Client, clusterNetwork string, clusterNetworkLength uint) {

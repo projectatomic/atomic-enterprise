@@ -24,7 +24,7 @@ type ClientCertInfo struct {
 }
 
 func DefaultSignerName() string {
-	return fmt.Sprintf("%s@%d", "openshift-signer", time.Now().Unix())
+	return fmt.Sprintf("%s@%d", "atomic-enterprise-signer", time.Now().Unix())
 }
 
 func DefaultRootCAFile(certDir string) string {

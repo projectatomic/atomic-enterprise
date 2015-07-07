@@ -338,7 +338,7 @@ func (c *MasterConfig) InstallProtectedAPI(container *restful.Container) []strin
 		if err := c.api_v1beta3(storage).InstallREST(container); err != nil {
 			glog.Fatalf("Unable to initialize v1beta3 API: %v", err)
 		}
-		messages = append(messages, fmt.Sprintf("Started OpenShift API at %%s%s", OpenShiftAPIPrefixV1Beta3))
+		messages = append(messages, fmt.Sprintf("Started Atomic Enterprise API at %%s%s", OpenShiftAPIPrefixV1Beta3))
 		legacyAPIVersions = append(legacyAPIVersions, OpenShiftAPIV1Beta3)
 	}
 
@@ -346,7 +346,7 @@ func (c *MasterConfig) InstallProtectedAPI(container *restful.Container) []strin
 		if err := c.api_v1(storage).InstallREST(container); err != nil {
 			glog.Fatalf("Unable to initialize v1 API: %v", err)
 		}
-		messages = append(messages, fmt.Sprintf("Started OpenShift API at %%s%s (experimental)", OpenShiftAPIPrefixV1))
+		messages = append(messages, fmt.Sprintf("Started Atomic Enterprise API at %%s%s (experimental)", OpenShiftAPIPrefixV1))
 		currentAPIVersions = append(currentAPIVersions, OpenShiftAPIV1)
 	}
 
@@ -356,9 +356,9 @@ func (c *MasterConfig) InstallProtectedAPI(container *restful.Container) []strin
 		case "/":
 			root = svc
 		case OpenShiftAPIPrefixV1Beta3:
-			svc.Doc("OpenShift REST API, version v1beta3").ApiVersion("v1beta3")
+			svc.Doc("Atomic Enterprise REST API, version v1beta3").ApiVersion("v1beta3")
 		case OpenShiftAPIPrefixV1:
-			svc.Doc("OpenShift REST API, version v1").ApiVersion("v1")
+			svc.Doc("Atomic Enterprise REST API, version v1").ApiVersion("v1")
 		}
 	}
 
@@ -402,9 +402,9 @@ func initReadinessCheckRoute(root *restful.WebService, path string, readyFunc fu
 		} else {
 			resp.ResponseWriter.WriteHeader(http.StatusServiceUnavailable)
 		}
-	}).Doc("return the readiness state of OpenShift").
-		Returns(http.StatusOK, "if OpenShift is ready", nil).
-		Returns(http.StatusServiceUnavailable, "if OpenShift is not ready", nil).
+	}).Doc("return the readiness state of Atomic Enterprise").
+		Returns(http.StatusOK, "if Atomic Enterprise is ready", nil).
+		Returns(http.StatusServiceUnavailable, "if Atomic Enterprise is not ready", nil).
 		Produces(restful.MIME_JSON))
 }
 
@@ -983,7 +983,7 @@ func (c *MasterConfig) RunDNSServer() {
 
 	cmdutil.WaitForSuccessfulDial(false, "tcp", c.Options.DNSConfig.BindAddress, 100*time.Millisecond, 100*time.Millisecond, 100)
 
-	glog.Infof("OpenShift DNS listening at %s", c.Options.DNSConfig.BindAddress)
+	glog.Infof("Atomic Enterprise DNS listening at %s", c.Options.DNSConfig.BindAddress)
 }
 
 // RunProjectCache populates project cache, used by scheduler and project admission controller.

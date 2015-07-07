@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/openshift/origin",
+	"ImportPath": "github.com/projectatomic/atomic-enterprise",
 	"GoVersion": "go1.4.2",
 	"Packages": [
 		"./..."

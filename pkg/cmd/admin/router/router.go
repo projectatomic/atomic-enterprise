@@ -27,9 +27,9 @@ import (
 )
 
 const (
-	routerLong = `Install or configure an OpenShift router
+	routerLong = `Install or configure an Atomic Enterprise router
 
-This command helps to setup an OpenShift router to take edge traffic and balance it to
+This command helps to setup an Atomic Enterprise router to take edge traffic and balance it to
 your application. With no arguments, the command will check for an existing router
 service called 'router' and create one if it does not exist. If you want to test whether
 a router has already been created add the --dry-run flag and the command will exit with
@@ -90,7 +90,7 @@ func NewCmdRouter(f *clientcmd.Factory, parentName, name string, out io.Writer) 
 
 	cmd := &cobra.Command{
 		Use:     fmt.Sprintf("%s [NAME]", name),
-		Short:   "Install an OpenShift router",
+		Short:   "Install an Atomic Enterprise router",
 		Long:    routerLong,
 		Example: fmt.Sprintf(routerExample, parentName, name),
 		Run: func(cmd *cobra.Command, args []string) {

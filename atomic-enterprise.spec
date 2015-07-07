@@ -125,7 +125,7 @@ pushd _thirdpartyhacks
 popd
 export GOPATH=$(pwd)/_build:$(pwd)/_thirdpartyhacks:%{buildroot}%{gopath}:%{gopath}
 # Build all linux components we care about
-for cmd in openshift dockerregistry
+for cmd in %{name} dockerregistry
 do
         go install -ldflags "%{ldflags}" %{import_path}/cmd/${cmd}
 done
@@ -147,11 +147,11 @@ install -d %{buildroot}%{_bindir}
 install -d %{buildroot}%{_datadir}/%{name}/linux
 #{linux,macosx,windows}
 
-mv %{buildroot}%{_datadir}/%{name} %{buildroot}%{_datadir}/openshift
+#mv %{buildroot}%{_datadir}/%{name} %{buildroot}%{_datadir}/openshift
 
 # Install linux components
 echo "+++ INSTALLING atomic-enterprise"
-install -p -m 755 _build/bin/openshift %{buildroot}%{_bindir}/%{name}
+install -p -m 755 _build/bin/%{name} %{buildroot}%{_bindir}/%{name}
 echo "+++ INSTALLING dockerregistry"
 install -p -m 755 _build/bin/dockerregistry %{buildroot}%{_bindir}/dockerregistry
 
@@ -160,8 +160,9 @@ install -p -m 755 _build/bin/dockerregistry %{buildroot}%{_bindir}/dockerregistr
 #  install -p -m 755 _build/bin/${bin} %{buildroot}%{_bindir}/${bin}
 #done
 
-# Install 'openshift' as client executable for windows and mac
-install -p -m 755 _build/bin/openshift %{buildroot}%{_datadir}/openshift/linux/oc
+# Install client executable for linux
+install -p -m 755 _build/bin/%{name} %{buildroot}%{_datadir}/%{name}/linux/oc
+# windows and mac
 #install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/openshift/macosx/oc
 #install -p -m 755 _build/bin/windows_386/openshift.exe %{buildroot}%{_datadir}/openshift/windows/oc.exe
 #Install openshift pod
@@ -186,7 +187,7 @@ install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/%{name}-node-{guest,host}
 install -m 0644 tuned/openshift-node-guest/tuned.conf %{buildroot}%{_prefix}/lib/tuned/%{name}-node-guest/
 install -m 0644 tuned/openshift-node-host/tuned.conf %{buildroot}%{_prefix}/lib/tuned/%{name}-node-host/
 install -d -m 0755 %{buildroot}%{_mandir}/man7
-install -m 0644 tuned/man/tuned-profiles-openshift-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-%{name}-node.7
+install -m 0644 tuned/man/tuned-profiles-%{name}-node.7 %{buildroot}%{_mandir}/man7/tuned-profiles-%{name}-node.7
 
 # Install sdn scripts
 install -d -m 0755 %{buildroot}%{kube_plugin_path}
@@ -273,7 +274,7 @@ if [ "$1" = 0 ]; then
 fi
 
 %files clients
-%{_datadir}/openshift/linux/oc
+%{_datadir}/%{name}/linux/oc
 #%{_datadir}/openshift/macosx/oc
 #%{_datadir}/openshift/windows/oc.exe
 

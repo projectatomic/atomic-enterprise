@@ -8,7 +8,7 @@ import (
 
 	"github.com/projectatomic/atomic-enterprise/pkg/cmd/admin"
 	"github.com/projectatomic/atomic-enterprise/pkg/cmd/cli"
-	"github.com/projectatomic/atomic-enterprise/pkg/cmd/openshift"
+	"github.com/projectatomic/atomic-enterprise/pkg/cmd/atomic-enterprise"
 )
 
 func OutDir(path string) (string, error) {
@@ -44,15 +44,15 @@ func main() {
 		fmt.Fprintf(os.Stderr, "failed to get output directory: %v\n", err)
 		os.Exit(1)
 	}
-	outFile_openshift := outDir + "openshift"
-	openshift := openshift.NewCommandAtomicEnterprise("openshift")
-	openshift.GenBashCompletionFile(outFile_openshift)
+	outFile_atomic-enterprise := outDir + "atomic-enterprise"
+	atomic-enterprise := atomic-enterprise.NewCommandAtomicEnterprise("atomic-enterprise")
+	atomic-enterprise.GenBashCompletionFile(outFile_atomic-enterprise)
 
 	outFile_osc := outDir + "oc"
-	oc := cli.NewCommandCLI("oc", "openshift cli")
+	oc := cli.NewCommandCLI("oc", "atomic-enterprise cli")
 	oc.GenBashCompletionFile(outFile_osc)
 
 	outFile_osadm := outDir + "oadm"
-	oadm := admin.NewCommandAdmin("oadm", "openshift admin", ioutil.Discard)
+	oadm := admin.NewCommandAdmin("oadm", "atomic-enterprise admin", ioutil.Discard)
 	oadm.GenBashCompletionFile(outFile_osadm)
 }

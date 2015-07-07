@@ -25,7 +25,7 @@ import (
 const (
 	deployerLong = `Perform a Deployment.
 
-This command makes calls to OpenShift to perform a deployment as described by a DeploymentConfig.`
+This command makes calls to Atomic Enterprise to perform a deployment as described by a DeploymentConfig.`
 )
 
 type config struct {
@@ -42,7 +42,7 @@ func NewCommandDeployer(name string) *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   fmt.Sprintf("%s%s", name, clientcmd.ConfigSyntax),
-		Short: "Run the OpenShift deployer",
+		Short: "Run the Atomic Enterprise deployer",
 		Long:  deployerLong,
 		Run: func(c *cobra.Command, args []string) {
 			_, kClient, err := cfg.Config.Clients()

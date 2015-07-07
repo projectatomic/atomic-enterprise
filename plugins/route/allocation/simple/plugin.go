@@ -11,8 +11,7 @@ import (
 )
 
 // Default DNS suffix to use if no configuration is passed to this plugin.
-// Would be better if we could use "v3.openshift.app", someone bought that!
-const defaultDNSSuffix = "v3.openshift.com"
+const defaultDNSSuffix = "ae.projectatomic.io"
 
 // SimpleAllocationPlugin implements the route.AllocationPlugin interface
 // to provide a simple unsharded (or single sharded) allocation plugin.

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/projectatomic/atomic-enterprise/pkg/cmd/openshift"
+	ae "github.com/projectatomic/atomic-enterprise/pkg/cmd/atomic-enterprise"
 	"github.com/projectatomic/atomic-enterprise/pkg/cmd/util/serviceability"
 )
 
@@ -18,7 +18,7 @@ func main() {
 	}
 
 	basename := filepath.Base(os.Args[0])
-	command := openshift.CommandFor(basename)
+	command := ae.CommandFor(basename)
 	if err := command.Execute(); err != nil {
 		os.Exit(1)
 	}

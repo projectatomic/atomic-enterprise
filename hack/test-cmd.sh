@@ -20,7 +20,7 @@ function cleanup()
     if [ $out -ne 0 ]; then
         echo "[FAIL] !!!!! Test Failed !!!!"
         echo
-        cat "${TEMP_DIR}/openshift.log"
+        cat "${TEMP_DIR}/atomic-enterprise.log"
         echo
         echo -------------------------------------
         echo
@@ -30,7 +30,7 @@ function cleanup()
           echo "pprof: top output"
           echo
           set +e
-          go tool pprof -text ./_output/local/go/bin/openshift cpu.pprof
+          go tool pprof -text ./_output/local/go/bin/atomic-enterprise cpu.pprof
         fi
 
         echo
@@ -60,7 +60,7 @@ KUBELET_SCHEME=${KUBELET_SCHEME:-https}
 KUBELET_HOST=${KUBELET_HOST:-127.0.0.1}
 KUBELET_PORT=${KUBELET_PORT:-10250}
 
-TEMP_DIR=${USE_TEMP:-$(mktemp -d /tmp/openshift-cmd.XXXX)}
+TEMP_DIR=${USE_TEMP:-$(mktemp -d /tmp/atomic-enterprise-cmd.XXXX)}
 ETCD_DATA_DIR="${TEMP_DIR}/etcd"
 VOLUME_DIR="${TEMP_DIR}/volumes"
 FAKE_HOME_DIR="${TEMP_DIR}/openshift.local.home"
@@ -87,16 +87,16 @@ fi
 GO_OUT="${OS_ROOT}/_output/local/go/bin"
 export PATH="${GO_OUT}:${PATH}"
 
-# Check openshift version
-out=$(openshift version)
-echo openshift: $out
+# Check atomic-enterprise version
+out=$(atomic-enterprise version)
+echo atomic-enterprise: $out
 
 # profile the web
 export OPENSHIFT_PROFILE="${WEB_PROFILE-}"
 
 # Specify the scheme and port for the listen address, but let the IP auto-discover. Set --public-master to localhost, for a stable link to the console.
 echo "[INFO] Create certificates for the Atomic Enterprise server to ${MASTER_CONFIG_DIR}"
-# find the same IP that openshift start will bind to.  This allows access from pods that have to talk back to master
+# find the same IP that atomic-enterprise start will bind to.  This allows access from pods that have to talk back to master
 ALL_IP_ADDRESSES=`ifconfig | grep "inet " | sed 's/adr://' | awk '{print $2}'`
 SERVER_HOSTNAME_LIST="${PUBLIC_MASTER_HOST},localhost"
 while read -r IP_ADDRESS
@@ -104,14 +104,14 @@ do
     SERVER_HOSTNAME_LIST="${SERVER_HOSTNAME_LIST},${IP_ADDRESS}"
 done <<< "${ALL_IP_ADDRESSES}"
 
-openshift admin create-master-certs \
+oadm create-master-certs \
   --overwrite=false \
   --cert-dir="${MASTER_CONFIG_DIR}" \
   --hostnames="${SERVER_HOSTNAME_LIST}" \
   --master="${MASTER_ADDR}" \
   --public-master="${API_SCHEME}://${PUBLIC_MASTER_HOST}:${API_PORT}"
 
-openshift admin create-node-config \
+oadm create-node-config \
   --listen="${KUBELET_SCHEME}://0.0.0.0:${KUBELET_PORT}" \
   --node-dir="${NODE_CONFIG_DIR}" \
   --node="${KUBELET_HOST}" \
@@ -125,8 +125,8 @@ openshift admin create-node-config \
 
 oadm create-bootstrap-policy-file --filename="${MASTER_CONFIG_DIR}/policy.json"
 
-# create openshift config
-openshift start \
+# create atomic-enterprise config
+atomic-enterprise start \
   --write-config=${SERVER_CONFIG_DIR} \
   --create-certs=false \
   --master="${API_SCHEME}://${API_HOST}:${API_PORT}" \
@@ -136,12 +136,12 @@ openshift start \
   --etcd-dir="${ETCD_DATA_DIR}"
 
 
-# Start openshift
-OPENSHIFT_ON_PANIC=crash openshift start \
+# Start atomic-enterprise
+OPENSHIFT_ON_PANIC=crash atomic-enterprise start \
   --master-config=${MASTER_CONFIG_DIR}/master-config.yaml \
   --node-config=${NODE_CONFIG_DIR}/node-config.yaml \
   --loglevel=4 \
-  1>&2 2>"${TEMP_DIR}/openshift.log" &
+  1>&2 2>"${TEMP_DIR}/atomic-enterprise.log" &
 OS_PID=$!
 
 if [[ "${API_SCHEME}" == "https" ]]; then
@@ -241,17 +241,17 @@ oc get templates
 echo "templates: ok"
 
 # verify some default commands
-[ "$(openshift 2>&1)" ]
-[ "$(openshift cli)" ]
-[ "$(openshift ex)" ]
-[ "$(openshift admin config 2>&1)" ]
-[ "$(openshift cli config 2>&1)" ]
-[ "$(openshift ex tokens)" ]
-[ "$(openshift admin policy  2>&1)" ]
-[ "$(openshift kubectl 2>&1)" ]
-[ "$(openshift kube 2>&1)" ]
-[ "$(openshift admin 2>&1)" ]
-[ "$(openshift start kubernetes 2>&1)" ]
+[ "$(atomic-enterprise 2>&1)" ]
+[ "$(atomic-enterprise cli)" ]
+[ "$(atomic-enterprise ex)" ]
+[ "$(oadm config 2>&1)" ]
+[ "$(atomic-enterprise cli config 2>&1)" ]
+[ "$(atomic-enterprise ex tokens)" ]
+[ "$(oadm policy  2>&1)" ]
+[ "$(atomic-enterprise kubectl 2>&1)" ]
+[ "$(atomic-enterprise kube 2>&1)" ]
+[ "$(oadm 2>&1)" ]
+[ "$(atomic-enterprise start kubernetes 2>&1)" ]
 [ "$(kubernetes 2>&1)" ]
 [ "$(kubectl 2>&1)" ]
 [ "$(oc 2>&1)" ]
@@ -261,7 +261,7 @@ echo "templates: ok"
 [ "$(origin 2>&1)" ]
 
 # help for root commands must be consistent
-[ "$(openshift | grep 'Atomic Enterprise Platform')" ]
+[ "$(atomic-enterprise | grep 'Atomic Enterprise Platform')" ]
 [ "$(oc | grep 'Atomic Enterprise Client')" ]
 [ "$(oc | grep 'Build and Deploy Commands:')" ]
 [ "$(oc | grep 'Other Commands:')" ]
@@ -269,59 +269,59 @@ echo "templates: ok"
 [ ! "$(oc policy --help 2>&1 | grep 'Other Commands')" ]
 [ ! "$(oc 2>&1 | grep 'Options')" ]
 [ ! "$(oc 2>&1 | grep 'Global Options')" ]
-[ "$(openshift cli 2>&1 | grep 'Atomic Enterprise Client')" ]
+[ "$(atomic-enterprise cli 2>&1 | grep 'Atomic Enterprise Client')" ]
 [ "$(oc types | grep 'Deployment Config')" ]
-[ "$(openshift kubectl 2>&1 | grep 'Kubernetes cluster')" ]
+[ "$(atomic-enterprise kubectl 2>&1 | grep 'Kubernetes cluster')" ]
 [ "$(oadm 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
-[ "$(openshift admin 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
-[ "$(openshift start kubernetes 2>&1 | grep 'Kubernetes server components')" ]
+[ "$(oadm 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
+[ "$(atomic-enterprise start kubernetes 2>&1 | grep 'Kubernetes server components')" ]
 
 # help for root commands with --help flag must be consistent
-[ "$(openshift --help 2>&1 | grep 'Atomic Enterprise Platform')" ]
+[ "$(atomic-enterprise --help 2>&1 | grep 'Atomic Enterprise Platform')" ]
 [ "$(oc --help 2>&1 | grep 'Atomic Enterprise Client')" ]
 [ "$(oc login --help 2>&1 | grep 'Options')" ]
 [ ! "$(oc login --help 2>&1 | grep 'Global Options')" ]
 [ "$(oc login --help 2>&1 | grep 'insecure-skip-tls-verify')" ]
-[ "$(openshift cli --help 2>&1 | grep 'Atomic Enterprise Client')" ]
-[ "$(openshift kubectl --help 2>&1 | grep 'Kubernetes cluster')" ]
+[ "$(atomic-enterprise cli --help 2>&1 | grep 'Atomic Enterprise Client')" ]
+[ "$(atomic-enterprise kubectl --help 2>&1 | grep 'Kubernetes cluster')" ]
 [ "$(oadm --help 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
-[ "$(openshift admin --help 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
+[ "$(oadm --help 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
 
 # help for root commands through help command must be consistent
-[ "$(openshift help cli 2>&1 | grep 'Atomic Enterprise Client')" ]
-[ "$(openshift help kubectl 2>&1 | grep 'Kubernetes cluster')" ]
-[ "$(openshift help admin 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
+[ "$(atomic-enterprise help cli 2>&1 | grep 'Atomic Enterprise Client')" ]
+[ "$(atomic-enterprise help kubectl 2>&1 | grep 'Kubernetes cluster')" ]
+[ "$(atomic-enterprise help admin 2>&1 | grep 'Atomic Enterprise Administrative Commands')" ]
 
 # help for given command with --help flag must be consistent
 [ "$(oc get --help 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift cli get --help 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift kubectl get --help 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift start --help 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
-[ "$(openshift start master --help 2>&1 | grep 'Start an Atomic Enterprise master')" ]
-[ "$(openshift start node --help 2>&1 | grep 'Start an Atomic Enterprise node')" ]
+[ "$(atomic-enterprise cli get --help 2>&1 | grep 'Display one or many resources')" ]
+[ "$(atomic-enterprise kubectl get --help 2>&1 | grep 'Display one or many resources')" ]
+[ "$(atomic-enterprise start --help 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
+[ "$(atomic-enterprise start master --help 2>&1 | grep 'Start an Atomic Enterprise master')" ]
+[ "$(atomic-enterprise start node --help 2>&1 | grep 'Start an Atomic Enterprise node')" ]
 [ "$(oc get --help 2>&1 | grep 'oc')" ]
 
 # help for given command through help command must be consistent
 [ "$(oc help get 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift help cli get 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift help kubectl get 2>&1 | grep 'Display one or many resources')" ]
-[ "$(openshift help start 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
-[ "$(openshift help start master 2>&1 | grep 'Start an Atomic Enterprise master')" ]
-[ "$(openshift help start node 2>&1 | grep 'Start an Atomic Enterprise node')" ]
-[ "$(openshift cli help update 2>&1 | grep 'atomic-enterprise')" ]
+[ "$(atomic-enterprise help cli get 2>&1 | grep 'Display one or many resources')" ]
+[ "$(atomic-enterprise help kubectl get 2>&1 | grep 'Display one or many resources')" ]
+[ "$(atomic-enterprise help start 2>&1 | grep 'Start an Atomic Enterprise all-in-one server')" ]
+[ "$(atomic-enterprise help start master 2>&1 | grep 'Start an Atomic Enterprise master')" ]
+[ "$(atomic-enterprise help start node 2>&1 | grep 'Start an Atomic Enterprise node')" ]
+[ "$(atomic-enterprise cli help update 2>&1 | grep 'atomic-enterprise')" ]
 
 # runnable commands with required flags must error consistently
 [ "$(oc get 2>&1 | grep 'you must provide one or more resources')" ]
-[ "$(openshift cli get 2>&1 | grep 'you must provide one or more resources')" ]
-[ "$(openshift kubectl get 2>&1 | grep 'you must provide one or more resources')" ]
+[ "$(atomic-enterprise cli get 2>&1 | grep 'you must provide one or more resources')" ]
+[ "$(atomic-enterprise kubectl get 2>&1 | grep 'you must provide one or more resources')" ]
 
 # commands that expect file paths must validate and error out correctly
 [ "$(oc login --certificate-authority=/path/to/invalid 2>&1 | grep 'no such file or directory')" ]
 
 # make sure that typoed commands come back with non-zero return codes
-[ "$(openshift admin policy TYPO; echo $? | grep '1')" ]
-[ "$(openshift admin TYPO; echo $? | grep '1')" ]
-[ "$(openshift cli TYPO; echo $? | grep '1')" ]
+[ "$(oadm policy TYPO; echo $? | grep '1')" ]
+[ "$(oadm TYPO; echo $? | grep '1')" ]
+[ "$(atomic-enterprise cli TYPO; echo $? | grep '1')" ]
 [ "$(oc policy TYPO; echo $? | grep '1')" ]
 [ "$(oc secrets TYPO; echo $? | grep '1')" ]
 
@@ -395,7 +395,7 @@ oc create -f examples/image-streams/image-streams-centos7.json
 [ -n "$(oc get imageStreams mongodb -t "{{.status.dockerImageRepository}}")" ]
 # verify the image repository had its tags populated
 [ -n "$(oc get imageStreams wildfly -t "{{.status.tags.latest}}")" ]
-[ -n "$(oc get imageStreams wildfly -t "{{ index .metadata.annotations \"openshift.io/image.dockerRepositoryCheck\"}}")" ]
+[ -n "$(oc get imageStreams wildfly -t "{{ index .metadata.annotations \"atomic-enterprise.io/image.dockerRepositoryCheck\"}}")" ]
 oc delete imageStreams ruby
 oc delete imageStreams nodejs
 oc delete imageStreams wildfly
@@ -408,7 +408,7 @@ oc delete imageStreams mongodb
 [ -z "$(oc get imageStreams mongodb -t "{{.status.dockerImageRepository}}")" ]
 [ -z "$(oc get imageStreams wildfly -t "{{.status.dockerImageRepository}}")" ]
 wait_for_command 'oc get imagestreamTags mysql:latest' "${TIME_MIN}"
-[ -n "$(oc get imagestreams mysql -t '{{ index .metadata.annotations "openshift.io/image.dockerRepositoryCheck"}}')" ]
+[ -n "$(oc get imagestreams mysql -t '{{ index .metadata.annotations "atomic-enterprise.io/image.dockerRepositoryCheck"}}')" ]
 oc describe istag/mysql:latest
 [ "$(oc describe istag/mysql:latest | grep "Environment:")" ]
 [ "$(oc describe istag/mysql:latest | grep "Image Created:")" ]
@@ -576,7 +576,7 @@ oc create -f test/integration/fixtures/test-buildcli.json
 # a build for which there is not an upstream tag in the corresponding imagerepo, so
 # the build should use the image field as defined in the buildconfig
 started=$(oc start-build ruby-sample-build-invalidtag)
-oc describe build ${started} | grep openshift/ruby-20-centos7$
+oc describe build ${started} | grep atomicenterprise/ruby-20-centos7$
 echo "start-build: ok"
 
 oc cancel-build "${started}" --dump-logs --restart
@@ -586,7 +586,7 @@ oc delete bc/ruby-sample-build-validtag
 oc delete bc/ruby-sample-build-invalidtag
 
 # Test admin manage-node operations
-[ "$(openshift admin manage-node --help 2>&1 | grep 'Manage node operations')" ]
+[ "$(oadm manage-node --help 2>&1 | grep 'Manage node operations')" ]
 [ "$(oadm manage-node --selector='' --schedulable=true | grep --text 'Ready' | grep -v 'Sched')" ]
 oc create -f examples/hello-atomic/hello-pod.json
 #[ "$(oadm manage-node --list-pods | grep 'hello-atomic' | grep -E '(unassigned|assigned)')" ]
@@ -648,21 +648,21 @@ echo "new-project: ok"
 
 # Test running a router
 [ ! "$(oadm router --dry-run | grep 'does not exist')" ]
-[ "$(oadm router -o yaml --credentials="${KUBECONFIG}" | grep 'openshift/origin-haproxy-')" ]
+[ "$(oadm router -o yaml --credentials="${KUBECONFIG}" | grep 'atomic-enterprise/origin-haproxy-')" ]
 oadm router --create --credentials="${KUBECONFIG}"
 [ "$(oadm router | grep 'service exists')" ]
 echo "router: ok"
 
 # Test running a registry
 [ ! "$(oadm registry --dry-run | grep 'does not exist')"]
-[ "$(oadm registry -o yaml --credentials="${KUBECONFIG}" | grep 'openshift/origin-docker-registry')" ]
+[ "$(oadm registry -o yaml --credentials="${KUBECONFIG}" | grep 'atomic-enterprise/origin-docker-registry')" ]
 oadm registry --create --credentials="${KUBECONFIG}"
 [ "$(oadm registry | grep 'service exists')" ]
 echo "registry: ok"
 
 # Test building a dependency tree
 oc process -f examples/sample-app/application-template-stibuild.json -l build=sti | oc create -f -
-[ "$(openshift ex build-chain --all -o dot | grep 'graph')" ]
+[ "$(atomic-enterprise ex build-chain --all -o dot | grep 'graph')" ]
 oc delete all -l build=sti
 echo "ex build-chain: ok"
 

@@ -42,7 +42,7 @@ readonly OS_CROSS_COMPILE_PLATFORMS=(
   windows/amd64
 )
 readonly OS_CROSS_COMPILE_TARGETS=(
-  cmd/openshift
+  cmd/atomic-enterprise
 )
 readonly OS_CROSS_COMPILE_BINARIES=("${OS_CROSS_COMPILE_TARGETS[@]##*/}")
 
@@ -53,11 +53,9 @@ readonly OS_ALL_BINARIES=("${OS_ALL_TARGETS[@]##*/}")
 
 #If you update this list, be sure to get the images/origin/Dockerfile
 readonly OPENSHIFT_BINARY_SYMLINKS=(
-  openshift-router
-  openshift-deploy
-  openshift-sti-build
-  openshift-docker-build
-  openshift-gitserver
+  atomic-enterprise-router
+  atomic-enterprise-deploy
+  atomic-enterprise-gitserver
   origin
   oc
   osc
@@ -333,9 +331,9 @@ os::build::place_bins() {
 # os::build::make_openshift_binary_symlinks makes symlinks for the openshift
 # binary in _output/local/go/bin
 os::build::make_openshift_binary_symlinks() {
-  if [[ -f "${OS_LOCAL_BINPATH}/openshift" ]]; then
+  if [[ -f "${OS_LOCAL_BINPATH}/atomic-enterprise" ]]; then
     for linkname in "${OPENSHIFT_BINARY_SYMLINKS[@]}"; do
-      ln -sf "${OS_LOCAL_BINPATH}/openshift" "${OS_LOCAL_BINPATH}/${linkname}"
+      ln -sf "${OS_LOCAL_BINPATH}/atomic-enterprise" "${OS_LOCAL_BINPATH}/${linkname}"
     done
   fi
 }

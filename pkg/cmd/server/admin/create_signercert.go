@@ -35,10 +35,10 @@ func BindSignerCertOptions(options *CreateSignerCertOptions, flags *pflag.FlagSe
 
 const createSignerLong = `
 Create a self-signed CA key/cert for signing certificates used by
-OpenShift components.
+Atomic Enterprise components.
 
 This is mainly intended for development/trial deployments as production
-deployments of OpenShift should utilize properly signed certificates
+deployments of Atomic Enterprise should utilize properly signed certificates
 (generated separately) or start with a properly signed CA.
 `
 

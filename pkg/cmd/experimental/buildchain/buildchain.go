@@ -26,22 +26,22 @@ Tag and namespace are optional and if they are not specified, 'latest' and the
 default namespace will be used respectively.`
 
 	buildChainExample = `  // Build dependency tree for the specified image stream and tag
-  $ openshift ex build-chain [image-stream]:[tag]
+  $ atomic-enterprise ex build-chain [image-stream]:[tag]
 
   // Build dependency trees for all tags in the specified image stream
-  $ openshift ex build-chain [image-stream] --all-tags
+  $ atomic-enterprise ex build-chain [image-stream] --all-tags
 
   // Build the dependency tree using tag 'latest' in 'testing' namespace
-  $ openshift ex build-chain [image-stream] -n testing
+  $ atomic-enterprise ex build-chain [image-stream] -n testing
 
   // Build the dependency tree and output it in DOT syntax
-  $ openshift ex build-chain [image-stream] -o dot
+  $ atomic-enterprise ex build-chain [image-stream] -o dot
 
   // Build dependency trees for all image streams in the current namespace
-  $ openshift ex build-chain
+  $ atomic-enterprise ex build-chain
 
   // Build dependency trees for all image streams across all namespaces
-  $ openshift ex build-chain --all`
+  $ atomic-enterprise ex build-chain --all`
 )
 
 // Node is a representation of an image stream inside a tree

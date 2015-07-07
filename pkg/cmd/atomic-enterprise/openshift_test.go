@@ -6,8 +6,8 @@ import (
 )
 
 func TestCommandFor(t *testing.T) {
-	cmd := CommandFor("openshift-router")
-	if !strings.HasPrefix(cmd.Use, "openshift-router ") {
+	cmd := CommandFor("atomic-enterprise-router")
+	if !strings.HasPrefix(cmd.Use, "atomic-enterprise-router ") {
 		t.Errorf("expected command to start with prefix: %#v", cmd)
 	}
 

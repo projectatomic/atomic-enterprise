@@ -1,0 +1,59 @@
+.\"/* 
+.\" * All rights reserved
+.\" * Copyright (C) 2015 Red Hat, Inc.
+.\" * Authors: Jaroslav Škarvada, Scott Dodson
+.\" *
+.\" * This program is free software; you can redistribute it and/or
+.\" * modify it under the terms of the GNU General Public License
+.\" * as published by the Free Software Foundation; either version 2
+.\" * of the License, or (at your option) any later version.
+.\" *
+.\" * This program is distributed in the hope that it will be useful,
+.\" * but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" * GNU General Public License for more details.
+.\" *
+.\" * You should have received a copy of the GNU General Public License
+.\" * along with this program; if not, write to the Free Software
+.\" * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+.\" */
+.\" 
+.TH TUNED_PROFILES_ATOMIC_ENTERPRISE_NODE "7" "12 Feb 2015" "Atomic Enterprise" "tuned"
+.SH NAME
+tuned\-profiles\-atomic-enterprise-node - description of profiles provided for Atomic Enterprise
+
+.SH DESCRIPTION
+These profiles are provided for Atomic Enterprise nodes. They provide performance
+optimizations for Atomic Enterprise Nodes running on either bare metal
+(atomic-enterprise-node-host) or virtual machines (atomic-enterprise-node-guest).
+
+.SH PROFILES
+The following profiles are provided:
+
+.TP
+.BI "atomic-enterprise-node\-host"
+Profile optimized for Atomic Enterprise hosts (bare metal). It is based on throughput\-performance
+profile. It additionally increases SELinux AVC cache, PID limit and tunes
+netfilter connections tracking.
+
+.TP
+.BI "atomic-enterprise-node\-guest"
+Profile optimized for virtual Atomic Enterprise guests. It is based on virtual\-guest
+profile. It additionally increases SELinux AVC cache, PID limit and tunes
+netfilter connections tracking.
+
+.SH "FILES"
+.NF
+.I /etc/tuned/*
+.I /usr/lib/tuned/*
+
+.SH "SEE ALSO"
+.BR tuned (8)
+.BR tuned\-adm (8)
+.BR tuned\-profiles (7)
+.BR tuned\-profiles\-sap (7)
+.BR tuned\-profiles\-sap\-hana (7)
+.BR tuned\-profiles\-compat (7)
+.SH AUTHOR
+.NF
+Scott Dodson <sdodson@redhat.com>

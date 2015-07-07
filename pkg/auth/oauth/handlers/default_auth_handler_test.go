@@ -196,49 +196,49 @@ func TestWarningRegex(t *testing.T) {
 		"empty": {},
 
 		// Invalid code segment
-		"code 2 numbers":   {Header: `19 OpenShift "Message goes here"`},
-		"code 4 numbers":   {Header: `1999 OpenShift "Message goes here"`},
-		"code non-numbers": {Header: `ABC OpenShift "Message goes here"`},
+		"code 2 numbers":   {Header: `19 AtomicEnterprise "Message goes here"`},
+		"code 4 numbers":   {Header: `1999 AtomicEnterprise "Message goes here"`},
+		"code non-numbers": {Header: `ABC AtomicEnterprise "Message goes here"`},
 
 		// Invalid agent segment
 		"agent missing": {Header: `199  "Message goes here"`},
 		"agent spaces":  {Header: `199 Open Shift "Message goes here"`},
 
 		// Invalid text segment
-		"text missing":       {Header: `199 OpenShift`},
-		"text unquoted":      {Header: `199 OpenShift Message`},
-		"text single quotes": {Header: `199 OpenShift 'Message'`},
-		"text bad quotes":    {Header: `199 OpenShift "Mes"sage"`},
-		"text bad escape":    {Header: `199 OpenShift "Mes\\"sage"`},
+		"text missing":       {Header: `199 AtomicEnterprise`},
+		"text unquoted":      {Header: `199 AtomicEnterprise Message`},
+		"text single quotes": {Header: `199 AtomicEnterprise 'Message'`},
+		"text bad quotes":    {Header: `199 AtomicEnterprise "Mes"sage"`},
+		"text bad escape":    {Header: `199 AtomicEnterprise "Mes\\"sage"`},
 
 		// Invalid date segment
-		"date unquoted":      {Header: `199 OpenShift "Message" Date`},
-		"date single quoted": {Header: `199 OpenShift "Message" 'Date'`},
-		"date empty":         {Header: `199 OpenShift "Message" ""`},
+		"date unquoted":      {Header: `199 AtomicEnterprise "Message" Date`},
+		"date single quoted": {Header: `199 AtomicEnterprise "Message" 'Date'`},
+		"date empty":         {Header: `199 AtomicEnterprise "Message" ""`},
 
 		// Valid segments
 		"valid no date": {
-			Header: `199 OpenShift "Message goes here"`,
+			Header: `199 AtomicEnterprise "Message goes here"`,
 			Match:  true,
-			Parts:  []string{"199", "OpenShift", "Message goes here", ""},
+			Parts:  []string{"199", "AtomicEnterprise", "Message goes here", ""},
 		},
 
 		"valid with date": {
-			Header: `199 OpenShift "Message goes here" "date"`,
+			Header: `199 AtomicEnterprise "Message goes here" "date"`,
 			Match:  true,
-			Parts:  []string{"199", "OpenShift", "Message goes here", "date"},
+			Parts:  []string{"199", "AtomicEnterprise", "Message goes here", "date"},
 		},
 
 		"valid with escaped quote": {
-			Header: `199 OpenShift "Message \" goes here" "date"`,
+			Header: `199 AtomicEnterprise "Message \" goes here" "date"`,
 			Match:  true,
-			Parts:  []string{"199", "OpenShift", `Message \" goes here`, "date"},
+			Parts:  []string{"199", "AtomicEnterprise", `Message \" goes here`, "date"},
 		},
 
 		"valid with escaped quote and slash": {
-			Header: `199 OpenShift "Message \\\" goes here" "date"`,
+			Header: `199 AtomicEnterprise "Message \\\" goes here" "date"`,
 			Match:  true,
-			Parts:  []string{"199", "OpenShift", `Message \\\" goes here`, "date"},
+			Parts:  []string{"199", "AtomicEnterprise", `Message \\\" goes here`, "date"},
 		},
 	}
 

@@ -22,7 +22,7 @@ import (
 const (
 	DefaultPolicyFile                    = "openshift.local.config/master/policy.json"
 	CreateBootstrapPolicyFileCommand     = "create-bootstrap-policy-file"
-	CreateBootstrapPolicyFileFullCommand = "openshift admin " + CreateBootstrapPolicyFileCommand
+	CreateBootstrapPolicyFileFullCommand = "atomic-enterprise admin " + CreateBootstrapPolicyFileCommand
 )
 
 type CreateBootstrapPolicyFileOptions struct {
@@ -36,7 +36,7 @@ func NewCommandCreateBootstrapPolicyFile(commandName string, fullName string, ou
 
 	cmd := &cobra.Command{
 		Use:   commandName,
-		Short: "Create bootstrap policy for OpenShift",
+		Short: "Create bootstrap policy for Atomic Enterprise",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := options.Validate(args); err != nil {
 				kcmdutil.CheckErr(kcmdutil.UsageError(cmd, err.Error()))
@@ -52,7 +52,7 @@ func NewCommandCreateBootstrapPolicyFile(commandName string, fullName string, ou
 
 	flags.StringVar(&options.File, "filename", DefaultPolicyFile, "The policy template file that will be written with roles and bindings.")
 
-	flags.StringVar(&options.OpenShiftSharedResourcesNamespace, "openshift-namespace", "openshift", "Namespace for shared openshift resources.")
+	flags.StringVar(&options.OpenShiftSharedResourcesNamespace, "atomic-enterprise-namespace", "atomic-enterprise", "Namespace for shared atomic-enterprise resources.")
 
 	return cmd
 }
@@ -65,7 +65,7 @@ func (o CreateBootstrapPolicyFileOptions) Validate(args []string) error {
 		return errors.New("filename must be provided")
 	}
 	if len(o.OpenShiftSharedResourcesNamespace) == 0 {
-		return errors.New("openshift-namespace must be provided")
+		return errors.New("atomic-enterprise-namespace must be provided")
 	}
 
 	return nil

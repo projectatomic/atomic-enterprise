@@ -50,7 +50,7 @@ func (e ErrMultipleMatches) UsageError(commandName string) string {
 		fmt.Fprintf(buf, "  Use %[1]s to specify this image or template\n\n", match.Argument)
 	}
 	return fmt.Sprintf(`
-The argument %[1]q could apply to the following Docker images or OpenShift image repositories:
+The argument %[1]q could apply to the following Docker images or Atomic Enterprise image repositories:
 
 %[2]s
 `, e.Image, buf.String())
