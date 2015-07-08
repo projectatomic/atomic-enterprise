@@ -314,6 +314,12 @@ wait_for_command '[[ "$(oc get endpoints router --output-version=v1beta3 -t "{{ 
 echo "[INFO] Validating routed app response..."
 validate_response "-s -k --resolve www.example.com:443:${CONTAINER_ACCESSIBLE_API_HOST} https://www.example.com" "Hello Atomic!" 0.2 50
 
+echo "[INFO] Confirming service is listed in DNS correctly..."
+dns_app_svc_ip="$(dig @${API_HOST} "hello-atomic-service.test.svc.cluster.local." +short A | head -n 1)"
+app_svc_ip="$(oc get service -n test -o template hello-atomic-service --template="{{.spec.portalIP}}")"
+[[ -n "${app_svc_ip}" && "${dns_app_svc_ip}" == "${app_svc_ip}" ]]
+echo "[INFO] Service correctly listed at ${dns_app_svc_ip}"
+
 # Remote command execution
 echo "[INFO] Validating exec"
 registry_pod=$(oc get pod -l deploymentconfig=docker-registry -t '{{(index .items 0).metadata.name}}')
