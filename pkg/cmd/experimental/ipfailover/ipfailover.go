@@ -16,7 +16,7 @@ import (
 const (
 	ipFailover_long = `Configure or view IP Failover configuration
 
-This command helps to setup IP Failover configuration for an OpenShift
+This command helps to setup IP Failover configuration for an Atomic Enterprise 
 environment. An administrator can configure IP failover on an entire
 cluster or as would normally be the case on a subset of nodes (as defined
 via a labeled selector).

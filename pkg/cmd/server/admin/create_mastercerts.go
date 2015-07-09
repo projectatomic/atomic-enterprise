@@ -18,9 +18,9 @@ import (
 )
 
 const CreateMasterCertsCommandName = "create-master-certs"
-const masterCertLong = `Create keys and certificates for an OpenShift master
+const masterCertLong = `Create keys and certificates for an Atomic Enterprise master
 
-This command creates keys and certs necessary to run a secure OpenShift master.
+This command creates keys and certs necessary to run a secure Atomic Enterprise master.
 It also creates keys, certificates, and configuration necessary for most
 related infrastructure components that are clients to the master.
 See the related "create-node-config" command for generating per-node config.
@@ -37,7 +37,7 @@ All files are expected or created in standard locations under the cert-dir.
 Note that the certificate authority (CA aka "signer") generated automatically
 is self-signed. In production usage, administrators are more likely to
 want to generate signed certificates separately rather than rely on an
-OpenShift-generated CA. Alternatively, start with an existing signed CA and
+Atomic Enterprise-generated CA. Alternatively, start with an existing signed CA and
 have this command use it to generate valid certificates.
 
 This command would usually only be used once at installation. If you
@@ -59,7 +59,7 @@ Regardless of --overwrite, the master server key/cert will be updated
 if --hostnames does not match the current certificate.
 Regardless of --overwrite, .kubeconfig files will be updated every time this
 command is run, so always specify --master (and if needed, --public-master).
-This is designed to match the behavior of "openshift start" which rewrites
+This is designed to match the behavior of "atomic-enterprise start" which rewrites
 certs/confs for certain configuration changes.
 `
 
@@ -81,7 +81,7 @@ func NewCommandCreateMasterCerts(commandName string, fullName string, out io.Wri
 
 	cmd := &cobra.Command{
 		Use:   commandName,
-		Short: "Create certificates for an OpenShift master",
+		Short: "Create certificates for an Atomic Enterprise master",
 		Long:  fmt.Sprintf(masterCertLong, fullName),
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := options.Validate(args); err != nil {

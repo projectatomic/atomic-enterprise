@@ -470,7 +470,7 @@ func TestRunAll(t *testing.T) {
 				templateResolver: app.TemplateResolver{
 					Client: &client.Fake{},
 					TemplateConfigsNamespacer: &client.Fake{},
-					Namespaces:                []string{"openshift", "default"},
+					Namespaces:                []string{"atomicenterprise", "default"},
 				},
 				detector: app.SourceRepositoryEnumerator{
 					Detectors: source.DefaultDetectors,

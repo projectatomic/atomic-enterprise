@@ -93,12 +93,12 @@ ifeq ($(EXTENDED),true)
 endif
 .PHONY: test
 
-# Run All-in-one OpenShift server.
+# Run All-in-one Atomic Enterprise server.
 #
 # Example:
 #   make run
 run: build
-	$(OUT_DIR)/local/go/bin/openshift start
+	$(OUT_DIR)/local/go/bin/atomic-enterprise start
 .PHONY: run
 
 # Remove all build artifacts.
@@ -109,7 +109,7 @@ clean:
 	rm -rf $(OUT_DIR) $(OUT_PKG_DIR)
 .PHONY: clean
 
-# Build an official release of OpenShift, including the official images.
+# Build an official release of Atomic Enterprise, including the official images.
 #
 # Example:
 #   make clean

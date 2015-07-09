@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	configLong = `Manages the OpenShift config files.
+	configLong = `Manages the Atomic Enterprise config files.
 
 Reference: https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/kubeconfig-file.md`
 

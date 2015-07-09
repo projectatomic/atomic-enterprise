@@ -22,7 +22,7 @@ import (
 )
 
 func init() {
-	repomw.Register("openshift", repomw.InitFunc(newRepository))
+	repomw.Register("atomicenterprise", repomw.InitFunc(newRepository))
 }
 
 type repository struct {
@@ -193,7 +193,7 @@ func (r *repository) Put(ctx context.Context, manifest *manifest.SignedManifest)
 
 		client, ok := UserClientFrom(ctx)
 		if !ok {
-			log.Errorf("Error creating user client to auto provision ImageStream: OpenShift user client unavailable")
+			log.Errorf("Error creating user client to auto provision ImageStream: Atomic Enterprise user client unavailable")
 			return statusErr
 		}
 

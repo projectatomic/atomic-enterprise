@@ -18,7 +18,7 @@ import (
 )
 
 func init() {
-	registryauth.Register("openshift", registryauth.InitFunc(newAccessController))
+	registryauth.Register("atomicenterprise", registryauth.InitFunc(newAccessController))
 }
 
 type contextKey int
@@ -52,8 +52,8 @@ var (
 	// Challenging errors
 	ErrTokenRequired          = errors.New("authorization header with basic token required")
 	ErrTokenInvalid           = errors.New("failed to decode basic token")
-	ErrOpenShiftTokenRequired = errors.New("expected openshift bearer token as password for basic token to registry")
-	ErrOpenShiftAccessDenied  = errors.New("openshift access denied")
+	ErrOpenShiftTokenRequired = errors.New("expected atomic enterprise bearer token as password for basic token to registry")
+	ErrOpenShiftAccessDenied  = errors.New("atomic enterprise access denied")
 
 	// Non-challenging errors
 	ErrNamespaceRequired   = errors.New("repository namespace required")
@@ -62,11 +62,11 @@ var (
 )
 
 func newAccessController(options map[string]interface{}) (registryauth.AccessController, error) {
-	log.Info("Using OpenShift Auth handler")
+	log.Info("Using Atomic Enterprise Auth handler")
 	realm, ok := options["realm"].(string)
 	if !ok {
-		// Default to openshift if not present
-		realm = "openshift"
+		// Default to atomic-enterprise if not present
+		realm = "atomic-enterprise"
 	}
 	return &AccessController{realm: realm}, nil
 }
@@ -140,7 +140,7 @@ func (ac *AccessController) Authorized(ctx context.Context, accessRecords ...reg
 	// Validate all requested accessRecords
 	// Only return failure errors from this loop. Success should continue to validate all records
 	for _, access := range accessRecords {
-		log.Debugf("OpenShift auth: checking for access to %s:%s:%s", access.Resource.Type, access.Resource.Name, access.Action)
+		log.Debugf("Atomic Enterprise auth: checking for access to %s:%s:%s", access.Resource.Type, access.Resource.Name, access.Action)
 
 		switch access.Resource.Type {
 		case "repository":
@@ -238,14 +238,14 @@ func verifyImageStreamAccess(namespace, imageRepo, verb string, client *client.C
 	}
 	response, err := client.SubjectAccessReviews(namespace).Create(&sar)
 	if err != nil {
-		log.Errorf("OpenShift client error: %s", err)
+		log.Errorf("Atomic Enterprise client error: %s", err)
 		if kerrors.IsUnauthorized(err) || kerrors.IsForbidden(err) {
 			return ErrOpenShiftAccessDenied
 		}
 		return err
 	}
 	if !response.Allowed {
-		log.Errorf("OpenShift access denied: %s", response.Reason)
+		log.Errorf("Atomic Enterprise access denied: %s", response.Reason)
 		return ErrOpenShiftAccessDenied
 	}
 	return nil
@@ -258,14 +258,14 @@ func verifyPruneAccess(client *client.Client) error {
 	}
 	response, err := client.ClusterSubjectAccessReviews().Create(&sar)
 	if err != nil {
-		log.Errorf("OpenShift client error: %s", err)
+		log.Errorf("Atomic Enterprise client error: %s", err)
 		if kerrors.IsUnauthorized(err) || kerrors.IsForbidden(err) {
 			return ErrOpenShiftAccessDenied
 		}
 		return err
 	}
 	if !response.Allowed {
-		log.Errorf("OpenShift access denied: %s", response.Reason)
+		log.Errorf("Atomic Enterprise access denied: %s", response.Reason)
 		return ErrOpenShiftAccessDenied
 	}
 	return nil

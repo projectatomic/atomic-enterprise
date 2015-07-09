@@ -19,9 +19,9 @@ import (
 )
 
 const (
-	loginLong = `Log in to an OpenShift server and save config for future use
+	loginLong = `Log in to an Atomic Enterprise server and save config for future use
 
-First-time users of the OpenShift client should run this command to connect to a server,
+First-time users of the Atomic Enterprise client should run this command to connect to a server,
 establish an authenticated session, and save connection to the configuration file. The
 default configuration will be saved to your home directory under
 ".kube/config".
@@ -49,7 +49,7 @@ func NewCmdLogin(fullName string, f *osclientcmd.Factory, reader io.Reader, out 
 
 	cmds := &cobra.Command{
 		Use:     "login [URL]",
-		Short:   "Log in to an OpenShift server",
+		Short:   "Log in to an Atomic Enterprise server",
 		Long:    loginLong,
 		Example: fmt.Sprintf(loginExample, fullName),
 		Run: func(cmd *cobra.Command, args []string) {
@@ -183,7 +183,7 @@ func RunLogin(cmd *cobra.Command, options *LoginOptions) error {
 	}
 
 	if newFileCreated {
-		fmt.Fprintln(options.Out, "Welcome to OpenShift! See 'oc help' to get started.")
+		fmt.Fprintln(options.Out, "Welcome to Atomic Enterprise! See 'oc help' to get started.")
 	}
 	return nil
 }

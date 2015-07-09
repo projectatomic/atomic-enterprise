@@ -212,7 +212,7 @@ func executeMasterCommand(args []string) *MasterArgs {
 	argsToUse = append(argsToUse, "--create-certs=false")
 
 	root := &cobra.Command{
-		Use:   "openshift",
+		Use:   "atomic-enterprise",
 		Short: "test",
 		Long:  "",
 		Run: func(c *cobra.Command, args []string) {
@@ -241,7 +241,7 @@ func executeAllInOneCommandWithConfigs(args []string) (*MasterArgs, *configapi.M
 	argsToUse = append(argsToUse, "--create-certs=false")
 
 	root := &cobra.Command{
-		Use:   "openshift",
+		Use:   "atomic-enterprise",
 		Short: "test",
 		Long:  "",
 		Run: func(c *cobra.Command, args []string) {
@@ -249,7 +249,7 @@ func executeAllInOneCommandWithConfigs(args []string) (*MasterArgs, *configapi.M
 		},
 	}
 
-	openshiftStartCommand, cfg := NewCommandStartAllInOne("openshift start", os.Stdout)
+	openshiftStartCommand, cfg := NewCommandStartAllInOne("atomic-enterprise start", os.Stdout)
 	root.AddCommand(openshiftStartCommand)
 	root.SetArgs(argsToUse)
 	root.Execute()

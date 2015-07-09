@@ -13,7 +13,7 @@ import (
 
 const kubeletLog = `Start Kubelet
 
-This command launches a Kubelet. All options are exposed. Use 'openshift start node' for
+This command launches a Kubelet. All options are exposed. Use 'atomic-enterprise start node' for
 starting from a configuration file.`
 
 // NewKubeletCommand provides a CLI handler for the 'kubelet' command

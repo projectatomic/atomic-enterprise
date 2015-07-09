@@ -72,7 +72,7 @@ type MasterArgs struct {
 
 // BindMasterArgs binds the options to the flags with prefix + default flag names
 func BindMasterArgs(args *MasterArgs, flags *pflag.FlagSet, prefix string) {
-	flags.Var(&args.MasterAddr, prefix+"master", "The master address for use by OpenShift components (host, host:port, or URL). Scheme and port default to the --listen scheme and port. When unset, attempt to use the first public IPv4 non-loopback address registered on this host.")
+	flags.Var(&args.MasterAddr, prefix+"master", "The master address for use by Atomic Enterprise components (host, host:port, or URL). Scheme and port default to the --listen scheme and port. When unset, attempt to use the first public IPv4 non-loopback address registered on this host.")
 	flags.Var(&args.MasterPublicAddr, prefix+"public-master", "The master address for use by public clients, if different (host, host:port, or URL). Defaults to same as --master.")
 	flags.BoolVar(&args.OpenshiftEnabled, prefix+"openshift-enabled", false, "Controls if openshift additions are enabled or not.")
 	flags.Var(&args.EtcdAddr, prefix+"etcd", "The address of the etcd server (host, host:port, or URL). If specified, no built-in etcd will be started.")

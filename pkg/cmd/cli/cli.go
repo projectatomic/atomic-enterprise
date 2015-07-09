@@ -29,7 +29,7 @@ To create a new application, you can use the example app source. Login to your s
 run new-app:
 
   $ %[1]s login
-  $ %[1]s new-app openshift/ruby-20-centos7~https://github.com/openshift/ruby-hello-world.git
+  $ %[1]s new-app atomicenterprise/ruby-20-centos7~https://github.com/openshift/ruby-hello-world.git
 
 This will create an application based on the Docker image 'openshift/ruby-20-centos7' that builds
 the source code at 'github.com/openshift/ruby-hello-world.git'. To start the build, run
@@ -154,7 +154,7 @@ func NewCmdKubectl(name string, out io.Writer) *cobra.Command {
 	cmds.Aliases = []string{"kubectl"}
 	cmds.Use = name
 	cmds.Short = "Kubernetes cluster management via kubectl"
-	cmds.Long = cmds.Long + "\n\nThis command is provided for direct management of the Kubernetes cluster OpenShift runs on."
+	cmds.Long = cmds.Long + "\n\nThis command is provided for direct management of the Kubernetes cluster Atomic Enterprise runs on."
 	flags.VisitAll(func(flag *pflag.Flag) {
 		if f := cmds.PersistentFlags().Lookup(flag.Name); f == nil {
 			cmds.PersistentFlags().AddFlag(flag)

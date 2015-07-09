@@ -27,7 +27,7 @@ When using the Docker command line to push images, you can authenticate to a giv
   'docker login DOCKER_REGISTRY_SERVER --username=DOCKER_USER --password=DOCKER_PASSWORD --email=DOCKER_EMAIL'.
 That produces a ~/.dockercfg file that is used by subsequent 'docker push' and 'docker pull' commands to authenticate to the registry.
 
-When using OpenShift, you may have a Docker registry that requires authentication.  In order for the nodes to pull images on your behalf, they have to have the credentials.  You can provide this information by creating a dockercfg secret and attaching it to your service account.
+When using Atomic Enterprise, you may have a Docker registry that requires authentication.  In order for the nodes to pull images on your behalf, they have to have the credentials.  You can provide this information by creating a dockercfg secret and attaching it to your service account.
 
 If you don't already have a .dockercfg file, you can create a dockercfg secret directly by using:
 

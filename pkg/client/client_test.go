@@ -23,7 +23,7 @@ func TestUserAgent(t *testing.T) {
 	c.DeploymentConfigs("test").Get("other")
 
 	header := <-ch
-	if !strings.Contains(header, "openshift/") || !strings.Contains(header, "client.test/") {
+	if !strings.Contains(header, "atomic-enterprise/") || !strings.Contains(header, "client.test/") {
 		t.Fatalf("no user agent header: %s", header)
 	}
 }
