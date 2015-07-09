@@ -78,46 +78,6 @@ function cleanup()
 trap "exit" INT TERM
 trap "cleanup" EXIT
 
-function wait_for_app() {
-  echo "[INFO] Waiting for app in namespace $1"
-  echo "[INFO] Waiting for database pod to start"
-  wait_for_command "oc get -n $1 pods -l name=database | grep -i Running" $((60*TIME_SEC))
-
-  echo "[INFO] Waiting for database service to start"
-  wait_for_command "oc get -n $1 services | grep database" $((20*TIME_SEC))
-  DB_IP=$(oc get -n $1 --output-version=v1beta3 --template="{{ .spec.portalIP }}" service database)
-
-  echo "[INFO] Waiting for frontend pod to start"
-  wait_for_command "oc get -n $1 pods | grep frontend | grep -i Running" $((120*TIME_SEC))
-
-  echo "[INFO] Waiting for frontend service to start"
-  wait_for_command "oc get -n $1 services | grep frontend" $((20*TIME_SEC))
-  FRONTEND_IP=$(oc get -n $1 --output-version=v1beta3 --template="{{ .spec.portalIP }}" service frontend)
-
-  echo "[INFO] Waiting for database to start..."
-  wait_for_url_timed "http://${DB_IP}:5434" "[INFO] Database says: " $((3*TIME_MIN))
-
-  echo "[INFO] Waiting for app to start..."
-  wait_for_url_timed "http://${FRONTEND_IP}:5432" "[INFO] Frontend says: " $((2*TIME_MIN))
-
-  echo "[INFO] Testing app"
-  wait_for_command '[[ "$(curl -s -X POST http://${FRONTEND_IP}:5432/keys/foo -d value=1337)" = "Key created" ]]'
-  wait_for_command '[[ "$(curl -s http://${FRONTEND_IP}:5432/keys/foo)" = "1337" ]]'
-}
-
-# Wait for builds to complete
-# $1 namespace
-function wait_for_build() {
-  echo "[INFO] Waiting for $1 namespace build to complete"
-  wait_for_command "oc get -n $1 builds | grep -i complete" $((10*TIME_MIN)) "oc get -n $1 builds | grep -i -e failed -e error"
-  BUILD_ID=`oc get -n $1 builds --output-version=v1beta3 -t "{{with index .items 0}}{{.metadata.name}}{{end}}"`
-  echo "[INFO] Build ${BUILD_ID} finished"
-  # TODO: fix
-  set +e
-  oc build-logs -n $1 $BUILD_ID > $LOG_DIR/$1build.log
-  set -e
-}
-
 out=$(
   set +e
   docker stop origin 2>&1
@@ -162,12 +122,11 @@ echo "[INFO] Login"
 oc login localhost:8443 -u test -p test --insecure-skip-tls-verify
 oc new-project test
 
-echo "[INFO] Applying STI application config"
-oc new-app -f examples/sample-app/application-template-stibuild.json
+echo "[INFO] Applying application config"
+oc new-app -f examples/hello-atomic/all-in-one.tmpl.yaml
 
-# Wait for build which should have triggered automatically
-echo "[INFO] Starting build..."
-#oc start-build -n test ruby-sample-build --follow
-wait_for_build "test"
-wait_for_app "test"
+wait_for_command "oc get -n test pods -l name=hello-atomic | grep -i Running" $((60*TIME_SEC))
 
+echo "[INFO] Validating app response..."
+app_svc_ip=$(oc get --template="{{ .spec.portalIP }}:{{ (index .spec.ports 0).port }}" service hello-atomic-service)
+validate_response "-s -k http://${app_svc_ip}" "Hello Atomic!" 0.2 50

@@ -70,9 +70,7 @@ NODE_CONFIG_DIR="${SERVER_CONFIG_DIR}/node-${KUBELET_HOST}"
 # used as a resolve IP to test routing
 CONTAINER_ACCESSIBLE_API_HOST="${CONTAINER_ACCESSIBLE_API_HOST:-172.17.42.1}"
 
-STI_CONFIG_FILE="${LOG_DIR}/stiAppConfig.json"
-DOCKER_CONFIG_FILE="${LOG_DIR}/dockerAppConfig.json"
-CUSTOM_CONFIG_FILE="${LOG_DIR}/customAppConfig.json"
+AIO_CONFIG_FILE="${LOG_DIR}/all-in-one-config.json"
 GO_OUT="${OS_ROOT}/_output/local/go/bin"
 
 # set path so OpenShift is available
@@ -141,46 +139,6 @@ function cleanup()
 
 trap "exit" INT TERM
 trap "cleanup" EXIT
-
-function wait_for_app() {
-	echo "[INFO] Waiting for app in namespace $1"
-	echo "[INFO] Waiting for database pod to start"
-	wait_for_command "oc get -n $1 pods -l name=database | grep -i Running" $((60*TIME_SEC))
-
-	echo "[INFO] Waiting for database service to start"
-	wait_for_command "oc get -n $1 services | grep database" $((20*TIME_SEC))
-	DB_IP=$(oc get -n $1 --output-version=v1beta3 --template="{{ .spec.portalIP }}" service database)
-
-	echo "[INFO] Waiting for frontend pod to start"
-	wait_for_command "oc get -n $1 pods | grep frontend | grep -i Running" $((120*TIME_SEC))
-
-	echo "[INFO] Waiting for frontend service to start"
-	wait_for_command "oc get -n $1 services | grep frontend" $((20*TIME_SEC))
-	FRONTEND_IP=$(oc get -n $1 --output-version=v1beta3 --template="{{ .spec.portalIP }}" service frontend)
-
-	echo "[INFO] Waiting for database to start..."
-	wait_for_url_timed "http://${DB_IP}:5434" "[INFO] Database says: " $((3*TIME_MIN))
-
-	echo "[INFO] Waiting for app to start..."
-	wait_for_url_timed "http://${FRONTEND_IP}:5432" "[INFO] Frontend says: " $((2*TIME_MIN))
-
-	echo "[INFO] Testing app"
-	wait_for_command '[[ "$(curl -s -X POST http://${FRONTEND_IP}:5432/keys/foo -d value=1337)" = "Key created" ]]'
-	wait_for_command '[[ "$(curl -s http://${FRONTEND_IP}:5432/keys/foo)" = "1337" ]]'
-}
-
-# Wait for builds to complete
-# $1 namespace
-function wait_for_build() {
-	echo "[INFO] Waiting for $1 namespace build to complete"
-	wait_for_command "oc get -n $1 builds | grep -i complete" $((10*TIME_MIN)) "oc get -n $1 builds | grep -i -e failed -e error"
-	BUILD_ID=`oc get -n $1 builds --output-version=v1beta3 -t "{{with index .items 0}}{{.metadata.name}}{{end}}"`
-	echo "[INFO] Build ${BUILD_ID} finished"
-  # TODO: fix
-  set +e
-	oc build-logs -n $1 $BUILD_ID > $LOG_DIR/$1build.log
-  set -e
-}
 
 # Setup
 stop_openshift_server
@@ -286,9 +244,9 @@ openshift admin router --create --credentials="${MASTER_CONFIG_DIR}/openshift-ro
 echo "[INFO] Installing the registry"
 openshift admin registry --create --credentials="${MASTER_CONFIG_DIR}/openshift-registry.kubeconfig" --images="${USE_IMAGES}"
 
-echo "[INFO] Pre-pulling and pushing ruby-20-centos7"
-docker pull openshift/ruby-20-centos7:latest
-echo "[INFO] Pulled ruby-20-centos7"
+echo "[INFO] Pre-pulling and pushing hello-atomic"
+docker pull atomicenterprise/hello-atomic:latest
+echo "[INFO] Pulled hello-atomic"
 
 echo "[INFO] Waiting for Docker registry pod to start"
 # TODO: simplify when #4702 is fixed upstream
@@ -296,6 +254,10 @@ wait_for_command '[[ "$(oc get endpoints docker-registry --output-version=v1beta
 
 # services can end up on any IP.	Make sure we get the IP we need for the docker registry
 DOCKER_REGISTRY=$(oc get --output-version=v1beta3 --template="{{ .spec.portalIP }}:{{ with index .spec.ports 0 }}{{ .port }}{{ end }}" service docker-registry)
+
+# TODO: do this in a temporary manner that also deals with commented out lines
+sed -i "s/'--insecure-registry .*'/'--insecure-registry ${DOCKER_REGISTRY}'/" /etc/sysconfig/docker
+systemctl restart docker
 
 registry="$(dig @${API_HOST} "docker-registry.default.svc.cluster.local." +short A | head -n 1)"
 [[ -n "${registry}" && "${registry}:5000" == "${DOCKER_REGISTRY}" ]]
@@ -310,7 +272,7 @@ wait_for_url_timed "http://${DOCKER_REGISTRY}/healthz" "[INFO] Docker registry s
 echo "[INFO] Logging in as a regular user (e2e-user:pass) with project 'test'..."
 oc login -u e2e-user -p pass
 [ "$(oc whoami | grep 'e2e-user')" ]
-oc project cache
+oc project test
 token=$(oc config view --flatten -o template -t '{{with index .users 0}}{{.user.token}}{{end}}')
 [[ -n ${token} ]]
 
@@ -318,10 +280,10 @@ echo "[INFO] Docker login as e2e-user to ${DOCKER_REGISTRY}"
 docker login -u e2e-user -p ${token} -e e2e-user@openshift.com ${DOCKER_REGISTRY}
 echo "[INFO] Docker login successful"
 
-echo "[INFO] Tagging and pushing ruby-20-centos7 to ${DOCKER_REGISTRY}/cache/ruby-20-centos7:latest"
-docker tag -f openshift/ruby-20-centos7:latest ${DOCKER_REGISTRY}/cache/ruby-20-centos7:latest
-docker push ${DOCKER_REGISTRY}/cache/ruby-20-centos7:latest
-echo "[INFO] Pushed ruby-20-centos7"
+echo "[INFO] Tagging and pushing hello-atomic to ${DOCKER_REGISTRY}/test/hello-atomic"
+docker tag -f atomicenterprise/hello-atomic:latest ${DOCKER_REGISTRY}/test/hello-atomic:latest
+docker push ${DOCKER_REGISTRY}/test/hello-atomic:latest
+echo "[INFO] Pushed hello-openshift"
 
 echo "[INFO] Back to 'default' project with 'admin' user..."
 oc project ${CLUSTER_ADMIN_CONTEXT}
@@ -333,36 +295,14 @@ echo "[INFO] Waiting for dockercfg secrets to be generated in project 'test' bef
 wait_for_command "oc get -n test serviceaccount/builder -o yaml | grep dockercfg > /dev/null" $((60*TIME_SEC))
 
 # Process template and create
-echo "[INFO] Submitting application template json for processing..."
-oc process -n test -f examples/sample-app/application-template-stibuild.json > "${STI_CONFIG_FILE}"
-oc process -n docker -f examples/sample-app/application-template-dockerbuild.json > "${DOCKER_CONFIG_FILE}"
-oc process -n custom -f examples/sample-app/application-template-custombuild.json > "${CUSTOM_CONFIG_FILE}"
 
 echo "[INFO] Back to 'test' context with 'e2e-user' user"
 oc project test
 
-echo "[INFO] Applying STI application config"
-oc create -f "${STI_CONFIG_FILE}"
-
-# Wait for build which should have triggered automatically
-echo "[INFO] Starting build from ${STI_CONFIG_FILE} and streaming its logs..."
-#oc start-build -n test ruby-sample-build --follow
-wait_for_build "test"
-wait_for_app "test"
-
-#echo "[INFO] Applying Docker application config"
-#oc create -n docker -f "${DOCKER_CONFIG_FILE}"
-#echo "[INFO] Invoking generic web hook to trigger new docker build using curl"
-#curl -k -X POST $API_SCHEME://$API_HOST:$API_PORT/osapi/v1beta3/namespaces/docker/buildconfigs/ruby-sample-build/webhooks/secret101/generic && sleep 3
-#wait_for_build "docker"
-#wait_for_app "docker"
-
-#echo "[INFO] Applying Custom application config"
-#oc create -n custom -f "${CUSTOM_CONFIG_FILE}"
-#echo "[INFO] Invoking generic web hook to trigger new custom build using curl"
-#curl -k -X POST $API_SCHEME://$API_HOST:$API_PORT/osapi/v1beta3/namespaces/custom/buildconfigs/ruby-sample-build/webhooks/secret101/generic && sleep 3
-#wait_for_build "custom"
-#wait_for_app "custom"
+# create a deployment, service, and route
+oc process -n test -f examples/hello-atomic/all-in-one.tmpl.yaml -v "IMAGE=${DOCKER_REGISTRY}/test/hello-atomic:latest" > "${AIO_CONFIG_FILE}"
+oc create -f "${AIO_CONFIG_FILE}"
+wait_for_command "oc get -n test pods -l name=hello-atomic | grep -i Running" $((60*TIME_SEC))
 
 echo "[INFO] Back to 'default' project with 'admin' user..."
 oc project ${CLUSTER_ADMIN_CONTEXT}
@@ -372,7 +312,13 @@ oc project ${CLUSTER_ADMIN_CONTEXT}
 wait_for_command '[[ "$(oc get endpoints router --output-version=v1beta3 -t "{{ if .subsets }}{{ len .subsets }}{{ else }}0{{ end }}" || echo "0")" != "0" ]]' $((5*TIME_MIN))
 
 echo "[INFO] Validating routed app response..."
-validate_response "-s -k --resolve www.example.com:443:${CONTAINER_ACCESSIBLE_API_HOST} https://www.example.com" "Hello from OpenShift" 0.2 50
+validate_response "-s -k --resolve www.example.com:443:${CONTAINER_ACCESSIBLE_API_HOST} https://www.example.com" "Hello Atomic!" 0.2 50
+
+echo "[INFO] Confirming service is listed in DNS correctly..."
+dns_app_svc_ip="$(dig @${API_HOST} "hello-atomic-service.test.svc.cluster.local." +short A | head -n 1)"
+app_svc_ip="$(oc get service -n test -o template hello-atomic-service --template="{{.spec.portalIP}}")"
+[[ -n "${app_svc_ip}" && "${dns_app_svc_ip}" == "${app_svc_ip}" ]]
+echo "[INFO] Service correctly listed at ${dns_app_svc_ip}"
 
 # Remote command execution
 echo "[INFO] Validating exec"
@@ -381,7 +327,7 @@ registry_pod=$(oc get pod -l deploymentconfig=docker-registry -t '{{(index .item
 # user in the neighborhood of 1000000+.  Look for a substring of the pre-allocated uid range
 oc exec -p ${registry_pod} id | grep 10
 
-# Port forwarding
+# Port forwarding (needs socat)
 echo "[INFO] Validating port-forward"
 oc port-forward -p ${registry_pod} 5001:5000  &> "${LOG_DIR}/port-forward.log" &
 wait_for_url_timed "http://localhost:5001/healthz" "[INFO] Docker registry says: " $((10*TIME_SEC))
