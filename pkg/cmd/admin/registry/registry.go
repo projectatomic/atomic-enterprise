@@ -79,11 +79,10 @@ func NewCmdRegistry(f *clientcmd.Factory, parentName, name string, out io.Writer
 	cfg := &RegistryConfig{
 		ImageTemplate: variable.NewDefaultImageTemplate(),
 
-		Labels:         defaultLabel,
-		Ports:          "5000:5000",
-		Volume:         "/registry",
-		Replicas:       1,
-		ServiceAccount: "registry",
+		Labels:   defaultLabel,
+		Ports:    "5000:5000",
+		Volume:   "/registry",
+		Replicas: 1,
 	}
 
 	cmd := &cobra.Command{
@@ -112,7 +111,6 @@ func NewCmdRegistry(f *clientcmd.Factory, parentName, name string, out io.Writer
 	cmd.Flags().BoolVar(&cfg.DryRun, "dry-run", cfg.DryRun, "Check if the registry exists instead of creating.")
 	cmd.Flags().Bool("create", false, "deprecated; this is now the default behavior")
 	cmd.Flags().StringVar(&cfg.Credentials, "credentials", "", "Path to a .kubeconfig file that will contain the credentials the registry should use to contact the master.")
-	cmd.Flags().StringVar(&cfg.ServiceAccount, "service-account", cfg.ServiceAccount, "Name of the service account to use to run the registry pod. Default: registry")
 	cmd.Flags().StringVar(&cfg.Selector, "selector", cfg.Selector, "Selector used to filter nodes on deployment. Used to run registries on a specific set of nodes.")
 
 	cmdutil.AddPrinterFlags(cmd)
@@ -176,13 +174,6 @@ func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg
 	if err != nil {
 		return fmt.Errorf("unable to configure printer: %v", err)
 	}
-
-	// Check if the specified service account already exists
-	_, err = kClient.ServiceAccounts(namespace).Get(cfg.ServiceAccount)
-	if err != nil && !errors.IsNotFound(err) {
-		return fmt.Errorf("Unable to create the registry service account: can't check for existing service-account %q: %v", cfg.ServiceAccount, err)
-	}
-	generateServiceAccount := err != nil
 
 	generate := output
 	if !generate {
@@ -302,32 +293,6 @@ func RunCmdRegistry(f *clientcmd.Factory, cmd *cobra.Command, out io.Writer, cfg
 			},
 		}
 		objects = app.AddServices(objects)
-
-		if generateServiceAccount {
-			// Add the new service account to "privileged"
-			scc, err := kClient.SecurityContextConstraints().Get("privileged")
-			if err != nil {
-				return fmt.Errorf("Unable to create the registry service account: can't check for existing security context constraints privileged: %v", err)
-			}
-			userName := "system:serviceaccount:" + namespace + ":" + cfg.ServiceAccount
-			inList := false
-			for _, u := range scc.Users {
-				if u == userName {
-					inList = true
-					break
-				}
-			}
-			if !inList {
-				scc.Users = append(scc.Users, userName)
-				_, err = kClient.SecurityContextConstraints().Update(scc)
-				if err != nil && !errors.IsNotFound(err) {
-					return fmt.Errorf("error updating security context constraints: %v", err)
-				}
-			}
-
-			// Create the service account before anything else
-			objects = append([]runtime.Object{&kapi.ServiceAccount{ObjectMeta: kapi.ObjectMeta{Name: cfg.ServiceAccount}}}, objects...)
-		}
 		// TODO: label all created objects with the same label
 		list := &kapi.List{Items: objects}
 
