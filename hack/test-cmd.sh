@@ -244,6 +244,7 @@ echo "templates: ok"
 [ "$(atomic-enterprise 2>&1)" ]
 [ "$(atomic-enterprise cli)" ]
 [ "$(atomic-enterprise ex)" ]
+[ "$(atomic-enterprise admin config 2>&1)" ]
 [ "$(oadm config 2>&1)" ]
 [ "$(atomic-enterprise cli config 2>&1)" ]
 [ "$(atomic-enterprise ex tokens)" ]
@@ -395,7 +396,7 @@ oc create -f examples/image-streams/image-streams-centos7.json
 [ -n "$(oc get imageStreams mongodb -t "{{.status.dockerImageRepository}}")" ]
 # verify the image repository had its tags populated
 [ -n "$(oc get imageStreams wildfly -t "{{.status.tags.latest}}")" ]
-[ -n "$(oc get imageStreams wildfly -t "{{ index .metadata.annotations \"atomic-enterprise.io/image.dockerRepositoryCheck\"}}")" ]
+[ -n "$(oc get imageStreams wildfly -t "{{ index .metadata.annotations \"projectatomic.io/image.dockerRepositoryCheck\"}}")" ]
 oc delete imageStreams ruby
 oc delete imageStreams nodejs
 oc delete imageStreams wildfly
@@ -408,7 +409,7 @@ oc delete imageStreams mongodb
 [ -z "$(oc get imageStreams mongodb -t "{{.status.dockerImageRepository}}")" ]
 [ -z "$(oc get imageStreams wildfly -t "{{.status.dockerImageRepository}}")" ]
 wait_for_command 'oc get imagestreamTags mysql:latest' "${TIME_MIN}"
-[ -n "$(oc get imagestreams mysql -t '{{ index .metadata.annotations "atomic-enterprise.io/image.dockerRepositoryCheck"}}')" ]
+[ -n "$(oc get imagestreams mysql -t '{{ index .metadata.annotations "projectatomic.io/image.dockerRepositoryCheck"}}')" ]
 oc describe istag/mysql:latest
 [ "$(oc describe istag/mysql:latest | grep "Environment:")" ]
 [ "$(oc describe istag/mysql:latest | grep "Image Created:")" ]
@@ -576,7 +577,7 @@ oc create -f test/integration/fixtures/test-buildcli.json
 # a build for which there is not an upstream tag in the corresponding imagerepo, so
 # the build should use the image field as defined in the buildconfig
 started=$(oc start-build ruby-sample-build-invalidtag)
-oc describe build ${started} | grep atomicenterprise/ruby-20-centos7$
+oc describe build ${started} | grep openshift/ruby-20-centos7$
 echo "start-build: ok"
 
 oc cancel-build "${started}" --dump-logs --restart
