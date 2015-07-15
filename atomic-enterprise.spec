@@ -161,7 +161,7 @@ install -p -m 755 _build/bin/dockerregistry %{buildroot}%{_bindir}/dockerregistr
 #done
 
 # Install client executable for linux
-install -p -m 755 _build/bin/%{name} %{buildroot}%{_datadir}/%{name}/linux/oc
+install -p -m 755 _build/bin/%{name} %{buildroot}%{_bindir}/oc
 # windows and mac
 #install -p -m 755 _build/bin/darwin_amd64/openshift %{buildroot}%{_datadir}/openshift/macosx/oc
 #install -p -m 755 _build/bin/windows_386/openshift.exe %{buildroot}%{_datadir}/openshift/windows/oc.exe
@@ -180,7 +180,6 @@ install -m 0644 rel-eng/openshift-node.sysconfig %{buildroot}%{_sysconfdir}/sysc
 
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 
-ln -s %{_bindir}/%{name} %{buildroot}%{_bindir}/oc
 ln -s %{_bindir}/%{name} %{buildroot}%{_bindir}/oadm
 
 install -d -m 0755 %{buildroot}%{_prefix}/lib/tuned/%{name}-node-{guest,host}
@@ -274,7 +273,7 @@ if [ "$1" = 0 ]; then
 fi
 
 %files clients
-%{_datadir}/%{name}/linux/oc
+%{_bindir}/oc
 #%{_datadir}/openshift/macosx/oc
 #%{_datadir}/openshift/windows/oc.exe
 
